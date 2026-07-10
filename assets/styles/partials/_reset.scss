@@ -81,7 +81,7 @@ input:focus-visible,
   outline-offset: 2px;
 }
 
-section[id],
-div[id="reward"] {
-  scroll-margin-top: 120px;
+section[id^="event"] .sec-head,
+#event01-reward {
+  scroll-margin-top: var(--scroll-offset);
 }

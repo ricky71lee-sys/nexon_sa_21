@@ -1,0 +1,15 @@
+{
+  "rtnCode": "0000",
+  "message": "SUCCESS",
+  "result": {
+    "issued": false,
+    "code": "",
+    "side": null,
+    "quota": 5,
+    "phase": 1,
+    "sentTo": null,
+    "matched": null,
+    "claimed": false,
+    "received": []
+  }
+}

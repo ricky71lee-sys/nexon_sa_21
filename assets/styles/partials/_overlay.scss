@@ -240,7 +240,7 @@
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    max-width: 400px;
+    max-width: 680px;
     width: 100%;
     min-height: auto;
     padding: 28px;
@@ -308,5 +308,66 @@
       overflow: auto;
       line-height: 1.7;
     }
+  }
+}
+
+/* Utils.alert / Utils.confirm (20주년 공용) */
+.modal-shade {
+  position: fixed;
+  inset: 0;
+  background: var(--popup-bg-color);
+  z-index: 9998;
+}
+
+.modal.modal-confirm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: min(400px, calc(100vw - 32px));
+  min-height: 180px;
+  padding: 36px 28px 28px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+.modal-message {
+  font-size: 15px;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+
+  button {
+    min-width: 110px;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .modal-button__confirm,
+  .modal-button__yes {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .modal-button__no {
+    background: var(--surface-3);
+    color: var(--text-secondary);
   }
 }

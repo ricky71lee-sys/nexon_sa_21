@@ -1,0 +1,18 @@
+{
+  "rtnCode": "0000",
+  "message": "SUCCESS",
+  "result": {
+    "issued": true,
+    "code": "SA-K7X9",
+    "side": "L",
+    "quota": 5,
+    "phase": 2,
+    "sentTo": null,
+    "matched": null,
+    "claimed": false,
+    "received": [
+      { "code": "SA-RECV1", "nick": "불꽃저격수", "side": "R", "t": 1000 },
+      { "code": "SA-RECV2", "nick": "복귀한김병장", "side": "L", "t": 900 }
+    ]
+  }
+}

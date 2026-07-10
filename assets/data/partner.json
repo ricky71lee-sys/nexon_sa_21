@@ -1,0 +1,29 @@
+{
+  "rtnCode": "0000",
+  "message": "SUCCESS",
+  "result": {
+    "lookup": {
+      "SA-MATCH": {
+        "found": true,
+        "nick": "매칭가능유저",
+        "side": "R",
+        "matchable": true,
+        "reason": ""
+      },
+      "SA-DONE": {
+        "found": true,
+        "nick": "완료유저",
+        "side": "L",
+        "matchable": false,
+        "reason": "이미 듀오가 있는 유저입니다."
+      }
+    },
+    "default": {
+      "found": true,
+      "nick": "듀오후보",
+      "side": "R",
+      "matchable": true,
+      "reason": ""
+    }
+  }
+}

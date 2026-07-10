@@ -40,8 +40,54 @@ $(function () {
   /* 페이지 스크롤 컨트롤
    * method: bodyScroll.show()
    * method: bodyScroll.hide()
-   * method: bodyScroll.move(타켓, 스피드)
+   * method: bodyScroll.move(타켓, 스피드) — pageScroll.to() 위임
    */
+  window.pageScroll = {
+    /** sticky topbar 높이 + 여백 */
+    getOffset: function () {
+      const topbar = document.querySelector(".topbar");
+      if (!topbar) return 0;
+      return Math.ceil(topbar.getBoundingClientRect().height) + 12;
+    },
+    syncOffset: function () {
+      document.documentElement.style.setProperty(
+        "--scroll-offset",
+        this.getOffset() + "px"
+      );
+    },
+    /** 섹션 id면 제목(.sec-head) 기준으로 이동 */
+    resolveTarget: function (el) {
+      if (!el) return null;
+      if (el.matches("section[id^='event']")) {
+        return el.querySelector(".sec-head") || el;
+      }
+      return el;
+    },
+    to: function (target, speed) {
+      const selector =
+        typeof target === "string"
+          ? target.charAt(0) === "#"
+            ? target
+            : "#" + target
+          : null;
+      const section = typeof target === "string" ? document.querySelector(selector) : target;
+      if (!section) return;
+
+      this.syncOffset();
+      const el = this.resolveTarget(section);
+      const behavior = speed === 0 ? "auto" : "smooth";
+
+      el.scrollIntoView({ behavior: behavior, block: "start" });
+    },
+    initHash: function () {
+      if (!location.hash) return;
+      this.syncOffset();
+      setTimeout(function () {
+        pageScroll.to(location.hash, 0);
+      }, 150);
+    },
+  };
+
   window.bodyScroll = {
     show: function () {
       $("body").css({ overflow: "", paddingRight: "" });
@@ -53,8 +99,7 @@ $(function () {
       });
     },
     move: function (target, speed = 500) {
-      let posY = !target ? 0 : $(target).offset().top;
-      $("html, body").stop().animate({ scrollTop: posY }, speed); // html, body 둘다 넣어야 모든 브라우저에서 작동
+      pageScroll.to(target, speed);
     },
   };
 
@@ -184,25 +229,39 @@ $(function () {
   })();
 
   /*
-   * 네비 페이지 이동 버튼 및 활성화
-   * attribute: data-scroll-active="사용자 정의 target"
+   * 섹션 스크롤 이동 (통합)
+   * attribute: data-scroll-to="#event01"
+   * attribute: data-scroll-active="#event01" (퀵메뉴 + 활성 표시)
    */
   (function () {
+    const $scrollTo = $("[data-scroll-to]");
+    if ($scrollTo.length) {
+      $scrollTo.on("click", function (e) {
+        e.preventDefault();
+        pageScroll.to($(this).data("scrollTo"));
+      });
+    }
+
     const $scrollActive = $("[data-scroll-active]");
     if ($scrollActive.length) {
       $.each($scrollActive, function (idx, el) {
         $(el).on("click", function () {
           const target = $(el).data().scrollActive;
-          bodyScroll.move(target);
+          pageScroll.to(target);
         });
       });
       body.scroll(function () {
+        const offset = pageScroll.getOffset();
         $scrollActive.each(function (idx, el) {
           const scrollTop = $(window).scrollTop();
           const target = $(el).data().scrollActive;
-          if (!$(target).length) return;
-          const offsetTop = $(target).offset().top;
-          const targetHeight = $(target).height();
+          const $section = $(target);
+          if (!$section.length) return;
+          const $anchor = $section.is("section[id^='event']")
+            ? $section.find(".sec-head").first()
+            : $section;
+          const offsetTop = ($anchor.length ? $anchor : $section).offset().top - offset;
+          const targetHeight = $section.height();
           if (scrollTop >= offsetTop && scrollTop < offsetTop + targetHeight) {
             $(el).addClass("active");
           } else {
@@ -211,11 +270,17 @@ $(function () {
         });
       });
     }
+
+    pageScroll.syncOffset();
+
+    $(window).on("resize", function () {
+      pageScroll.syncOffset();
+    });
   })();
 
   /*
    * 버튼 그룹 활성화 (active)
-   * attribute: data-button-group="사용자정의"
+   * attribute: data-button-active="사용자정의"
    */
   (function () {
     const $buttonActive = $("[data-button-active]");
