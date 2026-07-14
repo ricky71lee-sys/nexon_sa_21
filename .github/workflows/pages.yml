@@ -29,7 +29,7 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run scss -- --style=compressed
+      - run: npm run build
 
       - name: Prepare site
         run: |

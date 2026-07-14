@@ -1,0 +1,509 @@
+// MO 360px 시안 기준 — max-width 1199px (PC min-width 1200px 와 분기)
+$bp-mobile: 1199px;
+
+@media (max-width: $bp-mobile) {
+  :root {
+    --min-width: 0;
+    --inner-width: 100%;
+    --content-pad: 16px;
+  }
+
+  body {
+    min-width: 0;
+    font-size: 14px;
+  }
+
+  .wrap {
+    min-width: 0;
+    width: 100%;
+  }
+
+  // ── topbar (MO: 로고 + 내 보상함만) ──
+  .topbar {
+    &__in {
+      min-height: 60px;
+      padding: 10px 16px;
+    }
+
+    &__logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__nav,
+    &__channels {
+      display: none;
+    }
+
+    &__actions {
+      margin-left: auto;
+    }
+
+    .btn--benefit,
+    .btn-benefit {
+      height: 28px;
+      padding: 0 10px;
+      font-size: 12px;
+      gap: 6px;
+
+      .icon-benefit {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  // ── hero (MO KV) ──
+  .hero {
+    height: auto;
+    min-height: 668px;
+    padding: 60px 16px 24px;
+    align-items: flex-end;
+    justify-content: center;
+
+    &__bg::after {
+      background-position: center top;
+    }
+
+    &__visual {
+      display: none;
+    }
+
+    &__content {
+      width: 100%;
+      max-width: 328px;
+      padding-top: 0;
+      gap: 16px;
+    }
+
+    &__logo-slot {
+      width: 200px;
+      height: 86px;
+      margin-bottom: 0;
+    }
+
+    &__lead {
+      font-size: 13px;
+      line-height: 17px;
+    }
+
+    &__period {
+      padding: 4px 16px;
+      font-size: 12px;
+      line-height: 15px;
+      max-width: 100%;
+    }
+
+    &__cta {
+      width: 100%;
+      justify-content: center;
+      gap: 8px;
+
+      .btn--gold,
+      .btn--blue-gradient {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 10px 12px;
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+
+  // ── 공통 섹션 ──
+  .section-block {
+    padding: 48px 0;
+
+    > .sec-head + * {
+      margin-top: 24px;
+    }
+  }
+
+  .sec-tag {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 4px 12px;
+  }
+
+  .sec-head {
+    gap: 10px;
+    padding: 0 16px;
+
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      max-width: 100%;
+    }
+  }
+
+  .btn--primary {
+    padding: 12px 32px;
+    font-size: 16px;
+  }
+
+  .btn--gold-action {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  // ── EVENT 1 ──
+  .event01 {
+    .event01__panel {
+      gap: 24px;
+      max-width: calc(100% - 32px);
+    }
+
+    .sec-head {
+      margin-bottom: 24px;
+    }
+  }
+
+  .step-list {
+    flex-direction: column;
+
+    &__item {
+      min-width: 0;
+      height: auto;
+      min-height: 72px;
+      padding: 12px 16px;
+    }
+
+    &__title {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    &__sub {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  .medal-match {
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    &__plus {
+      justify-self: center;
+      transform: rotate(90deg);
+      font-size: 22px;
+    }
+
+    &__panel {
+      padding: 16px;
+    }
+
+    &__code {
+      font-size: 18px;
+    }
+  }
+
+  .reward-cards {
+    flex-direction: column;
+
+    &__card {
+      padding: 24px 16px;
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__desc {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &__items {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  }
+
+  .reward-item__icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .medal-request__item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+
+    .medal-request__actions {
+      justify-content: flex-end;
+    }
+  }
+
+  // ── EVENT 2 ──
+  .event02 {
+    .attendance-panel {
+      max-width: calc(100% - 32px);
+      padding: 12px 16px 24px;
+    }
+
+    .sec-head {
+      margin-bottom: 24px;
+    }
+  }
+
+  .att-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+
+    &__info {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    &__stats {
+      flex-wrap: wrap;
+      height: auto;
+      min-height: 40px;
+      padding: 8px 12px;
+      font-size: 12px;
+
+      strong {
+        font-size: 15px;
+      }
+    }
+
+    &__actions {
+      flex-direction: column;
+      width: 100%;
+
+      .att-head__btn {
+        width: 100%;
+      }
+    }
+  }
+
+  .att-board {
+    margin-top: 24px;
+    margin-bottom: 16px;
+
+    &__progress {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+    }
+  }
+
+  .cal-grid__row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cal-card {
+    width: 100%;
+    min-height: 140px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px 12px;
+    padding: 16px;
+
+    &__icon {
+      width: 72px;
+      height: 56px;
+    }
+
+    &__date,
+    &__reward {
+      text-align: left;
+    }
+
+    &__btn {
+      position: static;
+      transform: none;
+      left: auto;
+      right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .cal-legend {
+    gap: 8px 12px;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .milestone {
+    margin-top: 32px;
+
+    &__heads {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+    }
+
+    &__head-dummy {
+      display: none;
+    }
+
+    &__row {
+      flex-direction: column;
+    }
+
+    &__card {
+      width: 100%;
+    }
+
+    &__icon {
+      width: 120px;
+      height: 60px;
+    }
+  }
+
+  .milestone-notes {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0 4px;
+  }
+
+  // ── EVENT 3 ──
+  .event03 {
+    gap: 32px;
+    background-size: cover;
+    background-position: center top;
+
+    .match-date {
+      padding: 4px 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .timetable {
+    width: auto;
+    max-width: calc(100% - 32px);
+    height: auto;
+    min-height: 0;
+    padding: 20px 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    &__cols {
+      flex-direction: column;
+    }
+
+    &__part-head {
+      padding: 10px 16px;
+      gap: 12px;
+    }
+
+    &__part-num {
+      font-size: 22px;
+    }
+
+    &__part-name {
+      font-size: 16px;
+    }
+
+    &__row {
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 16px;
+    }
+
+    &__time {
+      width: auto;
+      font-size: 16px;
+    }
+
+    &__desc {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &__broadcast {
+      flex-direction: column;
+      align-items: stretch;
+      margin-top: 16px;
+    }
+
+    .btn--broadcast {
+      width: 100%;
+      height: 48px;
+      padding: 0 24px;
+      font-size: 16px;
+    }
+
+    &__note {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  .showcase-panel,
+  .watch-panel {
+    max-width: calc(100% - 32px);
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .showcase-panel {
+    height: auto;
+    min-height: 0;
+    background-size: cover;
+  }
+
+  .team-grid,
+  .caster-grid {
+    flex-direction: column;
+  }
+
+  .watch-list__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 16px 20px 38px;
+  }
+
+  .watch-list__icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .watch-list__title {
+    font-size: 17px;
+  }
+
+  .watch-list__desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  // ── 모달 ──
+  .vault {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .notice-modal {
+    padding: 16px;
+
+    &__panel {
+      padding: 24px 16px 20px;
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__list {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+  }
+}

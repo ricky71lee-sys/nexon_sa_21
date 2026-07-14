@@ -6,7 +6,7 @@
     "scss": "sass assets/styles/style.scss assets/styles/style.css",
     "scss:watch": "sass --watch assets/styles/style.scss assets/styles/style.css",
     "dev": "npm run scss:watch",
-    "build": "npm run scss -- --style=compressed"
+    "build": "sass assets/styles/style.scss assets/styles/style.css --style=compressed"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",

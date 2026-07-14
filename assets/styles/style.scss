@@ -6,3 +6,4 @@
 @use "partials/event";       // events/* partial import
 @use "partials/functional";  // scroll-offset · disabled · is-active
 @use "partials/modals";      // vault · notice · Utils.alert DOM
+@use "partials/responsive";   // MO 360px (@media max-width 1199px)
