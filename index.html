@@ -295,7 +295,7 @@
 
           <div class="attendance-panel panel-glow">
             <div class="att-head">
-              <div class="att-head__tag">
+              <div class="att-head__tag att-head__tag--pc">
                 <span class="att-head__avatar" aria-label="듀오 아바타"></span>
                 <span>{{ duoLabel }}</span>
               </div>
@@ -308,7 +308,7 @@
                   <span>동반<strong>{{ duoDays }}</strong>일</span>
                 </div>
                 <div class="att-head__actions">
-                  <button type="button" class="att-head__btn att-head__btn--outline" @click="clickRefreshAttendance"><i></i>출석 갱신하기</button>
+                  <button type="button" class="att-head__btn att-head__btn--outline att-head__btn--refresh" @click="clickRefreshAttendance" aria-label="출석 갱신하기"><i></i><span class="att-head__btn-text">출석 갱신하기</span></button>
                   <button type="button" class="att-head__btn att-head__btn--primary" @click="claimAllDaily"><i></i>보상 일괄 수령하기</button>
                 </div>
               </div>
@@ -316,9 +316,18 @@
 
             <div class="att-board">
               <div class="att-board__head">
-                <span class="icon-calendar"></span>
-                개인 출석판
-                <small>· 누적 <b>{{ totalDays }}</b>일</small>
+                <div class="att-board__head-main">
+                  <span class="icon-calendar"></span>
+                  개인 출석판
+                  <small>· 누적 <b>{{ totalDays }}</b>일</small>
+                </div>
+                <div class="att-board__head-side">
+                  <div class="att-head__tag att-head__tag--board">
+                    <span class="att-head__avatar" aria-hidden="true"></span>
+                    <span>{{ duoLabel }}</span>
+                  </div>
+                  <button type="button" class="att-board__refresh" @click="clickRefreshAttendance" aria-label="출석 갱신하기"></button>
+                </div>
               </div>
               <div class="att-board__progress">
                 <div class="att-board__bar" :style="{ '--progress': progress + '%' }"><span></span></div>

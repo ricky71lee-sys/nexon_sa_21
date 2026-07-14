@@ -124,18 +124,29 @@
 .att-board {
   margin-top: 55px;
   margin-bottom: 30px;
+
   &__head {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
+    flex-wrap: wrap;
     font-size: 15px;
     font-weight: 700;
     line-height: 24.3px;
-    .icon-calendar{
+  }
+
+  &__head-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .icon-calendar {
       width: 20px;
       height: 20px;
       background: url("../images/icon_calendar.png") no-repeat center / cover;
     }
+
     small {
       font-size: 14px;
       font-weight: 400;
@@ -146,6 +157,20 @@
         font-weight: 700;
       }
     }
+  }
+
+  &__head-side {
+    display: none;
+    align-items: center;
+    gap: 8px;
+
+    .att-head__tag--board {
+      display: inline-flex;
+    }
+  }
+
+  &__refresh {
+    display: none;
   }
 
   &__progress {
