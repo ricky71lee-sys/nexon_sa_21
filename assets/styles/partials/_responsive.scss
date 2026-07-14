@@ -552,15 +552,166 @@ $bp-mobile: 1199px;
   }
 
   .vault {
-    width: 100%;
+    width: min(330px, 100%);
     max-width: 100%;
+    border-left: 0;
+    background: #eff1f6;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.25);
+
+    &__head {
+      padding: 20px 16px;
+      border-bottom: 0;
+      background: linear-gradient(90deg, #4b53c3 0%, #6b7ae8 100%);
+    }
+
+    &__title {
+      font-size: 18px;
+      color: #fff;
+    }
+
+    &__sub {
+      display: none;
+    }
+
+    &__close {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    &__body {
+      padding: 16px;
+      gap: 0;
+    }
+
+    &__section-title {
+      font-size: 13px;
+      color: #262626;
+    }
+
+    &__box--empty {
+      border-color: #d4d8e2;
+      background: #fff;
+      color: #888;
+    }
+
+    &__box--filled {
+      border-color: #d4d8e2;
+      background: #fff;
+      color: #262626;
+    }
+
+    &__box-sub {
+      color: #888;
+    }
+
+    &__mile-row {
+      background: #fff;
+      border-color: #e4e7ef;
+    }
+
+    &__mile-label {
+      color: #444;
+    }
+
+    &__mile-badge--pending {
+      background: #eee;
+      color: #888;
+    }
+
+    &__mile-badge--ready {
+      background: #e8ebff;
+      color: #4b53c3;
+    }
+
+    &__mile-badge--done {
+      background: #eee;
+      color: #888;
+    }
+
+    &__stat {
+      background: #fff;
+      border-color: #e4e7ef;
+    }
+
+    &__stat-val {
+      color: #262626;
+    }
+
+    &__stat-lbl {
+      color: #888;
+    }
   }
 
   .notice-modal {
-    padding: 16px;
+    align-items: flex-end;
+    padding: 0;
 
     &__panel {
-      padding: 24px 16px 20px;
+      width: 100%;
+      max-height: 92vh;
+      padding: 24px 20px 20px;
+      border: 0;
+      border-radius: 16px 16px 0 0;
+      background: #fff;
+      color: #262626;
+      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
+
+      .corner-deco {
+        display: none;
+      }
+    }
+
+    &__close {
+      display: none;
+    }
+
+    &__header {
+      border-bottom-color: #eee;
+
+      .icon-info {
+        filter: none;
+      }
+    }
+
+    &__title {
+      font-size: 18px;
+      color: #262626;
+    }
+
+    &__subtitle {
+      color: #888;
+    }
+
+    &__list {
+      padding-left: 0;
+      list-style: none;
+      color: #444;
+      font-size: 13px;
+
+      li {
+        position: relative;
+        padding-left: 12px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0.65em;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: #888;
+        }
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+    }
+
+    &__confirm {
+      background: #262626;
+      border-radius: 8px;
     }
   }
 

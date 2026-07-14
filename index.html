@@ -17,6 +17,24 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles/style.css" />
+  <style>
+    .vault:not(.is-open),
+    .notice-modal:not(.is-open) {
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    .vault:not(.is-open) {
+      transform: translateX(100%) !important;
+    }
+
+    .vault-dim:not(.is-open),
+    .notice-dim:not(.is-open) {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+  </style>
   <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script>
 </head>
 
@@ -634,24 +652,56 @@
   <!-- 모달 · body Teleport (.wrap overflow:hidden 클ipping 방지) -->
   <teleport to="body">
     <div class="vault-dim" :class="{ 'is-open': vault.open }" @click="closeVault"></div>
-    <aside class="vault" :class="{ 'is-open': vault.open }" aria-label="내 보상함" @keydown.esc="closeVault">
+    <aside class="vault" :class="{ 'is-open': vault.open }" :aria-hidden="!vault.open" aria-label="내 보상함" @keydown.esc="closeVault">
       <div class="vault__head">
         <div class="vault__title-wrap">
           <span class="vault__icon" aria-hidden="true"></span>
-          <div>
-            <h3 class="vault__title">내 보상함</h3>
-            <p class="vault__sub">수령한 보상 내역</p>
-          </div>
+          <h3 class="vault__title">내 보상함</h3>
         </div>
         <button type="button" class="vault__close" @click="closeVault" aria-label="닫기"></button>
       </div>
       <div class="vault__body">
-        <div v-for="item in vault.rewards" :key="item.id || item.name" class="vault__item">
-          <span class="vault__item-badge">보상</span>
-          <p class="vault__item-name">{{ item.name }}</p>
-          <p class="vault__item-date">{{ item.date }}</p>
-        </div>
-        <p v-if="!vault.rewards.length" class="vault__empty">표시할 보상 내역이 없어요.</p>
+        <section class="vault__section">
+          <h4 class="vault__section-title">메달 완성 보상</h4>
+          <div v-if="medal.claimed" class="vault__box vault__box--filled">
+            <p class="vault__box-text">21주년 메달 완성 보상 수령 완료</p>
+          </div>
+          <div v-else class="vault__box vault__box--empty">
+            <p>아직 수령한 메달 보상이 없어요.</p>
+          </div>
+        </section>
+        <section class="vault__section">
+          <h4 class="vault__section-title">나의 듀오 정보</h4>
+          <div v-if="medal.matched" class="vault__box vault__box--filled">
+            <p class="vault__box-text">{{ medal.matched.nick }}</p>
+            <p class="vault__box-sub">{{ medal.matched.code }}</p>
+          </div>
+          <div v-else class="vault__box vault__box--empty">
+            <p>듀오가 결성되지 않았어요.</p>
+          </div>
+        </section>
+        <section class="vault__section">
+          <h4 class="vault__section-title">마일스톤 출석 보상</h4>
+          <div class="vault__mile-table">
+            <div v-for="m in milestoneDefs" :key="m.id" class="vault__mile-row">
+              <span class="vault__mile-label">누적 {{ m.d }}일 › {{ m.g }}</span>
+              <span class="vault__mile-badge" :class="vaultMileBadgeClass(m.d)">{{ vaultMileBadgeLabel(m.d) }}</span>
+            </div>
+          </div>
+        </section>
+        <section class="vault__section">
+          <h4 class="vault__section-title">내 출석 현황</h4>
+          <div class="vault__stats">
+            <div class="vault__stat">
+              <span class="vault__stat-val">{{ totalDays }}</span>
+              <span class="vault__stat-lbl">누적 출석</span>
+            </div>
+            <div class="vault__stat">
+              <span class="vault__stat-val">{{ duoDays }}</span>
+              <span class="vault__stat-lbl">동반 출석</span>
+            </div>
+          </div>
+        </section>
       </div>
     </aside>
 
@@ -671,16 +721,17 @@
         <span class="corner-deco corner-deco--br" aria-hidden="true"></span>
         <button type="button" class="notice-modal__close" @click="closeNotice" aria-label="닫기"></button>
         <div class="notice-modal__panel-inner">
-          <h4 class="notice-modal__title" id="notice-modal-title">
-            유의사항
-            <span>{{ noticeTitle }}</span>
-          </h4>
+          <div class="notice-modal__header">
+            <i class="icon-info" aria-hidden="true"></i>
+            <h4 class="notice-modal__title" id="notice-modal-title">유의사항</h4>
+            <span class="notice-modal__subtitle">{{ noticeTitle }}</span>
+          </div>
           <ul class="notice-modal__list">
             <li v-for="(line, idx) in notices[ui.notice]" :key="ui.notice + '-' + idx">{{ line }}</li>
           </ul>
         </div>
         <div class="notice-modal__actions">
-          <button type="button" class="btn btn--primary" @click="closeNotice">확인</button>
+          <button type="button" class="notice-modal__confirm" @click="closeNotice">확인</button>
         </div>
       </div>
     </div>

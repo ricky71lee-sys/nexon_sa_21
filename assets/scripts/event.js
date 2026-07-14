@@ -419,6 +419,20 @@
         return !reached || claimed;
       }
 
+      function vaultMileBadgeClass(daysRequired) {
+        const { reached, claimed } = getMilestoneMeta(daysRequired, "solo");
+        if (claimed) return "vault__mile-badge--done";
+        if (reached) return "vault__mile-badge--ready";
+        return "vault__mile-badge--pending";
+      }
+
+      function vaultMileBadgeLabel(daysRequired) {
+        const { reached, claimed } = getMilestoneMeta(daysRequired, "solo");
+        if (claimed) return "수령완료";
+        if (reached) return "받기 가능";
+        return "미달성";
+      }
+
       function setSort(mode) {
         medal.sortMode = mode;
       }
@@ -652,6 +666,8 @@
         milestoneBtnClass,
         milestoneBtnLabel,
         isMilestoneDisabled,
+        vaultMileBadgeClass,
+        vaultMileBadgeLabel,
         setSort,
         clickIssueMedal,
         copyCode,
