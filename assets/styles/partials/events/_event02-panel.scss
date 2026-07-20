@@ -1,0 +1,73 @@
+@use "../breakpoints" as *;
+
+// EVENT2 · 패널
+// EVENT 2 · 출석
+.event02 {
+  .attendance-panel {
+    display: flex;
+    padding: 30px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    border: 1px solid rgba(255, 231, 167, 0.40);
+    background: #222B3C;
+    box-shadow: 0 0 62.4px 0 rgba(0, 0, 0, 0.91);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .sec-head{
+    margin-bottom: 60px;
+  }
+  .att-notes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -6px;
+    li{
+      color: #FFF;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.66);
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+  }
+  
+  .notice-wrap{
+    text-align: center;
+    width: 100%;
+    margin-top: -10px;
+  }
+}
+
+@include mo {
+  .event02 {
+    .sec-head {
+      margin-bottom: 20px;
+    }
+
+    .attendance-panel {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 20px 16px;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+
+    .att-notes {
+      margin-top: 8px;
+
+      li {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+      }
+    }
+
+    .notice-wrap {
+      margin-top: 8px;
+    }
+  }
+}

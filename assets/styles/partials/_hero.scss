@@ -1,75 +1,101 @@
+@use "breakpoints" as *;
+
 .hero {
   position: relative;
-  height: 910px;
-  min-height: 910px;
+  height: calc(910px - 80px);
+  min-height: calc(910px - 80px);
   display: flex;
   align-items: flex-start;
-  padding: 80px var(--content-pad);
   overflow: hidden;
-
   &__bg {
     position: absolute;
     inset: 0;
-    background: #111827;
     border: none;
-
     &::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: url("../images/hero_bg.png") no-repeat center / cover;
+      background: url("../images/hero_bg.png") no-repeat center  / cover;
     }
-  }
-
-  &__visual {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 55%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.03);
-    border: none;
   }
 
   &__content {
     position: relative;
     z-index: 1;
-    max-width: 560px;
-    padding-top: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    gap: 10px;
+    width: var(--inner-width);
+    margin: 0 auto;
+    height: 100%;
   }
-
-  &__logo-slot {
-    width: 280px;
-    height: 120px;
-    margin-bottom: -10px;
+  &__content-inner {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 
   &__lead {
-    font-size: 15px;
+    font-size: 22px;
     line-height: 21px;
+    font-weight: 600;
     color: var(--white);
     text-align: center;
+    margin: 10px 0 16px;
   }
 
   &__period {
-    display: inline-flex;
-    padding: 6px 16px;
-    border-radius: var(--radius-lg);
-    background: #f8f8f8;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    color: rgba(0, 0, 0, 0.6);
-    max-width:346px;
-    letter-spacing: -0.02em;
-  }
-
-  &__cta {
+    border-radius: 100px;
+    background: #3458AF;
     display: flex;
-    gap: 8px;
+    padding: 6px 16px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6px;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+}
+
+@include mo {
+  .hero {
+    height: 608px; // Figma 668 − gnb 60
+    min-height: 608px;
+
+    &__content {
+      width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    &__content-inner {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      gap: 8px;
+      padding-bottom: 50px;
+    }
+
+    &__lead {
+      width: 100%;
+      margin: 0;
+      font-size: 13px;
+      line-height: 17px;
+    }
+
+    &__period {
+      margin-top: 0;
+      padding: 6px 10px;
+      border-radius: 500px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 15px;
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
+      box-sizing: border-box;
+    }
   }
 }
