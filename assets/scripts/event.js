@@ -924,8 +924,13 @@
        */
       function toggleMenu() {
         ui.menu = !ui.menu;
-        if (ui.menu) Utils.bodyScroll.hide();
-        else Utils.bodyScroll.show();
+        if (ui.menu) {
+          // topbar sticky/fixed 아님 → 메뉴(absolute)가 GNB 아래 보이도록 상단으로
+          window.scrollTo(0, 0);
+          Utils.bodyScroll.hide();
+        } else {
+          Utils.bodyScroll.show();
+        }
       }
 
       /**

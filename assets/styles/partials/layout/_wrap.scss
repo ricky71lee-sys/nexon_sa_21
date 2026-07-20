@@ -6,7 +6,8 @@
   max-width: var(--max-width);
   min-width: var(--min-width);
   margin: 0 auto;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   background: var(--bg-page);
 
   // &::before {
@@ -38,6 +39,7 @@
   .wrap {
     min-width: 0;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
   }
 }

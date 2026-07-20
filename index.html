@@ -21,20 +21,23 @@
 </head>
 
 <body>
-  <!-- <script>
+  <script>
     window.fnGnbResize = function (height) {
       var h = typeof height === "number" ? height : parseInt(height, 10);
       if (!h || h < 0) h = 62;
       document.documentElement.style.setProperty("--gnb-height", h + "px");
       if (window.pageScroll && typeof pageScroll.syncOffset === "function") {
         pageScroll.syncOffset();
+        if (typeof pageScroll.updateActiveNav === "function") {
+          pageScroll.updateActiveNav();
+        }
       }
     };
     document.documentElement.style.setProperty("--gnb-height", "62px");
-  </script> -->
-  <!-- <script type="text/javascript" src="https://rs.nxfs.nexon.com/common/js/gnb.min.js" charset="UTF-8" data-name="GNB"
+  </script>
+  <script type="text/javascript" src="https://rs.nxfs.nexon.com/common/js/gnb.min.js" charset="UTF-8" data-name="GNB"
     data-gamecode="94227" data-funresize="fnGnbResize" data-ispchub="true" data-ispublicbanner="true"
-    data-skiptocontentsid="skipNav"></script> -->
+    data-skiptocontentsid="skipNav"></script>
   <div id="app">
     <!--
       #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport 모달
@@ -74,8 +77,8 @@
   </aside>
 
   <div id="skipNav" class="wrap">
-    <!-- topbar -->
-    <div class="topbar">
+    <!-- topbar · MO 메뉴는 topbar 안 absolute (fixed 금지 · GNB 아래) -->
+    <div class="topbar" :class="{ 'is-menu-open': ui.menu }">
       <div class="topbar__in">
         <div class="topbar__logo" aria-label="21주년 로고"></div>
         <div class="topbar__actions">
@@ -96,62 +99,61 @@
           <i class="topbar__menu-icon" aria-hidden="true"></i>
         </button>
       </div>
-    </div>
 
-    <!-- MO 전체 메뉴 (Figma 93:488) -->
-    <div
-      class="mo-menu"
-      :class="{ 'is-open': ui.menu }"
-      :aria-hidden="ui.menu ? 'false' : 'true'"
-      @keydown.esc="closeMenu"
-    >
-      <div class="mo-menu__head">
-        <div class="mo-menu__logo" aria-label="21주년 로고"></div>
-        <button type="button" class="mo-menu__close" @click="closeMenu" aria-label="메뉴 닫기"></button>
-      </div>
-      <div class="mo-menu__body">
-        <nav class="mo-menu__nav" aria-label="이벤트 메뉴">
-          <a
-            href="#event01"
-            class="mo-menu__card"
-            data-scroll-active="#event01"
-            @click="closeMenu"
-          >
-            <span class="mo-menu__card-text">
-              <span class="mo-menu__card-sub">둘이서 하나, 메달 합체</span>
-              <strong class="mo-menu__card-title">합체하러가기</strong>
-            </span>
-            <i class="mo-menu__card-arrow" aria-hidden="true"></i>
-          </a>
-          <a
-            href="#event02"
-            class="mo-menu__card"
-            data-scroll-active="#event02"
-            @click="closeMenu"
-          >
-            <span class="mo-menu__card-text">
-              <span class="mo-menu__card-sub">21일 듀오 출석 챌린지</span>
-              <strong class="mo-menu__card-title">출석하러 가기</strong>
-            </span>
-            <i class="mo-menu__card-arrow" aria-hidden="true"></i>
-          </a>
-          <a
-            href="#event03"
-            class="mo-menu__card"
-            data-scroll-active="#event03"
-            @click="closeMenu"
-          >
-            <span class="mo-menu__card-text">
-              <span class="mo-menu__card-sub">21주년 쇼케이스 &amp; 특별 매치</span>
-              <strong class="mo-menu__card-title">자세히 보기</strong>
-            </span>
-            <i class="mo-menu__card-arrow" aria-hidden="true"></i>
-          </a>
-        </nav>
-        <button type="button" class="mo-menu__vault" @click="openVault(); closeMenu()">
-          <i class="mo-menu__vault-icon" aria-hidden="true"></i>
-          내 보상함 바로가기
-        </button>
+      <div
+        class="mo-menu"
+        :class="{ 'is-open': ui.menu }"
+        :aria-hidden="ui.menu ? 'false' : 'true'"
+        @keydown.esc="closeMenu"
+      >
+        <div class="mo-menu__head">
+          <div class="mo-menu__logo" aria-label="21주년 로고"></div>
+          <button type="button" class="mo-menu__close" @click="closeMenu" aria-label="메뉴 닫기"></button>
+        </div>
+        <div class="mo-menu__body">
+          <nav class="mo-menu__nav" aria-label="이벤트 메뉴">
+            <a
+              href="#event01"
+              class="mo-menu__card"
+              data-scroll-active="#event01"
+              @click="closeMenu"
+            >
+              <span class="mo-menu__card-text">
+                <span class="mo-menu__card-sub">둘이서 하나, 메달 합체</span>
+                <strong class="mo-menu__card-title">합체하러가기</strong>
+              </span>
+              <i class="mo-menu__card-arrow" aria-hidden="true"></i>
+            </a>
+            <a
+              href="#event02"
+              class="mo-menu__card"
+              data-scroll-active="#event02"
+              @click="closeMenu"
+            >
+              <span class="mo-menu__card-text">
+                <span class="mo-menu__card-sub">21일 듀오 출석 챌린지</span>
+                <strong class="mo-menu__card-title">출석하러 가기</strong>
+              </span>
+              <i class="mo-menu__card-arrow" aria-hidden="true"></i>
+            </a>
+            <a
+              href="#event03"
+              class="mo-menu__card"
+              data-scroll-active="#event03"
+              @click="closeMenu"
+            >
+              <span class="mo-menu__card-text">
+                <span class="mo-menu__card-sub">21주년 쇼케이스 &amp; 특별 매치</span>
+                <strong class="mo-menu__card-title">자세히 보기</strong>
+              </span>
+              <i class="mo-menu__card-arrow" aria-hidden="true"></i>
+            </a>
+          </nav>
+          <button type="button" class="mo-menu__vault" @click="openVault(); closeMenu()">
+            <i class="mo-menu__vault-icon" aria-hidden="true"></i>
+            내 보상함 바로가기
+          </button>
+        </div>
       </div>
     </div>
 

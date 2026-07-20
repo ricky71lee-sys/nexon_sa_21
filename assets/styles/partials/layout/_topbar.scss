@@ -1,9 +1,8 @@
 @use "../breakpoints" as *;
 
-// 이벤트 상단바 (sticky · GNB 아래 고정)
+// 이벤트 상단바 (문서 흐름 · sticky/fixed 사용 안 함)
 .topbar {
-  position: sticky;
-  //top: var(--gnb-height, 0px);
+  position: relative;
   z-index: 30;
   background: linear-gradient(0deg, rgba(34, 53, 94, 0.57) 0%, rgba(61, 82, 141, 0.57) 100%), linear-gradient(0deg, #1C1B1B 0%, #1C1B1B 100%), #60372A;
 
@@ -86,6 +85,7 @@
 
 @include mo {
   .topbar {
+    position: relative; // sticky/fixed 없음 — GNB는 넥슨이 따로 고정
     border-bottom: 1px solid #2b2b2b;
     background:
       linear-gradient(0deg, rgba(34, 53, 94, 0.3) 0%, rgba(61, 82, 141, 0.3) 100%),
@@ -125,17 +125,33 @@
       height: 22px;
       background: url("../images/icon_menu.svg") no-repeat center / contain;
     }
+
+    // 메뉴 열림: topbar__in 자리 유지 + 메뉴가 absolute로 덮음 (fixed 아님)
+    &.is-menu-open {
+      z-index: 40;
+
+      .topbar__in {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
   }
 
   .mo-menu {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    position: fixed;
-    inset: 0;
-    z-index: 400;
+    position: absolute; // fixed 금지 — topbar 기준, 화면은 GNB 아래 영역
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    height: calc(100dvh - var(--gnb-height, 0px));
+    max-height: calc(100vh - var(--gnb-height, 0px));
+    // 메뉴가 뷰포트 GNB 아래에서 열리도록 (topbar가 스크롤돼도 body lock 중)
     padding: 0 0 60px;
     box-sizing: border-box;
+    overflow: auto;
     background:
       linear-gradient(0deg, rgba(34, 53, 94, 0.3) 0%, rgba(61, 82, 141, 0.3) 100%),
       #1c1b1b;
@@ -150,7 +166,7 @@
       pointer-events: auto;
     }
 
-    // .topbar__in 과 동일 정렬
+    // .topbar__in 과 동일 정렬 (로고·X)
     &__head {
       display: flex;
       align-items: center;
