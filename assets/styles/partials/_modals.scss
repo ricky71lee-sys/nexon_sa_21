@@ -315,10 +315,12 @@ $z-system: 10000;
     max-height: min(82vh, 720px);
     display: flex;
     flex-direction: column;
-    padding: 50px 40px;
+    gap: 24px;
+    padding: 36px 30px;
     background: #fff;
     box-shadow: -12px 0 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   &__panel-inner {
@@ -333,7 +335,7 @@ $z-system: 10000;
     align-items: center;
     gap: 8px;
     margin: 0 0 24px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 26px;
     color: #000;
@@ -362,17 +364,17 @@ $z-system: 10000;
 
     li {
       position: relative;
-      padding-left: 10px;
-      font-size: 12px;
+      padding-left: 9px;
+      font-size: 13px;
       font-weight: 400;
-      line-height: 17px;
+      line-height: 20px;
       color: #595959;
       word-break: keep-all;
 
       &::before {
         content: "";
         position: absolute;
-        top: 7px;
+        top: 8px;
         left: 0;
         width: 3px;
         height: 3px;
@@ -384,17 +386,16 @@ $z-system: 10000;
 
   &__actions {
     flex-shrink: 0;
-    margin-top: 24px;
 
     .btn,
     button {
       width: 100%;
-      height: 52px;
-      padding: 0 20px;
+      height: auto;
+      padding: 16px 20px;
       border: 0;
       border-radius: 0;
       background: #4b53c3;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
       line-height: 20px;
       color: #fff;
@@ -591,7 +592,7 @@ $z-system: 10000;
   align-items: stretch;
   width: min(500px, calc(100% - 48px));
   min-height: auto;
-  padding: 50px 40px;
+  padding: 36px 30px;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
   background: #fff;
@@ -603,51 +604,62 @@ $z-system: 10000;
   }
 
   .modal-title {
-    margin: 0 0 10px;
-    font-size: 24px;
+    margin: 0;
+    font-size: 20px;
     font-weight: 700;
     line-height: 36px;
     text-align: center;
     color: #000;
   }
 
+  .modal-title + .modal-message {
+    margin-top: 20px;
+  }
+
   .modal-message {
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 26px;
+    line-height: 20px;
     text-align: center;
     color: #595959;
     word-break: keep-all;
 
-    b {
-      color: #000;
+    b,
+    .accent {
+      color: #4b53c3;
       font-weight: 700;
     }
   }
 
   .modal-note {
     margin-top: 20px;
-    padding: 16px 20px;
-    background: #f3f4f8;
+    padding: 30px 20px;
+    border: 1px solid #4b53c3;
+    border-radius: 8px;
+    background: #fafbff;
     font-size: 13px;
+    font-weight: 700;
     line-height: 22px;
-    color: #595959;
-    text-align: left;
+    color: #4b53c3;
+    text-align: center;
+    word-break: keep-all;
   }
 
   .modal-image {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     text-align: center;
 
     img {
-      max-width: 100%;
-      height: auto;
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
     }
   }
 
   .modal-buttons {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 10px;
     margin-top: 30px;
@@ -656,14 +668,14 @@ $z-system: 10000;
     button {
       flex: 1;
       min-width: 0;
-      height: 52px;
+      height: auto;
       margin: 0;
-      padding: 0 16px;
+      padding: 16px 12px;
       border: 0;
       border-radius: 0;
       font-size: 18px;
       font-weight: 700;
-      color: #fff;
+      line-height: 20px;
       cursor: pointer;
 
       &:hover {
@@ -674,10 +686,14 @@ $z-system: 10000;
     .modal-button__confirm,
     .modal-button__yes {
       background: #4b53c3;
+      color: #fff;
     }
 
+    // Figma: 취소 = 아웃라인 (흰 배경 + 회색 보더)
     .modal-button__no {
-      background: #a1a1a1;
+      background: #fff;
+      border: 1px solid #bfbfbf;
+      color: #595959;
     }
 
     &.is-single button {
@@ -699,27 +715,41 @@ $z-system: 10000;
     max-width: 330px;
   }
 
+  // Figma MO 팝업: padding 36×30 · 버튼 가로 나란히
   .notice-modal {
     padding: 16px;
 
     &__panel {
-      width: min(340px, 100%);
-      padding: 36px 24px 24px;
+      width: 100%;
+      max-width: 340px;
+      padding: 36px 30px;
       max-height: min(85vh, 640px);
+      gap: 24px;
     }
 
     &__title {
-      font-size: 16px;
+      margin-bottom: 24px;
+      font-size: 20px;
+      line-height: 26px;
 
       span {
-        font-size: 13px;
+        font-size: 14px;
       }
     }
 
-    &__actions .btn,
-    &__actions button {
-      height: 48px;
-      font-size: 16px;
+    &__list li {
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    &__actions {
+      margin-top: 0;
+
+      .btn,
+      button {
+        padding: 16px 20px;
+        font-size: 20px;
+      }
     }
   }
 
@@ -727,12 +757,13 @@ $z-system: 10000;
     padding: 16px;
 
     &__panel {
-      width: min(340px, 100%);
-      padding: 36px 20px 24px;
+      width: 100%;
+      max-width: 340px;
+      padding: 36px 30px;
     }
 
     &__title {
-      font-size: 22px;
+      font-size: 20px;
       line-height: 28px;
     }
 
@@ -760,8 +791,8 @@ $z-system: 10000;
     }
 
     &__close {
-      height: 48px;
-      font-size: 16px;
+      padding: 16px 20px;
+      font-size: 18px;
       margin-top: 24px;
     }
   }
@@ -773,26 +804,35 @@ $z-system: 10000;
   }
 
   .modal.modal-confirm {
-    width: min(310px, calc(100% - 32px));
-    padding: 36px 24px 24px;
+    width: 100%;
+    max-width: 340px;
+    padding: 36px 30px;
 
     .modal-title {
-      font-size: 18px;
-      line-height: 28px;
+      font-size: 20px;
+      line-height: 36px;
     }
 
     .modal-message {
       font-size: 14px;
+      line-height: 20px;
+    }
+
+    .modal-note {
+      padding: 24px 16px;
+      font-size: 13px;
       line-height: 22px;
     }
 
     .modal-buttons {
-      margin-top: 24px;
-      flex-direction: column;
+      margin-top: 30px;
+      flex-direction: row; // Figma: 취소 | 확인 가로
+      gap: 10px;
 
       button {
-        height: 48px;
-        font-size: 16px;
+        padding: 16px 10px;
+        font-size: 18px;
+        line-height: 20px;
       }
     }
   }
