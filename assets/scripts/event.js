@@ -924,6 +924,8 @@
        */
       function toggleMenu() {
         ui.menu = !ui.menu;
+        if (ui.menu) Utils.bodyScroll.hide();
+        else Utils.bodyScroll.show();
       }
 
       /**
@@ -931,6 +933,7 @@
        */
       function closeMenu() {
         ui.menu = false;
+        Utils.bodyScroll.show();
       }
 
       /* [초기화]

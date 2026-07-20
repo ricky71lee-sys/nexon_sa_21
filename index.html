@@ -96,17 +96,63 @@
           <i class="topbar__menu-icon" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="topbar__drawer" :class="{ 'is-open': ui.menu }" @keydown.esc="closeMenu">
-        <nav class="topbar__drawer-nav">
-          <a href="#event01" data-scroll-active="#event01" @click="closeMenu">메달 완성</a>
-          <a href="#event02" data-scroll-active="#event02" @click="closeMenu">듀오 출석 챌린지</a>
-          <a href="#event03" data-scroll-active="#event03" @click="closeMenu">쇼케이스&amp;특별매치</a>
+    </div>
+
+    <!-- MO 전체 메뉴 (Figma 93:488) -->
+    <div
+      class="mo-menu"
+      :class="{ 'is-open': ui.menu }"
+      :aria-hidden="ui.menu ? 'false' : 'true'"
+      @keydown.esc="closeMenu"
+    >
+      <div class="mo-menu__head">
+        <div class="mo-menu__logo" aria-label="21주년 로고"></div>
+        <button type="button" class="mo-menu__close" @click="closeMenu" aria-label="메뉴 닫기"></button>
+      </div>
+      <div class="mo-menu__body">
+        <nav class="mo-menu__nav" aria-label="이벤트 메뉴">
+          <a
+            href="#event01"
+            class="mo-menu__card"
+            data-scroll-active="#event01"
+            @click="closeMenu"
+          >
+            <span class="mo-menu__card-text">
+              <span class="mo-menu__card-sub">둘이서 하나, 메달 합체</span>
+              <strong class="mo-menu__card-title">합체하러가기</strong>
+            </span>
+            <i class="mo-menu__card-arrow" aria-hidden="true"></i>
+          </a>
+          <a
+            href="#event02"
+            class="mo-menu__card"
+            data-scroll-active="#event02"
+            @click="closeMenu"
+          >
+            <span class="mo-menu__card-text">
+              <span class="mo-menu__card-sub">21일 듀오 출석 챌린지</span>
+              <strong class="mo-menu__card-title">출석하러 가기</strong>
+            </span>
+            <i class="mo-menu__card-arrow" aria-hidden="true"></i>
+          </a>
+          <a
+            href="#event03"
+            class="mo-menu__card"
+            data-scroll-active="#event03"
+            @click="closeMenu"
+          >
+            <span class="mo-menu__card-text">
+              <span class="mo-menu__card-sub">21주년 쇼케이스 &amp; 특별 매치</span>
+              <strong class="mo-menu__card-title">자세히 보기</strong>
+            </span>
+            <i class="mo-menu__card-arrow" aria-hidden="true"></i>
+          </a>
         </nav>
-        <button type="button" class="btn btn--benefit" @click="openVault(); closeMenu()">
-          <i class="icon-benefit" aria-hidden="true"></i>내 보상함
+        <button type="button" class="mo-menu__vault" @click="openVault(); closeMenu()">
+          <i class="mo-menu__vault-icon" aria-hidden="true"></i>
+          내 보상함 바로가기
         </button>
       </div>
-      <div class="topbar__dim" :class="{ 'is-open': ui.menu }" @click="closeMenu" aria-hidden="true"></div>
     </div>
 
         <header class="hero">
