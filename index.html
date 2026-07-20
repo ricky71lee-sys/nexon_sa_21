@@ -933,10 +933,7 @@
       </div>
     </div>
 
-    <div class="toast" :class="{ 'is-open': ui.toast.show }" role="status">
-      <span class="toast__icon" aria-hidden="true"></span>
-      <span>{{ ui.toast.text }}</span>
-    </div>
+    <div class="toast" :class="{ 'is-open': ui.toast.show }" role="status">{{ ui.toast.text }}</div>
   </teleport>
   </div>
 

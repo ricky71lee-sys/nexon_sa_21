@@ -521,56 +521,37 @@ $z-system: 10000;
   }
 }
 
-// ── 하단 토스트 ──
+// ── 피드백 토스트 (Figma 69:12021 · 화면 중앙) ──
 .toast {
   position: fixed;
+  top: 50%;
   left: 50%;
-  bottom: 40px;
   z-index: $z-system;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-width: 280px;
-  max-width: calc(100% - 48px);
-  padding: 8px 20px;
-  border-radius: 4px;
-  background: rgba(30, 32, 38, 0.95);
+  justify-content: center;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 4px 16px;
+  border-radius: 8px;
+  background: rgba(38, 38, 38, 0.72);
+  backdrop-filter: blur(4px);
   color: #fff;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 22px;
-  transform: translateX(-50%) translateY(20px);
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) scale(0.96);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   pointer-events: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 
   &.is-open {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  &__icon {
-    flex-shrink: 0;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #4b53c3;
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 3px;
-      left: 5px;
-      width: 3px;
-      height: 6px;
-      border-right: 1.5px solid #fff;
-      border-bottom: 1.5px solid #fff;
-      transform: rotate(45deg);
-    }
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -798,9 +779,8 @@ $z-system: 10000;
   }
 
   .toast {
-    bottom: 24px;
-    font-size: 13px;
-    padding: 6px 16px;
+    max-width: calc(100% - 32px);
+    white-space: normal;
   }
 
   .modal.modal-confirm {
