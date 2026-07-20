@@ -1,6 +1,7 @@
 @use "../breakpoints" as *;
 
 // 우측 SNS 채널 바 (PC only)
+// background-image 사용 — mask-image 는 file:// 에서 로드 실패해 검은 사각형이 됨
 .sns-bar {
   position: absolute;
   top: calc(var(--gnb-height, 0px) + 100px);
@@ -28,32 +29,24 @@
     display: block;
     width: 20px;
     height: 20px;
-    background-color: #fff;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 
     &--home {
-      mask-image: url("../images/topbar_icon_home.svg");
-      -webkit-mask-image: url("../images/topbar_icon_home.svg");
+      background-image: url("../images/topbar_icon_home.svg");
     }
 
     &--facebook {
-      mask-image: url("../images/topbar_icon_facebook.svg");
-      -webkit-mask-image: url("../images/topbar_icon_facebook.svg");
+      background-image: url("../images/topbar_icon_facebook.svg");
     }
 
     &--youtube {
-      mask-image: url("../images/topbar_icon_youtube.svg");
-      -webkit-mask-image: url("../images/topbar_icon_youtube.svg");
+      background-image: url("../images/topbar_icon_youtube.svg");
     }
 
     &--instagram {
-      mask-image: url("../images/topbar_icon_instagram.svg");
-      -webkit-mask-image: url("../images/topbar_icon_instagram.svg");
+      background-image: url("../images/topbar_icon_instagram.svg");
     }
   }
 }
