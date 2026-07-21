@@ -1114,7 +1114,10 @@ ul {
   }
 }
 .event01-bg {
-  background: url("../images/event01_bg.png") no-repeat center bottom/contain;
+  position: relative;
+  padding-bottom: 100px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_bg.png") no-repeat center bottom/cover;
+  background-blend-mode: multiply, multiply, normal;
 }
 
 .event01 .event01__panel {
@@ -1315,6 +1318,13 @@ ul {
 }
 .medal-issue__desc em {
   color: #ffe28f;
+  font-style: normal;
+}
+.medal-issue__note {
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -4059,7 +4069,7 @@ ul {
 .watch-list__item {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 42px;
   padding: 22px 32px 22px 38px;
   border: 1px solid #525365;
@@ -4102,9 +4112,8 @@ ul {
 }
 .watch-list__reward {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  width: 100%;
+  align-items: center;
+  gap: 8px;
   min-width: 0;
 }
 .watch-list__reward-icons {
@@ -4128,24 +4137,15 @@ ul {
   height: 100%;
   object-fit: contain;
 }
-.watch-list__reward--has-icons {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
 .watch-list__reward--has-icons .watch-list__reward-row {
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  width: 100%;
+  flex: 1 1 auto;
   min-width: 0;
 }
 .watch-list__reward-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   min-width: 0;
-  flex: 1 1 auto;
 }
 .watch-list .reward-chip {
   color: #302B4C;
@@ -4163,8 +4163,8 @@ ul {
   color: #CECFD9;
   font-size: 20px;
   font-weight: 500;
-  line-height: 1.35;
-  flex: 1 1 12rem;
+  line-height: 15px;
+  flex: 1 1 auto;
   min-width: 0;
   word-break: keep-all;
   overflow-wrap: break-word;
@@ -4177,19 +4177,7 @@ ul {
 
 @media (max-width: 1000px) {
   .watch-list__item {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-    padding: 20px 18px 18px 26px;
-  }
-  .watch-list__item > .btn--gold-action {
-    align-self: stretch;
-    width: 100%;
-    margin-top: 0;
-    justify-content: center;
-    font-size: clamp(14px, 6.8888888889px + 0.9259259259vw, 18px);
-    padding: 10px 16px;
-    box-sizing: border-box;
+    padding: 20px 24px 20px 30px;
   }
   .watch-list__icon {
     width: clamp(72px, 29.3333333333px + 5.5555555556vw, 96px);
@@ -4222,6 +4210,29 @@ ul {
     align-items: flex-start;
     gap: 12px;
     padding: 20px 16px 16px 20px;
+  }
+  .watch-list__item > .btn--gold-action {
+    align-self: stretch;
+    width: 100%;
+    margin-top: 0;
+    justify-content: center;
+    font-size: 14px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+  }
+  .watch-list__reward {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+  }
+  .watch-list__reward--has-icons .watch-list__reward-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .watch-list__reward-row {
+    align-items: flex-start;
   }
   .watch-list__num {
     width: 36px;

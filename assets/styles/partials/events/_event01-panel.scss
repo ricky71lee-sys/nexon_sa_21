@@ -2,7 +2,14 @@
 
 // EVENT1 · 패널
 .event01-bg {
-  background: url("../images/event01_bg.png") no-repeat center bottom / contain;
+  position: relative;
+  padding-bottom: 100px;
+  // Figma fill: 10% multiply + 하단 비네팅 multiply + BG (이미지는 여기 한 번만)
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%),
+    url("../images/event01_bg.png") no-repeat center bottom / cover;
+  background-blend-mode: multiply, multiply, normal;
 }
 
 .event01 {

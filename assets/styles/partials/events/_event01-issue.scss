@@ -44,7 +44,14 @@
 
     em {
       color: #ffe28f;
+      font-style: normal;
     }
+  }
+  &__note {
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #fff;
   }
 }
 
