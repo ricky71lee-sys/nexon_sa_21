@@ -1,0 +1,31 @@
+@use "sass:math";
+@use "sass:meta";
+
+/// 단위 제거 (px/rem 등 → 숫자)
+@function strip-unit($n) {
+  @if meta.type-of($n) == "number" and math.unit($n) != "" {
+    @return math.div($n, $n * 0 + 1);
+  }
+  @return $n;
+}
+
+/// 타이포·간격용 fluid clamp (px)
+/// · $min ~ $max 사이를 $vw-min ~ $vw-max 뷰포트에서 선형 보간
+/// · PC(≥$vw-max) / MO(≤$vw-min)는 min·max 고정 — **레이아웃 전환은 @include tablet**
+/// @example font-size: fluid(13, 26);
+/// @example gap: fluid(12, 30);
+@function fluid($min, $max, $vw-min: 768px, $vw-max: 1200px) {
+  $min-n: strip-unit($min);
+  $max-n: strip-unit($max);
+  $vw-min-n: strip-unit($vw-min);
+  $vw-max-n: strip-unit($vw-max);
+
+  @if $min-n >= $max-n {
+    @return #{$min-n}px;
+  }
+
+  $slope: math.div($max-n - $min-n, $vw-max-n - $vw-min-n) * 100;
+  $intercept: $min-n - math.div($slope * $vw-min-n, 100);
+
+  @return clamp(#{$min-n}px, #{$intercept}px + #{$slope}vw, #{$max-n}px);
+}

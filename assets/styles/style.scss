@@ -3,6 +3,7 @@
 //
 // 구조: variables → reset → layout → components → hero → event(1~3) → functional → modals
 // MO: 각 partial 하단 @include mo { }  (숫자는 partials/_breakpoints.scss 만 수정)
+// 타이포·gap fluid: partials/_fluid.scss → fluid(최소px, 최대px)
 // 디자인 토큰(:root)은 _variables.scss — 값/이미지는 건드리지 말고 레이아웃·그리드만 조정
 // =============================================================================
 @use "partials/variables";

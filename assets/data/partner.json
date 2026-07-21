@@ -16,6 +16,14 @@
         "side": "L",
         "matchable": false,
         "reason": "이미 듀오가 있는 유저입니다."
+      },
+      "SA-SAME": {
+        "found": true,
+        "nick": "동일명의유저",
+        "side": "R",
+        "matchable": false,
+        "sameName": true,
+        "reason": "동일 명의 계정 간에는 듀오 결성이 불가합니다."
       }
     },
     "default": {

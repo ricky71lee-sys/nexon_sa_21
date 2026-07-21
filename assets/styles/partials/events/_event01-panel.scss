@@ -2,7 +2,7 @@
 
 // EVENT1 · 패널
 .event01-bg {
-  background: url("../images/event01_bg.png") no-repeat center / cover;
+  background: url("../images/event01_bg.png") no-repeat center bottom / contain;
 }
 
 .event01 {
@@ -16,11 +16,31 @@
     background: rgba(28, 34, 47, 0.50);
     box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
     margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .sec-head {
     gap: 16px;
     margin-bottom: 30px;
+  }
+}
+
+@include tablet {
+  .event01 {
+    .event01__panel {
+      max-width: 100%;
+      width: 100%;
+      padding: 24px 16px;
+    }
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+  .event01 .event01__panel {
+    max-width: 100%;
+    width: 100%;
+    padding: 24px 20px;
+    box-sizing: border-box;
   }
 }
 

@@ -122,8 +122,11 @@
         notice: null,
         share: false,
         menu: false,
-        toast: { show: false, text: "", timer: null },
+        toast: { show: false, text: "", timer: null, variant: "" },
+        heroTodayHidden: false,
       });
+
+      const HERO_TODAY_STORAGE_KEY = "nexon_sa21_hero_today_hide";
 
       /* ------------------------------------------------------------------
        * [정적 데이터] API 불필요 — 스텝·보상카피·마일스톤·유의사항·쇼케이스
@@ -134,6 +137,38 @@
         { id: "x", label: "X", icon: "share_x.svg" },
         { id: "instagram", label: "인스타그램", icon: "share_instagram.svg" },
         { id: "link", label: "링크복사", icon: "share_link.svg" },
+      ];
+
+      /** PC 우측 SNS 바 — href·노출은 여기서 관리 (TODO: 실 URL 연동) */
+      const snsBarLinks = [
+        {
+          id: "home",
+          title: "홈페이지",
+          href: "https://sa.nexon.com/main/index.aspx",
+          icon: "home",
+          external: false,
+        },
+        {
+          id: "facebook",
+          title: "페이스북",
+          href: "#",
+          icon: "facebook",
+          external: true,
+        },
+        {
+          id: "youtube",
+          title: "유튜브",
+          href: "#",
+          icon: "youtube",
+          external: true,
+        },
+        {
+          id: "instagram",
+          title: "인스타그램",
+          href: "#",
+          icon: "instagram",
+          external: true,
+        },
       ];
 
       const steps = [
@@ -175,7 +210,7 @@
           "신청 자동 취소: 이미 신청을 보낸 상태에서 새로운 상대에게 다시 신청하는 경우, 이전 상대에게 보낸 신청은 자동으로 취소됩니다.",
           "듀오 결성 후 변경 불가: 상대방이 신청을 수락하여 듀오가 결성된 이후에는 어떠한 경우에도 듀오 변경 및 취소가 불가능하니 신중하게 결정해 주세요.",
           "듀오 닉네임 안내: 듀오의 닉네임은 듀오 결성 완료 시점을 기준으로 고정됩니다. 이후 인게임에서 닉네임을 변경하더라도 이벤트 페이지 내 듀오 닉네임은 변경되지 않습니다.",
-          "보상 지급: '보상 받기' 버튼 클릭 시 보상 아이템(10만 경험치 + 리센느 멀티카운트 + 돌격 기간연장 영구제)이 인게임 선물함으로 즉시 지급됩니다.",
+          "보상 지급: '보상 받기' 버튼 클릭 시 보상 아이템(10만 경험치 + 리센느 멀티카운트 + 돌격 기간 영구제)이 인게임 선물함으로 즉시 지급됩니다.",
           "수령 기간: 보상 아이템은 9월 3일(목) 정기점검 전까지만 수령이 가능하오니 반드시 기간 내에 보상을 수령해 주세요.",
           "추첨 보상 발표: 트윈 블루투스 스피커 및 넥슨캐시 당첨 여부는 9월 3일(목) 당첨자 발표 게시판을 통해 확인하실 수 있습니다.",
         ],
@@ -184,9 +219,8 @@
           "출석 현황 갱신: 출석이 웹페이지에 즉시 반영되지 않을 경우 '출석 갱신하기' 버튼을 클릭해 주세요. (출석 재갱신은 3분 간격으로만 가능합니다.)",
           "동반 출석 인정: 동반 출석은 이벤트1에서 듀오를 맺은 서든러 2명이 같은 날 각각 게임에 접속하면 반영됩니다. (기간 내 최대 5장)",
           "동반 출석 보충권: 듀오와 같은 날 함께 출석하면 '보충 출석권'이 1장 지급됩니다.",
-          "동반 출석 누적 보상: 동반 출석이 누적 5일에 도달하면 듀오 양측 모두에게 보상이 지급됩니다. 단, 보충 출석권으로 출석 처리한 날은 누적 집계에 포함되지 않습니다.",
-          "연속 출석 보충권: 3일 연속으로 게임에 접속할 때마다 '보충 출석권'이 1장 지급됩니다. (이벤트 기간 내 최대 5장)",
-          "연속 출석 초기화: 단 하루라도 결석할 경우, 기존의 연속 출석 기록은 즉시 초기화(리셋)됩니다.",
+          "동반 출석 누적 보상: 동반 출석이 누적 5일에 도달하면 듀오 양측 모두에게 도안_영구제 밀봉이 지급됩니다. 단, 보충 출석권으로 출석 처리한 날은 누적 집계에 포함되지 않습니다.",
+          "연속 출석 보충권: 3일 연속으로 게임에 접속할 때마다 '보충 출석권'이 1장 지급됩니다. (이벤트 기간 내 최대 5장) 연속 출석 초기화: 단 하루라도 결석할 경우, 기존의 연속 출석 기록은 즉시 초기화(리셋)됩니다.",
           "보충 출석권 사용 및 제한: 빈 날짜를 클릭하면 보충 출석권 1장으로 결석한 날을 출석 상태로 메울 수 있습니다. (보충 출석권 한도: 동반 5장 + 연속 5장) 단, 보충 출석권으로 채운 날은 취소·변경이 불가능하며, '연속 출석'과 '동반 출석' 조건에는 포함되지 않습니다.",
           "누적 출석 보상: 누적 출석일 7일 / 14일 / 21일 달성 시, 각 단계별 추가 보상을 획득할 수 있습니다.",
           "듀오 변경 불가: 듀오 결성 완료 후에는 듀오 변경 및 취소가 불가능하므로 신중하게 듀오를 맺어 주세요.",
@@ -196,10 +230,11 @@
           "기타 안내: 자세한 이벤트 유의사항은 [이벤트 정책]을 확인해 주시기 바랍니다.",
         ],
         event03: [
-          "21주년 쇼케이스 방송 시청 이벤트: 21주년 쇼케이스 방송을 시청하고 조건을 충족하면 보상이 지급됩니다.",
-          "승부 예측: 8월 23일(일) 오후 5시 전까지 참여한 예측만 인정됩니다. 승부 예측은 계정당 최대 5회까지만 참여 가능하며, 이후엔 수정이 불가능합니다. 보상은 예측 참여 횟수와 상관 없이 계정당 1회만 지급됩니다.",
+          "방송 시청 이벤트: 21주년 쇼케이스 방송을 시청하고 조건을 충족하면 보상이 지급됩니다.",
+          "승부 예측: 8월 23일(일) 오후 5시 전까지 참여한 예측만 인정됩니다.",
+          "승부 예측 보상은 예측 참여 횟수와 상관없이 계정당 1회만 지급됩니다.",
           "N커넥트 연동: 선택 동의를 포함한 N커넥트 연동을 완료한 후 방송을 시청해야 드롭스 보상이 지급됩니다.",
-          "듀오 동반 시청: 21주년 메달을 완성하고 N커넥트 연동을 완료한 듀오가 함께 시청해야 추가 보상 대상이 됩니다. 보상은 계정당 1회만 지급됩니다.",
+          "듀오 동반 시청: 보상은 계정당 1회만 지급됩니다.",
           "상세 보상 내용 및 세부 유의사항은 추후 업데이트될 예정입니다.",
         ],
       };
@@ -217,7 +252,8 @@
             no: "01",
             icon: "watch_event1.png",
             title: "승부 예측",
-            desc: "최강의 둘이서 한 팀 선발전! 과연 승자는 누구일까요?<br>8월 23일(일) 매치 시작 전까지 승부 예측에 참여하고 적중 보상을 획득하세요!",
+            desc:
+              "최강의 둘이서 한 팀 선발전! 과연 승자는 누구일까요?<br>8월 23일(일) 매치 시작 전까지 승부 예측에 참여하고 적중 보상을 획득하세요!",
             rewardIcons: ["watch_reward_01_1.png", "watch_reward_01_2.png"],
             reward: "예측 성공 시 500 SP / 실패 시 제작 재료 2,000개",
             cta: "승부 예측 참여하기",
@@ -304,11 +340,28 @@
       const progress = computed(() => Math.round((totalDays.value / 21) * 100));
 
       const noticeTitle = computed(() => {
-        if (ui.notice === "event01") return "· 21주년 메달 합체";
+        if (ui.notice === "event01") return "· 메달 합체 이벤트";
         if (ui.notice === "event02") return "· 21일 듀오 출석 챌린지";
-        if (ui.notice === "event03") return "· 21주년 쇼케이스";
+        if (ui.notice === "event03") return "· 21주년 쇼케이스 안내";
         return "";
       });
+
+      /** 로그인 유도 confirm (출석 등 EVENT2) */
+      function promptLoginAttendance() {
+        return Utils.confirm("출석 현황은 로그인 후 확인할 수 있어요", {
+          title: "로그인이 필요한 서비스예요",
+          confirmText: "로그인 하기",
+          confirmOnly: true,
+        });
+      }
+
+      /** 동일 명의 계정 듀오 불가 안내 */
+      function alertSameNameAccount() {
+        return Utils.alert(
+          '<span class="accent">동일 명의 계정</span> 간에는<br><strong>듀오 결성이 불가합니다.</strong>',
+          { variant: "warn", confirmText: "확인" }
+        );
+      }
 
       /**
        * EVENT2 출석 헤더 듀오 라벨 — 2가지 형태만 사용
@@ -446,12 +499,14 @@
         applyAttendanceState(await fetchApi(DATA_BASE + "/attendance.json"));
       }
       /* [UI 헬퍼] 템플릿 :class / :disabled / 라벨 */
-      function showToast(text, duration = 2800) {
+      function showToast(text, duration = 2800, variant = "") {
         if (ui.toast.timer) clearTimeout(ui.toast.timer);
         ui.toast.text = text;
+        ui.toast.variant = variant;
         ui.toast.show = true;
         ui.toast.timer = setTimeout(() => {
           ui.toast.show = false;
+          ui.toast.variant = "";
           ui.toast.timer = null;
         }, duration);
       }
@@ -664,7 +719,7 @@
         if (code.length < 4) return;
 
         if (code === medal.code) {
-          medal.find.alert = { type: "warn", text: "본인 코드는 신청할 수 없습니다.", ok: false };
+          showToast("본인 코드는 신청할 수 없습니다.", 2800, "warn");
           return;
         }
 
@@ -675,6 +730,12 @@
             return;
           }
           if (!res.matchable) {
+            if (res.sameName) {
+              medal.find.preview = null;
+              medal.find.alert = null;
+              await alertSameNameAccount();
+              return;
+            }
             medal.find.alert = {
               type: "warn",
               text: res.reason || "합체 신청할 수 없는 유저입니다.",
@@ -781,10 +842,11 @@
         const item = medal.received.find((r) => r.code === code);
         if (!item) return;
         const ok = await Utils.confirm(
-          item.nick + " 님과 듀오를 결성하고 함께 메달을 합체하시겠습니까?",
+          item.nick + " 님과 듀오를 결성하고<br>함께 메달을 합체하시겠습니까?",
           {
             title: "듀오 결성 및 메달 합체",
-            note: "메달 합체를 수락하면 듀오가 확정됩니다. 확정 이후에는 취소 및 변경이 불가능하니 신중하게 선택해 주세요.",
+            note:
+              "메달 합체를 수락하면 듀오가 확정됩니다.<br>확정 이후에는 취소 및 변경이 불가능하니<br>신중하게 선택해 주세요.",
             confirmText: "결성하기",
             cancelText: "취소",
           }
@@ -875,6 +937,9 @@
        * 3분 쿨다운 후 getAttendance 재호출
        */
       async function clickRefreshAttendance() {
+        if (!user.login) {
+          return promptLoginAttendance();
+        }
         const now = Date.now();
         if (now - attend.refreshAt < 180000) {
           const sec = Math.ceil((180000 - (now - attend.refreshAt)) / 1000);
@@ -902,6 +967,16 @@
         Utils.bodyScroll.show();
       }
 
+      /** 보상함 → EVENT1 메달 완성 구역으로 이동 후 보상 받기 */
+      function goClaimFromVault() {
+        closeVault();
+        if (window.pageScroll?.to) {
+          window.pageScroll.to("#event01");
+        } else {
+          document.querySelector("#event01")?.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
       /**
        * 이벤트별 유의사항 모달 열기
        * @param {"event01"|"event02"|"event03"} key
@@ -917,6 +992,18 @@
       function closeNotice() {
         ui.notice = null;
         Utils.bodyScroll.show();
+      }
+
+      /**
+       * 히어로 「오늘하루 이창 열지 않기」 — 클릭 시 localStorage 저장 후 영구 숨김
+       */
+      function clickHeroTodayDismiss() {
+        try {
+          localStorage.setItem(HERO_TODAY_STORAGE_KEY, "1");
+        } catch (e) {
+          /* private mode 등 */
+        }
+        ui.heroTodayHidden = true;
       }
 
       /**
@@ -946,6 +1033,11 @@
        */
       onMounted(async () => {
         try {
+          ui.heroTodayHidden = localStorage.getItem(HERO_TODAY_STORAGE_KEY) === "1";
+        } catch (e) {
+          ui.heroTodayHidden = false;
+        }
+        try {
           await getMedalState();
           await getAttendance();
         } catch (err) {
@@ -969,6 +1061,7 @@
         vault,
         ui,
         shareChannels,
+        snsBarLinks,
         steps,
         rewardItems,
         milestoneDefs,
@@ -1015,10 +1108,12 @@
         clickRefreshAttendance,
         openVault,
         closeVault,
+        goClaimFromVault,
         openNotice,
         closeNotice,
         toggleMenu,
         closeMenu,
+        clickHeroTodayDismiss,
       };
     },
   }).mount("#app");

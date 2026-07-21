@@ -1,4 +1,5 @@
 @use "../breakpoints" as *;
+@use "../fluid" as *;
 
 // EVENT2 · 출석 헤더
 .att-head {
@@ -7,10 +8,13 @@
   justify-content: space-between;
   gap: 16px;
   width: 100%;
+  min-width: 0;
+
   &__tag {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    flex-shrink: 0;
     border-radius: 999px;
     border-top: 1.2px solid rgba(255, 255, 255, 0.30);
     background: #4B53C3;
@@ -19,6 +23,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 22px;
+    white-space: nowrap;
   }
 
   &__avatar {
@@ -28,15 +33,26 @@
     height: 28px;
     overflow: hidden;
     background: url("../images/att_head_avatar_bg.png") no-repeat center;
-    &.is-duo{
+
+    &.is-duo {
       width: 51px;
       background-image: url("../images/att_head_avatar_bg_duo.png");
     }
   }
 
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
   &__stats {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
     height: 40px;
     gap: 12px;
     padding: 0 16px;
@@ -46,6 +62,15 @@
     font-weight: 700;
     line-height: 20px;
     color: var(--white);
+    flex-shrink: 1;
+    min-width: 0;
+
+    > span:not(.divider) {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
     strong {
       font-size: 18px;
@@ -54,13 +79,15 @@
       margin: 0 4px 0 8px;
       display: inline-block;
     }
-    small{
+
+    small {
       font-weight: 500;
       font-size: 1em;
     }
 
-    .icon-ticket{
+    .icon-ticket {
       display: inline-block;
+      flex-shrink: 0;
       width: 13px;
       height: 9px;
       margin-right: 10px;
@@ -68,24 +95,21 @@
     }
 
     .divider {
+      flex-shrink: 0;
       width: 1px;
       height: 12px;
       background: rgba(255, 255, 255, 0.5);
     }
   }
 
-  &__info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
   &__actions {
     display: flex;
     align-items: center;
     gap: 10px;
-    .att-head__btn{
-      display: flex;
+    flex-shrink: 0;
+
+    .att-head__btn {
+      display: inline-flex;
       height: 40px;
       padding: 0 24px;
       justify-content: center;
@@ -94,27 +118,37 @@
       border-radius: 8px;
       font-size: 18px;
       font-weight: 700;
-      &--outline{
+      line-height: 1.2;
+      white-space: nowrap;
+      box-sizing: border-box;
+
+      &--outline {
         border: 1px solid #B9BBD5;
         color: #B9BBD5;
-        i{
+        background: transparent;
+
+        i {
+          flex-shrink: 0;
           width: 16px;
           height: 16px;
           background: url("../images/icon_refresh.png") no-repeat center / cover;
         }
       }
-      &--primary{
+
+      &--primary {
         border-radius: 8px;
         border-top: 1px solid rgba(255, 255, 255, 0.30);
         background: #4B53C3;
         color: #fff;
-        i{
+
+        i {
+          flex-shrink: 0;
           width: 20px;
           height: 20px;
           background: url("../images/icon_reward.png") no-repeat center / cover;
         }
       }
-    } 
+    }
   }
 }
 
@@ -128,21 +162,85 @@
   }
 }
 
-@include mo {
+// 1100px 이하: 한 줄 PC 헤더 깨짐 방지 → 세로 스택 (MO와 동일 구조, 크기만 유동)
+@mixin att-head-stacked {
   .att-head {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
+
+    &__tag {
+      align-self: flex-start;
+      font-size: fluid(13, 17);
+      line-height: 1.3;
+      padding: 7px 14px 7px 7px;
+    }
+
+    &__avatar {
+      width: 26px;
+      height: 26px;
+
+      &.is-duo {
+        width: 44px;
+      }
+    }
 
     &__info {
       flex-direction: column;
       align-items: stretch;
       gap: 10px;
       width: 100%;
+      min-width: 0;
+      justify-content: flex-start;
     }
 
+    &__stats {
+      width: 100%;
+      height: auto;
+      min-height: 38px;
+      padding: 8px 12px;
+      gap: 8px 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: fluid(12, 16);
+      line-height: 20px;
+      box-sizing: border-box;
+
+      strong {
+        font-size: fluid(14, 17);
+        margin: 0 3px 0 6px;
+      }
+
+      .icon-ticket {
+        margin-right: 6px;
+      }
+    }
+
+    &__actions {
+      width: 100%;
+      gap: 8px;
+
+      .att-head__btn {
+        flex: 1 1 0;
+        min-width: 0;
+        height: 38px;
+        padding: 0 10px;
+        font-size: fluid(12, 15);
+        gap: 6px;
+      }
+    }
+  }
+}
+
+@include tablet {
+  @include att-head-stacked;
+}
+
+@include mo {
+  @include att-head-stacked;
+
+  .att-head {
     &__tag {
-      align-self: flex-start;
       padding: 6px 12px 6px 6px;
       font-size: 13px;
       line-height: 18px;
@@ -158,16 +256,10 @@
     }
 
     &__stats {
-      width: 100%;
-      height: auto;
       min-height: 36px;
       padding: 6px 10px;
       gap: 6px;
-      justify-content: center;
-      flex-wrap: wrap;
       font-size: 12px;
-      line-height: 20px;
-      box-sizing: border-box;
 
       strong {
         font-size: 14px;
@@ -179,18 +271,10 @@
       }
     }
 
-    &__actions {
-      width: 100%;
-      gap: 8px;
-
-      .att-head__btn {
-        flex: 1 1 0;
-        min-width: 0;
-        height: 36px;
-        padding: 0 10px;
-        font-size: 13px;
-        gap: 4px;
-      }
+    &__actions .att-head__btn {
+      height: 36px;
+      font-size: 13px;
+      gap: 4px;
     }
   }
 }

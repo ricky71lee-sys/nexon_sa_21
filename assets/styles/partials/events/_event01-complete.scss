@@ -1,4 +1,5 @@
 @use "../breakpoints" as *;
+@use "../fluid" as *;
 
 // =============================================================================
 // EVENT1 · 메달 완성 (.medal-complete)
@@ -26,16 +27,18 @@
     text-align: center;
   }
 
-  // 확정 / 추첨 / 이벤트2 보상 3열
+  // 확정 / 추첨 / 이벤트2 보상 3열 (1201px+ 고정 비율 · 그 이하는 stacked)
   &__board {
     display: grid;
-    grid-template-columns: 245px 440px 330px;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.75fr) minmax(0, 1.3fr);
     gap: 20px;
     width: 100%;
+    max-width: 100%;
     margin-top: 23px;
     padding: 30px 40px;
     border: 1px solid rgba(150, 170, 200, 0.34);
     background: linear-gradient(180deg, #232c3d 0%, #182033 100%), #212a36;
+    box-sizing: border-box;
   }
 
   &__col {
@@ -45,9 +48,11 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    min-width: 0;
     padding: 30px 20px;
     border: 2px solid rgba(255, 243, 196, 0.46);
     background: #16223b;
+    box-sizing: border-box;
   }
 
   &__col-title {
@@ -67,6 +72,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    width: 100%;
+    max-width: 100%;
   }
 
   &__item {
@@ -88,8 +95,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 110px;
-    height: 110px;
+    width: fluid(80, 110);
+    height: fluid(80, 110);
     border-radius: 50%;
     overflow: hidden;
 
@@ -190,6 +197,91 @@
     color: rgba(185, 187, 213, 0.75);
     text-align: center;
   }
+}
+
+// 800~1200 등: 3열 고정 px 합이 viewport 를 넘음 → 세로 스택
+@mixin medal-complete-board-stack {
+  .medal-complete {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    &__title {
+      font-size: fluid(26, 36);
+      line-height: 1.2;
+    }
+
+    &__desc {
+      font-size: fluid(14, 18);
+      line-height: 1.35;
+    }
+
+    &__board {
+      display: flex;
+      flex-direction: column;
+      gap: fluid(14, 20);
+      margin-top: fluid(16, 23);
+      padding: fluid(16, 24) fluid(16, 20);
+    }
+
+    &__col {
+      width: 100%;
+      padding: fluid(18, 24) fluid(14, 20);
+    }
+
+    &__col-title {
+      font-size: fluid(18, 24);
+      line-height: 1.25;
+    }
+
+    &__items {
+      gap: fluid(10, 16);
+    }
+
+    &__item span {
+      font-size: fluid(12, 16);
+      line-height: 1.35;
+    }
+
+    &__icon {
+      width: fluid(72, 100);
+      height: fluid(72, 100);
+    }
+
+    &__claim-wrap {
+      grid-column: auto;
+      width: 100%;
+    }
+
+    &__claim {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    &__duo {
+      padding: fluid(16, 24) fluid(16, 20);
+      box-sizing: border-box;
+    }
+
+    &__duo-info {
+      flex-wrap: wrap;
+      gap: 10px;
+
+      strong {
+        font-size: fluid(18, 26);
+        line-height: 1.25;
+      }
+    }
+
+    &__duo-link {
+      font-size: fluid(13, 16);
+      padding: 10px 16px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  @include medal-complete-board-stack;
 }
 
 @include mo {

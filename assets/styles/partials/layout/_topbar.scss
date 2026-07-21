@@ -19,6 +19,12 @@
     width: 60px;
     height: 60px;
     background: url("../images/event_logo.png") no-repeat center / contain;
+    a{
+     display: block;
+     font-size: 0;
+     width: 100%;
+     height: 100%;
+    }
   }
 
   &__actions {
@@ -126,9 +132,12 @@
       background: url("../images/icon_menu.svg") no-repeat center / contain;
     }
 
-    // 메뉴 열림: topbar__in 자리 유지 + 메뉴가 absolute로 덮음 (fixed 아님)
+    // 메뉴 열림: topbar를 GNB 아래 뷰포트까지 확장 → mo-menu absolute가 전체 덮음 (fixed 미사용)
     &.is-menu-open {
       z-index: 40;
+      min-height: calc(100dvh - var(--gnb-height, 0px));
+      min-height: calc(100svh - var(--gnb-height, 0px));
+      overflow: hidden;
 
       .topbar__in {
         visibility: hidden;
@@ -141,17 +150,20 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    position: absolute; // fixed 금지 — topbar 기준, 화면은 GNB 아래 영역
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     z-index: 3;
-    height: calc(100dvh - var(--gnb-height, 0px));
-    max-height: calc(100vh - var(--gnb-height, 0px));
-    // 메뉴가 뷰포트 GNB 아래에서 열리도록 (topbar가 스크롤돼도 body lock 중)
-    padding: 0 0 60px;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    max-height: none;
+    padding: 0 0 calc(24px + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     background:
       linear-gradient(0deg, rgba(34, 53, 94, 0.3) 0%, rgba(61, 82, 141, 0.3) 100%),
       #1c1b1b;
@@ -222,12 +234,12 @@
     &__body {
       display: flex;
       flex-direction: column;
-      gap: 100px;
+      flex: 1 1 auto;
+      gap: 24px;
       width: 100%;
-      flex: 1;
       min-height: 0;
-      margin-top: 82px;
-      padding: 0 16px;
+      margin-top: 0;
+      padding: 8px 16px 0;
       box-sizing: border-box;
     }
 
@@ -236,6 +248,7 @@
       flex-direction: column;
       gap: 16px;
       width: 100%;
+      flex: 0 0 auto;
     }
 
     &__card {
@@ -310,6 +323,7 @@
       width: 100%;
       height: 60px;
       margin-top: auto;
+      flex-shrink: 0;
       padding: 10px 24px;
       box-sizing: border-box;
       border: 1px solid #fff;
