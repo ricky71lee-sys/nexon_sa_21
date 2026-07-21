@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:40px 0 15px;
+  padding:40px 0 0;
   width: 100%;
   &__visual {
     width: 50%;
@@ -55,12 +55,29 @@
   }
 }
 
-@include mo {
+@include laptop {
+  .medal-issue__phase{
+    background: rgba(28, 34, 47, 0.50);
+    display: flex;
+    padding: 20px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    align-self: stretch;
+    .medal-issue{
+      padding-top: 0;
+    }
+  }
+}
+
+@include tablet {
   .medal-issue {
     flex-direction: column;
     gap: 20px;
     min-height: 0;
-    padding: 20px 16px;
+    padding: 0 16px;
+    padding-top: 0;
+    padding-bottom: 0;
 
     &__visual,
     &__action {
@@ -83,9 +100,9 @@
       width: 68px;
     }
 
-    &__desc {
-      font-size: 13px;
-      line-height: 18px;
+    &__desc{
+      font-size: 16px;
+      line-height: 24px;
     }
 
     .btn--gold-issue {
@@ -95,4 +112,27 @@
       font-size: 16px;
     }
   }
+}
+
+@include mo {
+  .medal-issue {
+    &__desc {
+      font-size: 13px;
+      line-height: 18px;
+    }
+    &__ring{
+      width: 188px;
+      height: 188px;
+    }
+    &__action{
+      gap:12px;
+    }
+    &__note{
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 15px;
+    }
+  }
+  
+  
 }

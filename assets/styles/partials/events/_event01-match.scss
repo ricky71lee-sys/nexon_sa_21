@@ -11,7 +11,7 @@
 .medal-match {
   display: grid;
   grid-template-columns: 440px 1fr;
-  gap: 119px;
+  gap: calc(100% * 119 / 1136); // 1136일 때 119, 그 이하는 비율 유지
   align-items: center;
   margin: 40px 0;
   &__visual {
@@ -246,13 +246,38 @@
   }
 }
 
+@include laptop {
+  .medal-match__panel--input,
+  .medal-match__panel--my{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .medal-match{
+    margin-top: 0;
+  }
+
+  
+}
+
 @include tablet {
   .medal-match {
     grid-template-columns: 1fr;
-
+    gap: 30px;
+    margin-top: 0;
     &__visual img {
       width: min(100%, 320px);
     }
+  }
+  .medal-match__phase{
+    .medal-match{
+      background: rgba(28, 34, 47, 0.50);
+    }
+  }
+
+  .medal-match__panel--my{
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -367,13 +392,12 @@
 
   .medal-waiting {
     width: 100%;
-    max-width: 296px;
-    margin: 10px auto 0;
     padding: 11px 16px;
     gap: 16px;
     border: 0;
     background: #222b3c;
     box-sizing: border-box;
+    text-align: center;
 
     .corner-deco {
       display: none;

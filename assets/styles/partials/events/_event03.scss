@@ -110,8 +110,10 @@
   .event03 {
     gap: 40px;
     padding-bottom: 80px;
+    .notice-wrap{
+      margin-top: 20px;
+    }
   }
-
   .timetable,
   .watch-panel {
     max-width: 100%;
@@ -127,9 +129,25 @@
 
 @include mo {
   .event03 {
-    gap: 30px;
-    padding-bottom: 60px;
-
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    gap:0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, #30265A 0%, #1B172F 100%);
+    .watch-panel{
+      box-shadow: none;
+      background: none;
+      padding-bottom: 0;
+      .notice-wrap{
+        margin-top: 20px;
+      }
+    }
+    .sec-head{
+      padding-top: 60px;
+      padding-bottom: 30px;
+      background: url("../images/event03_bg_mobile.png") no-repeat center top / 100% auto;
+    }
     .match-date {
       max-width: 100%;
       width: 100%;

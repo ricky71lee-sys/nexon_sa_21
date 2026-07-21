@@ -46,14 +46,17 @@
     <!-- side-nav (PC) -->
     <aside class="side-nav" aria-label="이벤트 퀵메뉴">
       <nav class="side-nav__list">
-        <a href="#event01" class="side-nav__item" data-scroll-to="#event01">
-          <img src="./assets/images/side_nav_medal.png" alt="둘이서 하나, 메달 합체 — 합체하러 가기" width="146" height="160">
+        <a href="#event01" class="side-nav__item" data-scroll-to="#event01" data-scroll-active="#event01">
+          <img class="side-nav__img side-nav__img--default" src="./assets/images/side_nav_medal.png" alt="둘이서 하나, 메달 합체 — 합체하러 가기">
+          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side_nav_medal_hover.png" alt="" aria-hidden="true">
         </a>
-        <a href="#event02" class="side-nav__item" data-scroll-to="#event02">
-          <img src="./assets/images/side_nav_attend.png" alt="21일 듀오 출석 챌린지 — 출석하러 가기" width="146" height="160">
+        <a href="#event02" class="side-nav__item" data-scroll-to="#event02" data-scroll-active="#event02">
+          <img class="side-nav__img side-nav__img--default" src="./assets/images/side_nav_attend.png" alt="21일 듀오 출석 챌린지 — 출석하러 가기">
+          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side_nav_attend_hover.png" alt="" aria-hidden="true">
         </a>
-        <a href="#event03" class="side-nav__item" data-scroll-to="#event03">
-          <img src="./assets/images/side_nav_showcase.png" alt="21주년 쇼케이스 & 특별 매치 — 자세히 보기" width="146" height="160">
+        <a href="#event03" class="side-nav__item" data-scroll-to="#event03" data-scroll-active="#event03">
+          <img class="side-nav__img side-nav__img--default" src="./assets/images/side_nav_showcase.png" alt="21주년 쇼케이스 & 특별 매치 — 자세히 보기">
+          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side_nav_showcase_hover.png" alt="" aria-hidden="true">
         </a>
       </nav>
       <button type="button" class="side-nav__vault" @click="openVault">
@@ -65,7 +68,8 @@
       <a v-for="link in snsBarLinks" v-show="link.show !== false" :key="link.id" class="sns-bar__item"
         :href="link.href" :title="link.title" :target="link.external ? '_blank' : null"
         :rel="link.external ? 'noopener noreferrer' : null">
-        <i class="sns-bar__icon" :class="'sns-bar__icon--' + link.icon" aria-hidden="true"></i>
+        <img class="sns-bar__img sns-bar__img--default" :src="'./assets/images/sns_' + link.icon + '.png'" :alt="link.title" width="64" height="64">
+        <img class="sns-bar__img sns-bar__img--hover" :src="'./assets/images/sns_' + link.icon + '_hover.png'" alt="" width="64" height="64" aria-hidden="true">
       </a>
     </aside>
 
@@ -132,7 +136,8 @@
         <div class="hero__content">
           <div class="hero__content-inner">
             <div class="hero__title">
-              <img src="./assets/images/hero_title.svg" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
+              <img class="hero__title-pc" src="./assets/images/hero_title.svg" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
+              <img class="hero__title-mo" src="./assets/images/hero_title_mobile.svg" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
             </div>
             <div class="hero__desc">
               <p class="hero__lead">
@@ -142,9 +147,9 @@
             </div>
           </div>
 
-          <!-- 오늘 하루 그만 보기 (PC: content 기준 우 64 · 하 42) -->
-          <div v-show="!ui.heroTodayHidden" class="hero__today">
-            <button type="button" class="hero__today-btn" @click="clickHeroTodayDismiss">
+          <!-- 오늘 하루 그만 보기 (PC: content 기준 우 64 · 하 42) — 동작은 개발팀 연동 -->
+          <div class="hero__today">
+            <button type="button" class="hero__today-btn">
               <span class="hero__today-check is-checked" aria-hidden="true"></span>
               <span class="hero__today-btn-text">오늘하루 이창 열지 않기</span>
             </button>
@@ -165,8 +170,8 @@
               <span class="sec-tag">EVENT 1</span>
               <h2 class="text-gradient-gold">둘이서 하나, 21주년 메달 합체</h2>
               <p>
-                반쪽 메달의 듀오를 찾아 메달 코드를 주고받고, 합체 신청을 수락하면<br>
-                메달이 하나로 완성돼 양쪽 모두 보상을 받아요.
+                반쪽 메달의 듀오를 찾아 메달 코드를 주고받고, <br class="pc-hidden">합체 신청을 수락하면<br class="mobile-hidden">
+                메달이 하나로 완성돼 <br class="pc-hidden">양쪽 모두 보상을 받아요.
               </p>
             </div>
 
@@ -185,7 +190,7 @@
               </ol>
 
               <!-- phase1 발급 -->
-              <div v-show="medal.phase === 1" class="medal-flow__phase">
+              <div v-show="medal.phase === 1" class="medal-flow__phase medal-issue__phase">
                 <div class="medal-issue">
                   <div class="medal-issue__visual">
                     <div class="medal-issue__medal">
@@ -199,13 +204,13 @@
                     </p>
                     <button type="button" class="btn btn--gold-issue" :disabled="medal.issued"
                       @click="clickIssueMedal">메달 발급받기</button>
-                    <p class="medal-issue__note">※ 접속 후 메달을 발급받으면 반쪽 메달과 나의 메달 코드가 함께 표시됩니다.</p>
+                    <p class="medal-issue__note">※ 접속 후 메달을 발급받으면 반쪽 메달과 <br class="pc-hidden">나의 메달 코드가 함께 표시됩니다.</p>
                   </div>
                 </div>
               </div>
 
               <!-- phase2~3 반쪽찾기 -->
-              <div v-show="medal.phase >= 2 && medal.phase <= 3" class="medal-flow__phase">
+              <div v-show="medal.phase >= 2 && medal.phase <= 3" class="medal-flow__phase medal-match__phase">
                 <div class="medal-match">
                   <div class="medal-match__visual">
                     <img src="./assets/images/medal_find_half.png" alt="반쪽 메달 합체 이미지">
@@ -294,16 +299,20 @@
               </div>
 
               <!-- phase4 완성 -->
-              <div v-show="medal.phase === 4" class="medal-flow__phase">
+              <div v-show="medal.phase === 4" class="medal-flow__phase medal-complete__phase">
                 <div class="medal-complete">
                   <div class="medal-complete__visual">
-                    <img src="./assets/images/medal_complete_visual.png" alt="완성된 21주년 메달">
+                    <div class="medal-complete__visual-img">
+                      <img src="./assets/images/medal_complete_visual.png" class="medal_complete_visual_pc" alt="완성된 21주년 메달">
+                      <img src="./assets/images/medal_complete_visual_mobile.png" class="medal_complete_visual_mobile" alt="완성된 21주년 메달">
+                    </div>
+                    <h3 class="medal-complete__title text-gradient-gold">21주년 메달 완성!</h3>
+                    <p class="medal-complete__desc">
+                      <template v-if="medal.matched">{{ medal.matched.nick }} 님이 신청을 수락했어요!</template>
+                      <template v-else>메달을 하나로 합쳤어요</template>
+                    </p>
                   </div>
-                  <h3 class="medal-complete__title text-gradient-gold">21주년 메달 완성!</h3>
-                  <p class="medal-complete__desc">
-                    <template v-if="medal.matched">{{ medal.matched.nick }} 님이 신청을 수락했어요!</template>
-                    <template v-else>메달을 하나로 합쳤어요</template>
-                  </p>
+                  
 
                   <div class="medal-complete__board">
                     <div class="medal-complete__col">
@@ -401,7 +410,7 @@
                   <span class="corner-deco corner-deco--br"></span>
                   <h3 class="reward-cards__title text-gradient-gold">확정 보상</h3>
                   <div class="reward-cards__line"></div>
-                  <p class="reward-cards__desc">메달 합체(매칭) 완료 시 양쪽 서든러 모두에게 기본 보상 지급</p>
+                  <p class="reward-cards__desc">메달 합체(매칭) 완료 시 <br class="pc-hidden">양쪽 서든러 모두에게 기본 보상 지급</p>
                   <div class="reward-cards__items">
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="10만 경험치">
@@ -460,9 +469,9 @@
             <div class="sec-head">
               <span class="sec-tag">EVENT 2</span>
               <h2 class="text-gradient-gold">21일 듀오 출석 챌린지</h2>
-              <p>매일 1시간 이상 접속하면 출석 도장이 찍혀요.<br>듀오와 동반 출석(일 1개)·3일 연속 출석으로 '보충 출석권'을 모아 빠진 날을 채울 수 있어요.</p>
+              <p>게임에 접속하면 출석 도장이 찍혀요!<br>듀오와 함께, 또는 3일 연속 출석하면 '보충 출석권'을 모아 <br class="pc-hidden">빠진 날도 채울 수 있어요.</p>
               <ul class="att-notes">
-                <li>· 보충 출석권은 최대 10개까지 받을 수 있어요. (동반 출석 5개 + 연속 출석 5개)</li>
+                <li>· 보충 출석권은 최대 10개까지 받을 수 있어요. <br class="pc-hidden">(동반 출석 5개 + 연속 출석 5개)</li>
                 <li>· 보충 출석권으로 채운 날은 연속·동반 출석에는 포함되지 않아요.</li>
               </ul>
             </div>
@@ -498,6 +507,37 @@
                 <div class="att-board__progress">
                   <div class="att-board__bar" :style="{ '--progress': progress + '%' }"><span></span></div>
                   <span class="att-board__count"><b>{{ totalDays }}</b> / 21일</span>
+                </div>
+              </div>
+
+              <!-- 태블릿/MO: att-head · att-board 대체 UI (동일 데이터·핸들러) -->
+              <div class="att-compact" aria-label="출석 현황">
+                <div class="att-compact__top">
+                  <div class="att-compact__stats">
+                    <span class="att-compact__stat">보충 출석권<strong>{{ attend.makeup }}</strong><small>개</small></span>
+                    <span class="att-compact__divider" aria-hidden="true"></span>
+                    <span class="att-compact__stat">연속<strong class="is-accent">{{ attend.streak }}</strong><small>일</small></span>
+                    <span class="att-compact__divider" aria-hidden="true"></span>
+                    <span class="att-compact__stat">동반<strong class="is-accent">{{ duoDays }}</strong><small>일</small></span>
+                  </div>
+                  <button type="button" class="att-compact__claim" @click="claimAllDaily">보상 일괄 수령</button>
+                </div>
+                <div class="att-compact__board">
+                  <div class="att-compact__board-head">
+                    <div class="att-compact__title">
+                      <span class="icon-calendar" aria-hidden="true"></span>
+                      <span>개인 출석판</span>
+                      <small>· 누적 <b>{{ totalDays }}</b>일</small>
+                    </div>
+                    <span class="att-compact__status">{{ duoLabel }}</span>
+                    <button type="button" class="att-compact__refresh" @click="clickRefreshAttendance" aria-label="출석 갱신하기">
+                      <i class="icon-refresh" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <div class="att-compact__progress">
+                    <div class="att-compact__bar" :style="{ '--progress': progress + '%' }"><span></span></div>
+                    <span class="att-compact__count"><b>{{ totalDays }}</b> / 21일</span>
+                  </div>
                 </div>
               </div>
 
@@ -804,9 +844,9 @@
                     class="icon-arrow-right"></i></button>
               </article>
             </div>
-            <p class="notice-wrap"><button type="button" class="notice-btn" @click="openNotice('event03')"><i
-                  class="icon-info"></i> 쇼케이스 유의사항</button></p>
+            <p class="notice-wrap"><button type="button" class="notice-btn" @click="openNotice('event03')"><i class="icon-info"></i> 쇼케이스 유의사항</button></p>
           </div>
+          
         </section>
 
       </main>

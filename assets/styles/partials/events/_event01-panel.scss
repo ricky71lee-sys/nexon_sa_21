@@ -51,10 +51,39 @@
   }
 }
 
+@include laptop {
+  .event01 .event01__panel {
+    background: none;
+    box-shadow: none;
+    gap: 30px;
+    .notice-wrap{
+      margin-top: -20px;
+    }
+  }
+}
+
+@include tablet {
+  .event01{
+    .event01__panel{
+      gap: 30px;
+      padding: 0;
+      
+    }
+  }
+  .event01-bg{
+    padding-bottom: 60px;
+  }
+}
+
 @include mo {
   .event01 {
     .sec-head {
       margin-bottom: 20px;
+    }
+    &-bg{
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%),
+      url("../images/event01_bg_mobile.png") no-repeat center top / 100% auto;
     }
 
     .event01__panel {
@@ -62,9 +91,9 @@
       width: 100%;
       margin: 0;
       padding: 0;
-      gap: 30px;
       background: transparent;
       box-shadow: none;
+      
     }
   }
 }

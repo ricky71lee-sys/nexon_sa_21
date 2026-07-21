@@ -1,7 +1,6 @@
 @use "../breakpoints" as *;
 
-// 우측 SNS 채널 바 (PC only)
-// background-image 사용 — mask-image 는 file:// 에서 로드 실패해 검은 사각형이 됨
+// 우측 SNS 채널 바 (PC only) — Figma 140:470 / 140:475 / 140:480 / 140:485
 .sns-bar {
   position: absolute;
   top: calc(var(--gnb-height, 0px) + 100px);
@@ -11,47 +10,41 @@
   gap: 4px;
 
   &__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: rgba(20, 22, 28, 0.88);
-    transition: background-color 0.2s;
+    position: relative;
+    display: block;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
 
     &:hover,
     &:focus-visible {
-      background: #2a2e38;
+      .sns-bar__img--default {
+        opacity: 0;
+      }
+
+      .sns-bar__img--hover {
+        opacity: 1;
+      }
     }
   }
 
-  &__icon {
+  &__img {
     display: block;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    transition: opacity 0.2s;
 
-    &--home {
-      background-image: url("../images/topbar_icon_home.svg");
-    }
-
-    &--facebook {
-      background-image: url("../images/topbar_icon_facebook.svg");
-    }
-
-    &--youtube {
-      background-image: url("../images/topbar_icon_youtube.svg");
-    }
-
-    &--instagram {
-      background-image: url("../images/topbar_icon_instagram.svg");
+    &--hover {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
     }
   }
 }
 
-@include mo {
+@include tablet {
   .sns-bar {
     display: none;
   }

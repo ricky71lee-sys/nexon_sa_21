@@ -92,6 +92,7 @@
   .reward-cards {
     flex-direction: column;
     gap: 12px;
+    margin-top: 0;
 
     &__card {
       padding: 24px 16px;
@@ -109,14 +110,12 @@
   .reward-cards {
     flex-direction: column;
     gap: 10px;
-    margin-top: 0;
-
     &__card {
       padding: 20px 16px;
     }
 
     &__title {
-      font-size: 18px;
+      font-size: 20px;
       letter-spacing: 0.4px;
     }
 
@@ -133,17 +132,18 @@
     &__items {
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
     }
   }
 
   .reward-item {
-    flex: 1 1 0;
+    flex-shrink: 0;
     min-width: 0;
     gap: 8px;
 
     &__icon {
-      width: 72px;
-      height: 72px;
+      width: 80px;
+      height: 80px;
     }
 
     &__label {

@@ -12,6 +12,12 @@
   padding: 10px 0 0;
   text-align: center;
 
+  &__visual {
+    &-img{
+      transform: translateX(-3%);
+    }
+  }
+  
   &__title {
     margin: 0;
     font-size: 36px;
@@ -284,6 +290,43 @@
   @include medal-complete-board-stack;
 }
 
+.medal_complete_visual_mobile{
+  display: none;
+}
+
+@include laptop {
+  
+  .medal-complete{
+    padding-top: 0;
+    &__visual{
+      width: 100%;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      background: rgba(28, 34, 47, 0.50);
+      &-img{
+        transform: translateX(0);
+      }
+    }
+  }
+  .medal-complete__board{
+    margin-top: 0;
+  }
+}
+
+@include tablet {
+  .medal_complete_visual-img{
+    transform: translateX(0px);
+  }
+  .medal_complete_visual_mobile{
+    display: inline-block;
+    padding-bottom: 18px;
+    
+  }
+  .medal_complete_visual_pc{
+    display: none;
+  }
+}
+
 @include mo {
   .medal-complete {
     padding: 0;
@@ -292,17 +335,9 @@
 
     &__visual {
       width: 100%;
-      padding: 20px 16px 0;
-
-      img {
-        display: block;
-        width: min(100%, 200px);
-        margin: 0 auto;
-      }
     }
 
     &__title {
-      margin-top: 18px;
       font-size: 26px;
       line-height: normal;
     }
@@ -319,7 +354,6 @@
       flex-direction: column;
       gap: 20px;
       width: 100%;
-      margin-top: 20px;
       padding: 20px 16px;
       border: 0;
       background: #222b3c;

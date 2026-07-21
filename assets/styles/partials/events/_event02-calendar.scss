@@ -355,6 +355,67 @@
   }
 }
 
+// 1200~1001: 7열 고정폭(157px) 오버플로 → 카드만 비율 축소 (tablet 2열 전)
+@media (max-width: $bp-laptop) and (min-width: ($bp-tablet + 1)) {
+  .cal-grid {
+    width: 100%;
+    min-width: 0;
+
+    &__row {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  .cal-card {
+    width: auto;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 20px 0;
+    box-sizing: border-box;
+
+    &__icon {
+      width: clamp(72px, 9.5vw, 120px);
+      height: clamp(48px, 6.4vw, 80px);
+    }
+
+    &__date {
+      font-size: clamp(12px, 1.25vw, 16px);
+      line-height: 1.25;
+
+      em {
+        font-size: clamp(11px, 1.05vw, 13px);
+      }
+    }
+
+    &__reward {
+      font-size: clamp(10px, 1vw, 12px);
+      padding: 0 4px;
+      word-break: keep-all;
+    }
+
+    &__btn {
+      left: clamp(6px, 1.2vw, 30px);
+      right: clamp(6px, 1.2vw, 30px);
+      height: 26px;
+      font-size: clamp(10px, 1vw, 12px);
+      padding: 0 6px;
+    }
+
+    &__badge {
+      top: 8px;
+      left: 6px;
+      font-size: 11px;
+      padding: 0 5px 0 4px;
+    }
+
+    &__mark {
+      top: 8px;
+      right: 6px;
+    }
+  }
+}
+
 // MO · 2열 세로 카드 (Figma 출석판)
 @include tablet {
   .cal-grid {
@@ -431,7 +492,7 @@
   .cal-legend {
     flex-wrap: wrap;
     gap: 8px 12px;
-    margin-top: 12px;
+    margin-top: 0;
 
     span {
       font-size: 11px;

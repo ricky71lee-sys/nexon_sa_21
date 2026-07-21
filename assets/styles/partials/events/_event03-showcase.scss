@@ -215,10 +215,12 @@
   .showcase-panel {
     width: 100%;
     max-width: 100%;
-    padding-top: 20px;
-
+    padding-top: 0;
+    .sec-head{
+      background: url("../images/event03_bg_mobile2.png") no-repeat center top / 100% auto;
+    }
     &__list {
-      margin-top: 20px;
+      margin-top: 0;
       padding: 20px 16px;
       gap: 20px;
       box-sizing: border-box;

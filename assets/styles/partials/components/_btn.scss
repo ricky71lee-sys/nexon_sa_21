@@ -79,8 +79,10 @@
   &--gold-issue {
     padding: 17px 75px;
     border-radius: 8px;
-    border: 2px solid rgba(255, 255, 255, 0.10);
-    background: linear-gradient(90deg, #664A2F 0%, #C09849 100%), linear-gradient(0deg, #FFE28F 0%, #FFE28F 100%), linear-gradient(90deg, #4C1D10 0%, #8D4834 100%), linear-gradient(90deg, #8B623A 0%, #F4C15D 100%);
+    border: 0;
+    // 반투명 border + 그라데이션이 겹치면 좌/우 테두리가 이중선처럼 보임 → inset으로 처리
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(90deg, #664A2F 0%, #C09849 100%);
     font-size: 20px;
     font-weight: 700;
     color: var(--white);

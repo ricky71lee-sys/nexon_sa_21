@@ -715,7 +715,7 @@ $z-system: 10000;
 
   .modal-title {
     margin: 0;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
     line-height: 36px;
     text-align: center;
@@ -728,9 +728,9 @@ $z-system: 10000;
 
   .modal-message {
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 26px;
     text-align: center;
     color: #595959;
     word-break: keep-all;
@@ -744,11 +744,11 @@ $z-system: 10000;
 
   .modal-note {
     margin-top: 20px;
-    padding: 30px 20px;
+    padding: 16px 20px;
     border: 1px solid #4b53c3;
     border-radius: 8px;
     background: #fafbff;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 22px;
     color: #4b53c3;
@@ -780,10 +780,10 @@ $z-system: 10000;
       min-width: 0;
       height: auto;
       margin: 0;
-      padding: 16px 12px;
+      padding: 14px 12px;
       border: 0;
       border-radius: 0;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
       line-height: 20px;
       cursor: pointer;
@@ -848,7 +848,7 @@ $z-system: 10000;
     }
 
     &__list li {
-      font-size: 13px;
+      font-size: 12px;
       line-height: 20px;
     }
 

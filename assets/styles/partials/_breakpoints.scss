@@ -2,11 +2,13 @@
 // Breakpoints — 반응형 숫자는 여기만 변경
 // 사용: @use "../breakpoints" as *;  →  @include mo { ... }
 //
+// laptop (1200px): PC 고정폭 깨짐 구간 — % 축소·2열 정리
 // tablet (1000px): PC↔MO 애매 구간 — 한 줄 flex 깨짐 방지, 세로 스택·패딩
 // mo (767px): Figma MO 고정 스타일
 // =============================================================================
 $bp-mo: 767px;
 $bp-tablet: 1000px;
+$bp-laptop: 1200px;
 $bp-sidebar: 1520px;
 
 @mixin mo {
@@ -23,6 +25,12 @@ $bp-sidebar: 1520px;
 
 @mixin tablet {
   @media (max-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: $bp-laptop) {
     @content;
   }
 }

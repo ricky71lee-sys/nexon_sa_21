@@ -1,3 +1,49 @@
+@use "../breakpoints" as *;
+
+// =============================================================================
+// Display / visibility utilities
+// 예: <br class="mobile-hidden"> · <div class="pc-hidden"> · display-flex
+// =============================================================================
+.display-none {
+  display: none !important;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-inline {
+  display: inline !important;
+}
+
+.display-inline-block {
+  display: inline-block !important;
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+.display-inline-flex {
+  display: inline-flex !important;
+}
+
+// MO(767↓)에서 숨김 — PC만 보임
+.mobile-hidden {
+  @include mo {
+    display: none !important;
+  }
+}
+
+// PC에서 숨김 — MO만 보임 (원래 display 복원)
+.pc-hidden {
+  display: none !important;
+
+  @include mo {
+    display: revert !important;
+  }
+}
+
 .text-gradient-gold {
   background: linear-gradient(180deg, #FFFBE3 0%, #E6C363 100%);
   background-clip: text;

@@ -1,6 +1,6 @@
 @use "../breakpoints" as *;
 
-// 좌측 퀵메뉴 (PC only)
+// 좌측 퀵메뉴 (PC only) — Figma 140:450 / 140:455 / 140:460
 .side-nav {
   position: fixed;
   top: 50%;
@@ -19,16 +19,37 @@
   }
 
   &__item {
+    position: relative;
     display: block;
     width: 146px;
     height: 160px;
     overflow: hidden;
+
+    &:hover,
+    &:focus-visible,
+    &.is-active {
+      .side-nav__img--default {
+        opacity: 0;
+      }
+
+      .side-nav__img--hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 146px;
+    height: 160px;
+    object-fit: cover;
     transition: opacity 0.2s;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    &--hover {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
     }
   }
 

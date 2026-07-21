@@ -123,10 +123,7 @@
         share: false,
         menu: false,
         toast: { show: false, text: "", timer: null, variant: "" },
-        heroTodayHidden: false,
       });
-
-      const HERO_TODAY_STORAGE_KEY = "nexon_sa21_hero_today_hide";
 
       /* ------------------------------------------------------------------
        * [정적 데이터] API 불필요 — 스텝·보상카피·마일스톤·유의사항·쇼케이스
@@ -995,28 +992,17 @@
       }
 
       /**
-       * 히어로 「오늘하루 이창 열지 않기」 — 클릭 시 localStorage 저장 후 영구 숨김
-       */
-      function clickHeroTodayDismiss() {
-        try {
-          localStorage.setItem(HERO_TODAY_STORAGE_KEY, "1");
-        } catch (e) {
-          /* private mode 등 */
-        }
-        ui.heroTodayHidden = true;
-      }
-
-      /**
        * MO 햄버거 메뉴 토글
+       * 스크롤바 보정 padding-right 넣지 않음 (메뉴 열릴 때 우측 여백 생김)
        */
       function toggleMenu() {
         ui.menu = !ui.menu;
         if (ui.menu) {
           // topbar sticky/fixed 아님 → 메뉴(absolute)가 GNB 아래 보이도록 상단으로
           window.scrollTo(0, 0);
-          Utils.bodyScroll.hide();
+          document.body.style.overflow = "hidden";
         } else {
-          Utils.bodyScroll.show();
+          document.body.style.overflow = "";
         }
       }
 
@@ -1025,18 +1011,13 @@
        */
       function closeMenu() {
         ui.menu = false;
-        Utils.bodyScroll.show();
+        document.body.style.overflow = "";
       }
 
       /* [초기화]
        * onMounted: getMedalState + getAttendance (①로드 → ②get → ③상태 → ④렌더)
        */
       onMounted(async () => {
-        try {
-          ui.heroTodayHidden = localStorage.getItem(HERO_TODAY_STORAGE_KEY) === "1";
-        } catch (e) {
-          ui.heroTodayHidden = false;
-        }
         try {
           await getMedalState();
           await getAttendance();
@@ -1052,6 +1033,9 @@
               e.preventDefault();
               pageScroll.to($(this).data("scrollTo"));
             });
+          if (typeof pageScroll.updateActiveNav === "function") {
+            pageScroll.updateActiveNav();
+          }
         }
       });
 
@@ -1113,7 +1097,6 @@
         closeNotice,
         toggleMenu,
         closeMenu,
-        clickHeroTodayDismiss,
       };
     },
   }).mount("#app");
