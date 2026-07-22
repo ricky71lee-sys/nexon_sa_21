@@ -1,0 +1,26 @@
+// =============================================================================
+// 공통 SCSS mixin — 이벤트 섹션 배경·패널 등
+// =============================================================================
+
+/// EVENT1 배경: multiply 오버레이 + PNG
+@mixin multiply-vignette-bg($image, $position: center bottom, $size: cover) {
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%),
+    url($image) no-repeat $position / $size;
+  background-blend-mode: multiply, multiply, normal;
+}
+
+/// EVENT3 패널·MO 섹션 공통 그라데이션
+@mixin event3-surface-bg {
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%),
+    linear-gradient(180deg, #30265a 0%, #1b172f 100%);
+}
+
+/// EVENT3 패널 프레임 (타임테이블·쇼케이스·시청)
+@mixin event3-panel-frame {
+  border: 1px solid var(--border-gold);
+  @include event3-surface-bg;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.38);
+}

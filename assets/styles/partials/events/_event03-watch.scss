@@ -3,8 +3,7 @@
 
 // =============================================================================
 // EVENT3 · 시청 이벤트 (.watch-panel / .watch-list)
-// 패널 프레임은 _event03.scss 공통 선택자 참고
-// 보상: rewardIcons 있으면 아이콘 행 → 다음 단락에 칩+문구
+// 패널 프레임: _event03.scss · 보상: PC 한 줄 / MO 중앙 정렬
 // =============================================================================
 .watch-panel {
   .icon-watch {
@@ -14,46 +13,48 @@
     background: url("../images/icon_watch.png") no-repeat center / contain;
   }
 }
+
 .watch-list {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   &__item {
     position: relative;
     display: flex;
     align-items: center;
     gap: 42px;
+    min-width: 0;
     padding: 22px 32px 22px 38px;
     border: 1px solid #525365;
     background: var(--bg-purple);
-    min-width: 0;
   }
 
   &__num {
     position: absolute;
-    left: -1px;
     top: -1px;
+    left: -1px;
     width: 47px;
     height: 47px;
+    padding: 4px 0 0 7px;
     font-size: 15px;
     font-weight: 700;
-    padding: 4px 0 0 7px;
     background: url("../images/watch_event_num.png") no-repeat center / contain;
   }
 
   &__icon {
+    flex-shrink: 0;
     width: 114px;
     height: 114px;
-    flex-shrink: 0;
   }
 
   &__body {
     flex: 1 1 auto;
-    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    min-width: 0;
   }
 
   &__title {
@@ -66,10 +67,9 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 26px;
-    color: #EFEFEF;
+    color: #efefef;
   }
 
-  // 보상: PC — 아이콘 + 칩·문구 한 줄 (MO/tablet에서만 세로 스택)
   &__reward {
     display: flex;
     align-items: center;
@@ -79,9 +79,9 @@
 
   &__reward-icons {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     gap: 8px;
-    flex-shrink: 0;
   }
 
   &__reward-icon {
@@ -92,6 +92,7 @@
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
+
     img {
       display: block;
       width: 100%;
@@ -100,14 +101,12 @@
     }
   }
 
-  &__reward--has-icons {
-    .watch-list__reward-row {
-      flex: 1 1 auto;
-      min-width: 0;
-      flex-direction: column;
-      align-items: flex-start;
-      gap:8px;
-    }
+  &__reward--has-icons .watch-list__reward-row {
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
   }
 
   &__reward-row {
@@ -117,27 +116,26 @@
     min-width: 0;
   }
 
-    
   .reward-chip {
-    color: #302B4C;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: #abadc2;
+    color: #302b4c;
     font-size: 18px;
     font-weight: 700;
     line-height: 15px;
-    display: flex;
-    padding: 4px 10px;
-    align-items: center;
-    gap: 10px;
-    border-radius: 4px;
-    background: #ABADC2;
   }
 
   &__reward-text {
-    color: #CECFD9;
+    flex: 1 1 auto;
+    min-width: 0;
+    color: #cecfd9;
     font-size: 20px;
     font-weight: 500;
     line-height: 15px;
-    flex: 1 1 auto;
-    min-width: 0;
     word-break: keep-all;
     overflow-wrap: break-word;
   }
@@ -149,21 +147,19 @@
   }
 }
 
-// 1125↓: 버튼이 본문과 겹치므로 다음 줄로
-@media (max-width: 1125px) {
-  .watch-list {
-    &__item {
-      flex-wrap: wrap;
-      gap: 20px 24px;
+// CTA가 본문과 겹칠 때 다음 줄
+@include max-width($bp-watch-stack) {
+  .watch-list__item {
+    flex-wrap: wrap;
+    gap: 20px 24px;
 
-      > .btn--gold-action {
-        flex: 1 1 100%;
-        width: 100%;
-        justify-content: center;
-        margin-top: 0;
-        box-sizing: border-box;
-        font-size: 16px;
-      }
+    > .btn--gold-action {
+      flex: 1 1 100%;
+      width: 100%;
+      justify-content: center;
+      margin-top: 0;
+      box-sizing: border-box;
+      font-size: 16px;
     }
   }
 }
@@ -207,10 +203,11 @@
 }
 
 @include mo {
-  .watch-panel{
+  .watch-panel {
     margin-top: 20px;
     border-bottom: 0;
   }
+
   .watch-list {
     &__item {
       flex-direction: column;
@@ -223,10 +220,23 @@
         width: 100%;
         margin-top: 0;
         justify-content: center;
-        font-size: 16px;
         padding: 13px 16px;
         box-sizing: border-box;
+        font-size: 16px;
       }
+    }
+
+    &__num {
+      width: 36px;
+      height: 36px;
+      padding: 3px 0 0 5px;
+      font-size: 12px;
+    }
+
+    &__icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto;
     }
 
     &__body {
@@ -235,8 +245,15 @@
       text-align: center;
     }
 
-    &__title,
+    &__title {
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+    }
+
     &__desc {
+      font-size: 13px;
+      line-height: 18px;
       text-align: center;
     }
 
@@ -255,44 +272,14 @@
 
     &__reward--has-icons .watch-list__reward-row {
       flex: 0 1 auto;
-      width: auto;
       flex-wrap: nowrap;
       align-items: flex-start;
+      width: auto;
     }
 
     &__reward-row {
       align-items: flex-start;
       justify-content: center;
-    }
-
-    &__reward-text {
-      flex: 0 1 auto;
-      text-align: left;
-      font-size: 13px;
-      line-height: 16px;
-    }
-
-    &__num {
-      width: 36px;
-      height: 36px;
-      font-size: 12px;
-      padding: 3px 0 0 5px;
-    }
-
-    &__icon {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto;
-    }
-
-    &__title {
-      font-size: 16px;
-      line-height: 22px;
-    }
-
-    &__desc {
-      font-size: 13px;
-      line-height: 18px;
     }
 
     &__reward-icon {
@@ -301,9 +288,16 @@
     }
 
     .reward-chip {
+      padding: 3px 8px;
       font-size: 12px;
       line-height: 14px;
-      padding: 3px 8px;
+    }
+
+    &__reward-text {
+      flex: 0 1 auto;
+      font-size: 13px;
+      line-height: 16px;
+      text-align: left;
     }
   }
 }

@@ -3,6 +3,7 @@
 // 사용: @use "../breakpoints" as *;  →  @include mo { ... }
 //
 // laptop (1200px): PC 고정폭 깨짐 구간 — % 축소·2열 정리
+// laptop-only (1001~1200px): tablet과 laptop 사이 패널 패딩
 // tablet (1000px): PC↔MO 애매 구간 — 한 줄 flex 깨짐 방지, 세로 스택·패딩
 // mo (767px): Figma MO 고정 스타일
 // =============================================================================
@@ -10,6 +11,7 @@ $bp-mo: 767px;
 $bp-tablet: 1000px;
 $bp-laptop: 1200px;
 $bp-sidebar: 1520px;
+$bp-watch-stack: 1125px; // 시청 이벤트 CTA 줄바꿈
 
 @mixin mo {
   @media (max-width: $bp-mo) {
@@ -31,6 +33,19 @@ $bp-sidebar: 1520px;
 
 @mixin laptop {
   @media (max-width: $bp-laptop) {
+    @content;
+  }
+}
+
+/// 1001px ~ 1200px — tablet과 laptop 사이 패널 패딩 등
+@mixin laptop-only {
+  @media (min-width: $bp-tablet + 1) and (max-width: $bp-laptop) {
+    @content;
+  }
+}
+
+@mixin max-width($width) {
+  @media (max-width: $width) {
     @content;
   }
 }

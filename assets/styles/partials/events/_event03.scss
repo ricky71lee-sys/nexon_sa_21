@@ -1,8 +1,8 @@
 @use "../breakpoints" as *;
 @use "../fluid" as *;
+@use "../mixins" as *;
 
-// EVENT3
-
+// EVENT3 · 섹션 공통 (타임테이블·쇼케이스·시청 패널 프레임)
 .event03 {
   display: flex;
   flex-direction: column;
@@ -75,19 +75,16 @@
 .timetable,
 .showcase-panel__list,
 .watch-panel {
-  border: 1px solid rgba(255, 231, 167, 0.4);
-  background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%),
-    linear-gradient(180deg, #30265a 0%, #1b172f 100%);
-  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.38);
+  @include event3-panel-frame;
 }
 
 .timetable,
 .watch-panel {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--inner-width);
   margin: 0 auto;
   padding: 30px 32px;
+  box-sizing: border-box;
 }
 
 .block-title {
@@ -110,15 +107,16 @@
   .event03 {
     gap: 40px;
     padding-bottom: 80px;
-    .notice-wrap{
+
+    .notice-wrap {
       margin-top: 20px;
     }
   }
+
   .timetable,
   .watch-panel {
     max-width: 100%;
     padding: 24px 20px;
-    box-sizing: border-box;
   }
 
   .block-title {
@@ -129,31 +127,32 @@
 
 @include mo {
   .event03 {
-    background: none;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    gap:0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, #30265A 0%, #1B172F 100%);
-    .watch-panel{
-      box-shadow: none;
-      background: none;
-      padding-bottom: 0;
-      .notice-wrap{
-        margin-top: 20px;
-      }
-    }
-    .sec-head{
+    gap: 0;
+    padding: 0;
+    @include event3-surface-bg;
+
+    .sec-head {
       padding-top: 60px;
       padding-bottom: 30px;
       background: url("../images/event03_bg_mobile.png") no-repeat center top / 100% auto;
     }
+
     .match-date {
       max-width: 100%;
       width: 100%;
       padding: 10px 16px;
       font-size: 14px;
       box-sizing: border-box;
+    }
+
+    .watch-panel {
+      background: none;
+      box-shadow: none;
+      padding-bottom: 0;
+
+      .notice-wrap {
+        margin-top: 20px;
+      }
     }
   }
 
@@ -162,7 +161,6 @@
     width: 100%;
     max-width: 100%;
     padding: 20px 16px;
-    box-sizing: border-box;
   }
 
   .block-title {

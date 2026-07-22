@@ -1,15 +1,11 @@
 @use "../breakpoints" as *;
+@use "../mixins" as *;
 
-// EVENT1 · 패널
+// EVENT1 · 패널 + 배경
 .event01-bg {
   position: relative;
   padding-bottom: 100px;
-  // Figma fill: 10% multiply + 하단 비네팅 multiply + BG (이미지는 여기 한 번만)
-  background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%),
-    url("../images/event01_bg.png") no-repeat center bottom / cover;
-  background-blend-mode: multiply, multiply, normal;
+  @include multiply-vignette-bg("../images/event01_bg.png");
 }
 
 .event01 {
@@ -18,12 +14,12 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
-    padding: 30px 32px;
-    background: rgba(28, 34, 47, 0.50);
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
+    max-width: var(--inner-width);
     margin: 0 auto;
+    padding: 30px 32px;
     box-sizing: border-box;
+    background: rgba(28, 34, 47, 0.5);
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
   }
 
   .sec-head {
@@ -32,46 +28,36 @@
   }
 }
 
-@include tablet {
-  .event01 {
-    .event01__panel {
-      max-width: 100%;
-      width: 100%;
-      padding: 24px 16px;
-    }
-  }
-}
-
-@media (min-width: 1001px) and (max-width: 1200px) {
+@include laptop-only {
   .event01 .event01__panel {
     max-width: 100%;
     width: 100%;
     padding: 24px 20px;
-    box-sizing: border-box;
   }
 }
 
 @include laptop {
   .event01 .event01__panel {
+    gap: 30px;
     background: none;
     box-shadow: none;
-    gap: 30px;
-    .notice-wrap{
+
+    .notice-wrap {
       margin-top: -20px;
     }
   }
 }
 
 @include tablet {
-  .event01{
-    .event01__panel{
-      gap: 30px;
-      padding: 0;
-      
-    }
-  }
-  .event01-bg{
+  .event01-bg {
     padding-bottom: 60px;
+  }
+
+  .event01 .event01__panel {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    gap: 30px;
   }
 }
 
@@ -80,10 +66,9 @@
     .sec-head {
       margin-bottom: 20px;
     }
-    &-bg{
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),
-      linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%),
-      url("../images/event01_bg_mobile.png") no-repeat center top / 100% auto;
+
+    &-bg {
+      @include multiply-vignette-bg("../images/event01_bg_mobile.png", center top, 100% auto);
     }
 
     .event01__panel {
@@ -93,7 +78,6 @@
       padding: 0;
       background: transparent;
       box-shadow: none;
-      
     }
   }
 }

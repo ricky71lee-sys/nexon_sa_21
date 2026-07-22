@@ -3,3 +3,11 @@ node_modules
 package-lock.json
 _assets
 개발인계.md
+
+# Playwright · 내부 QA (인계/저장소 미포함)
+tests/
+playwright.config.js
+test-results/
+playwright-report/
+blob-report/
+.playwright/

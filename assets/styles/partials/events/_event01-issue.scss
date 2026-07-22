@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:40px 0 0;
   width: 100%;
+  padding: 40px 0 0;
   &__visual {
     width: 50%;
   }
@@ -56,15 +56,16 @@
 }
 
 @include laptop {
-  .medal-issue__phase{
-    background: rgba(28, 34, 47, 0.50);
+  .medal-issue__phase {
     display: flex;
-    padding: 20px 16px;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
     align-self: stretch;
-    .medal-issue{
+    gap: 20px;
+    padding: 20px 16px;
+    background: rgba(28, 34, 47, 0.5);
+
+    .medal-issue {
       padding-top: 0;
     }
   }
@@ -100,7 +101,7 @@
       width: 68px;
     }
 
-    &__desc{
+    &__desc {
       font-size: 16px;
       line-height: 24px;
     }
@@ -120,19 +121,19 @@
       font-size: 13px;
       line-height: 18px;
     }
-    &__ring{
+    &__ring {
       width: 188px;
       height: 188px;
     }
-    &__action{
-      gap:12px;
+
+    &__action {
+      gap: 12px;
     }
-    &__note{
+
+    &__note {
       font-size: 11px;
       font-weight: 500;
       line-height: 15px;
     }
   }
-  
-  
 }

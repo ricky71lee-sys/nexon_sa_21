@@ -2,9 +2,9 @@
 // style.scss — PC 기준 엔트리
 //
 // 구조: variables → reset → layout → components → hero → event(1~3) → functional → modals
-// MO: 각 partial 하단 @include mo { }  (숫자는 partials/_breakpoints.scss 만 수정)
-// 타이포·gap fluid: partials/_fluid.scss → fluid(최소px, 최대px)
-// 디자인 토큰(:root)은 _variables.scss — 값/이미지는 건드리지 말고 레이아웃·그리드만 조정
+// MO: 각 partial 하단 @include mo { }
+// tablet (≤1000) · laptop (≤1200) · laptop-only (1001~1200): partials/_breakpoints.scss
+// fluid 타이포·gap: partials/_fluid.scss · 공통 mixin: partials/_mixins.scss
 // =============================================================================
 @use "partials/variables";
 @use "partials/reset";

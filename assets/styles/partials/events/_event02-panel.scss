@@ -1,26 +1,27 @@
 @use "../breakpoints" as *;
 @use "../fluid" as *;
 
-// EVENT2 · 패널
-// EVENT 2 · 출석
+// EVENT2 · 출석 패널
 .event02 {
   .attendance-panel {
     display: flex;
-    padding: 30px 32px;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
-    border: 1px solid rgba(255, 231, 167, 0.40);
-    background: #222B3C;
-    box-shadow: 0 0 62.4px 0 rgba(0, 0, 0, 0.91);
-    max-width: 1200px;
+    max-width: var(--inner-width);
     margin: 0 auto;
+    padding: 30px 32px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-gold);
+    background: #222b3c;
+    box-shadow: 0 0 62.4px 0 rgba(0, 0, 0, 0.91);
   }
 
-  .sec-head{
+  .sec-head {
     margin-bottom: 60px;
   }
-  .att-notes{
+
+  .att-notes {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,8 +30,9 @@
     margin-top: -6px;
     padding: 0 8px;
     box-sizing: border-box;
-    li{
-      color: #FFF;
+
+    li {
+      color: #fff;
       text-align: center;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.66);
       font-size: fluid(12, 17);
@@ -40,11 +42,11 @@
       overflow-wrap: break-word;
     }
   }
-  
-  .notice-wrap{
-    text-align: center;
+
+  .notice-wrap {
     width: 100%;
     margin-top: -10px;
+    text-align: center;
   }
 }
 
@@ -60,9 +62,8 @@
       margin: 0;
       padding: 0;
       gap: 16px;
-      box-sizing: border-box;
-      background: none;
       border: 0;
+      background: none;
       box-shadow: none;
     }
 

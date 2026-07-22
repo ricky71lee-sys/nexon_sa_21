@@ -286,43 +286,44 @@
   }
 }
 
-@media (max-width: 1200px) {
-  @include medal-complete-board-stack;
-}
-
-.medal_complete_visual_mobile{
-  display: none;
-}
-
 @include laptop {
-  
-  .medal-complete{
+  @include medal-complete-board-stack;
+
+  .medal-complete {
     padding-top: 0;
-    &__visual{
+
+    &__visual {
       width: 100%;
-      padding-bottom: 20px;
-      padding-top: 20px;
-      background: rgba(28, 34, 47, 0.50);
-      &-img{
+      padding: 20px 0;
+      background: rgba(28, 34, 47, 0.5);
+
+      &-img {
         transform: translateX(0);
       }
     }
   }
-  .medal-complete__board{
+
+  .medal-complete__board {
     margin-top: 0;
   }
 }
 
+// PC/MO 비주얼 전환 (HTML 클래스명 유지)
+.medal_complete_visual_mobile {
+  display: none;
+}
+
 @include tablet {
-  .medal_complete_visual-img{
-    transform: translateX(0px);
+  .medal_complete_visual-img {
+    transform: translateX(0);
   }
-  .medal_complete_visual_mobile{
+
+  .medal_complete_visual_mobile {
     display: inline-block;
     padding-bottom: 18px;
-    
   }
-  .medal_complete_visual_pc{
+
+  .medal_complete_visual_pc {
     display: none;
   }
 }
