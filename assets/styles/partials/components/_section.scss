@@ -108,6 +108,20 @@
   .notice-wrap {
     margin-top: 0;
   }
+
+  .att-notes {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 4px;
+    box-sizing: border-box;
+
+    li {
+      font-size: fluid(12, 17);
+      line-height: 1.45;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+  }
 }
 
 @include mo {
