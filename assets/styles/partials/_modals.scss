@@ -67,12 +67,13 @@ $z-system: 10000;
   position: fixed;
   top: var(--gnb-height, 0px);
   right: 0;
+  bottom: 0;
   z-index: $z-panel;
   display: flex;
   flex-direction: column;
   width: 330px;
   max-width: 100%;
-  height: calc(100% - var(--gnb-height, 0px));
+  height: auto;
   background: #27292f;
   box-shadow: -12px 0 20px rgba(0, 0, 0, 0.15);
   transform: translateX(100%);
@@ -417,7 +418,7 @@ $z-system: 10000;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 36px 30px;
+    padding: 50px 40px;
     background: #fff;
     box-shadow: -12px 0 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
@@ -466,11 +467,21 @@ $z-system: 10000;
     li {
       position: relative;
       padding-left: 9px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 400;
-      line-height: 20px;
+      line-height: 17px;
       color: #595959;
       word-break: keep-all;
+
+      strong {
+        font-weight: 700;
+        color: #595959;
+      }
+
+      .accent {
+        color: #4b53c3;
+        font-weight: 700;
+      }
 
       &::before {
         content: "";
@@ -496,7 +507,7 @@ $z-system: 10000;
       border: 0;
       border-radius: 0;
       background: #4b53c3;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       line-height: 20px;
       color: #fff;
@@ -713,6 +724,53 @@ $z-system: 10000;
     text-align: center;
   }
 
+  &.is-info {
+    padding: 50px 40px;
+
+    .modal-icon {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 20px;
+      border: 2px solid #4b53c3;
+      border-radius: 50%;
+      box-sizing: border-box;
+      color: #4b53c3;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 34px;
+      text-align: center;
+
+      &::before {
+        content: "!";
+      }
+    }
+
+    .modal-title {
+      margin: 0 0 10px;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 40px;
+      text-align: center;
+      color: #000;
+
+      .accent {
+        color: #4b53c3;
+      }
+    }
+
+    .modal-message {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 26px;
+      color: #595959;
+    }
+
+    .modal-buttons {
+      margin-top: 30px;
+    }
+  }
+
   .modal-title {
     margin: 0;
     font-size: 30px;
@@ -849,7 +907,7 @@ $z-system: 10000;
 
     &__list li {
       font-size: 12px;
-      line-height: 20px;
+      line-height: 17px;
     }
 
     &__actions {
@@ -917,6 +975,20 @@ $z-system: 10000;
     width: 100%;
     max-width: 340px;
     padding: 36px 30px;
+
+    &.is-info {
+      padding: 36px 30px;
+
+      .modal-title {
+        font-size: 20px;
+        line-height: 36px;
+      }
+
+      .modal-message {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
 
     .modal-title {
       font-size: 20px;

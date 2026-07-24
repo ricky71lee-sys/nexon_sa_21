@@ -46,17 +46,18 @@
   }
 
   &__period {
-    border-radius: 100px;
-    background: #3458AF;
-    display: flex;
-    padding: 6px 16px;
-    justify-content: center;
-    align-items: center;
+    // border-radius: 100px;
+    // background: #3458AF;
+    // display: flex;
+    // padding: 6px 16px;
+    // justify-content: center;
+    // align-items: center;
+    // margin-top: 6px;
+    // color: #FFF;
+    // font-size: 16px;
+    // font-weight: 700;
+    // line-height: 20px;
     margin-top: 6px;
-    color: #FFF;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
   }
 
   &__today {
@@ -189,15 +190,15 @@
 
     &__period {
       margin-top: 0;
-      padding: 6px 10px;
-      border-radius: 500px;
-      font-size: clamp(12px, 1.6vw, 16px);
-      font-weight: 600;
-      line-height: clamp(15px, 2vw, 20px);
-      max-width: 100%;
-      white-space: normal;
-      text-align: center;
-      box-sizing: border-box;
+      // padding: 6px 10px;
+      // border-radius: 500px;
+      // font-size: clamp(12px, 1.6vw, 16px);
+      // font-weight: 600;
+      // line-height: clamp(15px, 2vw, 20px);
+      // max-width: 100%;
+      // white-space: normal;
+      // text-align: center;
+      // box-sizing: border-box;
     }
 
     &__today {

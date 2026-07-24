@@ -69,6 +69,7 @@
         login: true,
         character: true,
         penalty: false,
+        nick: "연사왕",
       });
 
       /**
@@ -229,9 +230,15 @@
         event03: [
           "방송 시청 이벤트: 21주년 쇼케이스 방송을 시청하고 조건을 충족하면 보상이 지급됩니다.",
           "승부 예측: 8월 23일(일) 오후 5시 전까지 참여한 예측만 인정됩니다.",
-          "승부 예측 보상은 예측 참여 횟수와 상관없이 계정당 1회만 지급됩니다.",
+          "8월 23일(일) 오후 5시 전까지 참여한 예측만 인정되며, 예측 변경은 이벤트 종료 전까지 최대 5회 가능합니다. 가장 마지막 제출한 응답 기준으로 이벤트 참여가 인정됩니다.",
+          "승부 예측 보상은 예측 참여 횟수와 상관 없이 계정당 1회만 지급됩니다.",
           "N커넥트 연동: 선택 동의를 포함한 N커넥트 연동을 완료한 후 방송을 시청해야 드롭스 보상이 지급됩니다.",
-          "듀오 동반 시청: 보상은 계정당 1회만 지급됩니다.",
+          `<strong>듀오 동반 시청</strong><br>
+            - 이벤트 조건 충족 시, SOOP 계정과 N커넥트를 연동한 넥슨계정으로 보상이 지급됩니다.<br>
+            - 이벤트 참여를 위해 <span class="accent">꼭 N커넥트를 연동한 SOOP 계정 로그인 후 시청</span>이 필요합니다.<br>
+            - 8월 23일(일) 오후 5시부터 진행되는 방송에 '21주년 메달 완성' 이벤트를 함께 참여한<br>
+            &nbsp;&nbsp;&nbsp;<span class="accent">두 유저 모두가 N 커넥트를 연동한 SOOP 계정으로 시청한 이력이 있을 경우 정상적으로 참여됩니다.</span>`,
+          "모든 이벤트 보상은 8월 27일(목) 정기점검 종료 후 참여하신 계정의 선물함으로 순차 지급됩니다.",
           "상세 보상 내용 및 세부 유의사항은 추후 업데이트될 예정입니다.",
         ],
       };
@@ -240,7 +247,8 @@
        * EVENT3 시청 이벤트 목록
        * · icon — 좌측 대표 이미지 (watch_eventN.png)
        * · rewardIcons — 보상 아이콘 (있으면 아이콘 행 아래 단락에 칩+문구)
-       * · cta — 있으면 우측 골드 버튼 노출
+       * · cta — 있으면 우측 CTA 버튼 노출
+       * · ctaBtn — CTA 이미지 (항목별 상이)
        */
       const showcase = {
         watchEvents: [
@@ -254,6 +262,7 @@
             rewardIcons: ["watch_reward_01_1.png", "watch_reward_01_2.png"],
             reward: "예측 성공 시 500 SP / 실패 시 제작 재료 2,000개",
             cta: "승부 예측 참여하기",
+            ctaBtn: "btn_watch_victory.svg",
           },
           {
             id: "watch-02", // 성공이냐 실패냐 — 보상 아이콘 없음
@@ -275,25 +284,26 @@
             reward: "동시 시청자 달성 쿠폰 (목표 21,000명)",
             cta: "",
           },
+          // {
+          //   id: "watch-04", // N커넥트 · 드롭스
+          //   no: "04",
+          //   icon: "watch_event4.png",
+          //   title: "N커넥트 연동 & 드롭스",
+          //   desc: "선택 동의를 포함한 N커넥트 연동을 완료한 후 방송을 시청하면 드롭스 보상을 지급합니다.<br>(시청 미션 달성 시마다 지급 · 방송 시청 조건 충족 시)",
+          //   rewardIcons: ["watch_reward_04.png"],
+          //   reward: "21주년 방송 시청상자",
+          //   cta: "",
+          // },
           {
-            id: "watch-04", // N커넥트 · 드롭스
+            id: "watch-04", // 듀오 동반 시청
             no: "04",
-            icon: "watch_event4.png",
-            title: "N커넥트 연동 & 드롭스",
-            desc: "선택 동의를 포함한 N커넥트 연동을 완료한 후 방송을 시청하면 드롭스 보상을 지급합니다.<br>(시청 미션 달성 시마다 지급 · 방송 시청 조건 충족 시)",
-            rewardIcons: ["watch_reward_04.png"],
-            reward: "21주년 방송 시청상자",
-            cta: "",
-          },
-          {
-            id: "watch-05", // 듀오 동반 시청
-            no: "05",
             icon: "watch_event5.png",
             title: "21주년 메달 완성 · 듀오 동반 시청",
             desc: "21주년 메달을 완성하고 N커넥트 연동을 완료한 듀오가 함께 방송을 시청하면<br>특별한 추가 보상을 획득할 수 있습니다!",
             rewardIcons: ["watch_reward_05.png"],
             reward: "마이건2 주무기 하프키트",
-            cta: "",
+            cta: "듀오 동반 시청 참여하기",
+            ctaBtn: "btn_watch_connect.svg",
           },
         ],
       };
@@ -358,6 +368,15 @@
           '<span class="accent">동일 명의 계정</span> 간에는<br><strong>듀오 결성이 불가합니다.</strong>',
           { variant: "warn", confirmText: "확인" }
         );
+      }
+
+      /** 서든어택 계정(캐릭터) 미생성 안내 — Figma 211:7287 */
+      function alertNeedCharacter() {
+        return Utils.alert("게임에 접속하여 계정을 생성해 주세요", {
+          variant: "info",
+          titleHtml: '<span class="accent">서든어택 계정 생성 후</span><br>참여 가능합니다.',
+          confirmText: "확인",
+        });
       }
 
       /**
@@ -617,7 +636,7 @@
             confirmOnly: true,
           });
         }
-        if (!user.character) return Utils.alert("서든어택 계정(캐릭터)이 필요합니다.");
+        if (!user.character) return alertNeedCharacter();
         if (user.penalty) return Utils.alert("이벤트 참여가 제한된 계정입니다.");
         if (medal.issued || medal.phase > 1) return;
         try {
@@ -680,6 +699,7 @@
         if (!medal.code) {
           return Utils.alert("먼저 메달을 발급받아 주세요.");
         }
+        Utils.shareMeta.forMedal({ nick: user.nick, code: medal.code });
         ui.share = true;
         Utils.bodyScroll.hide();
       }
@@ -689,16 +709,24 @@
        */
       function closeShare() {
         ui.share = false;
+        Utils.shareMeta.reset();
         Utils.bodyScroll.show();
       }
 
       /**
        * 공유 채널 선택 핸들러
-       * link: 코드 복사 / 그 외: SNS SDK TODO
+       * link: 공유 문구 복사 / 그 외: SNS SDK TODO
        */
       function clickShareChannel(id) {
         if (id === "link") {
-          copyCode();
+          const text = [
+            user.nick + "님이 메달 합체를 신청했어요!",
+            "메달 코드를 입력하여 메달을 합치고 풍성한 보상 받으세요!",
+            "메달 코드: " + medal.code,
+            Utils.shareMeta.DEFAULT.urlLabel,
+          ].join("\n");
+          navigator.clipboard?.writeText(text);
+          showToast("공유 문구가 복사되었습니다.");
           return;
         }
         // TODO: 카카오/페북/X/인스타 SDK 연동
@@ -952,6 +980,9 @@
        * TODO: getVaultRewards → vault.rewards 세팅 후 오픈 (현재는 medal/attend 기반 표시)
        */
       async function openVault() {
+        if (window.pageScroll && typeof pageScroll.syncGnbHeightFromDom === "function") {
+          pageScroll.syncGnbHeightFromDom();
+        }
         vault.open = true;
         Utils.bodyScroll.hide();
       }

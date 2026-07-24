@@ -25,6 +25,7 @@
     const shade = createElement("div", "modal-shade");
     const modal = createElement("div", ["modal", "modal-confirm"]);
     if (options.variant === "warn") modal.classList.add("is-warn");
+    if (options.variant === "info") modal.classList.add("is-info");
 
     const buttons = createElement("div", "modal-buttons");
 
@@ -38,10 +39,16 @@
       imageDiv.appendChild(image);
       modal.appendChild(imageDiv);
     }
-    if (options.title) {
+    if (options.titleHtml || options.title) {
       const title = createElement("h4", "modal-title");
-      title.textContent = options.title;
+      if (options.titleHtml) title.innerHTML = options.titleHtml;
+      else title.textContent = options.title;
       modal.appendChild(title);
+    }
+    if (options.variant === "info") {
+      const icon = createElement("div", "modal-icon");
+      icon.setAttribute("aria-hidden", "true");
+      modal.insertBefore(icon, modal.firstChild);
     }
 
     const message = createElement("p", "modal-message");
@@ -78,12 +85,13 @@
         buttonClose = false,
         confirmText = "확인",
         title = "",
+        titleHtml = "",
         note = "",
         variant = "",
       } = {}
     ) =>
       new Promise((resolve) => {
-        const el = createModal(message, { buttonClose, title, note, variant });
+        const el = createModal(message, { buttonClose, title, titleHtml, note, variant });
         el.buttons.classList.add("is-single");
         el.buttons.appendChild(
           Object.assign(createElement("button", "modal-button__confirm"), {
@@ -115,6 +123,7 @@
         cancelText = "아니오",
         confirmOnly = false,
         title = "",
+        titleHtml = "",
         note = "",
         variant = "",
       } = {}
@@ -124,6 +133,7 @@
           buttonClose,
           image,
           title,
+          titleHtml,
           note,
           variant,
         });
@@ -185,5 +195,62 @@
         }
       },
     },
+
+    shareMeta: (() => {
+      const DEFAULT = {
+        title: "둘이서 하나, 서든어택 21주년",
+        description: "메달 합체부터 출석·쇼케이스까지, 둘이서 더 풍성하게!",
+        url: "https://csonline.nexon.com",
+        urlLabel: "csonline.nexon.com",
+        image: "./assets/images/og_share.png",
+      };
+
+      function toAbsoluteUrl(path) {
+        if (/^https?:\/\//.test(path)) return path;
+        return new URL(path.replace(/^\.\//, ""), window.location.href).href;
+      }
+
+      function setMeta(selector, content) {
+        let el = document.querySelector(selector);
+        if (!el) {
+          el = document.createElement("meta");
+          const isProperty = selector.includes("property=");
+          if (isProperty) {
+            el.setAttribute("property", selector.match(/property="([^"]+)"/)[1]);
+          } else {
+            el.setAttribute("name", selector.match(/name="([^"]+)"/)[1]);
+          }
+          document.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      }
+
+      function apply(meta) {
+        const next = { ...DEFAULT, ...meta };
+        document.title = next.title;
+        setMeta('meta[name="description"]', next.description);
+        setMeta('meta[property="og:title"]', next.title);
+        setMeta('meta[property="og:description"]', next.description);
+        setMeta('meta[property="og:url"]', next.url);
+        setMeta('meta[property="og:image"]', toAbsoluteUrl(next.image));
+        setMeta('meta[name="twitter:title"]', next.title);
+        setMeta('meta[name="twitter:description"]', next.description);
+        setMeta('meta[name="twitter:image"]', toAbsoluteUrl(next.image));
+      }
+
+      return {
+        DEFAULT,
+        apply,
+        reset: () => apply(DEFAULT),
+        forMedal({ nick, code }) {
+          apply({
+            title: nick + "님이 메달 합체를 신청했어요!",
+            description:
+              "메달 코드를 입력하여 메달을 합치고 풍성한 보상 받으세요!\n메달 코드: " + code,
+            url: DEFAULT.url + "?code=" + encodeURIComponent(code),
+          });
+        },
+      };
+    })(),
   };
 })(window);

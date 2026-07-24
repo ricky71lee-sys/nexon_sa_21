@@ -14,6 +14,36 @@ $(function () {
   };
 
   window.pageScroll = {
+    /** 넥슨 GNB 실측 — 스크롤·배너 접힘 후에도 --gnb-height 동기화 */
+    syncGnbHeightFromDom: function () {
+      const selectors = [
+        "#gnb",
+        "#NexonGNB",
+        "#NexonGnb",
+        ".gnb_wrap",
+        ".gnbArea",
+        ".gnb",
+      ];
+      let measured = 0;
+
+      for (let i = 0; i < selectors.length; i++) {
+        const el = document.querySelector(selectors[i]);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.height <= 0 || rect.bottom <= 0) continue;
+        // fixed GNB: viewport 상단에 붙어 있을 때 bottom = 현재 노출 높이
+        if (rect.top <= 1) {
+          measured = Math.max(measured, Math.round(rect.bottom));
+        }
+      }
+
+      if (measured > 0) {
+        document.documentElement.style.setProperty("--gnb-height", measured + "px");
+      }
+      this.syncOffset();
+      return measured;
+    },
+
     /** 고정 영역은 넥슨 GNB만 (이벤트 topbar는 sticky/fixed 아님) */
     getOffset: function () {
       const gnb =
@@ -143,11 +173,23 @@ $(function () {
     });
   }
 
+  pageScroll.syncGnbHeightFromDom();
   pageScroll.syncOffset();
   pageScroll.updateActiveNav();
   pageScroll.initHash();
 
+  let gnbSyncTimer = null;
+  body.scroll(function () {
+    if (gnbSyncTimer) return;
+    gnbSyncTimer = window.setTimeout(function () {
+      gnbSyncTimer = null;
+      pageScroll.syncGnbHeightFromDom();
+      pageScroll.updateActiveNav();
+    }, 80);
+  });
+
   $(window).on("resize", function () {
+    pageScroll.syncGnbHeightFromDom();
     pageScroll.syncOffset();
     pageScroll.updateActiveNav();
   });
@@ -161,6 +203,7 @@ $(function () {
       if (!h || h < 0) h = 62;
       document.documentElement.style.setProperty("--gnb-height", h + "px");
     }
+    pageScroll.syncGnbHeightFromDom();
     pageScroll.syncOffset();
     pageScroll.updateActiveNav();
   };

@@ -24,3 +24,43 @@
   @include event3-surface-bg;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.38);
 }
+
+/// 금속(동색) 버튼 표면 — gradient + gloss ::before
+/// 카드 CTA·합체 수락 등 공통
+@mixin gold-metallic-btn($radius: 8px) {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: $radius;
+  background: linear-gradient(
+    180deg,
+    #c49a58 0%,
+    #a56f3d 46%,
+    #704828 50%,
+    #52341e 100%
+  );
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.22);
+  color: #fff;
+  transition: opacity 0.2s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.06) 42%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 0.92;
+  }
+}

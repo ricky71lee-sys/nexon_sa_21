@@ -5,7 +5,7 @@
 .event01-bg {
   position: relative;
   padding-bottom: 100px;
-  @include multiply-vignette-bg("../images/event01_bg.png");
+  @include multiply-vignette-bg("../images/event01_bg.svg");
 }
 
 .event01 {
