@@ -644,7 +644,6 @@
     flex-wrap: wrap;
     gap: 8px 12px;
     margin-top: 0;
-
     span {
       font-size: 11px;
       line-height: 16px;
@@ -659,6 +658,9 @@
 
 
 @include mo {
+  .cal-legend{
+    margin-top: -10px;
+  }
   .cal-card__meta{
     padding-left: 0;
     padding-right: 0;

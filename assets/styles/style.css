@@ -4165,6 +4165,9 @@ button {
   }
 }
 @media (max-width: 767px) {
+  .cal-legend {
+    margin-top: -10px;
+  }
   .cal-card__meta {
     padding-left: 0;
     padding-right: 0;
@@ -4349,7 +4352,7 @@ button {
   .milestone {
     flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 13px;
   }
   .milestone__block {
     width: 100%;
@@ -5379,6 +5382,7 @@ button {
   .watch-panel .icon-watch {
     width: 16px;
     height: 16px;
+    background-size: 87%;
   }
   .watch-panel .block-title {
     gap: 2px;
