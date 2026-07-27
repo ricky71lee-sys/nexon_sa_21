@@ -65,7 +65,8 @@ $z-system: 10000;
 // ── 내 보상함 (#27292f, 330px) ──
 .vault {
   position: fixed;
-  top: var(--gnb-height, 0px);
+  // 스크롤 시 GNB 노출분만큼만 밀어줌 (control.js --vault-top)
+  top: var(--vault-top, var(--gnb-height, 0px));
   right: 0;
   bottom: 0;
   z-index: $z-panel;

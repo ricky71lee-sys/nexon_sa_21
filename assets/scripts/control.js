@@ -60,6 +60,42 @@ $(function () {
       );
     },
 
+    /**
+     * 보상함(.vault) top — GNB가 보이면 그만큼, 스크롤로 빠지면 0까지 감소
+     * top = max(0, gnb.getBoundingClientRect().bottom)
+     */
+    syncVaultTop: function () {
+      const selectors = [
+        "#gnb",
+        "#NexonGNB",
+        "#NexonGnb",
+        ".gnb_wrap",
+        ".gnbArea",
+        ".gnb",
+      ];
+      let top = null;
+
+      for (let i = 0; i < selectors.length; i++) {
+        const el = document.querySelector(selectors[i]);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.height <= 0) continue;
+        top = Math.max(0, Math.round(rect.bottom));
+        break;
+      }
+
+      if (top === null) {
+        const gnb =
+          parseFloat(
+            getComputedStyle(document.documentElement).getPropertyValue("--gnb-height")
+          ) || 0;
+        top = Math.max(0, Math.round(gnb - (window.pageYOffset || 0)));
+      }
+
+      document.documentElement.style.setProperty("--vault-top", top + "px");
+      return top;
+    },
+
     /** section[id^=event] → .sec-head 기준 (제목이 topbar 바로 아래) */
     resolveTarget: function (el) {
       if (!el) return null;
@@ -175,15 +211,18 @@ $(function () {
 
   pageScroll.syncGnbHeightFromDom();
   pageScroll.syncOffset();
+  pageScroll.syncVaultTop();
   pageScroll.updateActiveNav();
   pageScroll.initHash();
 
   let gnbSyncTimer = null;
   body.scroll(function () {
+    pageScroll.syncVaultTop();
     if (gnbSyncTimer) return;
     gnbSyncTimer = window.setTimeout(function () {
       gnbSyncTimer = null;
       pageScroll.syncGnbHeightFromDom();
+      pageScroll.syncVaultTop();
       pageScroll.updateActiveNav();
     }, 80);
   });
@@ -191,6 +230,7 @@ $(function () {
   $(window).on("resize", function () {
     pageScroll.syncGnbHeightFromDom();
     pageScroll.syncOffset();
+    pageScroll.syncVaultTop();
     pageScroll.updateActiveNav();
   });
 
@@ -205,6 +245,7 @@ $(function () {
     }
     pageScroll.syncGnbHeightFromDom();
     pageScroll.syncOffset();
+    pageScroll.syncVaultTop();
     pageScroll.updateActiveNav();
   };
 });

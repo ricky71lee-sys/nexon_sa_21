@@ -485,7 +485,7 @@ button {
 }
 .side-nav {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: max(12px, 50% - var(--max-width) / 2 + 40px);
   z-index: 15;
   display: flex;
@@ -5478,7 +5478,7 @@ section[id^=event],
 
 .vault {
   position: fixed;
-  top: var(--gnb-height, 0px);
+  top: var(--vault-top, var(--gnb-height, 0px));
   right: 0;
   bottom: 0;
   z-index: 501;

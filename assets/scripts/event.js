@@ -986,8 +986,13 @@
        * TODO: getVaultRewards → vault.rewards 세팅 후 오픈 (현재는 medal/attend 기반 표시)
        */
       async function openVault() {
-        if (window.pageScroll && typeof pageScroll.syncGnbHeightFromDom === "function") {
-          pageScroll.syncGnbHeightFromDom();
+        if (window.pageScroll) {
+          if (typeof pageScroll.syncGnbHeightFromDom === "function") {
+            pageScroll.syncGnbHeightFromDom();
+          }
+          if (typeof pageScroll.syncVaultTop === "function") {
+            pageScroll.syncVaultTop();
+          }
         }
         vault.open = true;
         Utils.bodyScroll.hide();

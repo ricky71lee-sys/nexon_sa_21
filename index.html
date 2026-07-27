@@ -68,8 +68,12 @@
         </a>
       </nav>
       <button type="button" class="side-nav__vault" @click="openVault">
-        <img src="./assets/images/side_nav_vault.png" alt="내 보상함 바로가기" width="147" height="62">
+        <img src="./assets/images/side_nav_vault.png" alt="내 보상함 바로가기">
       </button>
+
+      <a class="side-nav__exchange" href="https://sa.nexon.com/main/index.aspx" target="_blank" rel="noopener">
+        <img src="./assets/images/side_nav_exchange.png" alt="21주년 교환소 바로가기">
+      </a>
     </aside>
 
     <aside class="sns-bar" aria-label="공식 채널">
@@ -162,9 +166,9 @@
         </div>
         <!-- 오늘 하루 그만 보기 (PC: content 기준 우 64 · 하 42) — 동작은 개발팀 연동 -->
         <div class="hero__today">
-          <div class="hero__footer-btn">
+          <!-- <div class="hero__footer-btn">
             <button><img src="./assets/images/hero_kv_btn.png" alt="오늘21주년 교환소기"></button>
-          </div>
+          </div> -->
           <div type="button" class="hero__today-btn" @click="toggleToday">
             <!-- <img src="./assets/images/today.png" alt="오늘하루 이창 열지 않기"> -->
             <label for="hero__today-check" class="hero__today-btn-label">
@@ -505,6 +509,9 @@
              셀 클릭: clickDay(출석·받기·보충) · 마일스톤: clickClaimMilestone/Duo
              days(computed)로 달력 렌더 · 보충일(state=4)은 duoDays 미포함 -->
           <section id="event02" class="event02">
+            <!-- <div class="mobile-background">
+              <img src="./assets/images/event02_bg_mobile.png" alt="21일 듀오 출석 챌린지 배경">
+            </div> -->
             <div class="sec-head">
               <span class="sec-tag">EVENT 2</span>
               <h2 class="sec-title"><img src="./assets/images/event02_title.svg" alt="21일 듀오 출석 챌린지"></h2>
