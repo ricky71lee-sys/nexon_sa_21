@@ -1,6 +1,36 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Pretendard-Regular.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Pretendard-Medium.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/Pretendard-SemiBold.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Pretendard-Bold.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/Pretendard-ExtraBold.subset.woff2") format("woff2");
+}
 :root {
-  --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font: "Pretendard", "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --gnb-height: 62px;
   --max-width: 1920px;
   /* 1200 미만은 fluid — viewport device-width 와 맞춤 (구: 항상 1200 → 가로 스크롤) */
@@ -886,9 +916,10 @@ button {
 }
 @media (max-width: 767px) {
   .sec-tag {
-    padding: 4px 16px;
+    padding: 4px 26px;
     font-size: 12px;
     line-height: 16px;
+    font-weight: 800;
   }
   .sec-head {
     gap: 6px;
@@ -1143,8 +1174,8 @@ button {
 }
 @media (max-width: 1000px) {
   .hero {
-    height: calc(100dvh - 60px);
-    min-height: 608px;
+    height: auto;
+    min-height: inherit;
   }
   .hero__bg-pc {
     display: none;
@@ -1152,8 +1183,20 @@ button {
   .hero__bg-mo {
     display: block;
   }
+  .hero__bg {
+    position: static;
+  }
+  .hero__bg img {
+    position: static;
+    width: 100%;
+  }
   .hero__content {
     width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
   }
   .hero__content-inner {
     justify-content: space-between;
@@ -1272,9 +1315,30 @@ button {
     margin-top: -20px;
   }
 }
+.mobile-background {
+  display: none;
+}
+
 @media (max-width: 1000px) {
+  .event01 {
+    position: relative;
+  }
+  .event01 .mobile-background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  .event01 .mobile-background img {
+    width: 100%;
+    height: 100%;
+  }
   .event01-bg {
-    padding-bottom: 60px;
+    padding-bottom: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%) !important;
   }
   .event01 .event01__panel {
     max-width: 100%;
@@ -1286,26 +1350,6 @@ button {
 @media (max-width: 767px) {
   .event01 .sec-head {
     margin-bottom: 20px;
-  }
-  .event01-bg {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg_mobile.png") no-repeat center top/100% auto;
-    background-blend-mode: multiply, multiply, normal;
-  }
-  .event01-bg--1 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg_mobile.png") no-repeat center top/100% auto;
-    background-blend-mode: multiply, multiply, normal;
-  }
-  .event01-bg--2 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_02_bg_mobile.png") no-repeat center top/100% auto;
-    background-blend-mode: multiply, multiply, normal;
-  }
-  .event01-bg--3 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_03_bg_mobile.png") no-repeat center top/100% auto;
-    background-blend-mode: multiply, multiply, normal;
-  }
-  .event01-bg--4 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_04_bg_mobile.png") no-repeat center top/100% auto;
-    background-blend-mode: multiply, multiply, normal;
   }
   .event01 .event01__panel {
     max-width: 100%;
@@ -1397,8 +1441,6 @@ button {
   .step-list__sub {
     font-size: 14px;
   }
-}
-@media (max-width: 767px) {
   .step-list {
     flex-wrap: wrap;
     gap: 4px;
@@ -1413,6 +1455,8 @@ button {
     gap: 8px;
     box-sizing: border-box;
   }
+}
+@media (max-width: 767px) {
   .step-list__num-wrap {
     width: 34px;
     height: 34px;
@@ -1840,10 +1884,6 @@ button {
   font-size: 17px;
   font-weight: 400;
   line-height: 21px;
-}
-.medal-waiting__actions button {
-  height: 40px;
-  padding: 10px 60px;
 }
 
 @media (max-width: 1200px) {
@@ -2568,6 +2608,9 @@ button {
   }
 }
 @media (max-width: 767px) {
+  .event01-bg--4 #event01-reward {
+    display: none;
+  }
   .medal-complete {
     padding: 0;
     gap: 0;
@@ -2649,9 +2692,9 @@ button {
   }
   .medal-complete__claim {
     width: 100%;
-    max-width: none;
+    max-width: 296px;
     min-width: 0;
-    padding: 10px 20px;
+    padding: 8px 20px;
     font-size: 14px;
     line-height: 22px;
   }
@@ -2889,7 +2932,26 @@ button {
   text-align: center;
 }
 
+.mobile-background {
+  display: none;
+}
+
 @media (max-width: 1000px) {
+  .event02 {
+    position: relative;
+  }
+  .event02 .mobile-background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  .event02 .mobile-background img {
+    width: 100%;
+    object-fit: cover;
+  }
   .event02 .sec-head {
     margin-bottom: 20px;
     gap: 8px;
@@ -2904,11 +2966,25 @@ button {
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 10px;
+    padding-bottom: 0;
     gap: 16px;
     box-sizing: border-box;
     border: 0;
     background: none;
     box-shadow: none;
+  }
+  .event02 .attendance-panel .mobile-background {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    top: inherit;
+    z-index: -1;
+  }
+  .event02 .attendance-panel .mobile-background img {
+    width: 100%;
+    object-fit: cover;
   }
   .event02 .att-notes li {
     font-size: 10px;
@@ -4436,8 +4512,8 @@ button {
     padding-bottom: 60px;
     padding-left: 0;
     gap: 0;
-    background: none;
     padding-bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
   }
   .event03 .sec-head {
     padding-top: 60px;
@@ -4490,9 +4566,21 @@ button {
 }
 @media (max-width: 1000px) {
   .timetable-panel {
-    background: url("../images/event03_bg_mobile.png") no-repeat center top/cover;
+    position: relative;
     padding-left: 16px;
     padding-right: 16px;
+  }
+  .timetable-panel .mobile-background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  .timetable-panel .mobile-background img {
+    width: 100%;
+    object-fit: cover;
   }
   .timetable-panel .sec-head {
     background: none;
@@ -4943,7 +5031,6 @@ button {
     width: 100%;
     max-width: 100%;
     padding-top: 0;
-    background: url("../images/event03_bg_mobile2.png") no-repeat center top/cover;
   }
   .showcase-panel__list {
     margin-top: 0;
@@ -5057,6 +5144,11 @@ button {
   .showcase-panel .icon-caster {
     width: 15px;
     height: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .showcase-watch-panel {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 31.07%, rgba(0, 0, 0, 0.35) 83.1%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/event03_bg_mobile22.png") no-repeat center top/cover;
   }
 }
 .watch-panel .icon-watch {

@@ -6,6 +6,7 @@
 // tablet (≤1000) · laptop (≤1200) · laptop-only (1001~1200): partials/_breakpoints.scss
 // fluid 타이포·gap: partials/_fluid.scss · 공통 mixin: partials/_mixins.scss
 // =============================================================================
+@use "partials/fonts";
 @use "partials/variables";
 @use "partials/reset";
 @use "partials/layout";

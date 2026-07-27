@@ -121,8 +121,8 @@
 }
 @include tablet {
   .hero {
-    height: calc(100dvh - 60px);
-    min-height: 608px;
+    height: auto;
+    min-height: inherit;
     &__bg-pc {
       display: none;
     }
@@ -130,9 +130,21 @@
     &__bg-mo {
       display: block;
     }
+    &__bg{
+      position: static;
+      img{
+        position: static;
+        width: 100%;
+      }
+    }
 
     &__content {
       width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
       &-inner{
         justify-content: space-between;
         padding-top: 10px;

@@ -56,7 +56,7 @@
   .event03 {
     gap: 40px;
     padding-bottom: 80px;
-
+    
     .notice-wrap {
       margin-top: 20px;
     }
@@ -79,6 +79,10 @@
       padding-right: 0;
     }
   }
+  
+  .showcase-panel{
+    //background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 31.07%, rgba(0, 0, 0, 0.35) 83.1%, rgba(0, 0, 0, 0.50) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url("../images/event03_bg_mobile22.png") no-repeat center top / cover;
+  }
 }
 
 @include mo {
@@ -88,8 +92,8 @@
     padding-bottom: 60px;
     padding-left: 0;
     gap: 0;
-    background: none;
     padding-bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%);
     //@include event3-surface-bg;
 
     .sec-head {
@@ -101,6 +105,7 @@
       max-width: 240px;
       padding-top: 12px;
     }
+
 
     .watch-panel {
       border-left: 0;

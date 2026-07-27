@@ -6,9 +6,21 @@
 // =============================================================================
 .timetable-panel{
   @include tablet {
-    background: url("../images/event03_bg_mobile.png") no-repeat center top / cover;
+    position: relative;
     padding-left: 16px;
     padding-right: 16px;
+    .mobile-background{
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
+    }
     .sec-head{
       background: none;
     }

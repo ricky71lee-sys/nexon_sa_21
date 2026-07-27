@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="서든어택" />
   <meta property="og:title" content="둘이서 하나, 서든어택 21주년" />
   <meta property="og:description" content="메달 합체부터 출석·쇼케이스까지, 둘이서 더 풍성하게!" />
-  <meta property="og:url" content="https://csonline.nexon.com" />
+  <meta property="og:url" content="https://sa.nexon.com/main/index.aspx" />
   <meta property="og:image" content="./assets/images/og_share.png" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -22,11 +22,11 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles/style.css" />
-  <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script>
+  <!-- <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script> -->
 </head>
 
 <body>
-  <script>
+  <!-- <script>
     window.fnGnbResize = function (height) {
       var h = typeof height === "number" ? height : parseInt(height, 10);
       if (!h || h < 0) h = 62;
@@ -45,7 +45,7 @@
   </script>
   <script type="text/javascript" src="https://rs.nxfs.nexon.com/common/js/gnb.min.js" charset="UTF-8" data-name="GNB"
     data-gamecode="94227" data-funresize="fnGnbResize" data-ispchub="true" data-ispublicbanner="true"
-    data-skiptocontentsid="skipNav"></script>
+    data-skiptocontentsid="skipNav"></script> -->
   <div id="app">
     <!--
       #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport 모달
@@ -152,8 +152,10 @@
 
       <header class="hero">
         <div class="hero__bg" aria-hidden="true">
-          <img class="hero__bg-pc" src="./assets/images/hero_bg.png" alt="">
-          <img class="hero__bg-mo" src="./assets/images/hero_mobile_bg.png" alt="">
+          <picture>
+            <source srcset="./assets/images/hero_bg.png" media="(min-width: 1000px)">
+            <img src="./assets/images/hero_mobile_bg.png" alt="">
+          </picture>
         </div>
         <div class="hero__content">
           <div class="hero__content-inner">
@@ -161,7 +163,12 @@
               <img class="hero__title-pc" src="./assets/images/hero_title.png" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
               <img class="hero__title-mo" src="./assets/images/hero_title_mobile.svg" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
             </div>
-            <div class="hero__desc"><img src="./assets/images/hero_desc_mobile.png" alt="메달 합체부터 출석·쇼케이스까지, 둘이서 더 풍성하게! 2026.08.06(목) 점검 후 ~2026.08.27 (목) 점검 전 · 21일간 "></div>
+            <div class="hero__desc">
+              <picture>
+                <source srcset="./assets/images/hero_desc_tablet.png" media="(min-width: 768px)">
+                <img src="./assets/images/hero_desc_mobile.png" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
+              </picture>
+            </div>
           </div>
         </div>
         <!-- 오늘 하루 그만 보기 (PC: content 기준 우 64 · 하 42) — 동작은 개발팀 연동 -->
@@ -190,6 +197,12 @@
              상태: medal.phase (1발급·2찾기·3대기·4완성) · v-show로 패널 전환
              배경: event01_0{phase}_bg.png (스텝/phase 연동) -->
           <section id="event01" class="section-block event01">
+            <div class="mobile-background">
+              <img
+                :src="'./assets/images/event1_mobile_div1_0' + medal.phase + '.png'"
+                :alt="'이벤트1 모바일 배경 · 스텝 ' + medal.phase"
+              >
+            </div>
             <div class="sec-head">
               <span class="sec-tag">EVENT 1</span>
               <!-- <h2 class="text-gradient-gold">둘이서 하나, 21주년 메달 합체</h2> -->
@@ -363,69 +376,58 @@
                   
 
                   <div class="medal-complete__board">
-                    <!-- <div class="medal-complete__col">
+                    <article class="reward-cards__card">
                       <span class="corner-deco corner-deco--tl"></span>
                       <span class="corner-deco corner-deco--tr"></span>
                       <span class="corner-deco corner-deco--bl"></span>
                       <span class="corner-deco corner-deco--br"></span>
-                      <h4 class="medal-complete__col-title">21주년 한정 메달</h4>
-                      <div class="medal-complete__items">
-                        <div class="medal-complete__item">
-                          <div class="medal-complete__icon">
-                            <img src="./assets/images/medal_complete_img1.png" alt="완성 메달">
+                      <h3 class="reward-cards__title text-gradient-gold">확정 보상</h3>
+                      <div class="reward-cards__line"></div>
+                      <p class="reward-cards__desc">메달 합체(매칭) 완료 시 <br class="pc-hidden">양쪽 서든러 모두에게 기본 보상 지급</p>
+                      <div class="reward-cards__items">
+                        <div class="reward-item">
+                          <div class="reward-item__icon" aria-label="10만 경험치">
+                            <img src="./assets/images/reward_item_icon01.png" alt="10만 경험치">
                           </div>
-                          <span>완성 메달</span>
+                          <span class="reward-item__label">10만 경험치</span>
+                        </div>
+                        <div class="reward-item">
+                          <div class="reward-item__icon" aria-label="리센느 멀티카운트">
+                            <img src="./assets/images/reward_item_icon02.png" alt="리센느 멀티카운트">
+                          </div>
+                          <span class="reward-item__label">리센느 멀티카운트</span>
+                        </div>
+                        <div class="reward-item">
+                          <div class="reward-item__icon" aria-label="돌격 기간연장 영구제">
+                            <img src="./assets/images/reward_item_icon03.png" alt="돌격 기간연장 영구제">
+                          </div>
+                          <span class="reward-item__label">돌격 기간연장 영구제</span>
                         </div>
                       </div>
-                    </div> -->
-                    <div class="medal-complete__col">
+                    </article>
+                    <article class="reward-cards__card">
                       <span class="corner-deco corner-deco--tl"></span>
                       <span class="corner-deco corner-deco--tr"></span>
                       <span class="corner-deco corner-deco--bl"></span>
                       <span class="corner-deco corner-deco--br"></span>
-                      <h4 class="medal-complete__col-title">확정 보상</h4>
-                      <div class="medal-complete__items">
-                        <div class="medal-complete__item">
-                          <div class="medal-complete__icon">
-                            <img src="./assets/images/medal_complete_img2.png" alt="10만 경험치">
+                      <h3 class="reward-cards__title text-gradient-gold">추첨 보상</h3>
+                      <div class="reward-cards__line"></div>
+                      <p class="reward-cards__desc">매칭 완료 서든러 대상 추첨 진행 후 당첨자에 한하여 지급</p>
+                      <div class="reward-cards__items">
+                        <div class="reward-item">
+                          <div class="reward-item__icon" aria-label="서든어택 트윈 블루투스 스피커">
+                            <img src="./assets/images/reward_item_icon04.png" alt="서든어택 트윈 블루투스 스피커">
                           </div>
-                          <span>10만 경험치</span>
+                          <span class="reward-item__label">트윈 블루투스 스피커 <br>100명</span>
                         </div>
-                        <div class="medal-complete__item">
-                          <div class="medal-complete__icon">
-                            <img src="./assets/images/medal_complete_img3.png" alt="리센느 멀티카운트">
+                        <div class="reward-item">
+                          <div class="reward-item__icon" aria-label="1만 넥슨캐시">
+                            <img src="./assets/images/reward_item_icon05.png" alt="1만 넥슨캐시">
                           </div>
-                          <span>리센느 멀티카운트</span>
-                        </div>
-                        <div class="medal-complete__item">
-                          <div class="medal-complete__icon">
-                            <img src="./assets/images/medal_complete_img4.png" alt="돌격 기간연장 영구제">
-                          </div>
-                          <span>돌격 기간연장<br>영구제</span>
+                          <span class="reward-item__label">1만 넥슨캐시 <br>2,100명</span>
                         </div>
                       </div>
-                    </div>
-                    <div class="medal-complete__col">
-                      <span class="corner-deco corner-deco--tl"></span>
-                      <span class="corner-deco corner-deco--tr"></span>
-                      <span class="corner-deco corner-deco--bl"></span>
-                      <span class="corner-deco corner-deco--br"></span>
-                      <h4 class="medal-complete__col-title">추첨 보상</h4>
-                      <div class="medal-complete__items">
-                        <div class="medal-complete__item">
-                          <div class="medal-complete__icon">
-                            <img src="./assets/images/medal_complete_img5.png" alt="서든어택 트윈 블루투스 스피커">
-                          </div>
-                          <span>트윈 블루투스 스피커 <br>100명</span>
-                        </div>
-                        <div class="medal-complete__item">
-                          <div class="medal-complete__icon">
-                            <img src="./assets/images/medal_complete_img6.png" alt="1만 넥슨캐시">
-                          </div>
-                          <span>1만 넥슨캐시<br>2,100명</span>
-                        </div>
-                      </div>
-                    </div>
+                    </article>
 
                     <div class="medal-complete__claim-wrap">
                       <button type="button" class="medal-complete__claim" :class="{ 'is-complete': medal.claimed }"
@@ -514,9 +516,9 @@
              셀 클릭: clickDay(출석·받기·보충) · 마일스톤: clickClaimMilestone/Duo
              days(computed)로 달력 렌더 · 보충일(state=4)은 duoDays 미포함 -->
           <section id="event02" class="event02">
-            <!-- <div class="mobile-background">
-              <img src="./assets/images/event02_bg_mobile.png" alt="21일 듀오 출석 챌린지 배경">
-            </div> -->
+            <div class="mobile-background">
+              <img src="./assets/images/event2_mobile_div-bg.png" alt="21일 듀오 출석 챌린지 배경">
+            </div>
             <div class="sec-head">
               <span class="sec-tag">EVENT 2</span>
               <h2 class="sec-title"><img src="./assets/images/event02_title.svg" alt="21일 듀오 출석 챌린지"></h2>
@@ -528,6 +530,9 @@
             </div>
 
             <div class="attendance-panel">
+              <div class="mobile-background">
+                <img src="./assets/images/attendance_mobile_div-bg.png" alt="21일 듀오 출석 챌린지 배경">
+              </div>
               <!-- 헤더: 듀오 라벨 · 통계 · 갱신/일괄수령 -->
               <div class="att-head">
                 <div class="att-head__tag">
@@ -701,6 +706,10 @@
               <p class="match-date"><img src="./assets/images/event03_match_date.png" alt="8월 23일(일) 오후 5시 시작"></p>
             </div>
             <div class="timetable">
+              <div class="mobile-dimmed"></div>
+              <div class="mobile-background">
+                <img src="assets/images/timetable_bg_mobile.png" alt="">
+              </div>
               <div class="timetable__head">
                 <span class="icon-timetable"></span>
                 타임 테이블
@@ -765,179 +774,180 @@
               </div>
             </div>
           </div>
-          <div class="showcase-panel">
-
-            <div class="sec-head">
-              <span class="sec-tag">이벤트 매치 안내</span>
-              <h2 class="sec-title"><img src="./assets/images/event04_title.svg" alt="최강의 둘이서 한 팀 선발전"></h2>
-              <p>26 서든어택 챔피언십 시즌1 우승의 주역과 태디컵 참가 선수가 한 팀이 되어,<br>최고의 ‘둘이서 하나‘ 팀을 가리는 특별 매치를 진행합니다!</p>
-            </div>
-
-            <div class="showcase-panel__list">
-              <div class="showcase-panel__block">
-                <h3 class="block-title"><span class="icon-team"></span>출전 팀<small>· 프로 + 아마추어 듀오</small></h3>
-                <div class="team-grid">
-                  <article class="team-grid__card">
-                    <div class="team-grid__logo" aria-label="Friend 팀 로고">
-                      <img src="assets/images/team_friend.png" alt="Friend 팀 로고">
-                    </div>
-                    <div class="team-grid__body">
-                      <h4 class="team-grid__name">Friend</h4>
-                      <div class="team-grid__players">
-                        <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
-                            class="name">김현우</span>
-                          <span class="role">스나</span>
-                        </p>
-                        <p class="team-grid__player"><span class="badge-ama">AMA</span> 새싹 <span class="name">유지성</span>
-                          <span class="role">라플</span>
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="team-grid__card">
-                    <div class="team-grid__logo" aria-label="Infinity 팀 로고">
-                      <img src="assets/images/team_infinity.png" alt="Infinity 팀 로고">
-                    </div>
-                    <div class="team-grid__body">
-                      <h4 class="team-grid__name">Infinity</h4>
-                      <div class="team-grid__players">
-                        <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
-                            class="name">손태현</span>
-                          <span class="role">라플</span>
-                        </p>
-                        <p class="team-grid__player"><span class="badge-ama">AMA</span> 새싹 <span class="name">강혜준</span>
-                          <span class="role">스나</span>
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="team-grid__card">
-                    <div class="team-grid__logo" aria-label="Nexus 팀 로고">
-                      <img src="assets/images/team_nexus.png" alt="Nexus 팀 로고">
-                    </div>
-                    <div class="team-grid__body">
-                      <h4 class="team-grid__name">Nexus</h4>
-                      <div class="team-grid__players">
-                        <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
-                            class="name">천건욱</span>
-                          <span class="role">라플</span>
-                        </p>
-                        <p class="team-grid__player"><span class="badge-ama">AMA</span> 새싹 <span class="name">박경민</span>
-                          <span class="role">스나</span>
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                  <article class="team-grid__card">
-                    <div class="team-grid__logo" aria-label="Forever 팀 로고">
-                      <img src="assets/images/team_forever.png" alt="Forever 팀 로고">
-                    </div>
-                    <div class="team-grid__body">
-                      <h4 class="team-grid__name">Forever</h4>
-                      <div class="team-grid__players">
-                        <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
-                            class="name">이병화</span>
-                          <span class="role">스나</span>
-                        </p>
-                        <p class="team-grid__player"><span class="badge-ama">AMA</span> 긍정 <span class="name">최송호</span>
-                          <span class="role">멀티</span>
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
+          <div class="showcase-watch-panel">
+            <div class="showcase-panel">
+              <div class="sec-head">
+                <span class="sec-tag">이벤트 매치 안내</span>
+                <h2 class="sec-title"><img src="./assets/images/event04_title.svg" alt="최강의 둘이서 한 팀 선발전"></h2>
+                <p>26 서든어택 챔피언십 시즌1 우승의 주역과 태디컵 참가 선수가 한 팀이 되어,<br>최고의 ‘둘이서 하나‘ 팀을 가리는 특별 매치를 진행합니다!</p>
               </div>
-              <div class="showcase-panel__block">
-                <h3 class="block-title"><span class="icon-caster"></span>중계진 소개</h3>
-                <div class="caster-grid">
-                  <article class="caster-grid__card">
-                    <div class="caster-grid__photo-wrap">
-                      <div class="caster-grid__photo" aria-label="김경섭">
-                        <img src="assets/images/caster_kim.png" alt="김경섭">
+  
+              <div class="showcase-panel__list">
+                <div class="showcase-panel__block">
+                  <h3 class="block-title"><span class="icon-team"></span>출전 팀<small>· 프로 + 아마추어 듀오</small></h3>
+                  <div class="team-grid">
+                    <article class="team-grid__card">
+                      <div class="team-grid__logo" aria-label="Friend 팀 로고">
+                        <img src="assets/images/team_friend.png" alt="Friend 팀 로고">
                       </div>
-                    </div>
-                    <div class="caster-grid__info">
-                      <div class="caster-grid__info-inner">
-                        <p class="caster-grid__name">김경섭</p>
-                        <p class="caster-grid__meta"><span>FINF</span><span class="dot"></span><span>특별 해설</span></p>
+                      <div class="team-grid__body">
+                        <h4 class="team-grid__name">Friend</h4>
+                        <div class="team-grid__players">
+                          <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
+                              class="name">김현우</span>
+                            <span class="role">스나</span>
+                          </p>
+                          <p class="team-grid__player"><span class="badge-ama">AMA</span> 새싹 <span class="name">유지성</span>
+                            <span class="role">라플</span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                  <article class="caster-grid__card">
-                    <div class="caster-grid__photo-wrap">
-                      <div class="caster-grid__photo" aria-label="온상민">
-                        <img src="assets/images/caster_son.png" alt="온상민">
+                    </article>
+                    <article class="team-grid__card">
+                      <div class="team-grid__logo" aria-label="Infinity 팀 로고">
+                        <img src="assets/images/team_infinity.png" alt="Infinity 팀 로고">
                       </div>
-                    </div>
-                    <div class="caster-grid__info">
-                      <div class="caster-grid__info-inner">
-                        <p class="caster-grid__name">온상민</p>
-                        <p class="caster-grid__meta"><span>중계진</span></p>
+                      <div class="team-grid__body">
+                        <h4 class="team-grid__name">Infinity</h4>
+                        <div class="team-grid__players">
+                          <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
+                              class="name">손태현</span>
+                            <span class="role">라플</span>
+                          </p>
+                          <p class="team-grid__player"><span class="badge-ama">AMA</span> 새싹 <span class="name">강혜준</span>
+                            <span class="role">스나</span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                  <article class="caster-grid__card">
-                    <div class="caster-grid__photo-wrap">
-                      <div class="caster-grid__photo" aria-label="그니">
-                        <img src="assets/images/caster_gyuni.png" alt="그니">
+                    </article>
+                    <article class="team-grid__card">
+                      <div class="team-grid__logo" aria-label="Nexus 팀 로고">
+                        <img src="assets/images/team_nexus.png" alt="Nexus 팀 로고">
                       </div>
-                    </div>
-                    <div class="caster-grid__info">
-                      <div class="caster-grid__info-inner">
-                        <p class="caster-grid__name">그니</p>
-                        <p class="caster-grid__meta"><span>중계진</span></p>
+                      <div class="team-grid__body">
+                        <h4 class="team-grid__name">Nexus</h4>
+                        <div class="team-grid__players">
+                          <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
+                              class="name">천건욱</span>
+                            <span class="role">라플</span>
+                          </p>
+                          <p class="team-grid__player"><span class="badge-ama">AMA</span> 새싹 <span class="name">박경민</span>
+                            <span class="role">스나</span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="watch-panel">
-            <h3 class="block-title"><span class="icon-watch"></span>시청 이벤트</h3>
-            <div class="watch-list">
-              <article class="watch-list__item" v-for="ev in showcase.watchEvents" :key="ev.id"
-                :class="{
-                  'watch-list__item--has-icons': ev.rewardIcons && ev.rewardIcons.length,
-                  'watch-list__item--has-cta': !!ev.cta
-                }">
-                <span class="watch-list__num">{{ ev.no }}</span>
-                <div class="watch-list__aside">
-                  <div class="watch-list__icon" :aria-label="ev.title">
-                    <img :src="'assets/images/' + ev.icon" :alt="ev.title">
-                  </div>
-                  <div v-if="ev.rewardIcons && ev.rewardIcons.length" class="watch-list__reward-icons watch-list__reward-icons--mo">
-                    <span v-for="(icon, iconIdx) in ev.rewardIcons" :key="ev.id + '-mo-icon-' + iconIdx"
-                      class="watch-list__reward-icon">
-                      <img :src="icon ? 'assets/images/' + icon : ''" alt="">
-                    </span>
+                    </article>
+                    <article class="team-grid__card">
+                      <div class="team-grid__logo" aria-label="Forever 팀 로고">
+                        <img src="assets/images/team_forever.png" alt="Forever 팀 로고">
+                      </div>
+                      <div class="team-grid__body">
+                        <h4 class="team-grid__name">Forever</h4>
+                        <div class="team-grid__players">
+                          <p class="team-grid__player"><span class="badge-pro">PRO</span> FINF <span
+                              class="name">이병화</span>
+                            <span class="role">스나</span>
+                          </p>
+                          <p class="team-grid__player"><span class="badge-ama">AMA</span> 긍정 <span class="name">최송호</span>
+                            <span class="role">멀티</span>
+                          </p>
+                        </div>
+                      </div>
+                    </article>
                   </div>
                 </div>
-                <div class="watch-list__body">
-                  <h4 class="watch-list__title">{{ ev.title }}</h4>
-                  <p class="watch-list__desc" v-html="ev.desc"></p>
-                  <div class="watch-list__reward"
-                    :class="{ 'watch-list__reward--has-icons': ev.rewardIcons && ev.rewardIcons.length }">
-                    <div v-if="ev.rewardIcons && ev.rewardIcons.length" class="watch-list__reward-icons watch-list__reward-icons--pc">
-                      <span v-for="(icon, iconIdx) in ev.rewardIcons" :key="ev.id + '-pc-icon-' + iconIdx"
+                <div class="showcase-panel__block">
+                  <h3 class="block-title"><span class="icon-caster"></span>중계진 소개</h3>
+                  <div class="caster-grid">
+                    <article class="caster-grid__card">
+                      <div class="caster-grid__photo-wrap">
+                        <div class="caster-grid__photo" aria-label="김경섭">
+                          <img src="assets/images/caster_kim.png" alt="김경섭">
+                        </div>
+                      </div>
+                      <div class="caster-grid__info">
+                        <div class="caster-grid__info-inner">
+                          <p class="caster-grid__name">김경섭</p>
+                          <p class="caster-grid__meta"><span>FINF</span><span class="dot"></span><span>특별 해설</span></p>
+                        </div>
+                      </div>
+                    </article>
+                    <article class="caster-grid__card">
+                      <div class="caster-grid__photo-wrap">
+                        <div class="caster-grid__photo" aria-label="온상민">
+                          <img src="assets/images/caster_son.png" alt="온상민">
+                        </div>
+                      </div>
+                      <div class="caster-grid__info">
+                        <div class="caster-grid__info-inner">
+                          <p class="caster-grid__name">온상민</p>
+                          <p class="caster-grid__meta"><span>중계진</span></p>
+                        </div>
+                      </div>
+                    </article>
+                    <article class="caster-grid__card">
+                      <div class="caster-grid__photo-wrap">
+                        <div class="caster-grid__photo" aria-label="그니">
+                          <img src="assets/images/caster_gyuni.png" alt="그니">
+                        </div>
+                      </div>
+                      <div class="caster-grid__info">
+                        <div class="caster-grid__info-inner">
+                          <p class="caster-grid__name">그니</p>
+                          <p class="caster-grid__meta"><span>중계진</span></p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="watch-panel">
+              <h3 class="block-title"><span class="icon-watch"></span>시청 이벤트</h3>
+              <div class="watch-list">
+                <article class="watch-list__item" v-for="ev in showcase.watchEvents" :key="ev.id"
+                  :class="{
+                    'watch-list__item--has-icons': ev.rewardIcons && ev.rewardIcons.length,
+                    'watch-list__item--has-cta': !!ev.cta
+                  }">
+                  <span class="watch-list__num">{{ ev.no }}</span>
+                  <div class="watch-list__aside">
+                    <div class="watch-list__icon" :aria-label="ev.title">
+                      <img :src="'assets/images/' + ev.icon" :alt="ev.title">
+                    </div>
+                    <div v-if="ev.rewardIcons && ev.rewardIcons.length" class="watch-list__reward-icons watch-list__reward-icons--mo">
+                      <span v-for="(icon, iconIdx) in ev.rewardIcons" :key="ev.id + '-mo-icon-' + iconIdx"
                         class="watch-list__reward-icon">
                         <img :src="icon ? 'assets/images/' + icon : ''" alt="">
                       </span>
                     </div>
-                    <div class="watch-list__reward-row">
-                      <span class="reward-chip">보상</span>
-                      <span class="watch-list__reward-text">{{ ev.reward }}</span>
+                  </div>
+                  <div class="watch-list__body">
+                    <h4 class="watch-list__title">{{ ev.title }}</h4>
+                    <p class="watch-list__desc" v-html="ev.desc"></p>
+                    <div class="watch-list__reward"
+                      :class="{ 'watch-list__reward--has-icons': ev.rewardIcons && ev.rewardIcons.length }">
+                      <div v-if="ev.rewardIcons && ev.rewardIcons.length" class="watch-list__reward-icons watch-list__reward-icons--pc">
+                        <span v-for="(icon, iconIdx) in ev.rewardIcons" :key="ev.id + '-pc-icon-' + iconIdx"
+                          class="watch-list__reward-icon">
+                          <img :src="icon ? 'assets/images/' + icon : ''" alt="">
+                        </span>
+                      </div>
+                      <div class="watch-list__reward-row">
+                        <span class="reward-chip">보상</span>
+                        <span class="watch-list__reward-text">{{ ev.reward }}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <button v-if="ev.cta" type="button" class="watch-list__btn">
-                  <img class="watch-list__btn-img" :src="'./assets/images/' + ev.ctaBtn" :alt="ev.cta">
-                  <span class="watch-list__btn-label">{{ ev.cta }}</span>
-                </button>
-              </article>
+                  <button v-if="ev.cta" type="button" class="watch-list__btn">
+                    <img class="watch-list__btn-img" :src="'./assets/images/' + ev.ctaBtn" :alt="ev.cta">
+                    <span class="watch-list__btn-label">{{ ev.cta }}</span>
+                  </button>
+                </article>
+              </div>
+              <p class="notice-wrap"><button type="button" class="notice-btn" @click="openNotice('event03')"><i class="icon-info"></i> 쇼케이스 유의사항</button></p>
             </div>
-            <p class="notice-wrap"><button type="button" class="notice-btn" @click="openNotice('event03')"><i class="icon-info"></i> 쇼케이스 유의사항</button></p>
           </div>
           
         </section>
@@ -1093,7 +1103,7 @@
     1) jQuery  2) Vue3 global  3) utils.js  4) control.js  5) event.js(마지막)
     mount: #app · 데이터 흐름은 event.js 상단 주석 참고
   -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
   <script src="./assets/scripts/utils.js"></script>
   <script src="./assets/scripts/control.js"></script>
