@@ -318,8 +318,8 @@
           medal.receivedExpanded ? RECEIVED_MAX : RECEIVED_PAGE
         )
       );
-      const canShowMoreReceived = computed(
-        () => !medal.receivedExpanded && sortedReceived.value.length > RECEIVED_PAGE
+      const canToggleReceived = computed(
+        () => sortedReceived.value.length > RECEIVED_PAGE
       );
       const totalDays = computed(() => attend.state.filter((s) => s > 0).length);
       const duoDays = computed(() => attend.state.filter((s) => s === 2).length);
@@ -619,9 +619,9 @@
         medal.sortMode = mode;
       }
 
-      /** 받은 신청 더보기 — 최대 10건까지 펼침 */
-      function expandReceived() {
-        medal.receivedExpanded = true;
+      /** 받은 신청 더보기 / 접기 토글 */
+      function toggleReceived() {
+        medal.receivedExpanded = !medal.receivedExpanded;
       }
 
       /* [동작 함수]
@@ -1091,7 +1091,7 @@
         showcase,
         sortedReceived,
         visibleReceived,
-        canShowMoreReceived,
+        canToggleReceived,
         totalDays,
         duoDays,
         calRows,
@@ -1110,7 +1110,7 @@
         milestoneBtnLabel,
         isMilestoneDisabled,
         setSort,
-        expandReceived,
+        toggleReceived,
         clickIssueMedal,
         demoGoStep,
         copyCode,

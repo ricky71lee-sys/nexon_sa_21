@@ -324,9 +324,11 @@
                     받아보세요.</p>
                   <template v-else>
                     <p class="medal-request__note">받은 신청은 최대 10개까지 노출됩니다</p>
-                    <button v-if="canShowMoreReceived" type="button" class="medal-request__more"
-                      @click="expandReceived">
-                      더보기 <i class="icon-more-arrow" aria-hidden="true"></i>
+                    <button v-if="canToggleReceived" type="button" class="medal-request__more"
+                      :class="{ 'is-collapse': medal.receivedExpanded }"
+                      @click="toggleReceived">
+                      {{ medal.receivedExpanded ? '접기' : '더보기' }}
+                      <i class="icon-more-arrow" aria-hidden="true"></i>
                     </button>
                   </template>
                 </div>
