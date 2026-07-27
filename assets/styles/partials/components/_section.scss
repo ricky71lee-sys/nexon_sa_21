@@ -78,6 +78,11 @@
     width: 16px;
     height: 16px;
     background: url("../images/icon_info.png") no-repeat center / cover;
+    @include mo {
+      width: 10px;
+      height: 10px;
+      background-image: url("../images/icon_info_mobile.png");
+    }
   }
 }
 
@@ -104,11 +109,6 @@
     padding-right: 20px;
     box-sizing: border-box;
   }
-
-  .sec-head {
-    gap: 12px;
-  }
-
   .notice-wrap {
     margin-top: 0;
   }
@@ -137,7 +137,7 @@
   }
 
   .sec-head {
-    gap: 6px;
+    gap: 9px;
     padding: 0;
     h2 {
       font-size: 0;

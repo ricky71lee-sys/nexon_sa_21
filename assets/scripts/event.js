@@ -270,7 +270,7 @@
             no: "02",
             icon: "watch_event2.png",
             title: "성공이냐 실패냐",
-            desc: "챔피언십 & 태디컵 선수들의 업투게더 미션 성공 여부에 따라 깜짝 쿠폰이 지급됩니다.",
+            desc: "챔피언십 & 태디컵 선수들의 업투게더 미션 <br class='pc-hidden'>성공 여부에 따라 깜짝 쿠폰이 지급됩니다.",
             rewardIcons: [],
             reward: "방송에서 공개됩니다",
             cta: "",
@@ -595,9 +595,11 @@
 
       function milestoneBtnClass(daysRequired, type) {
         const { reached, claimed } = getMilestoneMeta(daysRequired, type);
-        if (claimed) return "milestone__btn milestone__btn--done";
-        if (reached) return "milestone__btn milestone__btn--ready";
-        return "milestone__btn";
+        let cls = "milestone__btn";
+        if (type === "duo") cls += " milestone__btn--full";
+        if (claimed) return cls + " milestone__btn--done";
+        if (reached) return cls + " milestone__btn--ready";
+        return cls;
       }
 
       function milestoneBtnLabel(daysRequired, type) {

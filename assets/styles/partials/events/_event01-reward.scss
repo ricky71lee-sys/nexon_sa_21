@@ -131,9 +131,12 @@
     }
 
     &__items {
-      gap: 12px;
+      gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
+      &.v2-mode{
+        gap:16px;
+      }
     }
   }
 

@@ -873,6 +873,13 @@ button {
   height: 16px;
   background: url("../images/icon_info.png") no-repeat center/cover;
 }
+@media (max-width: 767px) {
+  .notice-btn .icon-info {
+    width: 10px;
+    height: 10px;
+    background-image: url("../images/icon_info_mobile.png");
+  }
+}
 
 .notice-wrap {
   margin-top: 20px;
@@ -895,9 +902,6 @@ button {
     padding-left: 20px;
     padding-right: 20px;
     box-sizing: border-box;
-  }
-  .sec-head {
-    gap: 12px;
   }
   .notice-wrap {
     margin-top: 0;
@@ -923,7 +927,7 @@ button {
     font-weight: 800;
   }
   .sec-head {
-    gap: 6px;
+    gap: 9px;
     padding: 0;
   }
   .sec-head h2 {
@@ -1225,6 +1229,8 @@ button {
     text-align: center;
     display: block;
     text-align: center;
+    padding-left: 17px;
+    padding-right: 17px;
   }
   .hero__today {
     right: 20px;
@@ -1268,22 +1274,27 @@ button {
   padding-bottom: 100px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
+  background-size: cover;
 }
 .event01-bg--1 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
+  background-size: cover;
 }
 .event01-bg--2 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_02_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
+  background-size: cover;
 }
 .event01-bg--3 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_03_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
+  background-size: cover;
 }
 .event01-bg--4 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_04_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
+  background-size: cover;
 }
 
 .event01 .event01__panel {
@@ -2883,9 +2894,12 @@ button {
     margin: 10px 0;
   }
   .reward-cards__items {
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .reward-cards__items.v2-mode {
+    gap: 16px;
   }
   .reward-item {
     flex-shrink: 0;
@@ -2980,7 +2994,6 @@ button {
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 10px;
-    padding-bottom: 0;
     gap: 16px;
     box-sizing: border-box;
     border: 0;
@@ -3008,10 +3021,16 @@ button {
   .event02 .notice-wrap {
     margin-top: 8px;
   }
+  .event02 .milestone__gift {
+    font-size: 16px;
+  }
 }
 @media (max-width: 767px) {
   .event02 {
     padding-top: 60px;
+  }
+  .event02 .attendance-panel {
+    padding-bottom: 0;
   }
 }
 .att-head {
@@ -3375,24 +3394,15 @@ button {
   margin-top: 10px;
 }
 .att-board__bar {
-  height: 4px;
-  border-radius: 9999px;
-  overflow: hidden;
-  background: #efefef;
   position: relative;
+  height: 4px;
   width: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #4b53c3 0, #4b53c3 var(--progress, 0%), #efefef var(--progress, 0%), #efefef 100%);
   --progress: 0%;
 }
 .att-board__bar span {
-  position: absolute;
-  border-radius: 999px;
-  display: block;
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: var(--progress);
-  background: #4B53C3;
-  overflow: hidden;
+  display: none;
 }
 .att-board__count {
   font-size: 20px;
@@ -3603,20 +3613,12 @@ button {
   flex: 1 1 auto;
   width: 100%;
   height: 4px;
-  border-radius: 500px;
-  overflow: hidden;
-  background: #efefef;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #4b53c3 0, #4b53c3 var(--progress, 0%), #efefef var(--progress, 0%), #efefef 100%);
   --progress: 0%;
 }
 .att-compact__bar span {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  height: 100%;
-  width: var(--progress);
-  border-radius: 500px;
-  background: #4b53c3;
+  display: none;
 }
 .att-compact__count {
   flex-shrink: 0;
@@ -4094,7 +4096,7 @@ button {
   .cal-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 6px;
+    gap: 4px;
     width: 100%;
   }
   .cal-grid__row {
@@ -4135,7 +4137,7 @@ button {
     left: 14px;
     right: 14px;
     transform: translateY(-50%);
-    min-height: 28px;
+    min-height: 35px;
     font-size: 12px;
     line-height: 18px;
     padding: 5px 14px;
@@ -4184,6 +4186,9 @@ button {
   }
   .cal-card__reward {
     font-size: 10px;
+  }
+  .cal-card__btn {
+    min-height: 28px;
   }
 }
 .milestone {
@@ -4358,7 +4363,7 @@ button {
   }
   .milestone__block {
     width: 100%;
-    gap: 4px;
+    gap: 6px;
   }
   .milestone__block--personal, .milestone__block--duo {
     flex: none;
@@ -4417,7 +4422,7 @@ button {
     width: 100%;
     max-width: 120px;
     height: 70px;
-    padding: 10px 0;
+    padding: 4px 0;
     box-sizing: border-box;
   }
   .milestone__gift {
@@ -4445,6 +4450,10 @@ button {
   }
   .milestone__btn--ready {
     color: #fff;
+  }
+  .milestone__btn--full {
+    width: calc(100% - 32px);
+    max-width: none;
   }
   .milestone__block--duo .milestone__btn {
     margin-top: 8px;
@@ -4535,10 +4544,11 @@ button {
   .event03 .sec-head {
     padding-top: 60px;
     padding-bottom: 30px;
+    gap: 8px;
   }
   .event03 .match-date {
     max-width: 240px;
-    padding-top: 12px;
+    padding-top: 4px;
   }
   .event03 .watch-panel {
     border-left: 0;
@@ -4584,8 +4594,6 @@ button {
 @media (max-width: 1000px) {
   .timetable-panel {
     position: relative;
-    padding-left: 16px;
-    padding-right: 16px;
   }
   .timetable-panel .mobile-background {
     display: block;
@@ -4772,8 +4780,8 @@ button {
 @media (max-width: 767px) {
   .timetable {
     background: none;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 16px;
+    padding-right: 16px;
     margin-top: 0;
     border-top: 0;
     padding-top: 0;
@@ -4815,10 +4823,15 @@ button {
     font-size: 14px;
     line-height: 24px;
   }
+  .timetable__part-icon img {
+    width: 90px;
+    height: 90px;
+  }
   .timetable__row {
     gap: 12px;
     padding: 16px 20px;
     box-sizing: border-box;
+    align-items: center;
   }
   .timetable__time {
     font-size: 12px;
@@ -5048,15 +5061,13 @@ button {
   .showcase-panel {
     width: 100%;
     max-width: 100%;
-    padding-top: 0;
+    padding-top: 40px;
   }
   .showcase-panel__list {
-    margin-top: 0;
     padding: 20px 16px;
     gap: 20px;
-    box-shadow: none;
-    background: none;
     border: 0;
+    margin-top: 30px;
   }
   .team-grid {
     display: grid;
@@ -5167,6 +5178,16 @@ button {
 @media (max-width: 767px) {
   .showcase-watch-panel {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 31.07%, rgba(0, 0, 0, 0.35) 83.1%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/event03_bg_mobile22.png") no-repeat center top/cover;
+  }
+  .showcase-panel {
+    border-top: 1px solid rgba(255, 231, 167, 0.4);
+    padding-top: 0;
+  }
+  .showcase-panel__list {
+    margin-top: 0;
+    padding-top: 0;
+    box-shadow: none;
+    background: none;
   }
 }
 .watch-panel .icon-watch {
@@ -5463,8 +5484,8 @@ button {
     padding-top: 12px;
   }
   .watch-list__icon {
-    width: 60px;
-    height: 60px;
+    width: 84px;
+    height: 84px;
     margin: 0;
   }
   .watch-list__reward-icons--pc {

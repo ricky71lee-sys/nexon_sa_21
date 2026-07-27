@@ -35,24 +35,23 @@
   }
 
   &__bar {
-    height: 4px;
-    border-radius: 9999px;
-    overflow: hidden;
-    background: #efefef;
     position: relative;
+    height: 4px;
     width: 100%;
+    border-radius: 9999px;
+    // overflow+자식 radius 겹치면 밝은 트랙이 끝 AA로 희미하게 비침 → 그라데이션 단일 레이어
+    background: linear-gradient(
+      to right,
+      #4b53c3 0,
+      #4b53c3 var(--progress, 0%),
+      #efefef var(--progress, 0%),
+      #efefef 100%
+    );
     --progress: 0%;
 
+    // 마크업 span 유지 — 시각은 트랙 그라데이션이 담당
     span {
-      position: absolute;
-      border-radius: 999px;
-      display: block;
-      height: 100%;
-      left: 0;
-      top: 0;
-      width: var(--progress);
-      background: #4B53C3;
-      overflow: hidden;
+      display: none;
     }
   }
 

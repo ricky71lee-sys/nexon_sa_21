@@ -246,7 +246,10 @@
                     </p>
                     <button type="button" class="medal-issue__btn" :disabled="medal.issued"
                       @click="clickIssueMedal">
-                      <img src="./assets/images/btn_gold_issue.png" alt="메달 발급받기">
+                      <picture>
+                        <source srcset="./assets/images/btn_gold_issue.png" media="(min-width: 768px)">
+                        <img src="./assets/images/btn_gold_issue_mobile.png" alt="메달 발급받기">
+                      </picture>
                     </button>
                     <!-- <p class="medal-issue__note">※ 접속 후 메달을 발급받으면 반쪽 메달과 <br class="pc-hidden">나의 메달 코드가 함께 표시됩니다.</p> -->
                   </div>
@@ -405,7 +408,7 @@
                           <div class="reward-item__icon" aria-label="돌격 기간연장 영구제">
                             <img src="./assets/images/reward_item_icon03.png" alt="돌격 기간연장 영구제">
                           </div>
-                          <span class="reward-item__label">돌격 기간연장 영구제</span>
+                          <span class="reward-item__label">돌격 기간연장 <br class="pc-hidden">영구제</span>
                         </div>
                       </div>
                     </article>
@@ -417,7 +420,7 @@
                       <h3 class="reward-cards__title text-gradient-gold">추첨 보상</h3>
                       <div class="reward-cards__line"></div>
                       <p class="reward-cards__desc">매칭 완료 서든러 대상 추첨 진행 후 당첨자에 한하여 지급</p>
-                      <div class="reward-cards__items">
+                      <div class="reward-cards__items v2-mode">
                         <div class="reward-item">
                           <div class="reward-item__icon" aria-label="서든어택 트윈 블루투스 스피커">
                             <img src="./assets/images/reward_item_icon04.png" alt="서든어택 트윈 블루투스 스피커">
@@ -482,7 +485,7 @@
                       <div class="reward-item__icon" aria-label="돌격 기간연장 영구제">
                         <img src="./assets/images/reward_item_icon03.png" alt="돌격 기간연장 영구제">
                       </div>
-                      <span class="reward-item__label">돌격 기간연장 영구제</span>
+                      <span class="reward-item__label">돌격 기간연장 <br class="pc-hidden">영구제</span>
                     </div>
                   </div>
                 </article>
@@ -494,7 +497,7 @@
                   <h3 class="reward-cards__title text-gradient-gold">추첨 보상</h3>
                   <div class="reward-cards__line"></div>
                   <p class="reward-cards__desc">매칭 완료 서든러 대상 추첨 진행 후 당첨자에 한하여 지급</p>
-                  <div class="reward-cards__items">
+                  <div class="reward-cards__items v2-mode">
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="서든어택 트윈 블루투스 스피커">
                         <img src="./assets/images/reward_item_icon04.png" alt="서든어택 트윈 블루투스 스피커">
@@ -732,7 +735,10 @@
                 <article class="timetable__part">
                   <div class="timetable__part-head">
                     <div class="timetable__part-icon" aria-label="1부 아이콘">
-                      <img src="assets/images/timetable_part1.png" alt="1부 아이콘">
+                      <picture>
+                        <source srcset="./assets/images/timetable_part1.png" media="(min-width: 768px)">
+                        <img src="./assets/images/timetable_part1_mobile.png" alt="1부 아이콘">
+                      </picture>
                     </div>
                     <div class="timetable__part-body">
                       <p class="timetable__part-num">1부</p>
@@ -753,7 +759,10 @@
                 <article class="timetable__part">
                   <div class="timetable__part-head">
                     <div class="timetable__part-icon" aria-label="2부 아이콘">
-                      <img src="assets/images/timetable_part2.png" alt="2부 아이콘">
+                      <picture>
+                        <source srcset="./assets/images/timetable_part2.png" media="(min-width: 768px)">
+                        <img src="./assets/images/timetable_part2_mobile.png" alt="2부 아이콘">
+                      </picture>
                     </div>
                     <div class="timetable__part-body">
                       <p class="timetable__part-num">2부</p>

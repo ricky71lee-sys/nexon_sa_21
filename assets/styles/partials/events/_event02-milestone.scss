@@ -207,7 +207,7 @@
 
     &__block {
       width: 100%;
-      gap: 4px;
+      gap: 6px;
 
       &--personal,
       &--duo {
@@ -282,7 +282,7 @@
       width: 100%;
       max-width: 120px;
       height: 70px;
-      padding: 10px 0;
+      padding: 4px 0;
       box-sizing: border-box;
     }
 
@@ -315,6 +315,10 @@
 
       &--ready {
         color: #fff;
+      }
+      &--full {
+        width: calc(100% - 32px);
+        max-width: none;
       }
     }
 

@@ -84,7 +84,6 @@
       padding-left: 16px;
       padding-right: 16px;
       padding-top: 10px;
-      padding-bottom: 0;
       gap: 16px;
       box-sizing: border-box;
       border: 0;
@@ -116,11 +115,17 @@
     .notice-wrap {
       margin-top: 8px;
     }
+    .milestone__gift{
+      font-size: 16px;
+    }
   }
 }
 
 @include mo {
   .event02 {
     padding-top: 60px;
+    .attendance-panel {
+      padding-bottom: 0;
+    }
   }
 }
