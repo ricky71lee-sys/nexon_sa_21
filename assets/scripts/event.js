@@ -286,7 +286,7 @@
             cta: "",
           },
           {
-            id: "watch-04", // 듀오 동반 시청 (시안 05)
+            id: "watch-04",
             no: "05",
             icon: "watch_event5.png",
             title: "21주년 메달 완성 · 듀오 동반 시청",
@@ -372,7 +372,6 @@
         );
       }
 
-      /** 서든어택 계정(캐릭터) 미생성 안내 — Figma 211:7287 */
       function alertNeedCharacter() {
         return Utils.alert("게임에 접속하여 계정을 생성해 주세요", {
           variant: "info",
