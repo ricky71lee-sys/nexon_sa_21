@@ -405,7 +405,8 @@
       #16223b;
 
     .cal-card__frame {
-      border: 2px solid transparent;
+      // border+padding 동시 쓰면 마스크 링이 2겹(약 4px) → padding만으로 2px
+      border: 0;
       background: linear-gradient(135deg, #ea9c1d 0%, #b636ea 100%);
       padding: 2px;
       -webkit-mask:

@@ -515,14 +515,14 @@ button {
 }
 .side-nav {
   position: fixed;
-  top: 40%;
+  top: var(--side-nav-top, calc(var(--gnb-height, 0px) + 60px + 80px));
   left: max(12px, 50% - var(--max-width) / 2 + 40px);
   z-index: 15;
   display: flex;
   flex-direction: column;
   gap: 15px;
   width: 147px;
-  transform: translateY(-50%);
+  transition: top 0.15s ease-out;
 }
 .side-nav__list {
   display: flex;
@@ -555,7 +555,7 @@ button {
   opacity: 0;
   pointer-events: none;
 }
-.side-nav__vault {
+.side-nav__vault, .side-nav__exchange {
   display: block;
   width: 147px;
   height: 62px;
@@ -565,13 +565,13 @@ button {
   cursor: pointer;
   transition: opacity 0.2s;
 }
-.side-nav__vault img {
+.side-nav__vault img, .side-nav__exchange img {
   display: block;
   width: 147px;
   height: 62px;
   object-fit: contain;
 }
-.side-nav__vault:hover {
+.side-nav__vault:hover, .side-nav__exchange:hover {
   opacity: 0.92;
 }
 
@@ -680,8 +680,9 @@ button {
   height: 36px;
   padding: 0 18px;
   border: 0;
-  border-radius: 8px;
-  background: #3b66f5;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 50%, rgba(255, 255, 255, 0) 50%), #406CD4;
+  box-shadow: 0 4px 2px -3px rgba(0, 0, 0, 0.25), 0 0 0 1px #7399F4;
   font-size: 14px;
   font-weight: 700;
   color: #fff;
@@ -923,11 +924,11 @@ button {
   }
   .sec-head {
     gap: 6px;
-    padding: 0 10px;
+    padding: 0;
   }
   .sec-head h2 {
-    font-size: 26px;
-    line-height: 38px;
+    font-size: 0;
+    line-height: 0;
   }
   .sec-head p {
     font-size: 10px;
@@ -1112,6 +1113,7 @@ button {
 }
 .hero__title {
   transform: translateX(-60px);
+  max-width: 654px;
 }
 .hero__desc {
   display: none;
@@ -3965,7 +3967,7 @@ button {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #16223b;
 }
 .cal-card--streak.cal-card--duo .cal-card__frame {
-  border: 2px solid transparent;
+  border: 0;
   background: linear-gradient(135deg, #ea9c1d 0%, #b636ea 100%);
   padding: 2px;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -4721,8 +4723,8 @@ button {
 .timetable .btn--broadcast {
   width: 260px;
   height: 60px;
-  padding-left: 40px;
-  padding-right: 60px;
+  padding-left: 39px;
+  padding-right: 39px;
   background: #fff;
   font-size: 20px;
   font-weight: 700;

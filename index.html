@@ -22,11 +22,11 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles/style.css" />
-  <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script>
+  <!-- <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script> -->
 </head>
 
 <body>
-  <script>
+  <!-- <script>
     window.fnGnbResize = function (height) {
       var h = typeof height === "number" ? height : parseInt(height, 10);
       if (!h || h < 0) h = 62;
@@ -45,7 +45,7 @@
   </script>
   <script type="text/javascript" src="https://rs.nxfs.nexon.com/common/js/gnb.min.js" charset="UTF-8" data-name="GNB"
     data-gamecode="94227" data-funresize="fnGnbResize" data-ispchub="true" data-ispublicbanner="true"
-    data-skiptocontentsid="skipNav"></script>
+    data-skiptocontentsid="skipNav"></script> -->
   <div id="app">
     <!--
       #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport 모달
@@ -205,7 +205,12 @@
             <div class="sec-head">
               <span class="sec-tag">EVENT 1</span>
               <!-- <h2 class="text-gradient-gold">둘이서 하나, 21주년 메달 합체</h2> -->
-               <h2 class="sec-title"><img src="./assets/images/event01_title.png" alt="둘이서 하나, 21주년 메달 합체"></h2>
+              <h2 class="sec-title">
+                <picture>
+                  <source srcset="./assets/images/event01_title.png" media="(min-width: 768px)">
+                  <img src="./assets/images/event01_title_mobile.png" alt="둘이서 하나, 21주년 메달 합체">
+                </picture>
+              </h2>
               <p> 
                 반쪽 메달의 듀오를 찾아 메달 코드를 주고받고, 합체 신청을 수락하면<br>
                 메달이 하나로 완성돼 양쪽 모두 보상을 받아요.
@@ -520,7 +525,12 @@
             </div>
             <div class="sec-head">
               <span class="sec-tag">EVENT 2</span>
-              <h2 class="sec-title"><img src="./assets/images/event02_title.png" alt="21일 듀오 출석 챌린지"></h2>
+              <h2 class="sec-title">
+                <picture>
+                  <source srcset="./assets/images/event02_title.png" media="(min-width: 768px)">
+                  <img src="./assets/images/event02_title_mobile.png" alt="21일 듀오 출석 챌린지">
+                </picture>
+              </h2>
               <p>게임에 접속하면 출석 도장이 찍혀요! <br class="mobile-hidden">듀오와 함께, 또는 3일 연속 출석하면 <br class="pc-hidden">'보충 출석권'을 모아 빠진 날도 채울 수 있어요.</p>
               <ul class="att-notes">
                 <li>· 보충 출석권은 최대 10개까지 받을 수 있어요. (동반 출석 5개 + 연속 출석 5개)</li>
@@ -701,7 +711,12 @@
           <div class="timetable-panel">
             <div class="sec-head">
               <span class="sec-tag">EVENT 3</span>
-              <h2 class="sec-title"><img src="./assets/images/event03_title.png" alt="21주년 쇼케이스"></h2>
+              <h2 class="sec-title">
+                <picture>
+                  <source srcset="./assets/images/event03_title.png" media="(min-width: 768px)">
+                  <img src="./assets/images/event03_title_mobile.png" alt="21주년 쇼케이스">
+                </picture>
+              </h2>
               <p class="match-date"><img src="./assets/images/event03_match_date.png" alt="8월 23일(일) 오후 5시 시작"></p>
             </div>
             <div class="timetable">
@@ -777,7 +792,12 @@
             <div class="showcase-panel">
               <div class="sec-head">
                 <span class="sec-tag">이벤트 매치 안내</span>
-                <h2 class="sec-title"><img src="./assets/images/event04_title.png" alt="최강의 둘이서 한 팀 선발전"></h2>
+                <h2 class="sec-title">
+                  <picture>
+                    <source srcset="./assets/images/event04_title.png" media="(min-width: 768px)">
+                    <img src="./assets/images/event04_title_mobile.png" alt="최강의 둘이서 한 팀 선발전">
+                  </picture>
+                </h2>
                 <p>26 서든어택 챔피언십 시즌1 우승의 주역과 태디컵 참가 선수가 한 팀이 되어,<br>최고의 ‘둘이서 하나‘ 팀을 가리는 특별 매치를 진행합니다!</p>
               </div>
   
@@ -1102,7 +1122,7 @@
     1) jQuery  2) Vue3 global  3) utils.js  4) control.js  5) event.js(마지막)
     mount: #app · 데이터 흐름은 event.js 상단 주석 참고
   -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
   <script src="./assets/scripts/utils.js"></script>
   <script src="./assets/scripts/control.js"></script>

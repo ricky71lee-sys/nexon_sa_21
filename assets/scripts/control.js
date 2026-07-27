@@ -96,6 +96,46 @@ $(function () {
       return top;
     },
 
+    /**
+     * 좌측 퀵메뉴(.side-nav) top
+     * 헤더(GNB·topbar)가 보이면 그 아래 +80, 스크롤로 빠지면 상단 24px까지 감소
+     */
+    syncSideNavTop: function () {
+      const MIN = 24;
+      const GAP = 80;
+      const gnbSelectors = [
+        "#gnb",
+        "#NexonGNB",
+        "#NexonGnb",
+        ".gnb_wrap",
+        ".gnbArea",
+        ".gnb",
+      ];
+      let gnbBottom = 0;
+
+      for (let i = 0; i < gnbSelectors.length; i++) {
+        const el = document.querySelector(gnbSelectors[i]);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.height <= 0) continue;
+        gnbBottom = Math.max(0, Math.round(rect.bottom));
+        break;
+      }
+
+      let topbarBottom = 0;
+      const topbar = document.querySelector(".topbar");
+      if (topbar) {
+        const rect = topbar.getBoundingClientRect();
+        topbarBottom = Math.max(0, Math.round(rect.bottom));
+      }
+
+      const stack = Math.max(gnbBottom, topbarBottom);
+      const top = stack > 0 ? Math.max(MIN, stack + GAP) : MIN;
+
+      document.documentElement.style.setProperty("--side-nav-top", top + "px");
+      return top;
+    },
+
     /** section[id^=event] → .sec-head 기준 (제목이 topbar 바로 아래) */
     resolveTarget: function (el) {
       if (!el) return null;
@@ -212,17 +252,20 @@ $(function () {
   pageScroll.syncGnbHeightFromDom();
   pageScroll.syncOffset();
   pageScroll.syncVaultTop();
+  pageScroll.syncSideNavTop();
   pageScroll.updateActiveNav();
   pageScroll.initHash();
 
   let gnbSyncTimer = null;
   body.scroll(function () {
     pageScroll.syncVaultTop();
+    pageScroll.syncSideNavTop();
     if (gnbSyncTimer) return;
     gnbSyncTimer = window.setTimeout(function () {
       gnbSyncTimer = null;
       pageScroll.syncGnbHeightFromDom();
       pageScroll.syncVaultTop();
+      pageScroll.syncSideNavTop();
       pageScroll.updateActiveNav();
     }, 80);
   });
@@ -231,6 +274,7 @@ $(function () {
     pageScroll.syncGnbHeightFromDom();
     pageScroll.syncOffset();
     pageScroll.syncVaultTop();
+    pageScroll.syncSideNavTop();
     pageScroll.updateActiveNav();
   });
 
@@ -246,6 +290,7 @@ $(function () {
     pageScroll.syncGnbHeightFromDom();
     pageScroll.syncOffset();
     pageScroll.syncVaultTop();
+    pageScroll.syncSideNavTop();
     pageScroll.updateActiveNav();
   };
 });
