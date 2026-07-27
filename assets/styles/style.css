@@ -1349,6 +1349,8 @@ button {
     width: 100%;
     padding: 0;
     gap: 30px;
+    background: none;
+    box-shadow: none;
   }
 }
 @media (max-width: 767px) {
@@ -1889,6 +1891,9 @@ button {
   font-weight: 400;
   line-height: 21px;
 }
+.medal-waiting__actions button {
+  padding: 10px 60px;
+}
 
 @media (max-width: 1200px) {
   .medal-match__panel--input,
@@ -2044,6 +2049,9 @@ button {
     font-size: 12px;
     font-weight: 700;
     line-height: normal;
+  }
+  .medal-waiting__actions button {
+    padding: 6px 24px;
   }
   .medal-waiting__cancel {
     padding: 0;

@@ -313,6 +313,9 @@
     font-size: 17px;
     font-weight: 400;
     line-height: 21px;
+    button{
+      padding: 10px 60px;
+    }
   }
 }
 
@@ -503,6 +506,9 @@
       font-size: 12px;
       font-weight: 700;
       line-height: normal;
+      button{
+        padding: 6px 24px;
+      }
     }
 
     &__cancel {
