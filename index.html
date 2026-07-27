@@ -22,11 +22,11 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles/style.css" />
-  <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script>
+  <!-- <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script> -->
 </head>
 
 <body>
-  <script>
+  <!-- <script>
     window.fnGnbResize = function (height) {
       var h = typeof height === "number" ? height : parseInt(height, 10);
       if (!h || h < 0) h = 62;
@@ -45,7 +45,7 @@
   </script>
   <script type="text/javascript" src="https://rs.nxfs.nexon.com/common/js/gnb.min.js" charset="UTF-8" data-name="GNB"
     data-gamecode="94227" data-funresize="fnGnbResize" data-ispchub="true" data-ispublicbanner="true"
-    data-skiptocontentsid="skipNav"></script>
+    data-skiptocontentsid="skipNav"></script> -->
   <div id="app">
     <!--
       #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport 모달
@@ -944,8 +944,10 @@
       </main>
       <footer class="footer">
         <a class="footer__home" href="https://sa.nexon.com/main/index.aspx" target="_blank" rel="noopener">
-          <img class="footer__home-img" src="./assets/images/footer_home.png" alt="홈페이지 바로가기">
-          <span class="footer__home-label">홈페이지 바로가기</span>
+          <picture>
+            <source srcset="./assets/images/footer_home.png" media="(min-width: 768px)">
+            <img src="./assets/images/footer_home_mobile.png" alt="홈페이지 바로가기">
+          </picture>
         </a>
         <p class="footer__copyright">ⓒ NEXON Korea Corporation. &amp; NEXON Games Co., Ltd. All Rights Reserved.</p>
       </footer>
@@ -1091,7 +1093,7 @@
     1) jQuery  2) Vue3 global  3) utils.js  4) control.js  5) event.js(마지막)
     mount: #app · 데이터 흐름은 event.js 상단 주석 참고
   -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
   <script src="./assets/scripts/utils.js"></script>
   <script src="./assets/scripts/control.js"></script>

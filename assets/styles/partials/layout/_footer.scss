@@ -53,36 +53,7 @@
     &__home {
       width: 100%;
       max-width: 328px;
-      height: 52px;
-      padding: 1px;
-      box-sizing: border-box;
-      border: 0;
-      background-color: #302b4c;
-      background-image:
-        url("../images/footer_btn_metal3.png"),
-        url("../images/footer_btn_metal2.png"),
-        url("../images/footer_btn_metal1.png"),
-        linear-gradient(90deg, #302b4c 0%, #5a5186 100%);
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-      background-position: center, center, center, center;
-      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
     }
-
-    &__home-img {
-      display: none;
-    }
-
-    &__home-label {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 30px;
-      color: #fff;
-      text-align: center;
-      white-space: nowrap;
-    }
-
     &__copyright {
       font-size: 10px;
       letter-spacing: 0.4px;
