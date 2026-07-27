@@ -28,7 +28,7 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
-    //margin-top: -6px;
+    margin-top: -14px;
     padding: 0 8px;
     box-sizing: border-box;
 
@@ -57,6 +57,9 @@
     .sec-head {
       margin-bottom: 20px;
       gap:8px;
+      .att-notes{
+        margin-top: 0;
+      }
     }
 
     .attendance-panel {

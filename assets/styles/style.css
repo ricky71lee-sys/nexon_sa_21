@@ -2864,6 +2864,7 @@ button {
   align-items: center;
   width: 100%;
   max-width: 100%;
+  margin-top: -14px;
   padding: 0 8px;
   box-sizing: border-box;
 }
@@ -2887,6 +2888,9 @@ button {
   .event02 .sec-head {
     margin-bottom: 20px;
     gap: 8px;
+  }
+  .event02 .sec-head .att-notes {
+    margin-top: 0;
   }
   .event02 .attendance-panel {
     max-width: 100%;
@@ -4472,6 +4476,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 60px;
 }
 .timetable__head {
   display: flex;
@@ -4637,6 +4642,7 @@ button {
     background: none;
     padding-left: 0;
     padding-right: 0;
+    margin-top: 0;
     border-top: 0;
     box-shadow: none;
     border: 0;
