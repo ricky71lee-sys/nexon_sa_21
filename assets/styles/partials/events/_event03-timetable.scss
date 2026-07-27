@@ -6,7 +6,7 @@
 // =============================================================================
 .timetable-panel{
   @include tablet {
-    background: url("../images/event03_bg_mobile.png") no-repeat center top / contain;
+    background: url("../images/event03_bg_mobile.png") no-repeat center top / cover;
     padding-left: 16px;
     padding-right: 16px;
     .sec-head{

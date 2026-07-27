@@ -88,12 +88,13 @@
     padding-bottom: 60px;
     padding-left: 0;
     gap: 0;
-    @include event3-surface-bg;
+    background: none;
+    padding-bottom: 0;
+    //@include event3-surface-bg;
 
     .sec-head {
       padding-top: 60px;
       padding-bottom: 30px;
-      background: url("../images/event03_bg_mobile.png") no-repeat center top / 100% auto;
     }
 
     .match-date {
@@ -106,6 +107,10 @@
       border-right: 0;
       border-top: 1px solid rgba(255, 231, 167, 0.4);
       border-bottom: 1px solid rgba(255, 231, 167, 0.4);
+      background: none;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 30px;
       background:
         linear-gradient(90deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%),
         linear-gradient(180deg, #30265a 0%, #1b172f 100%),
@@ -113,7 +118,8 @@
       box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.38);
 
       .notice-wrap {
-        margin-top: 0;
+        padding-bottom: 80px;
+        margin-top: 20px;
       }
     }
   }

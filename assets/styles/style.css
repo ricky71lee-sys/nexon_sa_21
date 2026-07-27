@@ -600,7 +600,7 @@ button {
     height: 52px;
     padding: 1px;
     box-sizing: border-box;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 0;
     background-color: #302b4c;
     background-image: url("../images/footer_btn_metal3.png"), url("../images/footer_btn_metal2.png"), url("../images/footer_btn_metal1.png"), linear-gradient(90deg, #302b4c 0%, #5a5186 100%);
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -1103,7 +1103,7 @@ button {
 .hero__today {
   position: absolute;
   right: 64px;
-  bottom: 20px;
+  bottom: 40px;
   z-index: 2;
   flex-direction: column;
   align-items: flex-end;
@@ -1114,6 +1114,7 @@ button {
   align-items: center;
   position: relative;
   gap: 8px;
+  margin-top: 26px;
 }
 .hero__today-check {
   position: absolute;
@@ -1169,7 +1170,7 @@ button {
   .hero__content-inner {
     justify-content: space-between;
     padding-top: 10px;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
     width: 100%;
     text-align: center;
     align-items: center;
@@ -1193,9 +1194,13 @@ button {
   .hero__today {
     right: 20px;
     bottom: 19px;
-    left: 20px;
-    display: none;
+    left: 50%;
+    right: inherit;
+    transform: translateX(-50%);
     justify-content: center;
+  }
+  .hero__today .hero__footer-btn {
+    display: none;
   }
   .hero__today-btn {
     max-width: 100%;
@@ -2859,7 +2864,6 @@ button {
   align-items: center;
   width: 100%;
   max-width: 100%;
-  margin-top: -6px;
   padding: 0 8px;
   box-sizing: border-box;
 }
@@ -3542,6 +3546,7 @@ button {
   }
   .att-compact__claim {
     margin-left: auto;
+    background-color: transparent !important;
   }
   .att-compact__board-head {
     flex-wrap: wrap;
@@ -4258,6 +4263,8 @@ button {
     width: auto;
     gap: 0;
     padding: 16px;
+    padding-left: 0;
+    padding-right: 0;
     border-width: 1px;
     border-color: rgba(255, 255, 255, 0.15);
     background: #373F4E;
@@ -4307,6 +4314,7 @@ button {
     padding: 4px 8px;
     font-size: 14px;
     color: #a3a3a3;
+    max-width: 74px;
   }
   .milestone__btn--ready, .milestone__btn--done {
     color: rgba(255, 255, 255, 0.4);
@@ -4397,12 +4405,12 @@ button {
     padding-bottom: 60px;
     padding-left: 0;
     gap: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, #30265a 0%, #1b172f 100%);
+    background: none;
+    padding-bottom: 0;
   }
   .event03 .sec-head {
     padding-top: 60px;
     padding-bottom: 30px;
-    background: url("../images/event03_bg_mobile.png") no-repeat center top/100% auto;
   }
   .event03 .match-date {
     max-width: 240px;
@@ -4413,11 +4421,16 @@ button {
     border-right: 0;
     border-top: 1px solid rgba(255, 231, 167, 0.4);
     border-bottom: 1px solid rgba(255, 231, 167, 0.4);
+    background: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 30px;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, #30265a 0%, #1b172f 100%), #202734;
     box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.38);
   }
   .event03 .watch-panel .notice-wrap {
-    margin-top: 0;
+    padding-bottom: 80px;
+    margin-top: 20px;
   }
   .showcase-panel__list {
     border-left: 0;
@@ -4446,7 +4459,7 @@ button {
 }
 @media (max-width: 1000px) {
   .timetable-panel {
-    background: url("../images/event03_bg_mobile.png") no-repeat center top/contain;
+    background: url("../images/event03_bg_mobile.png") no-repeat center top/cover;
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -4892,14 +4905,12 @@ button {
   background: #B3B6D2;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   .showcase-panel {
     width: 100%;
     max-width: 100%;
     padding-top: 0;
-  }
-  .showcase-panel .sec-head {
-    background: url("../images/event03_bg_mobile2.png") no-repeat center top/100% auto;
+    background: url("../images/event03_bg_mobile2.png") no-repeat center top/cover;
   }
   .showcase-panel__list {
     margin-top: 0;
@@ -5191,9 +5202,6 @@ button {
     margin-top: 0;
     box-sizing: border-box;
   }
-  .watch-list__item > .watch-list__btn .watch-list__btn-img {
-    width: 100%;
-  }
 }
 @media (max-width: 1000px) {
   .watch-list__item {
@@ -5257,10 +5265,9 @@ button {
     align-items: center;
     justify-content: center;
     flex: 1 1 100%;
-    width: calc(100% + 32px);
     max-width: none;
     height: 40px;
-    margin: 0 -16px -20px;
+    margin: 0 -16px;
     padding: 10px 0;
     align-self: stretch;
     box-sizing: border-box;
@@ -5312,8 +5319,8 @@ button {
     padding-top: 12px;
   }
   .watch-list__icon {
-    width: 84px;
-    height: 84px;
+    width: 60px;
+    height: 60px;
     margin: 0;
   }
   .watch-list__reward-icons--pc {
@@ -5350,6 +5357,9 @@ button {
     line-height: 18px;
     text-align: left;
   }
+  .watch-list__desc br {
+    display: none;
+  }
   .watch-list__reward {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -5362,7 +5372,6 @@ button {
     flex: 1 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     gap: 8px;
     width: auto;
   }

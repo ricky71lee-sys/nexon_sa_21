@@ -205,10 +205,6 @@
       width: 100%;
       margin-top: 0;
       box-sizing: border-box;
-
-      .watch-list__btn-img {
-        width: 100%;
-      }
     }
   }
 }
@@ -256,7 +252,6 @@
     margin-top: 0;
     padding: 0;
     border-bottom: 0;
-
     .icon-watch {
       width: 16px;
       height: 16px;
@@ -288,10 +283,10 @@
         align-items: center;
         justify-content: center;
         flex: 1 1 100%;
-        width: calc(100% + 32px);
+        //width: calc(100% + 32px);
         max-width: none;
         height: 40px;
-        margin: 0 -16px -20px;
+        margin: 0 -16px;
         padding: 10px 0;
         align-self: stretch;
         box-sizing: border-box;
@@ -356,8 +351,8 @@
     }
 
     &__icon {
-      width: 84px;
-      height: 84px;
+      width: 60px;
+      height: 60px;
       margin: 0;
     }
 
@@ -399,6 +394,9 @@
       font-weight: 500;
       line-height: 18px;
       text-align: left;
+      br{
+        display: none;
+      }
     }
 
     &__reward {
@@ -414,7 +412,7 @@
       flex: 1 1 auto;
       flex-direction: row;
       flex-wrap: wrap;
-      align-items: center;
+      //align-items: center;
       gap: 8px;
       width: auto;
     }

@@ -46,7 +46,7 @@
   &__today {
     position: absolute;
     right: 64px;
-    bottom: 20px;
+    bottom: 40px;
     z-index: 2;
     flex-direction: column;
     align-items: flex-end;
@@ -58,7 +58,7 @@
     align-items: center;
     position: relative;
     gap: 8px;
-    //margin-top: 26px;
+    margin-top: 26px;
   }
 
   &__today-check {
@@ -124,7 +124,7 @@
       &-inner{
         justify-content: space-between;
         padding-top: 10px;
-        padding-bottom: 25px;
+        padding-bottom: 50px;
         width: 100%;
         text-align: center;
         align-items: center;
@@ -151,9 +151,13 @@
     &__today {
       right: 20px;
       bottom: 19px;
-      left: 20px;
-      display: none;
+      left: 50%;
+      right: inherit;
+      transform: translateX(-50%);
       justify-content: center;
+      .hero__footer-btn{
+        display: none;
+      }
     }
 
     &__today-btn {

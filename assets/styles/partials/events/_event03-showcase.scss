@@ -211,13 +211,14 @@
   }
 }
 
-@include mo {
+@include tablet {
   .showcase-panel {
     width: 100%;
     max-width: 100%;
     padding-top: 0;
+    background: url("../images/event03_bg_mobile2.png") no-repeat center top / cover;
     .sec-head{
-      background: url("../images/event03_bg_mobile2.png") no-repeat center top / 100% auto;
+      //background: url("../images/event03_bg_mobile2.png") no-repeat center top / 100% auto;
     }
     &__list {
       margin-top: 0;
