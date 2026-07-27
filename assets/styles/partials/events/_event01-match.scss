@@ -368,11 +368,11 @@
     }
 
     &__visual {
-      padding: 20px 16px;
+      padding: 20px 16px 0;
     }
 
     &__visual img {
-      width: min(100%, 200px);
+      width: auto;
       margin: 0 auto;
       display: block;
     }

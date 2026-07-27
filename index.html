@@ -240,7 +240,10 @@
               <div v-show="medal.phase >= 2 && medal.phase <= 3" class="medal-flow__phase medal-match__phase">
                 <div class="medal-match">
                   <div class="medal-match__visual">
-                    <img src="./assets/images/medal_find_half.png" alt="반쪽 메달 합체 이미지">
+                    <picture>
+                      <source srcset="./assets/images/medal_find_half_pc.png" media="(min-width: 768px)">
+                      <img src="./assets/images/medal_find_half_mobile.png" alt="반쪽 메달 합체 이미지">
+                    </picture>
                   </div>
                   <div class="medal-match__forms">
                     <div class="medal-match__forms-inner">
@@ -343,8 +346,10 @@
                 <div class="medal-complete">
                   <div class="medal-complete__visual">
                     <div class="medal-complete__visual-img">
-                      <img src="./assets/images/medal_complete_visual.png" class="medal_complete_visual_pc" alt="완성된 21주년 메달">
-                      <img src="./assets/images/medal_complete_visual_mobile.png" class="medal_complete_visual_mobile" alt="완성된 21주년 메달">
+                      <picture>
+                        <source srcset="./assets/images/medal_complete_visual.png" media="(min-width: 768px)">
+                        <img src="./assets/images/medal_complete_visual_mobile.png" alt="완성된 21주년 메달">
+                      </picture>
                     </div>
                     <div class="medal-complete__head">
                       <h3 class="medal-complete__title text-gradient-gold">21주년 메달 완성!</h3>
@@ -714,7 +719,7 @@
                   <div class="timetable__row-inner">
                     <div class="timetable__row">
                       <time class="timetable__time">17:00 – 17:30</time>
-                      <p class="timetable__desc">오프닝 공연 & 우리는 모두 하나! 업투게더 성공 미션 도전</p>
+                      <p class="timetable__desc">오프닝 공연 & 우리는 모두 하나! <br class="pc-hidden">업투게더 성공 미션 도전</p>
                     </div>
                     <div class="timetable__row">
                       <time class="timetable__time">17:30 – 19:00</time>

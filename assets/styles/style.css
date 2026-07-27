@@ -1906,10 +1906,10 @@ button {
     width: 100%;
   }
   .medal-match__visual {
-    padding: 20px 16px;
+    padding: 20px 16px 0;
   }
   .medal-match__visual img {
-    width: min(100%, 200px);
+    width: auto;
     margin: 0 auto;
     display: block;
   }
@@ -2597,6 +2597,9 @@ button {
   }
   .medal-complete__visual {
     width: 100%;
+  }
+  .medal-complete__head {
+    padding-top: 18px;
   }
   .medal-complete__title {
     font-size: 26px;
@@ -4729,8 +4732,8 @@ button {
     line-height: 24px;
   }
   .timetable__row {
-    gap: 8px;
-    padding: 12px 16px;
+    gap: 12px;
+    padding: 16px 20px;
     box-sizing: border-box;
   }
   .timetable__time {
@@ -4739,7 +4742,7 @@ button {
   }
   .timetable__desc {
     font-size: 12px;
-    line-height: 24px;
+    line-height: 18px;
   }
   .timetable__line {
     width: 100%;
