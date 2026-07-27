@@ -54,8 +54,8 @@
 @include laptop {
   .event01 .event01__panel {
     gap: 30px;
-    background: none;
-    box-shadow: none;
+    //background: none;
+    //box-shadow: none;
 
     .notice-wrap {
       margin-top: -20px;
@@ -69,6 +69,10 @@
 @include tablet {
   .event01{
     position: relative;
+    &__panel{
+      background: none;
+      box-shadow: none;
+    }
     .mobile-background{
       display: block;
       position: absolute;
