@@ -22,11 +22,11 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles/style.css" />
-  <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script>
+  <!-- <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script> -->
 </head>
 
 <body>
-  <script>
+  <!-- <script>
     window.fnGnbResize = function (height) {
       var h = typeof height === "number" ? height : parseInt(height, 10);
       if (!h || h < 0) h = 62;
@@ -45,7 +45,7 @@
   </script>
   <script type="text/javascript" src="https://rs.nxfs.nexon.com/common/js/gnb.min.js" charset="UTF-8" data-name="GNB"
     data-gamecode="94227" data-funresize="fnGnbResize" data-ispchub="true" data-ispublicbanner="true"
-    data-skiptocontentsid="skipNav"></script>
+    data-skiptocontentsid="skipNav"></script> -->
   <div id="app">
     <!--
       #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport 모달
@@ -188,8 +188,8 @@
               <!-- <h2 class="text-gradient-gold">둘이서 하나, 21주년 메달 합체</h2> -->
                <h2 class="sec-title"><img src="./assets/images/event01_title.svg" alt="둘이서 하나, 21주년 메달 합체"></h2>
               <p>
-                반쪽 메달의 듀오를 찾아 메달 코드를 주고받고, <br class="pc-hidden">합체 신청을 수락하면<br class="mobile-hidden">
-                메달이 하나로 완성돼 <br class="pc-hidden">양쪽 모두 보상을 받아요.
+                반쪽 메달의 듀오를 찾아 메달 코드를 주고받고, <br class="mobile-hidden">합체 신청을 수락하면<br class="pc-hidden">
+                메달이 하나로 완성돼 <br class="mobile-hidden">양쪽 모두 보상을 받아요.
               </p>
             </div>
 
@@ -245,7 +245,7 @@
                           <span class="medal-match__code">{{ medal.code || 'SA-----' }}</span>
                           <button type="button" class="medal-match__copy" @click="copyCode">복사</button>
                         </div>
-                        <p class="medal-match__desc">내 메달 코드를 공유하고, 함께할 듀오를 찾아 메달을 합체해 보세요!</p>
+                        <p class="medal-match__desc">내 메달 코드를 공유하고, 함께할 듀오를 찾아 <br class="pc-hidden">메달을 합체해 보세요!</p>
                         <div class="medal-match__sns-box">
                           <button type="button" class="medal-match__sns" @click="clickShare">
                             <img src="./assets/images/btn_sns_share.png" alt="내 메달 코드 SNS 공유하기">
@@ -267,8 +267,8 @@
                     <div class="medal-match__submit-box">
                       <button type="button" class="medal-match__submit" @click="clickSendRequest">
                         <span class="medal-match__submit-label">메달 합체 신청하기</span>
-                        <span class="medal-match__quota">오늘 남은 신청 <b>{{ medal.quota }}</b>/5회 · 매일 오전 8시 초기화</span>
                       </button>
+                      <span class="medal-match__quota">오늘 남은 신청 <b>{{ medal.quota }}</b>/5회 · 매일 오전 8시 초기화</span>
                     </div>
                   </div>
                 </div>

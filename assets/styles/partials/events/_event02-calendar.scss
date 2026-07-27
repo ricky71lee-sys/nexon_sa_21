@@ -656,3 +656,22 @@
     }
   }
 }
+
+
+@include mo {
+  .cal-card__meta{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cal-card__date{
+    font-size: 12px;
+    line-height: 16px;
+    em{
+      font-size: 10px;
+      line-height: 14px;
+    }
+  }
+  .cal-card__reward{
+    font-size: 10px;
+  }
+}

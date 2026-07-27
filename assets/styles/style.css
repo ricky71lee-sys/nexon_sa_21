@@ -921,7 +921,7 @@ button {
     line-height: 38px;
   }
   .sec-head p {
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 600;
     line-height: 17px;
   }
@@ -1768,8 +1768,10 @@ button {
 }
 .medal-match__submit-box {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  padding: 0;
+  padding: 13px 16px;
   border-radius: 0;
   background: url("../images/btn_medal_submit_bg.png") no-repeat center/100% 100%;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -1783,12 +1785,11 @@ button {
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin: 0;
-  padding: 13px 16px;
+  padding: 0;
   border: 0;
   background: transparent;
   color: #fff;
@@ -1905,6 +1906,7 @@ button {
   }
   .medal-match__forms {
     border: 0;
+    padding-bottom: 20px;
   }
   .medal-match__forms-inner {
     padding: 20px 16px;
@@ -1955,18 +1957,28 @@ button {
     max-width: 100%;
   }
   .medal-match__submit-box {
-    border-width: 1px 0 0;
+    padding-bottom: 20px;
+    gap: 8px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   .medal-match__submit {
+    width: 100%;
     padding: 14px 16px;
+    background: url("../images/btn_medal_submit_bg.png") no-repeat center/100% 100%;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   .medal-match__submit-label {
     font-size: 16px;
     line-height: 24px;
   }
   .medal-match__quota {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #7F8BA6;
   }
   .medal-waiting {
     width: 100%;
@@ -2153,7 +2165,7 @@ button {
 }
 @media (max-width: 767px) {
   .medal-request {
-    margin-top: 16px;
+    margin-top: 30px;
     padding: 0;
     border: 0;
     background: transparent;
@@ -2906,7 +2918,7 @@ button {
     box-shadow: none;
   }
   .event02 .att-notes li {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 400;
     line-height: 16px;
   }
@@ -4064,6 +4076,23 @@ button {
   .cal-legend i {
     width: 12px;
     height: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .cal-card__meta {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cal-card__date {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .cal-card__date em {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .cal-card__reward {
+    font-size: 10px;
   }
 }
 .milestone {
