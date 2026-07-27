@@ -1122,6 +1122,7 @@ button {
   position: relative;
   gap: 8px;
   margin-top: 26px;
+  filter: drop-shadow(0 0 5px rgb(0, 0, 0));
 }
 .hero__today-check {
   position: absolute;
@@ -1151,7 +1152,6 @@ button {
   cursor: pointer;
   font-size: 16px;
   color: rgb(234, 234, 234);
-  text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
 .hero__title-mo {

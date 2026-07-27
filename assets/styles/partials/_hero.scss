@@ -69,6 +69,7 @@
     position: relative;
     gap: 8px;
     margin-top: 26px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
   }
 
   &__today-check {
@@ -102,7 +103,6 @@
     cursor: pointer;
     font-size: 16px;
     color: rgba(234, 234, 234, 1);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
   }
   
 }
