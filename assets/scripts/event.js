@@ -79,10 +79,10 @@
        * quota: 일 5회 · 오전 8시 초기화 · 취소 시 횟수 미복구
        */
       const medal = reactive({
-        issued: true,
-        code: "SA-K7X9",
-        side: "L",
-        phase: 2,
+        issued: false,
+        code: "",
+        side: null,
+        phase: 1,
         quota: 5,
         sentTo: null,
         received: [],
@@ -450,8 +450,7 @@
        * TODO: 실 API 연결 · 배포 전 medal.json(미발급) 복구 여부 확인
        */
       async function getMedalState() {
-        // TODO(작업용): phase2 미리보기 — 배포 전 medal.json 으로 복구
-        applyMedalState(await fetchApi(DATA_BASE + "/medal_issued.json"));
+        applyMedalState(await fetchApi(DATA_BASE + "/medal.json"));
       }
 
       /**

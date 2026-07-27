@@ -22,11 +22,11 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="./assets/styles/style.css" />
-  <!-- <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script> -->
+  <script type="text/javascript" src="https://ssl.nexon.com/s1/da/a2s.js"></script>
 </head>
 
 <body>
-  <!-- <script>
+  <script>
     window.fnGnbResize = function (height) {
       var h = typeof height === "number" ? height : parseInt(height, 10);
       if (!h || h < 0) h = 62;
@@ -45,7 +45,7 @@
   </script>
   <script type="text/javascript" src="https://rs.nxfs.nexon.com/common/js/gnb.min.js" charset="UTF-8" data-name="GNB"
     data-gamecode="94227" data-funresize="fnGnbResize" data-ispchub="true" data-ispublicbanner="true"
-    data-skiptocontentsid="skipNav"></script> -->
+    data-skiptocontentsid="skipNav"></script>
   <div id="app">
     <!--
       #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport 모달
@@ -147,7 +147,10 @@
       </div>
 
       <header class="hero">
-        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__bg" aria-hidden="true">
+          <img class="hero__bg-pc" src="./assets/images/hero_bg.png" alt="">
+          <img class="hero__bg-mo" src="./assets/images/hero_mobile_bg.png" alt="">
+        </div>
         <div class="hero__content">
           <div class="hero__content-inner">
             <div class="hero__title">
@@ -187,9 +190,9 @@
               <span class="sec-tag">EVENT 1</span>
               <!-- <h2 class="text-gradient-gold">둘이서 하나, 21주년 메달 합체</h2> -->
                <h2 class="sec-title"><img src="./assets/images/event01_title.svg" alt="둘이서 하나, 21주년 메달 합체"></h2>
-              <p>
-                반쪽 메달의 듀오를 찾아 메달 코드를 주고받고, <br class="mobile-hidden">합체 신청을 수락하면<br class="pc-hidden">
-                메달이 하나로 완성돼 <br class="mobile-hidden">양쪽 모두 보상을 받아요.
+              <p> 
+                반쪽 메달의 듀오를 찾아 메달 코드를 주고받고, 합체 신청을 수락하면<br class="mobile-hidden">
+                메달이 하나로 완성돼 <br class="pc-hidden">양쪽 모두 보상을 받아요.
               </p>
             </div>
 
@@ -402,7 +405,7 @@
                           <div class="medal-complete__icon">
                             <img src="./assets/images/medal_complete_img5.png" alt="서든어택 트윈 블루투스 스피커">
                           </div>
-                          <span>트윈 블루투스<br>스피커 100명</span>
+                          <span>트윈 블루투스 스피커 <br>100명</span>
                         </div>
                         <div class="medal-complete__item">
                           <div class="medal-complete__icon">
@@ -424,9 +427,9 @@
                     <span class="corner-deco corner-deco--tr"></span>
                     <span class="corner-deco corner-deco--bl"></span>
                     <span class="corner-deco corner-deco--br"></span>
-                    <h4 class="medal-complete__duo-title"><i class="icon-duo-user" aria-hidden="true"></i>내 듀오 정보</h4>
+                    <h4 class="medal-complete__duo-title"><i class="icon-duo-user" aria-hidden="true"></i>듀오 정보</h4>
                     <div class="medal-complete__duo-info">
-                      <strong>나 & {{ medal.matched ? medal.matched.nick : '-' }}</strong>
+                      <strong>{{ medal.matched ? medal.matched.nick : '-' }}</strong>
                       <a href="https://sa.nexon.com" class="medal-complete__duo-link" target="_blank" rel="noopener">병영
                         수첩 바로가기</a>
                     </div>
@@ -479,7 +482,7 @@
                       <div class="reward-item__icon" aria-label="서든어택 트윈 블루투스 스피커">
                         <img src="./assets/images/reward_item_icon04.png" alt="서든어택 트윈 블루투스 스피커">
                       </div>
-                      <span class="reward-item__label">트윈 블루투스<br>스피커 100명</span>
+                      <span class="reward-item__label">트윈 블루투스 스피커 <br>100명</span>
                     </div>
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="1만 넥슨캐시">
@@ -924,7 +927,6 @@
           </div>
           
         </section>
-
       </main>
       <footer class="footer">
         <a class="footer__home" href="https://sa.nexon.com/main/index.aspx" target="_blank" rel="noopener">
@@ -1043,13 +1045,24 @@
           <h3 class="share-modal__title">메달 코드 SNS 공유</h3>
           <p class="share-modal__desc">내 메달 코드 <b>{{ medal.code || 'SA-----' }}</b>를 함께 전달해요</p>
           <div class="share-modal__channels">
-            <button type="button" class="share-modal__channel" v-for="ch in shareChannels" :key="ch.id"
-              @click="clickShareChannel(ch.id)">
-              <span class="share-modal__channel-icon">
-                <img :src="'./assets/images/' + ch.icon" :alt="ch.label" width="50" height="50">
-              </span>
-              <span class="share-modal__channel-label">{{ ch.label }}</span>
-            </button>
+            <div class="share-modal__row share-modal__row--top">
+              <button type="button" class="share-modal__channel" v-for="ch in shareChannels.slice(0, 2)" :key="ch.id"
+                @click="clickShareChannel(ch.id)">
+                <span class="share-modal__channel-icon">
+                  <img :src="'./assets/images/' + ch.icon" :alt="ch.label" width="50" height="50">
+                </span>
+                <span class="share-modal__channel-label">{{ ch.label }}</span>
+              </button>
+            </div>
+            <div class="share-modal__row share-modal__row--bottom">
+              <button type="button" class="share-modal__channel" v-for="ch in shareChannels.slice(2)" :key="ch.id"
+                @click="clickShareChannel(ch.id)">
+                <span class="share-modal__channel-icon">
+                  <img :src="'./assets/images/' + ch.icon" :alt="ch.label" width="50" height="50">
+                </span>
+                <span class="share-modal__channel-label">{{ ch.label }}</span>
+              </button>
+            </div>
           </div>
           <button type="button" class="share-modal__close" @click="closeShare">닫기</button>
         </div>
@@ -1065,7 +1078,7 @@
     1) jQuery  2) Vue3 global  3) utils.js  4) control.js  5) event.js(마지막)
     mount: #app · 데이터 흐름은 event.js 상단 주석 참고
   -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
   <script src="./assets/scripts/utils.js"></script>
   <script src="./assets/scripts/control.js"></script>

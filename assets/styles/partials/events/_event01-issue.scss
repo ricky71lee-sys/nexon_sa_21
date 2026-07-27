@@ -119,7 +119,7 @@
     &__ring {
       width: 200px;
       height: 200px;
-      background-size: contain;
+      //background-size: contain;
     }
 
     &__lock {
@@ -147,6 +147,7 @@
       font-size: 13px;
       line-height: 18px;
     }
+    &__medal,
     &__ring {
       width: 188px;
       height: 188px;

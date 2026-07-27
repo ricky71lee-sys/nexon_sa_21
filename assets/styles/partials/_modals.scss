@@ -578,6 +578,11 @@ $z-system: 10000;
     flex-wrap: wrap;
   }
 
+  // PC: row 래퍼를 펼쳐서 5개가 한 줄로
+  &__row {
+    display: contents;
+  }
+
   &__channel {
     display: flex;
     flex-direction: column;
@@ -941,21 +946,44 @@ $z-system: 10000;
     }
 
     &__channels {
-      gap: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    &__row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+
+      &--top {
+        gap: 28px;
+      }
+
+      &--bottom {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0;
+      }
     }
 
     &__channel-icon {
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
 
       img {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
       }
     }
 
     &__channel-label {
       font-size: 13px;
+      font-weight: 500;
+      line-height: 16px;
+      color: #666;
     }
 
     &__close {
