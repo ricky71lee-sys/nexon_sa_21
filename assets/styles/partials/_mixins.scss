@@ -3,7 +3,7 @@
 // =============================================================================
 
 /// EVENT1 배경: multiply 오버레이 + PNG
-@mixin multiply-vignette-bg($image, $position: center bottom, $size: cover) {
+@mixin multiply-vignette-bg($image, $position: center top, $size: auto) {
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%),

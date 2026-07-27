@@ -11,8 +11,16 @@
     "matched": null,
     "claimed": false,
     "received": [
-      { "code": "SA-RECV1", "nick": "불꽃저격수", "side": "R", "t": 1000 },
-      { "code": "SA-RECV2", "nick": "복귀한김병장", "side": "L", "t": 900 }
+      { "code": "SA-RECV01", "nick": "서든김과장", "side": "R", "t": 1000 },
+      { "code": "SA-RECV02", "nick": "어택박대리", "side": "L", "t": 900 },
+      { "code": "SA-RECV03", "nick": "헤드라인", "side": "R", "t": 800 },
+      { "code": "SA-RECV04", "nick": "3미리스나", "side": "L", "t": 700 },
+      { "code": "SA-RECV05", "nick": "매박라플", "side": "R", "t": 600 },
+      { "code": "SA-RECV06", "nick": "불꽃저격수", "side": "L", "t": 500 },
+      { "code": "SA-RECV07", "nick": "복귀한김병장", "side": "R", "t": 400 },
+      { "code": "SA-RECV08", "nick": "듀오헌터", "side": "L", "t": 300 },
+      { "code": "SA-RECV09", "nick": "스나마스터", "side": "R", "t": 200 },
+      { "code": "SA-RECV10", "nick": "라플킹", "side": "L", "t": 100 }
     ]
   }
 }

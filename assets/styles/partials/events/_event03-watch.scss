@@ -3,7 +3,8 @@
 
 // =============================================================================
 // EVENT3 · 시청 이벤트 (.watch-panel / .watch-list)
-// 패널 프레임: _event03.scss · 보상: PC 한 줄 / MO 중앙 정렬
+// PC: 아이콘 | 본문(+보상아이콘) | CTA
+// MO: [아이콘+보상아이콘] | 본문 / CTA 풀폭
 // =============================================================================
 .watch-panel {
   .icon-watch {
@@ -29,12 +30,14 @@
     padding: 22px 32px 22px 38px;
     border: 1px solid #525365;
     background: var(--bg-purple);
+    box-sizing: border-box;
   }
 
   &__num {
     position: absolute;
     top: -1px;
     left: -1px;
+    z-index: 1;
     width: 47px;
     height: 47px;
     padding: 4px 0 0 7px;
@@ -43,10 +46,54 @@
     background: url("../images/watch_event_num.png") no-repeat center / contain;
   }
 
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
   &__icon {
     flex-shrink: 0;
     width: 114px;
     height: 114px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__reward-icons {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8px;
+
+    &--mo {
+      display: none;
+    }
+  }
+
+  &__reward-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #292638;
+    box-sizing: border-box;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   &__body {
@@ -58,15 +105,17 @@
   }
 
   &__title {
-    font-size: 24px;
+    margin: 0;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 28px;
+    line-height: 24px;
   }
 
   &__desc {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 26px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
     color: #efefef;
   }
 
@@ -75,30 +124,6 @@
     align-items: center;
     gap: 8px;
     min-width: 0;
-  }
-
-  &__reward-icons {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 8px;
-  }
-
-  &__reward-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
   }
 
   &__reward--has-icons .watch-list__reward-row {
@@ -124,9 +149,9 @@
     border-radius: 4px;
     background: #abadc2;
     color: #302b4c;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    line-height: 15px;
+    white-space: nowrap;
   }
 
   &__reward-text {
@@ -153,20 +178,23 @@
     cursor: pointer;
     line-height: 0;
 
-    img {
-      display: block;
-      width: auto;
-      height: auto;
-      max-width: 100%;
-    }
-
     &:hover {
       opacity: 0.92;
     }
   }
+
+  &__btn-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+
+  &__btn-label {
+    display: none;
+  }
 }
 
-// CTA가 본문과 겹칠 때 다음 줄
 @include max-width($bp-watch-stack) {
   .watch-list__item {
     flex-wrap: wrap;
@@ -178,7 +206,7 @@
       margin-top: 0;
       box-sizing: border-box;
 
-      img {
+      .watch-list__btn-img {
         width: 100%;
       }
     }
@@ -225,100 +253,192 @@
 
 @include mo {
   .watch-panel {
-    margin-top: 20px;
+    margin-top: 0;
+    padding: 0;
     border-bottom: 0;
+
+    .icon-watch {
+      width: 16px;
+      height: 16px;
+    }
+
+    .block-title {
+      gap: 2px;
+    }
+
+    .notice-wrap {
+      margin-top: 0;
+    }
   }
 
   .watch-list {
+    margin-top: 10px;
+    gap: 16px;
+
     &__item {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 12px;
-      padding: 20px 16px 16px;
+      gap: 14px;
+      padding: 20px 16px;
+      box-sizing: border-box;
 
       > .watch-list__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 100%;
+        width: calc(100% + 32px);
+        max-width: none;
+        height: 40px;
+        margin: 0 -16px -20px;
+        padding: 10px 0;
         align-self: stretch;
-        width: 100%;
-        margin-top: 0;
+        box-sizing: border-box;
+        border: 0;
+        background-color: #8b623a;
+        background-image:
+          url("../images/btn_watch_metal.png"),
+          url("../images/btn_watch_metal_base.png"),
+          linear-gradient(90deg, #664a2f 0%, #c09849 100%),
+          linear-gradient(90deg, #8b623a 0%, #f4c15d 100%);
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+        background-position: center, center, center, center;
+        background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+        line-height: normal;
+        cursor: pointer;
 
-        img {
-          width: 100%;
+        .watch-list__btn-img {
+          display: none;
+        }
+
+        .watch-list__btn-label {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: normal;
+          color: #fff;
+          white-space: nowrap;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 16px;
+            height: 16px;
+            background: url("../images/btn_watch_arrow.svg") no-repeat center / contain;
+          }
         }
       }
     }
 
+    &__item--has-cta {
+      padding-bottom: 0;
+    }
+
+    &__item--has-icons {
+      align-items: flex-start;
+      gap: 14px;
+    }
+
     &__num {
-      width: 36px;
-      height: 36px;
-      padding: 3px 0 0 5px;
+      width: 47px;
+      height: 47px;
+      padding: 4px 0 0 4px;
       font-size: 12px;
     }
 
+    &__aside {
+      width: 84px;
+      gap: 16px;
+      padding-top: 12px;
+    }
+
     &__icon {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto;
+      width: 84px;
+      height: 84px;
+      margin: 0;
     }
 
-    &__body {
-      align-items: center;
-      width: 100%;
-      text-align: center;
+    &__reward-icons--pc {
+      display: none !important;
     }
 
-    &__title {
-      font-size: 16px;
-      line-height: 22px;
-      text-align: center;
-    }
-
-    &__desc {
-      font-size: 13px;
-      line-height: 18px;
-      text-align: center;
-    }
-
-    &__reward {
-      flex-direction: row;
+    &__reward-icons--mo {
+      display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: center;
       gap: 8px;
       width: 100%;
     }
 
-    &__reward-icons {
-      justify-content: center;
+    &__reward-icon {
+      width: 38px;
+      height: 38px;
+      border: 1px solid transparent;
+      background: #292638;
+    }
+
+    &__body {
+      flex: 1 1 0;
+      min-width: 0;
+      align-items: flex-start;
+      gap: 8px;
+      text-align: left;
+    }
+
+    &__title {
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left;
+    }
+
+    &__desc {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      text-align: left;
+    }
+
+    &__reward {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 8px;
+      width: 100%;
     }
 
     &__reward--has-icons .watch-list__reward-row {
-      flex: 0 1 auto;
-      flex-wrap: nowrap;
-      align-items: flex-start;
+      flex: 1 1 auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
       width: auto;
     }
 
     &__reward-row {
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-    &__reward-icon {
-      width: 44px;
-      height: 44px;
+      align-items: center;
+      justify-content: flex-start;
     }
 
     .reward-chip {
-      padding: 3px 8px;
+      padding: 2px 10px;
       font-size: 12px;
-      line-height: 14px;
+      font-weight: 600;
+      line-height: 15px;
     }
 
     &__reward-text {
-      flex: 0 1 auto;
-      font-size: 13px;
-      line-height: 16px;
+      flex: 1 1 auto;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 15px;
+      color: #abadc2;
       text-align: left;
+      white-space: pre-line;
     }
   }
 }

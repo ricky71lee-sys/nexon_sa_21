@@ -3,23 +3,18 @@
   "message": "SUCCESS",
   "result": {
     "_comment_types": [
-      "개발용 샘플 — 1행(day0~6)에 cal-card 타입을 하나씩 배치",
-      "day0 수령완료(출석)",
-      "day1 듀오와 동반 보상받기",
-      "day2 3일연속 보상받기",
-      "day3 3일연속+듀오 보상받기",
-      "day4 3일연속+듀오 수령완료",
-      "day5 미출석(+ 보충하기)",
-      "day6 출석기본(오늘·미출석)"
+      "개발용 샘플 — cal-card + milestone 버튼 3상태 확인",
+      "마일스톤: 누적7 수령완료 / 누적14 보상받기 / 누적21·동반5 미달성",
+      "day0~9 cal-card 상태 샘플, day10~11 보충권 필요(makeup 0), day12~15 출석(누적14 달성용)"
     ],
-    "state": [1, 2, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "todayIdx": 6,
-    "makeup": 2,
+    "state": [1, 1, 2, 2, 1, 1, 2, 2, 4, 4, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+    "todayIdx": 16,
+    "makeup": 0,
     "streak": 3,
     "hasDuo": true,
-    "claimed": [0, 4],
-    "msClaimed": [],
+    "claimed": [0, 3, 5, 7, 9],
+    "msClaimed": [7],
     "duoMsClaimed": [],
-    "streakDays": [2, 3, 4]
+    "streakDays": [4, 5, 6, 7]
   }
 }

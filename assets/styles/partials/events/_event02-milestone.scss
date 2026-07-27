@@ -1,6 +1,7 @@
 @use "../breakpoints" as *;
 
-// EVENT2 · 마일스톤 (개인 3열 + 동반 1열 · MO는 블록별 세로 스택)
+// EVENT2 · 마일스톤
+// 버튼 3상태: 미달성 · 보상 받기(--ready) · 수령 완료(--done)
 .milestone {
   margin-top: 30px;
   width: 100%;
@@ -64,37 +65,64 @@
     flex-direction: column;
   }
 
+  // 미달성(기본) — flat bg + 아이콘 opacity 0.2
+  // 수령완료/보상받기 — gradient bg + 아이콘 풀컬러
   &__card {
     flex: 1 0 0;
     min-width: 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 16px;
-    padding: 26px 12px;
-    border: 2px solid var(--white-15);
-    border-radius: var(--radius);
-    background: var(--white-09);
+    padding: 26px 14px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.09);
     text-align: center;
     box-sizing: border-box;
 
-    &--done {
-      border-color: #525365;
+    .milestone__icon {
+      opacity: 0.2;
+    }
+
+    &--done,
+    &--ready {
       background: linear-gradient(180deg, #3c3e59 0%, #1d1e30 100%);
+
+      .milestone__icon {
+        opacity: 1;
+      }
     }
 
     &--ready {
-      border-color: #4a4ea3;
-      background: linear-gradient(180deg, #3c3e59 0%, #1d1e30 100%);
+      border-color: rgba(255, 255, 255, 0.1);
     }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  &__visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
   }
 
   &__title {
     margin: 0;
     width: 100%;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 600;
     line-height: 28px;
+    color: #fff;
     text-align: center;
   }
 
@@ -102,7 +130,8 @@
     width: 160px;
     height: 77px;
     margin: 0 auto;
-    opacity: 0.2;
+    position: relative;
+    overflow: hidden;
 
     img {
       display: block;
@@ -112,42 +141,60 @@
     }
   }
 
-  &__card--done &__icon,
-  &__card--ready &__icon {
-    opacity: 1;
-  }
-
   &__gift {
     margin: 0;
     width: 100%;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 24px;
     color: #fff;
     text-align: center;
+    word-break: keep-all;
   }
 
+  // 미달성 (기본)
   &__btn {
     width: 100%;
-    padding: 10px 0;
+    min-height: 40px;
+    padding: 10px 8px;
     border: 0;
-    border-radius: 6px;
+    border-radius: 0;
     background: #273040;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 700;
-    color: var(--white-40);
-    cursor: pointer;
+    line-height: normal;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    box-sizing: border-box;
+    cursor: default;
 
-    &:disabled {
+    // 보상 받기 — 메탈 버튼
+    &--ready {
+      color: #fff;
+      background-color: #273040;
+      background-image:
+        url("../images/ms_btn_claim_metal.png"),
+        url("../images/ms_btn_claim_base.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: center, center;
+      background-size: 100% 100%, 100% 100%;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.92;
+      }
+    }
+
+    // 수령 완료
+    &--done {
+      background: #575970;
+      background-image: none;
+      color: rgba(255, 255, 255, 0.4);
       cursor: default;
     }
 
-    &--ready {
-      color: rgba(255, 255, 255, 0.4);
-    }
-
-    &--done {
-      background: #575970;
+    &:disabled {
+      cursor: default;
     }
   }
 }
@@ -156,11 +203,11 @@
   .milestone {
     flex-direction: column;
     gap: 20px;
-    margin-top: 24px;
+    margin-top: 20px;
 
     &__block {
       width: 100%;
-      gap: 12px;
+      gap: 4px;
 
       &--personal,
       &--duo {
@@ -169,8 +216,9 @@
     }
 
     &__head {
+      gap: 2px;
       font-size: 14px;
-      line-height: 20px;
+      line-height: 16px;
 
       .icon-milestone,
       .icon-milestone-duo {
@@ -179,36 +227,101 @@
       }
     }
 
+    // 개인: 3열 그리드
     &__row {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 4px;
+    }
+
+    &__block--duo &__row {
       flex-direction: column;
-      gap: 10px;
     }
 
     &__card {
-      flex: none;
-      width: 100%;
-      padding: 16px 12px;
-      gap: 12px;
+      flex: 1 1 0;
+      min-width: 0;
+      width: auto;
+      gap: 0;
+      padding: 16px;
+      border-width: 1px;
+      border-color: rgba(255, 255, 255, 0.15);
+      background: #373F4E;
+
+      .milestone__icon {
+        opacity: 0.3;
+      }
+
+      &--done,
+      &--ready {
+        background: linear-gradient(180deg, #3c3e59 0%, #1d1e30 100%);
+
+        .milestone__icon {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__body {
+      gap: 0;
+    }
+
+    &__visual {
+      gap: 0;
     }
 
     &__title {
-      font-size: 16px;
-      line-height: 20px;
-    }
-
-    &__icon {
-      width: 120px;
-      height: 58px;
-    }
-
-    &__gift {
-      font-size: 14px;
+      font-size: 12px;
+      font-weight: 500;
       line-height: 18px;
     }
 
-    &__btn {
+    &__icon {
+      width: 100%;
+      max-width: 120px;
+      height: 70px;
       padding: 10px 0;
-      font-size: 13px;
+      box-sizing: border-box;
+    }
+
+    &__gift {
+      margin-top: 0;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    &__block--duo &__gift {
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+
+    &__btn {
+      height: 28px;
+      min-height: 28px;
+      margin-top: 4px;
+      padding: 4px 8px;
+      font-size: 14px;
+      color: #a3a3a3;
+
+      &--ready,
+      &--done {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      &--ready {
+        color: #fff;
+      }
+    }
+
+    &__block--duo &__btn {
+      margin-top: 8px;
+    }
+
+    &__block--duo &__card {
+      width: 100%;
+      flex: none;
     }
   }
 }

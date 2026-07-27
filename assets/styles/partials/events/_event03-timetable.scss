@@ -4,6 +4,16 @@
 // EVENT3 · 타임테이블 (.timetable)
 // 패널 프레임은 _event03.scss 공통 선택자 참고
 // =============================================================================
+.timetable-panel{
+  @include tablet {
+    background: url("../images/event03_bg_mobile.png") no-repeat center top / contain;
+    padding-left: 16px;
+    padding-right: 16px;
+    .sec-head{
+      background: none;
+    }
+  }
+}
 .timetable {
   display: flex;
   flex-direction: column;
@@ -89,7 +99,7 @@
   }
 
   &__time {
-    width: 168px;
+    //width: 168px;
     flex-shrink: 0;
     font-size: 20px;
     font-weight: 700;
@@ -123,7 +133,7 @@
   &__title {
     color: #F6F6F6;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 800;
     line-height: 50px;
     background: linear-gradient(180deg, #FFFBE3 0%, #E6C363 100%);
@@ -177,16 +187,26 @@
     margin-top: 10px;
     color: rgba(255, 255, 255, 0.80);
     text-align: center;
-    font-size: 17px;
+    font-size: fluid(12, 14);
     font-weight: 400;
     line-height: 22px;
+    text-align: center;
     width: 100%;
+    &.v2{
+      margin-top: 0;
+    }
   }
   
 }
 
 @include mo {
   .timetable {
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+    border-top: 0;
+    box-shadow: none;
+    border: 0;
     &__head {
       font-size: 14px;
       line-height: 20px;
@@ -210,35 +230,40 @@
       width: 100%;
       padding: 10px 16px;
       gap: 10px;
-      box-sizing: border-box;
+      text-align: center;
+      justify-content: center;
+    }
+
+    &__part-body{
+      width: auto;
+      text-align: left;
+      gap:4px;
     }
 
     &__part-num {
-      font-size: 20px;
+      font-size: 26px;
       line-height: 24px;
     }
 
     &__part-name {
-      font-size: 15px;
-      line-height: 20px;
+      font-size: 14px;
+      line-height: 24px;
     }
 
     &__row {
-      flex-direction: column;
       gap: 8px;
       padding: 12px 16px;
       box-sizing: border-box;
     }
 
     &__time {
-      width: 100%;
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 12px;
+      line-height: 24px;
     }
 
     &__desc {
-      font-size: 13px;
-      line-height: 18px;
+      font-size: 12px;
+      line-height: 24px;
     }
 
     &__line {
@@ -258,10 +283,10 @@
     }
 
     .btn--broadcast {
-      width: 100%;
-      height: 48px;
+      width: 100%; 
+      height: 50px;
       padding: 0 16px;
-      font-size: 14px;
+      font-size: 12px;
       box-sizing: border-box;
     }
 

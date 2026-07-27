@@ -84,7 +84,7 @@
   }
 }
 
-// ── MO 전체 메뉴 (Figma 93:488) ──
+// ── MO 전체 메뉴 ──
 .mo-menu {
   display: none;
 }
@@ -150,6 +150,7 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    gap: 50px;
     position: absolute;
     top: 0;
     left: 0;
@@ -160,7 +161,7 @@
     min-height: 100%;
     height: auto;
     max-height: none;
-    padding: 0 0 calc(24px + env(safe-area-inset-bottom, 0px));
+    padding: 10px 16px calc(60px + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -178,15 +179,15 @@
       pointer-events: auto;
     }
 
-    // .topbar__in 과 동일 정렬 (로고·X)
     &__head {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
       width: 100%;
-      min-height: 60px;
-      padding: 10px 16px;
+      padding: 0;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     &__logo {
@@ -196,50 +197,24 @@
       background: url("../images/event_logo.png") no-repeat center / contain;
     }
 
-    // .topbar__menu 자리와 동일 (34×22)
     &__close {
-      position: relative;
       flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
+      display: block;
+      width: 22px;
       height: 22px;
+      margin-left: auto;
       padding: 0;
       border: 0;
-      background: transparent;
+      background: url("../images/menu/mo_close.svg") no-repeat center / contain;
       cursor: pointer;
-
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 18px;
-        height: 2px;
-        border-radius: 1px;
-        background: rgba(255, 255, 255, 0.6);
-      }
-
-      &::before {
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-
-      &::after {
-        transform: translate(-50%, -50%) rotate(-45deg);
-      }
     }
 
     &__body {
       display: flex;
       flex-direction: column;
-      flex: 1 1 auto;
-      gap: 24px;
+      gap: 60px;
       width: 100%;
-      min-height: 0;
-      margin-top: 0;
-      padding: 8px 16px 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
@@ -248,7 +223,6 @@
       flex-direction: column;
       gap: 16px;
       width: 100%;
-      flex: 0 0 auto;
     }
 
     &__card {
@@ -269,17 +243,17 @@
         color: #fff;
         background:
           linear-gradient(90deg, #4b53c3 0%, #4b53c3 100%),
-          linear-gradient(0deg, #22355e 0%, #3d528d 100%);
+          linear-gradient(0deg, #22355e 0%, #3d528d 100%),
+          #435481;
 
         .mo-menu__card-arrow {
           background-image: url("../images/menu/mo_arrow_active.svg");
-          opacity: 1;
         }
       }
     }
 
     &__card-text {
-      flex: 1;
+      flex: 1 0 0;
       min-width: 0;
       display: flex;
       flex-direction: column;
@@ -288,11 +262,12 @@
     }
 
     &__card-sub {
-      display: block;
+      display: flex;
+      align-items: center;
       height: 20px;
       font-size: 16px;
       font-weight: 400;
-      line-height: 20px;
+      line-height: 36px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -315,15 +290,20 @@
       background: url("../images/menu/mo_arrow.svg") no-repeat center / contain;
     }
 
-    &__vault {
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    &__cta {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       width: 100%;
       height: 60px;
-      margin-top: auto;
-      flex-shrink: 0;
       padding: 10px 24px;
       box-sizing: border-box;
       border: 1px solid #fff;
@@ -334,15 +314,30 @@
       font-weight: 600;
       line-height: normal;
       color: #fff;
+      text-decoration: none;
       cursor: pointer;
       white-space: nowrap;
+      overflow: hidden;
     }
 
-    &__vault-icon {
+    &__cta-icon {
       flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      background: url("../images/menu/mo_gift.svg") no-repeat center / contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      &--gift {
+        width: 24px;
+        height: 24px;
+        background-image: url("../images/menu/mo_gift.svg");
+      }
+
+      &--swap {
+        width: 23px;
+        height: 18px;
+        background-image: url("../images/menu/mo_swap.svg");
+        background-size: 16px 14px;
+      }
     }
   }
 }

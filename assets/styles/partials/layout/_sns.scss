@@ -1,6 +1,6 @@
 @use "../breakpoints" as *;
 
-// 우측 SNS 채널 바 (PC only) — Figma 140:470 / 140:475 / 140:480 / 140:485
+// 우측 SNS 채널 바 (PC only)
 .sns-bar {
   position: absolute;
   top: calc(var(--gnb-height, 0px) + 100px);

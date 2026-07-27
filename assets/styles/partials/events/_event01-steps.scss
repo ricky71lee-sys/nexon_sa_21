@@ -87,6 +87,12 @@
   }
 }
 
+@include tablet {
+  .step-list__sub{
+    font-size: 14px;
+  }
+}
+
 @include mo {
   .step-list {
     flex-wrap: wrap;

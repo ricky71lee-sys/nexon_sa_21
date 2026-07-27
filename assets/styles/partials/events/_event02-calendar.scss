@@ -1,8 +1,9 @@
 @use "../breakpoints" as *;
+@use "../fluid" as *;
 
 // EVENT2 · 출석 캘린더
 //
-// cal-card 타입 (Figma 1:4012 ~ 1:4158 외)
+// cal-card 타입
 // · 기본(출석기본)     .cal-card
 // · 미출석·보충        .cal-card--need-ticket | --makeable | --makeup
 // · 출석·보상받기      .cal-card--claim
@@ -28,18 +29,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
   width: 157px;
   min-height: 176px;
   padding: 24px 0;
-  border: 1px solid #4a4d69;
+  box-sizing: border-box;
+  border: 0;
   border-radius: 8px;
   background: #16223b;
   opacity: 0.8;
 
+  // 보더 전용 레이어 — width 변경해도 카드 박스 크기 유지 (inset + border-box)
+  &__frame {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    box-sizing: border-box;
+    border: 1px solid #4a4d69;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+
+  // 기본 hover — frame만 2px, 레이아웃 흔들림 방지
+  &:hover:not(.cal-card--claim):not(.cal-card--done):not(.cal-card--need-ticket):not(
+      .cal-card--makeable
+    ):not(.cal-card--makeup):not(.cal-card--duo):not(.cal-card--streak) {
+    .cal-card__frame {
+      border-width: 2px;
+      border-color: #5d6cfe;
+    }
+  }
+
   &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 120px;
     height: 80px;
+    padding: 12px 0;
+    box-sizing: border-box;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -48,27 +77,41 @@
     }
   }
 
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
   &__date {
     display: flex;
     gap: 1px;
     align-items: center;
-    font-size: 16px;
+    justify-content: center;
+    font-size: 17px;
     font-weight: 700;
-    line-height: 20px;
-    color: var(--white);
+    line-height: normal;
+    color: #fff;
 
     em {
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 18px;
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 22px;
     }
   }
 
   &__reward {
-    font-size: 12px;
-    line-height: 16px;
-    color: var(--white-60);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
+    word-break: keep-all;
   }
 
   // 좌상단 뱃지 · 3일연속(+1) / 보충
@@ -117,6 +160,8 @@
     justify-content: center;
     width: 16px;
     height: 16px;
+    padding: 3px;
+    box-sizing: border-box;
     border-radius: 8px;
     background: #4b53c3;
 
@@ -128,47 +173,58 @@
     }
   }
 
+  // 버튼: left 26 / top 72 / px 24 / py 6 / 14px Bold · 좌우 여백 확보
   &__btn {
     position: absolute;
-    top: 50%;
-    left: 30px;
-    right: 30px;
+    top: 72px;
+    left: 26px;
+    right: 26px;
     z-index: 2;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 28px;
-    padding: 0 12px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    height: auto;
+    min-height: 34px;
+    padding: 6px 24px;
+    border: 0 none;
     border-radius: 4px;
-    background: #4b53c3;
-    transform: translateY(-50%);
-    font-size: 12px;
+    background-color: #4b53c3;
+    background-image: url("../images/cal_btn_blue.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    font-size: 14px;
     font-weight: 700;
+    line-height: 22px;
     color: #fff;
     white-space: nowrap;
+    box-sizing: border-box;
+    cursor: pointer;
   }
 
   // 출석완료(보상받기) · 수령완료 — 콘텐츠 딤
   &--claim,
   &--done {
     opacity: 1;
-    border-width: 2px;
-    border-color: #5d6cfe;
     background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       #16223b;
 
+    .cal-card__frame {
+      border-width: 2px;
+      border-color: #5d6cfe;
+    }
+
     .cal-card__icon,
-    .cal-card__date,
-    .cal-card__reward {
+    .cal-card__meta {
       opacity: 0.3;
     }
   }
 
   &--claim {
     .cal-card__btn {
-      background: #4b53c3;
+      background-color: #4b53c3;
+      background-image: url("../images/cal_btn_blue.png");
       border-color: rgba(255, 255, 255, 0.4);
       color: #fff;
     }
@@ -180,10 +236,12 @@
 
   &--done {
     .cal-card__btn {
-      background: #515968;
+      background-color: #515968;
+      background-image: none;
       border-color: rgba(255, 255, 255, 0.2);
       color: rgba(255, 255, 255, 0.3);
       pointer-events: none;
+      cursor: default;
     }
 
     .cal-card__mark {
@@ -200,22 +258,31 @@
   // 미출석 · 보충권 필요
   &--need-ticket {
     opacity: 1;
-    border: 2px solid #555a63;
     background:
       linear-gradient(#3f4653, #3f4653),
       #16223b;
 
+    .cal-card__frame {
+      border-width: 2px;
+      border-color: #555a63;
+    }
+
     .cal-card__icon,
-    .cal-card__date,
-    .cal-card__reward {
+    .cal-card__meta {
       opacity: 0.3;
     }
 
     .cal-card__btn {
-      background: rgba(255, 255, 255, 0.65);
+      background-color: rgba(255, 255, 255, 0.65);
+      background-image: none;
       border-color: rgba(255, 255, 255, 0.6);
       color: #606469;
       pointer-events: none;
+      cursor: default;
+    }
+
+    &:hover .cal-card__frame {
+      border-color: #78849c;
     }
   }
 
@@ -223,44 +290,68 @@
   &--makeable {
     opacity: 1;
     cursor: pointer;
-    border: 2px solid #78849c;
     background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       #16223b;
 
+    .cal-card__frame {
+      border-width: 2px;
+      border-color: #78849c;
+    }
+
     .cal-card__icon,
-    .cal-card__date,
-    .cal-card__reward {
+    .cal-card__meta {
       opacity: 0.3;
     }
 
     .cal-card__btn {
-      background: #24a17d;
+      background-color: #24a17d;
+      background-image: url("../images/cal_btn_green.png");
       border-color: rgba(255, 255, 255, 0.4);
       color: #fff;
     }
 
-    &:hover {
+    &:hover .cal-card__frame {
       border-color: #24a17d;
     }
   }
 
   // 보충 출석 완료 후 (state === 4)
   &--makeup {
-    border-color: #24a17d;
+    .cal-card__frame {
+      border-color: #24a17d;
+    }
 
     .cal-card__mark {
       background: #24a17d;
     }
 
     &.cal-card--claim .cal-card__btn {
-      background: #24a17d;
+      background-color: #24a17d;
+      background-image: url("../images/cal_btn_green.png");
+    }
+
+    &.cal-card--done {
+      .cal-card__mark,
+      .cal-card__badge--makeup {
+        background: #515968;
+      }
+
+      .cal-card__badge--makeup {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .cal-card__btn {
+        border-color: rgba(255, 255, 255, 0.3);
+      }
     }
   }
 
   // 듀오와 동반 (state === 2)
   &--duo {
-    border-color: #b636ea;
+    .cal-card__frame {
+      border-color: #b636ea;
+    }
 
     .cal-card__mark {
       background: #b636ea;
@@ -271,30 +362,61 @@
     }
 
     &.cal-card--claim .cal-card__btn {
-      background: #b636ea;
+      background-color: #b636ea;
+      background-image: url("../images/cal_btn_purple.png");
+    }
+
+    &.cal-card--done .cal-card__mark {
+      background: #515968;
     }
   }
 
   // 3일연속
   &--streak {
-    border-color: #ea9c1d;
+    .cal-card__frame {
+      border-color: #ea9c1d;
+    }
 
     .cal-card__mark {
       background: #ea9c1d;
     }
 
     &.cal-card--claim .cal-card__btn {
-      background: #ea9c1d;
+      background-color: #ea9c1d;
+      background-image: url("../images/cal_btn_orange.png");
+    }
+
+    // 수령완료 — +1 뱃지·우상단 mark 회색
+    &.cal-card--done {
+      .cal-card__mark {
+        background: #515968;
+      }
+
+      .cal-card__btn {
+        border-color: rgba(255, 255, 255, 0.4);
+      }
     }
   }
 
-  // 3일연속 + 듀오
+  // 3일연속 + 듀오 — 그라데이션 보더 (frame은 링만, 콘텐츠 가리지 않음)
   &--streak.cal-card--duo {
-    border: 2px solid transparent;
     background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      linear-gradient(#16223b, #16223b) padding-box,
-      linear-gradient(135deg, #ea9c1d 0%, #b636ea 100%) border-box;
+      #16223b;
+
+    .cal-card__frame {
+      border: 2px solid transparent;
+      background: linear-gradient(135deg, #ea9c1d 0%, #b636ea 100%);
+      padding: 2px;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+    }
 
     .cal-card__badge--streak {
       background: linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
@@ -310,7 +432,13 @@
 
     &.cal-card--claim .cal-card__btn {
       border-color: rgba(255, 255, 255, 0.4);
-      background: linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
+      background-color: transparent;
+      background-image:
+        url("../images/cal_btn_streak_duo.png"),
+        linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
+      background-size: 100% 100%, auto;
+      background-position: center, center;
+      background-repeat: no-repeat, no-repeat;
     }
 
     &.cal-card--done {
@@ -320,7 +448,9 @@
       }
 
       .cal-card__btn {
-        background: #515968;
+        background-color: #515968;
+        background-image: none;
+        border-color: rgba(255, 255, 255, 0.4);
       }
     }
   }
@@ -330,32 +460,43 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0 15px;
-  margin-top: 16px;
+  margin-top: -15px;
 
   span {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 13px;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: fluid(12, 14);
     font-weight: 600;
-    line-height: 21px;
-    color: var(--white-60);
+    line-height: 22px;
   }
 
   i {
     width: 16px;
     height: 16px;
     border: 2px solid #555a63;
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
 
-    &.is-check { background: rgba(75, 83, 195, 0.4); border-color: var(--blue); }
-    &.is-duo { background: linear-gradient(180deg, rgba(234, 156, 29, 0.6), rgba(182, 54, 234, 0.6)); border-color: #ea9c1d; }
-    &.is-makeup { background: rgba(36, 161, 125, 0.6); border-color: #24a17d; }
-    &.is-streak { background: rgba(234, 156, 29, 0.4); border-color: #ea9c1d; }
+    &.is-check {
+      border-color: #4b53c3;
+    }
+
+    &.is-duo {
+      border-color: #b636ea;
+    }
+
+    &.is-makeup {
+      border-color: #24a17d;
+    }
+
+    &.is-streak {
+      border-color: #ea9c1d;
+    }
   }
 }
 
-// 1200~1001: 7열 고정폭(157px) 오버플로 → 카드만 비율 축소 (tablet 2열 전)
+// 1200~1001: 7열 고정폭(157px) 오버플로 → 카드만 비율 축소
 @media (max-width: $bp-laptop) and (min-width: ($bp-tablet + 1)) {
   .cal-grid {
     width: 100%;
@@ -377,29 +518,33 @@
     &__icon {
       width: clamp(72px, 9.5vw, 120px);
       height: clamp(48px, 6.4vw, 80px);
+      padding: clamp(6px, 0.8vw, 12px) 0;
     }
 
     &__date {
-      font-size: clamp(12px, 1.25vw, 16px);
+      font-size: clamp(12px, 1.35vw, 17px);
       line-height: 1.25;
 
       em {
-        font-size: clamp(11px, 1.05vw, 13px);
+        font-size: clamp(11px, 1.1vw, 14px);
+        line-height: 1.4;
       }
     }
 
     &__reward {
-      font-size: clamp(10px, 1vw, 12px);
-      padding: 0 4px;
-      word-break: keep-all;
+      font-size: clamp(10px, 1.1vw, 14px);
+      line-height: 1.4;
     }
 
     &__btn {
-      left: clamp(6px, 1.2vw, 30px);
-      right: clamp(6px, 1.2vw, 30px);
-      height: 26px;
-      font-size: clamp(10px, 1vw, 12px);
-      padding: 0 6px;
+      top: 50%;
+      left: clamp(8px, 1.5vw, 26px);
+      right: clamp(8px, 1.5vw, 26px);
+      transform: translateY(-50%);
+      min-height: 28px;
+      font-size: clamp(10px, 1.1vw, 14px);
+      line-height: 1.4;
+      padding: 5px clamp(10px, 1.8vw, 24px);
     }
 
     &__badge {
@@ -416,13 +561,14 @@
   }
 }
 
-// MO · 2열 세로 카드 (Figma 출석판)
+// MO · 2열 세로 카드
 @include tablet {
   .cal-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
     width: 100%;
+
     &__row {
       display: contents;
     }
@@ -435,11 +581,16 @@
     min-height: 176px;
     padding: 28px 8px 14px;
     box-sizing: border-box;
-    gap: 4px;
+    gap: 8px;
 
     &__icon {
       width: 110px;
       height: 72px;
+      padding: 10px 0;
+    }
+
+    &__meta {
+      padding: 0 8px;
     }
 
     &__date {
@@ -456,16 +607,17 @@
     &__reward {
       font-size: 11px;
       line-height: 14px;
-      padding: 0 6px;
-      word-break: keep-all;
     }
 
     &__btn {
+      top: 50%;
       left: 14px;
       right: 14px;
-      height: 28px;
+      transform: translateY(-50%);
+      min-height: 28px;
       font-size: 12px;
-      padding: 0 10px;
+      line-height: 18px;
+      padding: 5px 14px;
     }
 
     &__badge {
@@ -483,11 +635,10 @@
     }
   }
 
-  // 21일 → 마지막 1장 풀폭
-  .cal-grid__row:last-child .cal-card:last-child {
-    grid-column: 1 / -1;
-    max-width: none;
-  }
+  // .cal-grid__row:last-child .cal-card:last-child {
+  //   grid-column: 1 / -1;
+  //   max-width: none;
+  // }
 
   .cal-legend {
     flex-wrap: wrap;

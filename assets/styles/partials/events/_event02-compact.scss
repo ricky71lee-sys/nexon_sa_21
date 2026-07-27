@@ -3,7 +3,6 @@
 // =============================================================================
 // EVENT2 · 태블릿/MO 출석 요약 (.att-compact)
 // PC의 .att-head / .att-board 를 대체 — 동일 Vue 바인딩·핸들러
-// Figma 87:13434
 // =============================================================================
 .att-compact {
   display: none;
@@ -68,15 +67,23 @@
   }
 
   &__claim {
+    position: relative;
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
     height: 32px;
     padding: 0 10px;
-    border: 1px solid #4b53c3;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 500px;
-    background: #4b53c3;
+    background-color: #4b53c3;
+    background-image:
+      url("../images/att_head_metal_bg.png"),
+      url("../images/att_compact_metal.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: 100% 100%, 100% 100%;
     color: #fff;
     font-size: 12px;
     font-weight: 700;
@@ -84,6 +91,7 @@
     white-space: nowrap;
     cursor: pointer;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   &__board {
@@ -144,17 +152,23 @@
     align-items: center;
     justify-content: center;
     height: 21px;
-    padding: 0 8px;
+    padding: 0 10px;
+    border: 0;
     border-radius: 999px;
-    background: #4b53c3;
+    background-color: #4b53c3;
+    background-image:
+      url("../images/att_head_metal_bg.png"),
+      url("../images/att_compact_metal.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: 100% 100%, 100% 100%;
     color: #fff;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 16px;
     white-space: nowrap;
-    max-width: 40%;
+    box-sizing: border-box;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   &__refresh {
@@ -167,14 +181,15 @@
     padding: 0;
     border: 0;
     border-radius: 500px;
-    background: #4b53c3;
+    background: #614422;
     cursor: pointer;
+    box-sizing: border-box;
 
     .icon-refresh {
       display: block;
       width: 12px;
       height: 12px;
-      background: url("../images/icon_refresh.png") no-repeat center / contain;
+      background: url("../images/icon_refresh_compact.svg") no-repeat center / contain;
     }
   }
 

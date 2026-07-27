@@ -87,6 +87,7 @@
         sentTo: null,
         received: [],
         sortMode: "new",
+        receivedExpanded: false,
         matched: null,
         claimed: false,
         find: { input: "", preview: null, alert: null },
@@ -187,16 +188,16 @@
       ];
 
       const milestoneDefs = [
-        { id: "ms-07", d: 7, g: "10만 경험치", icon: "ac_reward_icon_01.png" },
-        { id: "ms-14", d: 14, g: "보조 기간연장 영구제", icon: "ac_reward_icon_02.png" },
-        { id: "ms-21", d: 21, g: "1,000 SP", icon: "ac_reward_icon_03.png" },
+        { id: "ms-07", d: 7, g: "10만 경험치", icon: "ms_icon_7.png" },
+        { id: "ms-14", d: 14, g: "보조 기간연장 영구제", icon: "ms_icon_14.png" },
+        { id: "ms-21", d: 21, g: "1,000 SP", icon: "ms_icon_21.png" },
       ];
 
       const duoMilestoneHighlight = {
         id: "duo-ms-05",
         d: 5,
         g: "도안_영구제 밀봉",
-        icon: "ac_reward_icon_04.png",
+        icon: "ms_icon_duo5.png",
       };
 
       /* 유의사항 — 기획안 v3.3 슬라이드 문구 정합 (표시용 정적 카피) */
@@ -214,13 +215,14 @@
         ],
         event02: [
           "출석 인정 기준: 이벤트 기간 동안 게임에 접속하면 당일 출석으로 인정됩니다. (하루 기준: 오전 08:00 ~ 다음 날 오전 07:59)",
-          "출석 현황 갱신: 출석이 웹페이지에 즉시 반영되지 않을 경우 '출석 갱신하기' 버튼을 클릭해 주세요. (출석 재갱신은 3분 간격으로만 가능합니다.)",
+          "출석 현황 갱신: 출석이 웹페이지에 즉시 반영되지 않을 경우 '출석 갱신하기' 버튼을 클릭해 주세요.<br>(출석 재갱신은 3분 간격으로만 가능합니다.)",
           "동반 출석 인정: 동반 출석은 이벤트1에서 듀오를 맺은 서든러 2명이 같은 날 각각 게임에 접속하면 반영됩니다. (기간 내 최대 5장)",
           "동반 출석 보충권: 듀오와 같은 날 함께 출석하면 '보충 출석권'이 1장 지급됩니다.",
-          "동반 출석 누적 보상: 동반 출석이 누적 5일에 도달하면 듀오 양측 모두에게 도안_영구제 밀봉이 지급됩니다. 단, 보충 출석권으로 출석 처리한 날은 누적 집계에 포함되지 않습니다.",
+          "동반 출석 누적 보상: 동반 출석이 누적 5일에 도달하면 듀오 양측 모두에게 (보상명)이 지급됩니다. 단, 보충 출석권으로 출석 처리한 날은 누적 집계에 포함되지 않습니다.",
           "연속 출석 보충권: 3일 연속으로 게임에 접속할 때마다 '보충 출석권'이 1장 지급됩니다. (이벤트 기간 내 최대 5장) 연속 출석 초기화: 단 하루라도 결석할 경우, 기존의 연속 출석 기록은 즉시 초기화(리셋)됩니다.",
           "보충 출석권 사용 및 제한: 빈 날짜를 클릭하면 보충 출석권 1장으로 결석한 날을 출석 상태로 메울 수 있습니다. (보충 출석권 한도: 동반 5장 + 연속 5장) 단, 보충 출석권으로 채운 날은 취소·변경이 불가능하며, '연속 출석'과 '동반 출석' 조건에는 포함되지 않습니다.",
-          "누적 출석 보상: 누적 출석일 7일 / 14일 / 21일 달성 시, 각 단계별 추가 보상을 획득할 수 있습니다.",
+          "개인 누적 마일스톤 보상: 누적 출석일 7일 / 14일 / 21일 달성 시, 각 단계별 추가 보상을 획득할 수 있습니다.",
+          "동반 출석 마일스톤 보상: 동반 출석 5일 달성 시 본인과 듀오에게 모두 지급됩니다.",
           "듀오 변경 불가: 듀오 결성 완료 후에는 듀오 변경 및 취소가 불가능하므로 신중하게 듀오를 맺어 주세요.",
           "보상 지급: 모든 출석 보상은 이벤트 페이지 내 '보상 받기' 버튼을 클릭해야 인게임 선물함으로 지급됩니다.",
           "보상 수령 기간: 보상은 9월 3일(목) 정기점검 전까지만 수령이 가능하오니 기간 내에 반드시 수령해 주세요.",
@@ -228,17 +230,16 @@
           "기타 안내: 자세한 이벤트 유의사항은 [이벤트 정책]을 확인해 주시기 바랍니다.",
         ],
         event03: [
-          "방송 시청 이벤트: 21주년 쇼케이스 방송을 시청하고 조건을 충족하면 보상이 지급됩니다.",
-          "승부 예측: 8월 23일(일) 오후 5시 전까지 참여한 예측만 인정됩니다.",
-          "8월 23일(일) 오후 5시 전까지 참여한 예측만 인정되며, 예측 변경은 이벤트 종료 전까지 최대 5회 가능합니다. 가장 마지막 제출한 응답 기준으로 이벤트 참여가 인정됩니다.",
-          "승부 예측 보상은 예측 참여 횟수와 상관 없이 계정당 1회만 지급됩니다.",
-          "N커넥트 연동: 선택 동의를 포함한 N커넥트 연동을 완료한 후 방송을 시청해야 드롭스 보상이 지급됩니다.",
-          `<strong>듀오 동반 시청</strong><br>
-            - 이벤트 조건 충족 시, SOOP 계정과 N커넥트를 연동한 넥슨계정으로 보상이 지급됩니다.<br>
-            - 이벤트 참여를 위해 <span class="accent">꼭 N커넥트를 연동한 SOOP 계정 로그인 후 시청</span>이 필요합니다.<br>
-            - 8월 23일(일) 오후 5시부터 진행되는 방송에 '21주년 메달 완성' 이벤트를 함께 참여한<br>
-            &nbsp;&nbsp;&nbsp;<span class="accent">두 유저 모두가 N 커넥트를 연동한 SOOP 계정으로 시청한 이력이 있을 경우 정상적으로 참여됩니다.</span>`,
-          "모든 이벤트 보상은 8월 27일(목) 정기점검 종료 후 참여하신 계정의 선물함으로 순차 지급됩니다.",
+          "방송 시청 이벤트: 21년 쇼케이스 방송 중 깜짝 쿠폰이 공개됩니다.",
+          `승부 예측 보상은 예측 참여 횟수와 상관 없이 계정당 1회만 지급됩니다.<br>
+ - 8월 23일(일) 오후 5시 전까지 참여한 예측만 인정되며, 예측 변경은 이벤트 종료 전까지 최대 5회 가능합니다.<br>
+가장 마지막 제출한 응답 기준으로 이벤트 참여가 인정됩니다.`,
+          `듀오 동반 시청<br>
+ - 이벤트 조건 충족 시, SOOP 계정과 N커넥트를 연동한 넥슨계정으로 보상이 지급됩니다.<br>
+ - 이벤트 참여를 위해 <span class="accent">꼭 N커넥트를 연동한 SOOP 계정 로그인 후 시청</span>이 필요합니다.<br>
+ - 8월 23일(일) 오후 5시부터 진행되는 방송에 ‘21주년 메달 완성’ 이벤트를 함께 참여한<br>
+&nbsp;&nbsp;&nbsp;<span class="accent">두 유저 모두가 N 커넥트를 연동한 SOOP 계정으로 시청한 이력이 있을 경우 정상적으로 참여됩니다.</span>`,
+          "방송 시청 이벤트를 제외한 모든 이벤트 보상은 8월 27일(목) 정기점검 종료 후 참여하신 계정의 선물함으로 순차 지급됩니다.",
           "상세 보상 내용 및 세부 유의사항은 추후 업데이트될 예정입니다.",
         ],
       };
@@ -258,18 +259,18 @@
             icon: "watch_event1.png",
             title: "승부 예측",
             desc:
-              "최강의 둘이서 한 팀 선발전! 과연 승자는 누구일까요?<br>8월 23일(일) 매치 시작 전까지 승부 예측에 참여하고 적중 보상을 획득하세요!",
+              "최강의 둘이서 한 팀 선발전! 과연 승자는 누구일까요? 8월 23일(일) 오후 5시 전까지 승부 예측에 참여하고 적중 보상을 획득하세요!",
             rewardIcons: ["watch_reward_01_1.png", "watch_reward_01_2.png"],
-            reward: "예측 성공 시 500 SP / 실패 시 제작 재료 2,000개",
+            reward: "예측 성공 시 500 SP /\n실패 시 제작 재료 2,000개",
             cta: "승부 예측 참여하기",
-            ctaBtn: "btn_watch_victory.svg",
+            ctaBtn: "btn_watch_victory.png",
           },
           {
             id: "watch-02", // 성공이냐 실패냐 — 보상 아이콘 없음
             no: "02",
             icon: "watch_event2.png",
             title: "성공이냐 실패냐",
-            desc: "챔피언십 & 태디컵 선수들의 업투게더 미션 성공 여부에 따라 깜짝 쿠폰이 지급됩니다.",
+            desc: "챔피언십 & 태디컵 선수들의 업투게더 미션 성공 여부에 따라 깜짝 쿠폰이<br>지급됩니다.",
             rewardIcons: [],
             reward: "방송에서 공개됩니다",
             cta: "",
@@ -279,31 +280,21 @@
             no: "03",
             icon: "watch_event3.png",
             title: "우리는 모두 하나!",
-            desc: "동시 시청자 달성 수에 따라 쿠폰이 지급됩니다.<br>이번 최고 목표는 21,000명! 상세 보상은 방송에서 공개됩니다.",
+            desc: "동시 시청자 달성 수에 따라 쿠폰이 지급됩니다. 이번 최고 목표는 21,000명! 상세 보상은 방송에서 공개됩니다.",
             rewardIcons: [],
-            reward: "동시 시청자 달성 쿠폰 (목표 21,000명)",
+            reward: "방송에서 공개됩니다",
             cta: "",
           },
-          // {
-          //   id: "watch-04", // N커넥트 · 드롭스
-          //   no: "04",
-          //   icon: "watch_event4.png",
-          //   title: "N커넥트 연동 & 드롭스",
-          //   desc: "선택 동의를 포함한 N커넥트 연동을 완료한 후 방송을 시청하면 드롭스 보상을 지급합니다.<br>(시청 미션 달성 시마다 지급 · 방송 시청 조건 충족 시)",
-          //   rewardIcons: ["watch_reward_04.png"],
-          //   reward: "21주년 방송 시청상자",
-          //   cta: "",
-          // },
           {
-            id: "watch-04", // 듀오 동반 시청
-            no: "04",
+            id: "watch-04", // 듀오 동반 시청 (시안 05)
+            no: "05",
             icon: "watch_event5.png",
             title: "21주년 메달 완성 · 듀오 동반 시청",
-            desc: "21주년 메달을 완성하고 N커넥트 연동을 완료한 듀오가 함께 방송을 시청하면<br>특별한 추가 보상을 획득할 수 있습니다!",
+            desc: "21주년 메달을 완성하고 N커넥트 연동을 완료한 듀오가 함께 방송을 시청하면 특별한 추가 보상을 획득할 수 있습니다!",
             rewardIcons: ["watch_reward_05.png"],
             reward: "마이건2 주무기 하프키트",
-            cta: "듀오 동반 시청 참여하기",
-            ctaBtn: "btn_watch_connect.svg",
+            cta: "N 커넥트 연동하기",
+            ctaBtn: "btn_watch_connect.png",
           },
         ],
       };
@@ -312,13 +303,24 @@
        * sortedReceived · days/calRows · totalDays/duoDays · progress · duoLabel · vaultMilestones
        * duoDays 는 state===2 만 (보충 4 제외)
        */
+      const RECEIVED_PAGE = 5;
+      const RECEIVED_MAX = 10;
       const sortedReceived = computed(() => {
         const list = [...medal.received];
         list.sort((a, b) =>
           medal.sortMode === "new" ? (b.t || 0) - (a.t || 0) : (a.t || 0) - (b.t || 0)
         );
-        return list.slice(0, 10);
+        return list.slice(0, RECEIVED_MAX);
       });
+      const visibleReceived = computed(() =>
+        sortedReceived.value.slice(
+          0,
+          medal.receivedExpanded ? RECEIVED_MAX : RECEIVED_PAGE
+        )
+      );
+      const canShowMoreReceived = computed(
+        () => !medal.receivedExpanded && sortedReceived.value.length > RECEIVED_PAGE
+      );
       const totalDays = computed(() => attend.state.filter((s) => s > 0).length);
       const duoDays = computed(() => attend.state.filter((s) => s === 2).length);
       const days = computed(() =>
@@ -427,6 +429,7 @@
           id: r.id || "recv-" + r.code,
           t: r.t ?? 1000 - idx,
         }));
+        medal.receivedExpanded = false;
         if (medal.matched) attend.hasDuo = true;
       }
       function applyAttendanceState(result) {
@@ -601,7 +604,7 @@
 
       function milestoneBtnLabel(daysRequired, type) {
         const { reached, claimed } = getMilestoneMeta(daysRequired, type);
-        if (claimed) return "수령완료";
+        if (claimed) return "수령 완료";
         if (reached) return "보상 받기";
         return "미달성";
       }
@@ -616,6 +619,11 @@
        */
       function setSort(mode) {
         medal.sortMode = mode;
+      }
+
+      /** 받은 신청 더보기 — 최대 10건까지 펼침 */
+      function expandReceived() {
+        medal.receivedExpanded = true;
       }
 
       /* [동작 함수]
@@ -1084,6 +1092,8 @@
         notices,
         showcase,
         sortedReceived,
+        visibleReceived,
+        canShowMoreReceived,
         totalDays,
         duoDays,
         calRows,
@@ -1102,6 +1112,7 @@
         milestoneBtnLabel,
         isMilestoneDisabled,
         setSort,
+        expandReceived,
         clickIssueMedal,
         demoGoStep,
         copyCode,

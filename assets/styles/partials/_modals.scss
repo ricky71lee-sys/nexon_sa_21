@@ -1,6 +1,6 @@
 @use "breakpoints" as *;
 
-// 패널·팝업 — Figma 「패널 & 팝업」 PC/MO
+// 패널·팝업 — PC/MO
 //   .vault — 내 보상함 사이드패널
 //   .notice-modal — 유의사항
 //   .share-modal — SNS 공유
@@ -62,7 +62,7 @@ $z-system: 10000;
   }
 }
 
-// ── 내 보상함 (Figma: #27292f, 330px) ──
+// ── 내 보상함 (#27292f, 330px) ──
 .vault {
   position: fixed;
   top: var(--gnb-height, 0px);
@@ -392,7 +392,7 @@ $z-system: 10000;
   }
 }
 
-// ── 유의사항 (Figma: white panel) ──
+// ── 유의사항 (white panel) ──
 .notice-modal {
   position: fixed;
   inset: 0;
@@ -437,7 +437,7 @@ $z-system: 10000;
     align-items: center;
     gap: 8px;
     margin: 0 0 24px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 26px;
     color: #000;
@@ -520,7 +520,7 @@ $z-system: 10000;
   }
 }
 
-// ── SNS 공유 (Figma: white) ──
+// ── SNS 공유 (white) ──
 .share-modal {
   position: fixed;
   inset: 0;
@@ -857,7 +857,7 @@ $z-system: 10000;
       color: #fff;
     }
 
-    // Figma: 취소 = 아웃라인 (흰 배경 + 회색 보더)
+    // 취소 = 아웃라인 (흰 배경 + 회색 보더)
     .modal-button__no {
       background: #fff;
       border: 1px solid #bfbfbf;
@@ -883,7 +883,7 @@ $z-system: 10000;
     max-width: 330px;
   }
 
-  // Figma MO 팝업: padding 36×30 · 버튼 가로 나란히
+  // MO 팝업: padding 36×30 · 버튼 가로 나란히
   .notice-modal {
     padding: 16px;
 
@@ -1008,7 +1008,7 @@ $z-system: 10000;
 
     .modal-buttons {
       margin-top: 30px;
-      flex-direction: row; // Figma: 취소 | 확인 가로
+      flex-direction: row; // 취소 | 확인 가로
       gap: 10px;
 
       button {

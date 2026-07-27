@@ -3,6 +3,7 @@
 
 // EVENT2 · 출석 패널
 .event02 {
+  padding-top: 100px;
   .attendance-panel {
     display: flex;
     flex-direction: column;
@@ -50,17 +51,21 @@
   }
 }
 
+
 @include tablet {
   .event02 {
     .sec-head {
       margin-bottom: 20px;
+      gap:8px;
     }
 
     .attendance-panel {
       max-width: 100%;
       width: 100%;
       margin: 0;
-      padding: 0;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 10px;
       gap: 16px;
       box-sizing: border-box;
       border: 0;
@@ -69,8 +74,6 @@
     }
 
     .att-notes {
-      margin-top: 8px;
-
       li {
         font-size: 12px;
         font-weight: 400;

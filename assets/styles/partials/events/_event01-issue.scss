@@ -37,9 +37,9 @@
   }
 
   &__desc {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 28px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
     text-align: center;
     color: var(--white);
 
@@ -61,7 +61,6 @@
     background: none;
     cursor: pointer;
     line-height: 0;
-
     img {
       display: block;
       width: auto;
@@ -133,7 +132,7 @@
     }
 
     &__btn {
-      width: 100%;
+      max-width: 240px;
 
       img {
         width: 100%;
