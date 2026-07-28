@@ -881,13 +881,14 @@ button {
 .notice-btn .icon-info {
   width: 16px;
   height: 16px;
-  background: url("../images/icon_info.png") no-repeat center/cover;
+  background: url("../images/icon_info.png") no-repeat center/contain;
 }
 @media (max-width: 767px) {
   .notice-btn .icon-info {
     width: 10px;
     height: 10px;
-    background-image: url("../images/icon_info_mobile.png");
+    background-image: url("../images/icon_info_mobile.svg");
+    background-size: cover;
   }
 }
 
@@ -959,6 +960,18 @@ button {
   }
   .section-block > .sec-head + * {
     margin-top: 20px;
+  }
+  .event-01-title {
+    padding: 0 2.78vw;
+  }
+  .event-02-title {
+    padding: 0 4.44vw;
+  }
+  .event-03-title {
+    padding: 0 7.22vw;
+  }
+  .event-04-title {
+    padding: 0 7.22vw;
   }
 }
 .corner-deco {
@@ -1126,7 +1139,7 @@ button {
   padding-bottom: 80px;
 }
 .hero__title {
-  transform: translateX(-60px);
+  transform: translateX(calc(-1 * min(120px, max(0px, (100vw - var(--inner-width)) / 2))));
   max-width: 654px;
 }
 .hero__desc {
@@ -1284,27 +1297,22 @@ button {
   padding-bottom: 100px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
-  background-size: cover;
 }
 .event01-bg--1 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
-  background-size: cover;
 }
 .event01-bg--2 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_02_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
-  background-size: cover;
 }
 .event01-bg--3 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_03_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
-  background-size: cover;
 }
 .event01-bg--4 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_04_bg.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
-  background-size: cover;
 }
 
 .event01 .event01__panel {
@@ -3031,7 +3039,7 @@ button {
   .event02 .notice-wrap {
     margin-top: 8px;
   }
-  .event02 .milestone__gift {
+  .milestone__gift {
     font-size: 16px;
   }
 }
@@ -4182,6 +4190,15 @@ button {
   .cal-legend {
     margin-top: -10px;
   }
+  .cal-card {
+    min-height: inherit;
+    padding: 18px 11px 16px;
+  }
+  .cal-card__icon {
+    width: 90px;
+    height: 45px;
+    padding: 0;
+  }
   .cal-card__meta {
     padding-left: 0;
     padding-right: 0;
@@ -4453,7 +4470,7 @@ button {
     padding: 4px 8px;
     font-size: 14px;
     color: #a3a3a3;
-    max-width: 74px;
+    width: calc(100% - 32px);
   }
   .milestone__btn--ready, .milestone__btn--done {
     color: rgba(255, 255, 255, 0.4);

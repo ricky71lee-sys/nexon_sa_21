@@ -46,7 +46,8 @@
     padding-bottom: 80px;
   }
   &__title {
-    transform: translateX(-60px);
+    // 1920 시안: -120px. inner(1200) 좌우 여백이 120px 미만이면 여백만큼만 이동 (1340~1440 구간 클리핑 방지)
+    transform: translateX(calc(-1 * min(120px, max(0px, (100vw - var(--inner-width)) / 2))));
     max-width: 654px;
   }
 

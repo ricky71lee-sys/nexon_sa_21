@@ -6,26 +6,26 @@
   position: relative;
   padding-bottom: 100px;
   @include multiply-vignette-bg("../images/event01_01_bg.png");
-  background-size: cover;
+  //background-size: cover;
 
   &--1 {
     @include multiply-vignette-bg("../images/event01_01_bg.png");
-    background-size: cover;
+    //background-size: cover;
   }
 
   &--2 {
     @include multiply-vignette-bg("../images/event01_02_bg.png");
-    background-size: cover;
+    //background-size: cover;
   }
 
   &--3 {
     @include multiply-vignette-bg("../images/event01_03_bg.png");
-    background-size: cover;
+    //background-size: cover;
   }
 
   &--4 {
     @include multiply-vignette-bg("../images/event01_04_bg.png");
-    background-size: cover;
+    //background-size: cover;
   }
 }
 
@@ -42,7 +42,6 @@
     background: rgba(28, 34, 47, 0.5);
     box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
   }
-
   .sec-head {
     margin-bottom: 30px;
   }

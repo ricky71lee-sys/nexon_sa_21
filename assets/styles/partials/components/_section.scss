@@ -77,11 +77,12 @@
   .icon-info {
     width: 16px;
     height: 16px;
-    background: url("../images/icon_info.png") no-repeat center / cover;
+    background: url("../images/icon_info.png") no-repeat center / contain;
     @include mo {
       width: 10px;
       height: 10px;
-      background-image: url("../images/icon_info_mobile.png");
+      background-image: url("../images/icon_info_mobile.svg");
+      background-size: cover;
     }
   }
 }
@@ -163,5 +164,19 @@
     > .sec-head + * {
       margin-top: 20px;
     }
+  }
+
+  // Title space
+  .event-01-title {
+    padding: 0 2.78vw;
+  }
+  .event-02-title {
+    padding: 0 4.44vw;
+  }
+  .event-03-title {
+    padding: 0 7.22vw;
+  }
+  .event-04-title {
+    padding: 0 7.22vw;
   }
 }

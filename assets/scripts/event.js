@@ -582,8 +582,15 @@
         return (day.s > 0 && !day.claimed) || (day.makeable && attend.makeup > 0);
       }
 
-      function calIconPath(index) {
-        return "./assets/images/cal_reward_icon" + String(index + 1).padStart(2, "0") + ".png";
+      function calIconPath(index, mobile = false) {
+        const n = String(index + 1).padStart(2, "0");
+        return "./assets/images/cal_reward_icon" + n + (mobile ? "_mobile" : "") + ".png";
+      }
+
+      function msIconPath(iconFile, mobile = false) {
+        if (!iconFile) return "";
+        const file = mobile ? iconFile.replace(/\.png$/i, "_mobile.png") : iconFile;
+        return "./assets/images/" + file;
       }
 
       function milestoneCardClass(daysRequired, type) {
@@ -1145,6 +1152,7 @@
         calBtnLabel,
         isCalCardClickable,
         calIconPath,
+        msIconPath,
         milestoneCardClass,
         milestoneBtnClass,
         milestoneBtnLabel,

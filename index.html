@@ -205,7 +205,7 @@
             <div class="sec-head">
               <span class="sec-tag">EVENT 1</span>
               <!-- <h2 class="text-gradient-gold">둘이서 하나, 21주년 메달 합체</h2> -->
-              <h2 class="sec-title">
+              <h2 class="sec-title event-01-title">
                 <picture>
                   <source srcset="./assets/images/event01_title.png" media="(min-width: 768px)">
                   <img src="./assets/images/event01_title_mobile.png" alt="둘이서 하나, 21주년 메달 합체">
@@ -528,7 +528,7 @@
             </div>
             <div class="sec-head">
               <span class="sec-tag">EVENT 2</span>
-              <h2 class="sec-title">
+              <h2 class="sec-title event-02-title">
                 <picture>
                   <source srcset="./assets/images/event02_title.png" media="(min-width: 768px)">
                   <img src="./assets/images/event02_title_mobile.png" alt="21일 듀오 출석 챌린지">
@@ -641,7 +641,10 @@
                     <span v-if="d.s === 4" class="cal-card__badge cal-card__badge--makeup">보충</span>
                     <span v-if="calShowMark(d)" class="cal-card__mark" aria-hidden="true"></span>
                     <div class="cal-card__icon" :aria-label="d.label + ' 보상'">
-                      <img :src="calIconPath(d.i)" :alt="d.reward">
+                      <picture>
+                        <source :srcset="calIconPath(d.i)" media="(min-width: 768px)" type="image/png">
+                        <img :src="calIconPath(d.i, true)" :alt="d.reward">
+                      </picture>
                     </div>
                     <div class="cal-card__meta">
                       <p class="cal-card__date">{{ d.label }}<em>{{ d.dow }}</em></p>
@@ -670,7 +673,10 @@
                         <div class="milestone__visual">
                           <h4 class="milestone__title">누적 {{ m.d }}일</h4>
                           <div class="milestone__icon" :aria-label="m.g">
-                            <img :src="'assets/images/' + m.icon" :alt="m.g">
+                            <picture>
+                              <source :srcset="msIconPath(m.icon)" media="(min-width: 768px)" type="image/png">
+                              <img :src="msIconPath(m.icon, true)" :alt="m.g">
+                            </picture>
                           </div>
                         </div>
                         <p class="milestone__gift">{{ m.g }}</p>
@@ -690,7 +696,10 @@
                         <div class="milestone__visual">
                           <h4 class="milestone__title">동반 {{ duoMilestoneHighlight.d }}일</h4>
                           <div class="milestone__icon" :aria-label="duoMilestoneHighlight.g">
-                            <img :src="'assets/images/' + duoMilestoneHighlight.icon" :alt="duoMilestoneHighlight.g">
+                            <picture>
+                              <source :srcset="msIconPath(duoMilestoneHighlight.icon)" media="(min-width: 768px)" type="image/png">
+                              <img :src="msIconPath(duoMilestoneHighlight.icon, true)" :alt="duoMilestoneHighlight.g">
+                            </picture>
                           </div>
                         </div>
                         <p class="milestone__gift">{{ duoMilestoneHighlight.g }}</p>
@@ -714,7 +723,7 @@
           <div class="timetable-panel">
             <div class="sec-head">
               <span class="sec-tag">EVENT 3</span>
-              <h2 class="sec-title">
+              <h2 class="sec-title event-03-title">
                 <picture>
                   <source srcset="./assets/images/event03_title.png" media="(min-width: 768px)">
                   <img src="./assets/images/event03_title_mobile.png" alt="21주년 쇼케이스">
@@ -801,7 +810,7 @@
             <div class="showcase-panel">
               <div class="sec-head">
                 <span class="sec-tag">이벤트 매치 안내</span>
-                <h2 class="sec-title">
+                <h2 class="sec-title event-04-title">
                   <picture>
                     <source srcset="./assets/images/event04_title.png" media="(min-width: 768px)">
                     <img src="./assets/images/event04_title_mobile.png" alt="최강의 둘이서 한 팀 선발전">

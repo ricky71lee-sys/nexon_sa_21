@@ -306,7 +306,8 @@
       padding: 4px 8px;
       font-size: 14px;
       color: #a3a3a3;
-      max-width: 74px;
+      //max-width: 74px;
+      width: calc(100% - 32px);
 
       &--ready,
       &--done {
