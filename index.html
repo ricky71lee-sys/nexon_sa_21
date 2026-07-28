@@ -20,7 +20,7 @@
   <meta property="og:title" content="둘이서 하나되는 서든어택 21주년">
   <meta property="og:description"
     content="반쪽 메달의 듀오를 찾아 하나로! 21일 출석·쇼케이스·특별매치까지, 둘이서 더 풍성하게. (8/6~8/27)">
-  <meta property="og:image" content="https://event.sa.nexon.com/2026/21st/assets/images/og_share.png">
+  <meta property="og:image" content="./assets/images/og_share.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="다시 한 판? 어디 서든! 둘이서 하나되는 서든어택 21주년">
@@ -31,7 +31,7 @@
   <meta name="twitter:title" content="둘이서 하나되는 서든어택 21주년">
   <meta name="twitter:description"
     content="반쪽 메달의 듀오를 찾아 하나로! 21일 출석·쇼케이스·특별매치까지 (8/6~8/27)">
-  <meta name="twitter:image" content="https://event.sa.nexon.com/2026/21st/assets/images/og_share.png">
+  <meta name="twitter:image" content="./assets/images/og_share.png">
   <title>둘이서 하나되는 서든어택 21주년 | 메달 합체·21일 출석·쇼케이스</title>
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
@@ -422,7 +422,7 @@
                           <div class="reward-item__icon" aria-label="돌격 기간연장 영구제">
                             <img src="./assets/images/reward_item_icon03.png" alt="돌격 기간연장 영구제">
                           </div>
-                          <span class="reward-item__label">돌격 기간연장 <br class="pc-hidden">영구제</span>
+                          <span class="reward-item__label">돌격 기간연장 <br>영구제</span>
                         </div>
                       </div>
                     </article>
@@ -499,7 +499,7 @@
                       <div class="reward-item__icon" aria-label="돌격 기간연장 영구제">
                         <img src="./assets/images/reward_item_icon03.png" alt="돌격 기간연장 영구제">
                       </div>
-                      <span class="reward-item__label">돌격 기간연장 <br class="pc-hidden">영구제</span>
+                      <span class="reward-item__label">돌격 기간연장 <br>영구제</span>
                     </div>
                   </div>
                 </article>
@@ -751,8 +751,10 @@
                 <img src="assets/images/timetable_bg_mobile.png" alt="">
               </div>
               <div class="timetable__head">
-                <span class="icon-timetable"></span>
-                타임 테이블
+                <picture>
+                  <source srcset="./assets/images/timetable_head.png" media="(min-width: 768px)">
+                  <img src="./assets/images/timetable_head_mobile.png" alt="타임 테이블">
+                </picture>
               </div>
               <div class="timetable__cols">
                 <article class="timetable__part">
@@ -835,7 +837,12 @@
   
               <div class="showcase-panel__list">
                 <div class="showcase-panel__block">
-                  <h3 class="block-title"><span class="icon-team"></span>출전 팀<small>· 프로 + 아마추어 듀오</small></h3>
+                  <h3 class="block-title">
+                    <picture>
+                      <source srcset="./assets/images/team_title.png" media="(min-width: 768px)">
+                      <img src="./assets/images/team_title_mobile.png" alt="출전 팀">
+                    </picture>
+                  </h3>
                   <div class="team-grid">
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Friend 팀 로고">
@@ -920,7 +927,12 @@
                   </div>
                 </div>
                 <div class="showcase-panel__block">
-                  <h3 class="block-title"><span class="icon-caster"></span>중계진 소개</h3>
+                  <h3 class="block-title">
+                    <picture>
+                      <source srcset="./assets/images/caster_title.png" media="(min-width: 768px)">
+                      <img src="./assets/images/caster_title_mobile.png" alt="중계진 소개">
+                    </picture>
+                  </h3>
                   <div class="caster-grid">
                     <article class="caster-grid__card">
                       <div class="caster-grid__photo-wrap">
@@ -967,7 +979,12 @@
             </div>
   
             <div class="watch-panel">
-              <h3 class="block-title"><span class="icon-watch"></span>시청 이벤트</h3>
+              <h3 class="block-title">
+                <picture>
+                  <source srcset="./assets/images/watch_title.png" media="(min-width: 768px)">
+                  <img src="./assets/images/watch_title_mobile.png" alt="시청 이벤트">
+                </picture>
+              </h3>
               <div class="watch-list">
                 <article class="watch-list__item" v-for="ev in showcase.watchEvents" :key="ev.id"
                   :class="{

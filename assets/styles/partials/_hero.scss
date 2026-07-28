@@ -150,9 +150,10 @@
       bottom: 0;
       right: 0;
       &-inner{
+        vertical-align: top;
         justify-content: space-between;
         padding-top: 10px;
-        padding-bottom: 50px;
+        padding-bottom: 62px;
         width: 100%;
         text-align: center;
         align-items: center;
