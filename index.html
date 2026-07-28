@@ -980,6 +980,9 @@
                       </div>
                     </div>
                   </div>
+                  <div class="watch-list-mobile">
+                    <img :src="'assets/images/watch-d-' + ev.no + '.png'" :alt="ev.title">
+                  </div>
                   <button v-if="ev.cta" type="button" class="watch-list__btn">
                     <img class="watch-list__btn-img" :src="'./assets/images/' + ev.ctaBtn" :alt="ev.cta">
                     <span class="watch-list__btn-label">{{ ev.cta }}</span>

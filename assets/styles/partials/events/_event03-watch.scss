@@ -246,7 +246,7 @@
     }
   }
 }
-
+.watch-list-mobile{display: none}
 @include mo {
   .watch-panel {
     margin-top: 0;
@@ -270,7 +270,6 @@
   .watch-list {
     margin-top: 10px;
     gap: 16px;
-
     &__item {
       flex-direction: row;
       flex-wrap: wrap;
@@ -439,5 +438,13 @@
       text-align: left;
       white-space: pre-line;
     }
+  }
+  //
+  .watch-list__aside,
+  .watch-list__body{
+    display: none;
+  }
+  .watch-list-mobile{
+    display: block;
   }
 }
