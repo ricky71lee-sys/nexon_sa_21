@@ -20,18 +20,18 @@
   <meta property="og:title" content="둘이서 하나되는 서든어택 21주년">
   <meta property="og:description"
     content="반쪽 메달의 듀오를 찾아 하나로! 21일 출석·쇼케이스·특별매치까지, 둘이서 더 풍성하게. (8/6~8/27)">
-  <meta property="og:image" content="./assets/images/og-share.png">
+  <meta property="og:image" content="https://ricky71lee-sys.github.io/nexon_sa_21/assets/images/og-share.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="다시 한 판? 어디 서든! 둘이서 하나되는 서든어택 21주년">
-  <meta property="og:url" content="https://event.sa.nexon.com/2026/21st">
+  <meta property="og:url" content="https://ricky71lee-sys.github.io/nexon_sa_21/">
   <meta property="og:locale" content="ko_KR">
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="둘이서 하나되는 서든어택 21주년">
   <meta name="twitter:description"
     content="반쪽 메달의 듀오를 찾아 하나로! 21일 출석·쇼케이스·특별매치까지 (8/6~8/27)">
-  <meta name="twitter:image" content="./assets/images/og-share.png">
+  <meta name="twitter:image" content="https://ricky71lee-sys.github.io/nexon_sa_21/assets/images/og-share.png">
   <title>둘이서 하나되는 서든어택 21주년 | 메달 합체·21일 출석·쇼케이스</title>
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
@@ -62,8 +62,10 @@
     data-skiptocontentsid="skipNav"></script>
   <div id="app">
     <!--
-      #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport 모달
-      EVENT1 medal.phase 1~4 · EVENT2 attend.state · EVENT3 showcase 정적
+      #app: side-nav/sns(PC) · .wrap(topbar·hero·#event01~03·footer) · Teleport(body) 모달
+      onMounted: getMedalState · getAttendance (mock → assets/data/*.json)
+      EVENT1 medal.phase 1~4 · EVENT2 attend.state/calRows · EVENT3 showcase.watchEvents
+      clickShare → Utils.shareMeta.forMedal · SNS 채널 SDK는 clickShareChannel TODO
     -->
     <!-- side-nav (PC) -->
     <aside class="side-nav" aria-label="이벤트 퀵메뉴">
@@ -203,12 +205,13 @@
       <main class="main">
 
         <div class="event01-bg" :class="'event01-bg--' + medal.phase">
-          <!-- EVENT1 · 메달 합체
+          <!-- EVENT1 · 메달 합체 (event01__panel)
              흐름: clickIssueMedal → postIssueMedal → phase2
-                   lookup/getPartner → sendRequest → phase3
-                   accept → completeMatch → phase4 → claimReward
-             상태: medal.phase (1발급·2찾기·3대기·4완성) · v-show로 패널 전환
-             배경: event01-panel-bg-phase-0{phase}-mo.png (MO) · event-01-0{phase}-bg-pc.png (PC SCSS) -->
+                   lookupLive/getPartner → clickSendRequest → phase3
+                   clickAcceptReceived → completeMatch → phase4 → clickClaimReward
+             상태: medal.phase (1발급·2찾기·3대기·4완성) · v-show medal-flow__phase
+             배경 MO: event01-panel-bg-phase-0{phase}-mo.png · PC SCSS: event-01-0{phase}-bg-pc.png
+             clickShare → shareMeta.forMedal + share-modal (link=문구복사 · 카카오/페북/X SDK TODO) -->
           <section id="event01" class="section-block event01">
             <div class="mobile-background">
               <img
@@ -532,10 +535,13 @@
             </div>
           </section>
 
-          <!-- EVENT2 · 21일 출석
+          <!-- EVENT2 · 21일 출석 (attendance-panel)
              로드: getAttendance → attend.state[21]
-             셀 클릭: clickDay(출석·받기·보충) · 마일스톤: clickClaimMilestone/Duo
-             days(computed)로 달력 렌더 · 보충일(state=4)은 duoDays 미포함 -->
+             PC: att-head/att-board · MO·태블릿: att-compact (동일 데이터·핸들러)
+             clickDay(일별수령·보충 state=4) · claimAllDaily · clickRefreshAttendance
+             마일스톤: clickClaimMilestone · clickClaimDuoMilestone
+             days·calRows(computed) · calIconPath/msIconPath + picture PC/MO
+             보충일(state=4)은 duoDays·연속 streak 집계 제외 -->
           <section id="event02" class="event02">
             <div class="mobile-background">
               <img src="./assets/images/event02-panel-bg-mo.png" alt="21일 듀오 출석 챌린지 배경">
@@ -732,7 +738,10 @@
           </section>
         </div>
 
-        <!-- EVENT3 · 쇼케이스 — showcase 정적 데이터 v-for (API 없음) -->
+        <!-- EVENT3 · 쇼케이스 & 특별매치 (정적 + showcase.watchEvents v-for)
+             timetable-panel → .timetable (타임테이블·SOOP/YouTube)
+             showcase-watch-panel → .showcase-panel (팀·중계진) · .watch-panel (시청 이벤트)
+             sec-title--event03/04 · picture PC/MO · watch-detail-0N-mo.png (MO 상세) -->
         <section id="event03" class="section-block section-block--event3 event03">
           <div class="timetable-panel">
             <div class="sec-head">
@@ -1047,9 +1056,10 @@
     </div>
 
     <!--
-    Teleport → body
-    · .wrap overflow:hidden 때문에 모달이 잘리지 않도록 body로 이동
-    · openVault / openNotice / clickShare 시 Utils.bodyScroll.hide()
+    Teleport → body (.wrap overflow:hidden 대비)
+    · vault(내 보상함) · notice(event01~03) · share-modal · toast
+    · openVault / openNotice / clickShare → Utils.bodyScroll.hide()
+    · closeShare → shareMeta.reset() 후 bodyScroll.show()
   -->
     <teleport to="body">
       <div class="vault-dim" :class="{ 'is-open': vault.open }" @click="closeVault"></div>
@@ -1095,9 +1105,8 @@
             </div>
           </section>
           <!--
-          개인 마일스톤 목록 (vaultMilestones computed)
-          chip: 미달성(--locked) / 받기 가능(--ready) / 수령완료(--done)
-          ※ 여기서는 수령 클릭 없음 · EVENT2 마일스톤 버튼에서 처리
+          vaultMilestones(computed) — chip: --locked / --ready / --done
+          수령 클릭 없음 · EVENT2 마일스톤에서 clickClaimMilestone / clickClaimDuoMilestone
         -->
           <section class="vault__section">
             <h4 class="vault__section-title">마일스톤 출석 보상</h4>
@@ -1183,8 +1192,9 @@
 
   <!--
     스크립트 로드 순서 (변경 금지):
-    1) jQuery  2) Vue3 global  3) utils.js  4) control.js  5) event.js(마지막)
-    mount: #app · 데이터 흐름은 event.js 상단 주석 참고
+    1) jQuery  2) Vue3 global  3) utils.js  4) control.js  5) event.js(마운트)
+    mount: #app · API/mock·핸들러 흐름은 event.js 파일 상단 주석 참고
+    OG 이미지: assets/images/og-share.png · head meta는 카카오 크롤러용 절대 URL
   -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
