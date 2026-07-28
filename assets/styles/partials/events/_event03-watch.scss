@@ -11,7 +11,7 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    background: url("../images/icon_watch.png") no-repeat center / contain;
+    background: url("../images/icon-watch-pc.png") no-repeat center / contain;
   }
 }
 
@@ -43,7 +43,7 @@
     padding: 4px 0 0 7px;
     font-size: 15px;
     font-weight: 700;
-    background: url("../images/watch_event_num.png") no-repeat center / contain;
+    background: url("../images/watch-event-num.png") no-repeat center / contain;
   }
 
   &__aside {
@@ -294,8 +294,8 @@
         border: 0;
         background-color: #8b623a;
         background-image:
-          url("../images/btn_watch_metal.png"),
-          url("../images/btn_watch_metal_base.png"),
+          url("../images/btn-watch-metal-pc.png"),
+          url("../images/btn-watch-metal-base-pc.png"),
           linear-gradient(90deg, #664a2f 0%, #c09849 100%),
           linear-gradient(90deg, #8b623a 0%, #f4c15d 100%);
         background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -323,7 +323,7 @@
             display: block;
             width: 16px;
             height: 16px;
-            background: url("../images/btn_watch_arrow.svg") no-repeat center / contain;
+            background: url("../images/btn-watch-arrow-pc.svg") no-repeat center / contain;
           }
         }
       }

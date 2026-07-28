@@ -44,14 +44,14 @@
       flex-shrink: 0;
       width: 24px;
       height: 24px;
-      background: url("../images/icon_milestone.png") no-repeat center / cover;
+      background: url("../images/icon-milestone-pc.png") no-repeat center / cover;
     }
 
     .icon-milestone-duo {
       flex-shrink: 0;
       width: 24px;
       height: 24px;
-      background: url("../images/icon_milestone_duo.png") no-repeat center / cover;
+      background: url("../images/icon-milestone-duo-pc.png") no-repeat center / cover;
     }
   }
 
@@ -173,8 +173,8 @@
       color: #fff;
       background-color: #273040;
       background-image:
-        url("../images/ms_btn_claim_metal.png"),
-        url("../images/ms_btn_claim_base.png");
+        url("../images/ms-btn-claim-metal-pc.png"),
+        url("../images/ms-btn-claim-base-pc.png");
       background-repeat: no-repeat, no-repeat;
       background-position: center, center;
       background-size: 100% 100%, 100% 100%;

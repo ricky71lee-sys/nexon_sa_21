@@ -139,7 +139,7 @@
         content: "";
         width: 9px;
         height: 8px;
-        background: url("../images/cal_star.svg") no-repeat center / contain;
+        background: url("../images/cal-star-pc.svg") no-repeat center / contain;
       }
     }
 
@@ -169,7 +169,7 @@
       content: "";
       width: 10px;
       height: 10px;
-      background: url("../images/cal_check_white.svg") no-repeat center / contain;
+      background: url("../images/cal-check-white-pc.svg") no-repeat center / contain;
     }
   }
 
@@ -189,7 +189,7 @@
     border: 0 none;
     border-radius: 4px;
     background-color: #4b53c3;
-    background-image: url("../images/cal_btn_blue.png");
+    background-image: url("../images/cal-btn-blue-pc.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -224,7 +224,7 @@
   &--claim {
     .cal-card__btn {
       background-color: #4b53c3;
-      background-image: url("../images/cal_btn_blue.png");
+      background-image: url("../images/cal-btn-blue-pc.png");
       border-color: rgba(255, 255, 255, 0.4);
       color: #fff;
     }
@@ -306,7 +306,7 @@
 
     .cal-card__btn {
       background-color: #24a17d;
-      background-image: url("../images/cal_btn_green.png");
+      background-image: url("../images/cal-btn-green-pc.png");
       border-color: rgba(255, 255, 255, 0.4);
       color: #fff;
     }
@@ -328,7 +328,7 @@
 
     &.cal-card--claim .cal-card__btn {
       background-color: #24a17d;
-      background-image: url("../images/cal_btn_green.png");
+      background-image: url("../images/cal-btn-green-pc.png");
     }
 
     &.cal-card--done {
@@ -357,13 +357,13 @@
       background: #b636ea;
 
       &::after {
-        background-image: url("../images/cal_duo_mark.svg");
+        background-image: url("../images/cal-duo-mark-pc.svg");
       }
     }
 
     &.cal-card--claim .cal-card__btn {
       background-color: #b636ea;
-      background-image: url("../images/cal_btn_purple.png");
+      background-image: url("../images/cal-btn-purple-pc.png");
     }
 
     &.cal-card--done .cal-card__mark {
@@ -383,7 +383,7 @@
 
     &.cal-card--claim .cal-card__btn {
       background-color: #ea9c1d;
-      background-image: url("../images/cal_btn_orange.png");
+      background-image: url("../images/cal-btn-orange-pc.png");
     }
 
     // 수령완료 — +1 뱃지·우상단 mark 회색
@@ -427,7 +427,7 @@
       background: linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
 
       &::after {
-        background-image: url("../images/cal_duo_mark.svg");
+        background-image: url("../images/cal-duo-mark-pc.svg");
       }
     }
 
@@ -435,7 +435,7 @@
       border-color: rgba(255, 255, 255, 0.4);
       background-color: transparent;
       background-image:
-        url("../images/cal_btn_streak_duo.png"),
+        url("../images/cal-btn-streak-duo-pc.png"),
         linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
       background-size: 100% 100%, auto;
       background-position: center, center;

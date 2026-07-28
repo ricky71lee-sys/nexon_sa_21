@@ -202,7 +202,7 @@
         description: "메달 합체부터 출석·쇼케이스까지, 둘이서 더 풍성하게!",
         url: "https://csonline.nexon.com",
         urlLabel: "csonline.nexon.com",
-        image: "./assets/images/og_share.png",
+        image: "./assets/images/og-share.png",
       };
 
       function toAbsoluteUrl(path) {

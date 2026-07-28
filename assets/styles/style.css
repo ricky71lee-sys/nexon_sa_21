@@ -217,7 +217,7 @@ button {
   flex-shrink: 0;
   width: 60px;
   height: 60px;
-  background: url("../images/event_logo.png") no-repeat center/contain;
+  background: url("../images/event-logo-pc.png") no-repeat center/contain;
 }
 .topbar__logo a {
   display: block;
@@ -307,7 +307,7 @@ button {
     display: block;
     width: 34px;
     height: 22px;
-    background: url("../images/icon_menu.svg") no-repeat center/contain;
+    background: url("../images/icon-menu-pc.svg") no-repeat center/contain;
   }
   .topbar.is-menu-open {
     z-index: 40;
@@ -355,7 +355,7 @@ button {
     flex-shrink: 0;
     width: 40px;
     height: 40px;
-    background: url("../images/event_logo.png") no-repeat center/contain;
+    background: url("../images/event-logo-pc.png") no-repeat center/contain;
   }
   .mo-menu__close {
     flex-shrink: 0;
@@ -365,7 +365,7 @@ button {
     margin-left: auto;
     padding: 0;
     border: 0;
-    background: url("../images/menu/mo_close.svg") no-repeat center/contain;
+    background: url("../images/menu/mo-close.svg") no-repeat center/contain;
     cursor: pointer;
   }
   .mo-menu__body {
@@ -401,7 +401,7 @@ button {
     background: linear-gradient(90deg, #4b53c3 0%, #4b53c3 100%), linear-gradient(0deg, #22355e 0%, #3d528d 100%), #435481;
   }
   .mo-menu__card.is-active .mo-menu__card-arrow {
-    background-image: url("../images/menu/mo_arrow_active.svg");
+    background-image: url("../images/menu/mo-arrow-active.svg");
   }
   .mo-menu__card-text {
     flex: 1 0 0;
@@ -435,7 +435,7 @@ button {
     flex-shrink: 0;
     width: 8px;
     height: 14px;
-    background: url("../images/menu/mo_arrow.svg") no-repeat center/contain;
+    background: url("../images/menu/mo-arrow.svg") no-repeat center/contain;
   }
   .mo-menu__actions {
     display: flex;
@@ -474,12 +474,12 @@ button {
   .mo-menu__cta-icon--gift {
     width: 24px;
     height: 24px;
-    background-image: url("../images/menu/mo_gift.svg");
+    background-image: url("../images/menu/mo-gift.svg");
   }
   .mo-menu__cta-icon--swap {
     width: 23px;
     height: 18px;
-    background-image: url("../images/menu/mo_swap.svg");
+    background-image: url("../images/menu/mo-swap.svg");
     background-size: 16px 14px;
   }
 }
@@ -701,7 +701,7 @@ button {
 .btn--benefit .icon-benefit {
   width: 16px;
   height: 16px;
-  background: url("../images/icon_benefit.png") no-repeat center/contain;
+  background: url("../images/icon-benefit-pc.png") no-repeat center/contain;
   filter: brightness(0) invert(1);
 }
 .btn--gold-metallic {
@@ -785,7 +785,7 @@ button {
 .btn--gold-action .icon-arrow-right {
   width: 16px;
   height: 16px;
-  background: url("../images/icon_arrow_right.png") no-repeat center/contain;
+  background: url("../images/icon-arrow-right-pc.png") no-repeat center/contain;
   display: inline-block;
 }
 .btn--sm {
@@ -881,13 +881,13 @@ button {
 .notice-btn .icon-info {
   width: 16px;
   height: 16px;
-  background: url("../images/icon_info.png") no-repeat center/contain;
+  background: url("../images/icon-info-pc.png") no-repeat center/contain;
 }
 @media (max-width: 767px) {
   .notice-btn .icon-info {
     width: 10px;
     height: 10px;
-    background-image: url("../images/icon_info_mobile.svg");
+    background-image: url("../images/icon-info-mo.svg");
     background-size: cover;
   }
 }
@@ -961,16 +961,16 @@ button {
   .section-block > .sec-head + * {
     margin-top: 20px;
   }
-  .event-01-title {
+  .sec-title--event01 {
     padding: 0 2.78vw;
   }
-  .event-02-title {
+  .sec-title--event02 {
     padding: 0 4.44vw;
   }
-  .event-03-title {
+  .sec-title--event03 {
     padding: 0 7.22vw;
   }
-  .event-04-title {
+  .sec-title--event04 {
     padding: 0 7.22vw;
   }
 }
@@ -1171,7 +1171,7 @@ button {
   box-shadow: 0 0 0 100px transparent;
 }
 .hero__today-check:checked + .hero__today-check-icon {
-  background: rgb(234, 234, 234) url("../images/hero_today_check.png") no-repeat center;
+  background: rgb(234, 234, 234) url("../images/hero-today-check-pc.png") no-repeat center;
 }
 .hero__today-btn-label {
   cursor: pointer;
@@ -1296,23 +1296,23 @@ button {
 .event01-bg {
   position: relative;
   padding-bottom: 100px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg.png") no-repeat center top/auto;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event-01-01-bg-pc.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
 }
 .event01-bg--1 {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_01_bg.png") no-repeat center top/auto;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event-01-01-bg-pc.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
 }
 .event01-bg--2 {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_02_bg.png") no-repeat center top/auto;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event-01-02-bg-pc.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
 }
 .event01-bg--3 {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_03_bg.png") no-repeat center top/auto;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event-01-03-bg-pc.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
 }
 .event01-bg--4 {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event01_04_bg.png") no-repeat center top/auto;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 36.65%, rgba(255, 255, 255, 0) 100%), url("../images/event-01-04-bg-pc.png") no-repeat center top/auto;
   background-blend-mode: multiply, multiply, normal;
 }
 
@@ -1534,7 +1534,7 @@ button {
 .medal-issue__ring {
   width: 223px;
   height: 223px;
-  background: url("../images/medal_ringv2.png") no-repeat center center/cover;
+  background: url("../images/medal-ringv-2-pc.png") no-repeat center center/cover;
   pointer-events: none;
 }
 .medal-issue__action {
@@ -1743,7 +1743,7 @@ button {
   padding: 0;
   border-left: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 0;
-  background: url("../images/btn_medal_copy_bg.png") no-repeat center/100% 100%;
+  background: url("../images/btn-medal-copy-bg-pc.png") no-repeat center/100% 100%;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
   color: #fff;
   font-size: 20px;
@@ -1842,7 +1842,7 @@ button {
   width: 100%;
   padding: 13px 16px;
   border-radius: 0;
-  background: url("../images/btn_medal_submit_bg.png") no-repeat center/100% 100%;
+  background: url("../images/btn-medal-submit-bg-pc.png") no-repeat center/100% 100%;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
 }
@@ -2035,7 +2035,7 @@ button {
   .medal-match__submit {
     width: 100%;
     padding: 14px 16px;
-    background: url("../images/btn_medal_submit_bg.png") no-repeat center/100% 100%;
+    background: url("../images/btn-medal-submit-bg-pc.png") no-repeat center/100% 100%;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   .medal-match__submit-label {
@@ -2208,7 +2208,7 @@ button {
   display: inline-block;
   width: 9px;
   height: 6px;
-  background: url("../images/icon_more_arrow.svg") no-repeat center/contain;
+  background: url("../images/icon-more-arrow-pc.svg") no-repeat center/contain;
   transition: transform 0.2s;
 }
 .medal-request__more.is-collapse .icon-more-arrow {
@@ -2225,11 +2225,11 @@ button {
 }
 
 .icon-request-user {
-  background-image: url("../images/icon_request_user.svg");
+  background-image: url("../images/icon-request-user-pc.svg");
 }
 
 .icon-duo-user {
-  background-image: url("../images/icon_duo_user.svg");
+  background-image: url("../images/icon-duo-user.svg");
 }
 
 @media (max-width: 1000px) {
@@ -2469,7 +2469,7 @@ button {
   padding: 7px 63px;
   border-radius: 0;
   background-color: #4b53c3;
-  background-image: url("../images/btn_medal_claim_metal.png");
+  background-image: url("../images/btn-medal-claim-metal-pc.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -2635,19 +2635,19 @@ button {
     margin-top: 0;
   }
 }
-.medal_complete_visual_mobile {
+.medal-complete__visual-img--mo {
   display: none;
 }
 
 @media (max-width: 1000px) {
-  .medal_complete_visual-img {
+  .medal-complete__visual-img {
     transform: translateX(0);
   }
-  .medal_complete_visual_mobile {
+  .medal-complete__visual-img--mo {
     display: inline-block;
     padding-bottom: 18px;
   }
-  .medal_complete_visual_pc {
+  .medal-complete__visual-img--pc {
     display: none;
   }
 }
@@ -2874,7 +2874,7 @@ button {
 .icon-info {
   width: 12px;
   height: 12px;
-  background: url("../images/icon_info.png") no-repeat center/cover;
+  background: url("../images/icon-info-pc.png") no-repeat center/cover;
 }
 
 @media (max-width: 1000px) {
@@ -3069,7 +3069,7 @@ button {
   padding: 8px 16px 8px 8px;
   border-top: 1.2px solid rgba(255, 255, 255, 0.3);
   border-radius: 999px;
-  background: url("../images/att_head_metal_bg.png") no-repeat center/100% 100%;
+  background: url("../images/att-head-metal-bg-pc.png") no-repeat center/100% 100%;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
   color: #fff;
   font-size: 17px;
@@ -3086,12 +3086,12 @@ button {
   box-sizing: border-box;
   border: 2px solid #fff;
   border-radius: 50%;
-  background: #fff url("../images/att_head_avatar.svg") no-repeat center/20px auto;
+  background: #fff url("../images/att-head-avatar-pc.svg") no-repeat center/20px auto;
 }
 .att-head__avatar.is-duo {
   width: 51px;
   border-radius: 17px;
-  background: #fff url("../images/att_head_avatar_bg_duo.png") no-repeat center/cover;
+  background: #fff url("../images/att-head-avatar-bg-duo-pc.png") no-repeat center/cover;
 }
 .att-head__info {
   display: flex;
@@ -3202,12 +3202,12 @@ button {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  background: url("../images/icon_refresh.png") no-repeat center/contain;
+  background: url("../images/icon-refresh-pc.png") no-repeat center/contain;
 }
 .att-head__actions .att-head__btn--primary {
   border: 1px solid #1c1610;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-  background: url("../images/att_head_metal_bg.png") no-repeat center/100% 100%;
+  background: url("../images/att-head-metal-bg-pc.png") no-repeat center/100% 100%;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
   color: #fff;
 }
@@ -3215,7 +3215,7 @@ button {
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  background: url("../images/att_head_gift.svg") no-repeat center/contain;
+  background: url("../images/att-head-gift-pc.svg") no-repeat center/contain;
 }
 
 .att-head__btn:disabled {
@@ -3395,7 +3395,7 @@ button {
 .att-board__head .icon-calendar {
   width: 24px;
   height: 24px;
-  background: url("../images/icon_calendar.png") no-repeat center/cover;
+  background: url("../images/icon-calendar-pc.png") no-repeat center/cover;
 }
 .att-board__head small {
   font-size: 20px;
@@ -3520,7 +3520,7 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 500px;
   background-color: #4b53c3;
-  background-image: url("../images/att_head_metal_bg.png"), url("../images/att_compact_metal.png");
+  background-image: url("../images/att-head-metal-bg-pc.png"), url("../images/att-compact-metal-pc.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: 100% 100%, 100% 100%;
@@ -3566,7 +3566,7 @@ button {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  background: url("../images/icon_calendar.png") no-repeat center/contain;
+  background: url("../images/icon-calendar-pc.png") no-repeat center/contain;
 }
 .att-compact__title small {
   font-size: 12px;
@@ -3589,7 +3589,7 @@ button {
   border: 0;
   border-radius: 999px;
   background-color: #4b53c3;
-  background-image: url("../images/att_head_metal_bg.png"), url("../images/att_compact_metal.png");
+  background-image: url("../images/att-head-metal-bg-pc.png"), url("../images/att-compact-metal-pc.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: 100% 100%, 100% 100%;
@@ -3619,7 +3619,7 @@ button {
   display: block;
   width: 12px;
   height: 12px;
-  background: url("../images/icon_refresh_compact.svg") no-repeat center/contain;
+  background: url("../images/icon-refresh-compact-pc.svg") no-repeat center/contain;
 }
 .att-compact__progress {
   display: flex;
@@ -3795,7 +3795,7 @@ button {
   content: "";
   width: 9px;
   height: 8px;
-  background: url("../images/cal_star.svg") no-repeat center/contain;
+  background: url("../images/cal-star-pc.svg") no-repeat center/contain;
 }
 .cal-card__badge--makeup {
   padding: 0 8px;
@@ -3820,7 +3820,7 @@ button {
   content: "";
   width: 10px;
   height: 10px;
-  background: url("../images/cal_check_white.svg") no-repeat center/contain;
+  background: url("../images/cal-check-white-pc.svg") no-repeat center/contain;
 }
 .cal-card__btn {
   position: absolute;
@@ -3837,7 +3837,7 @@ button {
   border: 0 none;
   border-radius: 4px;
   background-color: #4b53c3;
-  background-image: url("../images/cal_btn_blue.png");
+  background-image: url("../images/cal-btn-blue-pc.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -3864,7 +3864,7 @@ button {
 }
 .cal-card--claim .cal-card__btn {
   background-color: #4b53c3;
-  background-image: url("../images/cal_btn_blue.png");
+  background-image: url("../images/cal-btn-blue-pc.png");
   border-color: rgba(255, 255, 255, 0.4);
   color: #fff;
 }
@@ -3925,7 +3925,7 @@ button {
 }
 .cal-card--makeable .cal-card__btn {
   background-color: #24a17d;
-  background-image: url("../images/cal_btn_green.png");
+  background-image: url("../images/cal-btn-green-pc.png");
   border-color: rgba(255, 255, 255, 0.4);
   color: #fff;
 }
@@ -3940,7 +3940,7 @@ button {
 }
 .cal-card--makeup.cal-card--claim .cal-card__btn {
   background-color: #24a17d;
-  background-image: url("../images/cal_btn_green.png");
+  background-image: url("../images/cal-btn-green-pc.png");
 }
 .cal-card--makeup.cal-card--done .cal-card__mark,
 .cal-card--makeup.cal-card--done .cal-card__badge--makeup {
@@ -3959,11 +3959,11 @@ button {
   background: #b636ea;
 }
 .cal-card--duo .cal-card__mark::after {
-  background-image: url("../images/cal_duo_mark.svg");
+  background-image: url("../images/cal-duo-mark-pc.svg");
 }
 .cal-card--duo.cal-card--claim .cal-card__btn {
   background-color: #b636ea;
-  background-image: url("../images/cal_btn_purple.png");
+  background-image: url("../images/cal-btn-purple-pc.png");
 }
 .cal-card--duo.cal-card--done .cal-card__mark {
   background: #515968;
@@ -3976,7 +3976,7 @@ button {
 }
 .cal-card--streak.cal-card--claim .cal-card__btn {
   background-color: #ea9c1d;
-  background-image: url("../images/cal_btn_orange.png");
+  background-image: url("../images/cal-btn-orange-pc.png");
 }
 .cal-card--streak.cal-card--done .cal-card__mark {
   background: #515968;
@@ -4003,12 +4003,12 @@ button {
   background: linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
 }
 .cal-card--streak.cal-card--duo .cal-card__mark::after {
-  background-image: url("../images/cal_duo_mark.svg");
+  background-image: url("../images/cal-duo-mark-pc.svg");
 }
 .cal-card--streak.cal-card--duo.cal-card--claim .cal-card__btn {
   border-color: rgba(255, 255, 255, 0.4);
   background-color: transparent;
-  background-image: url("../images/cal_btn_streak_duo.png"), linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
+  background-image: url("../images/cal-btn-streak-duo-pc.png"), linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
   background-size: 100% 100%, auto;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
@@ -4257,13 +4257,13 @@ button {
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  background: url("../images/icon_milestone.png") no-repeat center/cover;
+  background: url("../images/icon-milestone-pc.png") no-repeat center/cover;
 }
 .milestone__head .icon-milestone-duo {
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  background: url("../images/icon_milestone_duo.png") no-repeat center/cover;
+  background: url("../images/icon-milestone-duo-pc.png") no-repeat center/cover;
 }
 .milestone__row {
   display: flex;
@@ -4364,7 +4364,7 @@ button {
 .milestone__btn--ready {
   color: #fff;
   background-color: #273040;
-  background-image: url("../images/ms_btn_claim_metal.png"), url("../images/ms_btn_claim_base.png");
+  background-image: url("../images/ms-btn-claim-metal-pc.png"), url("../images/ms-btn-claim-base-pc.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: 100% 100%, 100% 100%;
@@ -4496,7 +4496,7 @@ button {
   flex-direction: column;
   gap: 60px;
   padding-bottom: 100px;
-  background: url("../images/event03_bg.png") no-repeat 0 0/cover;
+  background: url("../images/event-03-bg-pc.png") no-repeat 0 0/cover;
 }
 .event03 > .sec-head {
   margin-bottom: 0;
@@ -4658,7 +4658,7 @@ button {
 .timetable__head .icon-timetable {
   width: 24px;
   height: 24px;
-  background: url("../images/icon_timetable.png") no-repeat center/contain;
+  background: url("../images/icon-timetable-pc.png") no-repeat center/contain;
   display: inline-block;
 }
 .timetable__cols {
@@ -4778,18 +4778,18 @@ button {
 .timetable .btn--broadcast i.icon-arrow-right {
   width: 10px;
   height: 10px;
-  background: url("../images/icon_arrow_right.svg") no-repeat center/contain;
+  background: url("../images/icon-arrow-right-pc.svg") no-repeat center/contain;
   display: inline-block;
 }
 .timetable .btn--broadcast i.icon-youtube {
   width: 89px;
   height: 20px;
-  background: url("../images/icon_youtube.png") no-repeat center/contain;
+  background: url("../images/icon-youtube-pc.png") no-repeat center/contain;
 }
 .timetable .btn--broadcast i.icon-soop {
   width: 71px;
   height: 20px;
-  background: url("../images/icon_soop.png") no-repeat center/contain;
+  background: url("../images/icon-soop-pc.png") no-repeat center/contain;
 }
 .timetable__note {
   margin-top: 10px;
@@ -4912,13 +4912,13 @@ button {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url("../images/icon_team.png") no-repeat center/contain;
+  background: url("../images/icon-team-pc.png") no-repeat center/contain;
 }
 .showcase-panel .icon-caster {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: url("../images/icon_caster.png") no-repeat center/contain;
+  background: url("../images/icon-caster-pc.png") no-repeat center/contain;
 }
 
 .showcase-panel__block {
@@ -5205,7 +5205,7 @@ button {
 }
 @media (max-width: 767px) {
   .showcase-watch-panel {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 31.07%, rgba(0, 0, 0, 0.35) 83.1%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/event03_bg_mobile22.png") no-repeat center top/cover;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 31.07%, rgba(0, 0, 0, 0.35) 83.1%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/event03-bg-mo.png") no-repeat center top/cover;
   }
   .showcase-panel {
     border-top: 1px solid rgba(255, 231, 167, 0.4);
@@ -5222,7 +5222,7 @@ button {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: url("../images/icon_watch.png") no-repeat center/contain;
+  background: url("../images/icon-watch-pc.png") no-repeat center/contain;
 }
 
 .watch-list {
@@ -5252,7 +5252,7 @@ button {
   padding: 4px 0 0 7px;
   font-size: 15px;
   font-weight: 700;
-  background: url("../images/watch_event_num.png") no-repeat center/contain;
+  background: url("../images/watch-event-num.png") no-repeat center/contain;
 }
 .watch-list__aside {
   display: flex;
@@ -5470,7 +5470,7 @@ button {
     box-sizing: border-box;
     border: 0;
     background-color: #8b623a;
-    background-image: url("../images/btn_watch_metal.png"), url("../images/btn_watch_metal_base.png"), linear-gradient(90deg, #664a2f 0%, #c09849 100%), linear-gradient(90deg, #8b623a 0%, #f4c15d 100%);
+    background-image: url("../images/btn-watch-metal-pc.png"), url("../images/btn-watch-metal-base-pc.png"), linear-gradient(90deg, #664a2f 0%, #c09849 100%), linear-gradient(90deg, #8b623a 0%, #f4c15d 100%);
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: center, center, center, center;
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
@@ -5495,7 +5495,7 @@ button {
     display: block;
     width: 16px;
     height: 16px;
-    background: url("../images/btn_watch_arrow.svg") no-repeat center/contain;
+    background: url("../images/btn-watch-arrow-pc.svg") no-repeat center/contain;
   }
   .watch-list__item--has-cta {
     padding-bottom: 0;
@@ -5666,7 +5666,7 @@ section[id^=event],
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  background: url("../images/icon_benefit.png") no-repeat center/contain;
+  background: url("../images/icon-benefit-pc.png") no-repeat center/contain;
   filter: invert(1);
 }
 .vault__title {
@@ -5990,7 +5990,7 @@ section[id^=event],
   content: "";
   width: 18px;
   height: 18px;
-  background: url("../images/notice_info.svg") no-repeat center/contain;
+  background: url("../images/notice-info-pc.svg") no-repeat center/contain;
 }
 .notice-modal__title span {
   font-size: 14px;

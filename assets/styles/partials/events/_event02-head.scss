@@ -19,7 +19,7 @@
     padding: 8px 16px 8px 8px;
     border-top: 1.2px solid rgba(255, 255, 255, 0.3);
     border-radius: 999px;
-    background: url("../images/att_head_metal_bg.png") no-repeat center / 100% 100%;
+    background: url("../images/att-head-metal-bg-pc.png") no-repeat center / 100% 100%;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
     color: #fff;
     font-size: 17px;
@@ -37,12 +37,12 @@
     box-sizing: border-box;
     border: 2px solid #fff;
     border-radius: 50%;
-    background: #fff url("../images/att_head_avatar.svg") no-repeat center / 20px auto;
+    background: #fff url("../images/att-head-avatar-pc.svg") no-repeat center / 20px auto;
 
     &.is-duo {
       width: 51px;
       border-radius: 17px;
-      background: #fff url("../images/att_head_avatar_bg_duo.png") no-repeat center / cover;
+      background: #fff url("../images/att-head-avatar-bg-duo-pc.png") no-repeat center / cover;
     }
   }
 
@@ -170,7 +170,7 @@
           flex-shrink: 0;
           width: 16px;
           height: 16px;
-          background: url("../images/icon_refresh.png") no-repeat center / contain;
+          background: url("../images/icon-refresh-pc.png") no-repeat center / contain;
         }
       }
 
@@ -178,7 +178,7 @@
       &--primary {
         border: 1px solid #1c1610;
         border-top: 1px solid rgba(255, 255, 255, 0.3);
-        background: url("../images/att_head_metal_bg.png") no-repeat center / 100% 100%;
+        background: url("../images/att-head-metal-bg-pc.png") no-repeat center / 100% 100%;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
         color: #fff;
 
@@ -186,7 +186,7 @@
           flex-shrink: 0;
           width: 20px;
           height: 20px;
-          background: url("../images/att_head_gift.svg") no-repeat center / contain;
+          background: url("../images/att-head-gift-pc.svg") no-repeat center / contain;
         }
       }
     }

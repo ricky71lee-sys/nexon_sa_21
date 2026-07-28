@@ -131,11 +131,11 @@
        * [정적 데이터] API 불필요 — 스텝·보상카피·마일스톤·유의사항·쇼케이스
        * ------------------------------------------------------------------ */
       const shareChannels = [
-        { id: "kakao", label: "카카오톡", icon: "share_kakao.svg" },
-        { id: "facebook", label: "페이스북", icon: "share_facebook.svg" },
-        { id: "x", label: "X", icon: "share_x.svg" },
-        { id: "instagram", label: "인스타그램", icon: "share_instagram.svg" },
-        { id: "link", label: "링크복사", icon: "share_link.svg" },
+        { id: "kakao", label: "카카오톡", icon: "share-kakao-pc.svg" },
+        { id: "facebook", label: "페이스북", icon: "share-facebook-pc.svg" },
+        { id: "x", label: "X", icon: "share-x-pc.svg" },
+        { id: "instagram", label: "인스타그램", icon: "share-instagram-pc.svg" },
+        { id: "link", label: "링크복사", icon: "share-link-pc.svg" },
       ];
 
       /** PC 우측 SNS 바 — href·노출은 여기서 관리 (TODO: 실 URL 연동) */
@@ -188,16 +188,16 @@
       ];
 
       const milestoneDefs = [
-        { id: "ms-07", d: 7, g: "10만 경험치", icon: "ms_icon_7.png" },
-        { id: "ms-14", d: 14, g: "보조 기간연장 영구제", icon: "ms_icon_14.png" },
-        { id: "ms-21", d: 21, g: "1,000 SP", icon: "ms_icon_21.png" },
+        { id: "ms-07", d: 7, g: "10만 경험치", icon: "ms-icon-07-pc.png" },
+        { id: "ms-14", d: 14, g: "보조 기간연장 영구제", icon: "ms-icon-14-pc.png" },
+        { id: "ms-21", d: 21, g: "1,000 SP", icon: "ms-icon-21-pc.png" },
       ];
 
       const duoMilestoneHighlight = {
         id: "duo-ms-05",
         d: 5,
         g: "도안_영구제 밀봉",
-        icon: "ms_icon_duo5.png",
+        icon: "ms-icon-duo-05-pc.png",
       };
 
       /* 유의사항 — 기획안 v3.3 슬라이드 문구 정합 (표시용 정적 카피) */
@@ -256,19 +256,19 @@
           {
             id: "watch-01", // 승부 예측
             no: "01",
-            icon: "watch_event1.png",
+            icon: "watch-event-01-pc.png",
             title: "승부 예측",
             desc:
               "최강의 둘이서 한 팀 선발전! 과연 승자는 누구일까요?<br>8월 23일(일) 오후 5시 전까지 승부 예측에 참여하고 적중 보상을 획득하세요!",
-            rewardIcons: ["watch_reward_01_1.png", "watch_reward_01_2.png"],
+            rewardIcons: ["watch-reward-01-1.png", "watch-reward-01-2.png"],
             reward: "예측 성공 시 500 SP /\n실패 시 제작 재료 2,000개",
             cta: "승부 예측 참여하기",
-            ctaBtn: "btn_watch_victory.png",
+            ctaBtn: "btn-watch-victory-pc.png",
           },
           {
             id: "watch-02", // 성공이냐 실패냐 — 보상 아이콘 없음
             no: "02",
-            icon: "watch_event2.png",
+            icon: "watch-event-02-pc.png",
             title: "성공이냐 실패냐",
             desc: "챔피언십 & 태디컵 선수들의 업투게더 미션 <br class='pc-hidden'>성공 여부에 따라 깜짝 쿠폰이 지급됩니다.",
             rewardIcons: [],
@@ -278,7 +278,7 @@
           {
             id: "watch-03", // 동시 시청자 — 보상 아이콘 없음
             no: "03",
-            icon: "watch_event3.png",
+            icon: "watch-event-03-pc.png",
             title: "우리는 모두 하나!",
             desc: "동시 시청자 달성 수에 따라 쿠폰이 지급됩니다.<br>이번 최고 목표는 21,000명! 상세 보상은 방송에서 공개됩니다.",
             rewardIcons: [],
@@ -288,13 +288,13 @@
           {
             id: "watch-04",
             no: "04",
-            icon: "watch_event5.png",
+            icon: "watch-event-04-pc.png",
             title: "21주년 메달 완성 · 듀오 동반 시청",
             desc: "21주년 메달을 완성하고 N커넥트 연동을 완료한 듀오가 함께 방송을 시청하면 <br>특별한 추가 보상을 획득할 수 있습니다!",
-            rewardIcons: ["watch_reward_05.png"],
+            rewardIcons: ["watch-reward-05.png"],
             reward: "마이건2 주무기 하프키트",
             cta: "N 커넥트 연동하기",
-            ctaBtn: "btn_watch_connect.png",
+            ctaBtn: "btn-watch-connect-pc.png",
           },
         ],
       };
@@ -584,12 +584,12 @@
 
       function calIconPath(index, mobile = false) {
         const n = String(index + 1).padStart(2, "0");
-        return "./assets/images/cal_reward_icon" + n + (mobile ? "_mobile" : "") + ".png";
+        return "./assets/images/cal-reward-icon-" + n + (mobile ? "-mo" : "-pc") + ".png";
       }
 
       function msIconPath(iconFile, mobile = false) {
         if (!iconFile) return "";
-        const file = mobile ? iconFile.replace(/\.png$/i, "_mobile.png") : iconFile;
+        const file = mobile ? iconFile.replace(/-pc\.png$/i, "-mo.png") : iconFile;
         return "./assets/images/" + file;
       }
 

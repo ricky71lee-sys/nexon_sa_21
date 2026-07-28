@@ -82,7 +82,7 @@
     visibility: hidden;
     box-shadow: 0 0 0 100px transparent;
     &:checked + .hero__today-check-icon {
-      background:rgba(234, 234, 234, 1) url("../images/hero_today_check.png") no-repeat center;
+      background:rgba(234, 234, 234, 1) url("../images/hero-today-check-pc.png") no-repeat center;
     }
   }
 

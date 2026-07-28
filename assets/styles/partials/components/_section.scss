@@ -77,11 +77,11 @@
   .icon-info {
     width: 16px;
     height: 16px;
-    background: url("../images/icon_info.png") no-repeat center / contain;
+    background: url("../images/icon-info-pc.png") no-repeat center / contain;
     @include mo {
       width: 10px;
       height: 10px;
-      background-image: url("../images/icon_info_mobile.svg");
+      background-image: url("../images/icon-info-mo.svg");
       background-size: cover;
     }
   }
@@ -167,16 +167,16 @@
   }
 
   // Title space
-  .event-01-title {
+  .sec-title--event01 {
     padding: 0 2.78vw;
   }
-  .event-02-title {
+  .sec-title--event02 {
     padding: 0 4.44vw;
   }
-  .event-03-title {
+  .sec-title--event03 {
     padding: 0 7.22vw;
   }
-  .event-04-title {
+  .sec-title--event04 {
     padding: 0 7.22vw;
   }
 }

@@ -79,8 +79,8 @@
     border-radius: 500px;
     background-color: #4b53c3;
     background-image:
-      url("../images/att_head_metal_bg.png"),
-      url("../images/att_compact_metal.png");
+      url("../images/att-head-metal-bg-pc.png"),
+      url("../images/att-compact-metal-pc.png");
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
     background-size: 100% 100%, 100% 100%;
@@ -129,7 +129,7 @@
       flex-shrink: 0;
       width: 16px;
       height: 16px;
-      background: url("../images/icon_calendar.png") no-repeat center / contain;
+      background: url("../images/icon-calendar-pc.png") no-repeat center / contain;
     }
 
     small {
@@ -157,8 +157,8 @@
     border-radius: 999px;
     background-color: #4b53c3;
     background-image:
-      url("../images/att_head_metal_bg.png"),
-      url("../images/att_compact_metal.png");
+      url("../images/att-head-metal-bg-pc.png"),
+      url("../images/att-compact-metal-pc.png");
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
     background-size: 100% 100%, 100% 100%;
@@ -189,7 +189,7 @@
       display: block;
       width: 12px;
       height: 12px;
-      background: url("../images/icon_refresh_compact.svg") no-repeat center / contain;
+      background: url("../images/icon-refresh-compact-pc.svg") no-repeat center / contain;
     }
   }
 

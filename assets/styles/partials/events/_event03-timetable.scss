@@ -40,7 +40,7 @@
     .icon-timetable {
       width: 24px;
       height: 24px;
-      background: url("../images/icon_timetable.png") no-repeat center / contain;
+      background: url("../images/icon-timetable-pc.png") no-repeat center / contain;
       display: inline-block;
     }
   }
@@ -178,18 +178,18 @@
       &.icon-arrow-right {
         width: 10px;
         height: 10px;
-        background: url("../images/icon_arrow_right.svg") no-repeat center / contain;
+        background: url("../images/icon-arrow-right-pc.svg") no-repeat center / contain;
         display: inline-block;
       }
       &.icon-youtube {
         width: 89px;
         height: 20px;
-        background: url("../images/icon_youtube.png") no-repeat center / contain;
+        background: url("../images/icon-youtube-pc.png") no-repeat center / contain;
       }
       &.icon-soop {
         width: 71px;
         height: 20px;
-        background: url("../images/icon_soop.png") no-repeat center / contain;
+        background: url("../images/icon-soop-pc.png") no-repeat center / contain;
       }
     }
   }

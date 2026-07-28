@@ -20,7 +20,7 @@
   <meta property="og:title" content="둘이서 하나되는 서든어택 21주년">
   <meta property="og:description"
     content="반쪽 메달의 듀오를 찾아 하나로! 21일 출석·쇼케이스·특별매치까지, 둘이서 더 풍성하게. (8/6~8/27)">
-  <meta property="og:image" content="./assets/images/og_share.png">
+  <meta property="og:image" content="./assets/images/og-share.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="다시 한 판? 어디 서든! 둘이서 하나되는 서든어택 21주년">
@@ -31,7 +31,7 @@
   <meta name="twitter:title" content="둘이서 하나되는 서든어택 21주년">
   <meta name="twitter:description"
     content="반쪽 메달의 듀오를 찾아 하나로! 21일 출석·쇼케이스·특별매치까지 (8/6~8/27)">
-  <meta name="twitter:image" content="./assets/images/og_share.png">
+  <meta name="twitter:image" content="./assets/images/og-share.png">
   <title>둘이서 하나되는 서든어택 21주년 | 메달 합체·21일 출석·쇼케이스</title>
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
@@ -69,24 +69,24 @@
     <aside class="side-nav" aria-label="이벤트 퀵메뉴">
       <nav class="side-nav__list">
         <a href="#event01" class="side-nav__item" data-scroll-to="#event01" data-scroll-active="#event01">
-          <img class="side-nav__img side-nav__img--default" src="./assets/images/side_nav_medal.png" alt="둘이서 하나, 메달 합체 — 합체하러 가기">
-          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side_nav_medal_hover.png" alt="" aria-hidden="true">
+          <img class="side-nav__img side-nav__img--default" src="./assets/images/side-nav-medal-pc.png" alt="둘이서 하나, 메달 합체 — 합체하러 가기">
+          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side-nav-medal-hover.png" alt="" aria-hidden="true">
         </a>
         <a href="#event02" class="side-nav__item" data-scroll-to="#event02" data-scroll-active="#event02">
-          <img class="side-nav__img side-nav__img--default" src="./assets/images/side_nav_attend.png" alt="21일 듀오 출석 챌린지 — 출석하러 가기">
-          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side_nav_attend_hover.png" alt="" aria-hidden="true">
+          <img class="side-nav__img side-nav__img--default" src="./assets/images/side-nav-attend-pc.png" alt="21일 듀오 출석 챌린지 — 출석하러 가기">
+          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side-nav-attend-hover.png" alt="" aria-hidden="true">
         </a>
         <a href="#event03" class="side-nav__item" data-scroll-to="#event03" data-scroll-active="#event03">
-          <img class="side-nav__img side-nav__img--default" src="./assets/images/side_nav_showcase.png" alt="21주년 쇼케이스 & 특별 매치 — 자세히 보기">
-          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side_nav_showcase_hover.png" alt="" aria-hidden="true">
+          <img class="side-nav__img side-nav__img--default" src="./assets/images/side-nav-showcase-pc.png" alt="21주년 쇼케이스 & 특별 매치 — 자세히 보기">
+          <img class="side-nav__img side-nav__img--hover" src="./assets/images/side-nav-showcase-hover.png" alt="" aria-hidden="true">
         </a>
       </nav>
       <button type="button" class="side-nav__vault" @click="openVault">
-        <img src="./assets/images/side_nav_vault.png" alt="내 보상함 바로가기">
+        <img src="./assets/images/side-nav-vault-pc.png" alt="내 보상함 바로가기">
       </button>
 
       <a class="side-nav__exchange" href="https://sa.nexon.com/main/index.aspx" target="_blank" rel="noopener">
-        <img src="./assets/images/side_nav_exchange.png" alt="21주년 교환소 바로가기">
+        <img src="./assets/images/side-nav-exchange-pc.png" alt="21주년 교환소 바로가기">
       </a>
     </aside>
 
@@ -94,8 +94,8 @@
       <a v-for="link in snsBarLinks" v-show="link.show !== false" :key="link.id" class="sns-bar__item"
         :href="link.href" :title="link.title" :target="link.external ? '_blank' : null"
         :rel="link.external ? 'noopener noreferrer' : null">
-        <img class="sns-bar__img sns-bar__img--default" :src="'./assets/images/sns_' + link.icon + '.png'" :alt="link.title" width="64" height="64">
-        <img class="sns-bar__img sns-bar__img--hover" :src="'./assets/images/sns_' + link.icon + '_hover.png'" alt="" width="64" height="64" aria-hidden="true">
+        <img class="sns-bar__img sns-bar__img--default" :src="'./assets/images/sns-' + link.icon + '-pc.png'" :alt="link.title" width="64" height="64">
+        <img class="sns-bar__img sns-bar__img--hover" :src="'./assets/images/sns-' + link.icon + '-hover.png'" alt="" width="64" height="64" aria-hidden="true">
       </a>
     </aside>
 
@@ -167,19 +167,19 @@
       <header class="hero">
         <div class="hero__bg" aria-hidden="true">
           <picture>
-            <source srcset="./assets/images/hero_bg.png" media="(min-width: 1000px)">
-            <img src="./assets/images/hero_mobile_bg.png" alt="">
+            <source srcset="./assets/images/hero-bg-pc.png" media="(min-width: 1000px)">
+            <img src="./assets/images/hero-bg-mo.png" alt="">
           </picture>
         </div>
         <div class="hero__content">
           <div class="hero__content-inner">
             <div class="hero__title">
-              <img class="hero__title-pc" src="./assets/images/hero_title.png" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
+              <img class="hero__title-pc" src="./assets/images/hero-title-pc.png" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
             </div>
             <div class="hero__desc">
               <picture>
-                <source srcset="./assets/images/hero_desc_tablet.png" media="(min-width: 768px)">
-                <img src="./assets/images/hero_desc_mobile.png" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
+                <source srcset="./assets/images/hero-desc-tb.png" media="(min-width: 768px)">
+                <img src="./assets/images/hero-desc-mo.png" alt="다시 한판? 어디서든! 둘이서 하나되는 서든어택 21주년">
               </picture>
             </div>
           </div>
@@ -187,7 +187,7 @@
         <!-- 오늘 하루 그만 보기 (PC: content 기준 우 64 · 하 42) — 동작은 개발팀 연동 -->
         <div class="hero__today">
           <!-- <div class="hero__footer-btn">
-            <button><img src="./assets/images/hero_kv_btn.png" alt="오늘21주년 교환소기"></button>
+            <button><img src="./assets/images/hero-kv-btn-pc.png" alt="오늘21주년 교환소기"></button>
           </div> -->
           <div type="button" class="hero__today-btn" @click="toggleToday">
             <!-- <img src="./assets/images/today.png" alt="오늘하루 이창 열지 않기"> -->
@@ -208,21 +208,21 @@
                    lookup/getPartner → sendRequest → phase3
                    accept → completeMatch → phase4 → claimReward
              상태: medal.phase (1발급·2찾기·3대기·4완성) · v-show로 패널 전환
-             배경: event01_0{phase}_bg.png (스텝/phase 연동) -->
+             배경: event01-panel-bg-phase-0{phase}-mo.png (MO) · event-01-0{phase}-bg-pc.png (PC SCSS) -->
           <section id="event01" class="section-block event01">
             <div class="mobile-background">
               <img
-                :src="'./assets/images/event1_mobile_div1_0' + medal.phase + '.png'"
+                :src="'./assets/images/event01-panel-bg-phase-0' + medal.phase + '-mo.png'"
                 :alt="'이벤트1 모바일 배경 · 스텝 ' + medal.phase"
               >
             </div>
             <div class="sec-head">
               <span class="sec-tag">EVENT 1</span>
               <!-- <h2 class="text-gradient-gold">둘이서 하나, 21주년 메달 합체</h2> -->
-              <h2 class="sec-title event-01-title">
+              <h2 class="sec-title sec-title--event01">
                 <picture>
-                  <source srcset="./assets/images/event01_title.png" media="(min-width: 768px)">
-                  <img src="./assets/images/event01_title_mobile.png" alt="둘이서 하나, 21주년 메달 합체">
+                  <source srcset="./assets/images/event01-title-pc.png" media="(min-width: 768px)">
+                  <img src="./assets/images/event01-title-mo.png" alt="둘이서 하나, 21주년 메달 합체">
                 </picture>
               </h2>
               <p> 
@@ -261,8 +261,8 @@
                     <button type="button" class="medal-issue__btn" :disabled="medal.issued"
                       @click="clickIssueMedal">
                       <picture>
-                        <source srcset="./assets/images/btn_gold_issue.png" media="(min-width: 768px)">
-                        <img src="./assets/images/btn_gold_issue_mobile.png" alt="메달 발급받기">
+                        <source srcset="./assets/images/btn-gold-issue-pc.png" media="(min-width: 768px)">
+                        <img src="./assets/images/btn-gold-issue-mo.png" alt="메달 발급받기">
                       </picture>
                     </button>
                     <!-- <p class="medal-issue__note">※ 접속 후 메달을 발급받으면 반쪽 메달과 <br class="pc-hidden">나의 메달 코드가 함께 표시됩니다.</p> -->
@@ -275,15 +275,15 @@
                 <div class="medal-match">
                   <div class="medal-match__visual">
                     <picture>
-                      <source srcset="./assets/images/medal_find_half.png" media="(min-width: 768px)">
-                      <img src="./assets/images/medal_find_half_mobile.png" alt="반쪽 메달 합체 이미지">
+                      <source srcset="./assets/images/medal-find-half-pc.png" media="(min-width: 768px)">
+                      <img src="./assets/images/medal-find-half-mo.png" alt="반쪽 메달 합체 이미지">
                     </picture>
                   </div>
                   <div class="medal-match__forms">
                     <div class="medal-match__forms-inner">
                       <div class="medal-match__panel--my">
                         <h4 class="medal-match__title">
-                          <img src="./assets/images/medal_match_title_my.png" alt="MY MEDAL">
+                          <img src="./assets/images/medal-match-title-my-pc.png" alt="MY MEDAL">
                         </h4>
                         <div class="medal-match__code-box">
                           <span class="medal-match__code">{{ medal.code || 'SA-----' }}</span>
@@ -292,14 +292,14 @@
                         <p class="medal-match__desc">내 메달 코드를 공유하고, 함께할 듀오를 찾아 <br class="pc-hidden">메달을 합체해 보세요!</p>
                         <div class="medal-match__sns-box">
                           <button type="button" class="medal-match__sns" @click="clickShare">
-                            <img src="./assets/images/btn_sns_share.png" alt="내 메달 코드 SNS 공유하기">
+                            <img src="./assets/images/btn-sns-share-pc.png" alt="내 메달 코드 SNS 공유하기">
                           </button>
                         </div>
                       </div>
                       <div class="medal-match__line"></div>
                       <div class="medal-match__panel--input">
                         <h4 class="medal-match__title">
-                          <img src="./assets/images/medal_match_title_input.png" alt="메달 코드 입력">
+                          <img src="./assets/images/medal-match-title-input-pc.png" alt="메달 코드 입력">
                         </h4>
                         <input class="medal-match__input" v-model="medal.find.input" @input="lookupLive"
                           placeholder="메달 코드 입력 (예: SA-K7X9)" maxlength="8" />
@@ -349,14 +349,14 @@
                     <article v-for="r in visibleReceived" :key="r.id" class="medal-request__card">
                       <p class="medal-request__name">{{ r.nick }}</p>
                       <div class="medal-request__badge" aria-hidden="true">
-                        <img src="./assets/images/medal_request_badge.png" alt="">
+                        <img src="./assets/images/medal-request-badge-pc.png" alt="">
                       </div>
                       <div class="medal-request__actions">
                         <button type="button" class="medal-request__reject" @click="rejectReceived(r.code)">
-                          <img src="./assets/images/btn_medal_reject.png" alt="합체 신청 거절">
+                          <img src="./assets/images/btn-medal-reject-pc.png" alt="합체 신청 거절">
                         </button>
                         <button type="button" class="medal-request__accept" @click="clickAcceptReceived(r.code)">
-                          <img src="./assets/images/btn_medal_accept.png" alt="합체 신청 수락">
+                          <img src="./assets/images/btn-medal-accept-pc.png" alt="합체 신청 수락">
                         </button>
                       </div>
                     </article>
@@ -381,8 +381,8 @@
                   <div class="medal-complete__visual">
                     <div class="medal-complete__visual-img">
                       <picture>
-                        <source srcset="./assets/images/medal_complete_visual.png" media="(min-width: 768px)">
-                        <img src="./assets/images/medal_complete_visual_mobile.png" alt="완성된 21주년 메달">
+                        <source srcset="./assets/images/medal-complete-visual-pc.png" media="(min-width: 768px)">
+                        <img src="./assets/images/medal-complete-visual-mo.png" alt="완성된 21주년 메달">
                       </picture>
                     </div>
                     <div class="medal-complete__head">
@@ -408,19 +408,19 @@
                       <div class="reward-cards__items">
                         <div class="reward-item">
                           <div class="reward-item__icon" aria-label="10만 경험치">
-                            <img src="./assets/images/reward_item_icon01.png" alt="10만 경험치">
+                            <img src="./assets/images/reward-item-icon-01-pc.png" alt="10만 경험치">
                           </div>
                           <span class="reward-item__label">10만 경험치</span>
                         </div>
                         <div class="reward-item">
                           <div class="reward-item__icon" aria-label="리센느 멀티카운트">
-                            <img src="./assets/images/reward_item_icon02.png" alt="리센느 멀티카운트">
+                            <img src="./assets/images/reward-item-icon-02-pc.png" alt="리센느 멀티카운트">
                           </div>
                           <span class="reward-item__label">리센느 멀티카운트</span>
                         </div>
                         <div class="reward-item">
                           <div class="reward-item__icon" aria-label="돌격 기간연장 영구제">
-                            <img src="./assets/images/reward_item_icon03.png" alt="돌격 기간연장 영구제">
+                            <img src="./assets/images/reward-item-icon-03-pc.png" alt="돌격 기간연장 영구제">
                           </div>
                           <span class="reward-item__label">돌격 기간연장 <br>영구제</span>
                         </div>
@@ -437,13 +437,13 @@
                       <div class="reward-cards__items v2-mode">
                         <div class="reward-item">
                           <div class="reward-item__icon" aria-label="서든어택 트윈 블루투스 스피커">
-                            <img src="./assets/images/reward_item_icon04.png" alt="서든어택 트윈 블루투스 스피커">
+                            <img src="./assets/images/reward-item-icon-04-pc.png" alt="서든어택 트윈 블루투스 스피커">
                           </div>
                           <span class="reward-item__label">트윈 블루투스 스피커 <br>100명</span>
                         </div>
                         <div class="reward-item">
                           <div class="reward-item__icon" aria-label="1만 넥슨캐시">
-                            <img src="./assets/images/reward_item_icon05.png" alt="1만 넥슨캐시">
+                            <img src="./assets/images/reward-item-icon-05-pc.png" alt="1만 넥슨캐시">
                           </div>
                           <span class="reward-item__label">1만 넥슨캐시 <br>2,100명</span>
                         </div>
@@ -485,19 +485,19 @@
                   <div class="reward-cards__items">
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="10만 경험치">
-                        <img src="./assets/images/reward_item_icon01.png" alt="10만 경험치">
+                        <img src="./assets/images/reward-item-icon-01-pc.png" alt="10만 경험치">
                       </div>
                       <span class="reward-item__label">10만 경험치</span>
                     </div>
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="리센느 멀티카운트">
-                        <img src="./assets/images/reward_item_icon02.png" alt="리센느 멀티카운트">
+                        <img src="./assets/images/reward-item-icon-02-pc.png" alt="리센느 멀티카운트">
                       </div>
                       <span class="reward-item__label">리센느 멀티카운트</span>
                     </div>
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="돌격 기간연장 영구제">
-                        <img src="./assets/images/reward_item_icon03.png" alt="돌격 기간연장 영구제">
+                        <img src="./assets/images/reward-item-icon-03-pc.png" alt="돌격 기간연장 영구제">
                       </div>
                       <span class="reward-item__label">돌격 기간연장 <br>영구제</span>
                     </div>
@@ -514,13 +514,13 @@
                   <div class="reward-cards__items v2-mode">
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="서든어택 트윈 블루투스 스피커">
-                        <img src="./assets/images/reward_item_icon04.png" alt="서든어택 트윈 블루투스 스피커">
+                        <img src="./assets/images/reward-item-icon-04-pc.png" alt="서든어택 트윈 블루투스 스피커">
                       </div>
                       <span class="reward-item__label">트윈 블루투스 스피커 <br>100명</span>
                     </div>
                     <div class="reward-item">
                       <div class="reward-item__icon" aria-label="1만 넥슨캐시">
-                        <img src="./assets/images/reward_item_icon05.png" alt="1만 넥슨캐시">
+                        <img src="./assets/images/reward-item-icon-05-pc.png" alt="1만 넥슨캐시">
                       </div>
                       <span class="reward-item__label">1만 넥슨캐시 <br>2,100명</span>
                     </div>
@@ -538,14 +538,14 @@
              days(computed)로 달력 렌더 · 보충일(state=4)은 duoDays 미포함 -->
           <section id="event02" class="event02">
             <div class="mobile-background">
-              <img src="./assets/images/event2_mobile_div-bg.png" alt="21일 듀오 출석 챌린지 배경">
+              <img src="./assets/images/event02-panel-bg-mo.png" alt="21일 듀오 출석 챌린지 배경">
             </div>
             <div class="sec-head">
               <span class="sec-tag">EVENT 2</span>
-              <h2 class="sec-title event-02-title">
+              <h2 class="sec-title sec-title--event02">
                 <picture>
-                  <source srcset="./assets/images/event02_title.png" media="(min-width: 768px)">
-                  <img src="./assets/images/event02_title_mobile.png" alt="21일 듀오 출석 챌린지">
+                  <source srcset="./assets/images/event02-title-pc.png" media="(min-width: 768px)">
+                  <img src="./assets/images/event02-title-mo.png" alt="21일 듀오 출석 챌린지">
                 </picture>
               </h2>
               <p>게임에 접속하면 출석 도장이 찍혀요! <br class="mobile-hidden">듀오와 함께, 또는 3일 연속 출석하면 <br class="pc-hidden">'보충 출석권'을 모아 빠진 날도 채울 수 있어요.</p>
@@ -557,7 +557,7 @@
 
             <div class="attendance-panel">
               <div class="mobile-background">
-                <img src="./assets/images/attendance_mobile_div-bg.png" alt="21일 듀오 출석 챌린지 배경">
+                <img src="./assets/images/event02-attendance-bg-mo.png" alt="21일 듀오 출석 챌린지 배경">
               </div>
               <!-- 헤더: 듀오 라벨 · 통계 · 갱신/일괄수령 -->
               <div class="att-head">
@@ -569,7 +569,7 @@
                 <div class="att-head__info">
                   <div class="att-head__stats">
                     <span class="att-head__stat att-head__stat--ticket">
-                      <img class="icon-ticket" src="./assets/images/icon_ticket.svg" alt="" aria-hidden="true" width="15" height="11">
+                      <img class="icon-ticket" src="./assets/images/icon-ticket-pc.svg" alt="" aria-hidden="true" width="15" height="11">
                       <em>보충 출석권</em>
                       <span class="att-head__stat-value">
                         <strong>{{ attend.makeup }}</strong>
@@ -737,23 +737,23 @@
           <div class="timetable-panel">
             <div class="sec-head">
               <span class="sec-tag">EVENT 3</span>
-              <h2 class="sec-title event-03-title">
+              <h2 class="sec-title sec-title--event03">
                 <picture>
-                  <source srcset="./assets/images/event03_title.png" media="(min-width: 768px)">
-                  <img src="./assets/images/event03_title_mobile.png" alt="21주년 쇼케이스">
+                  <source srcset="./assets/images/event03-title-pc.png" media="(min-width: 768px)">
+                  <img src="./assets/images/event03-title-mo.png" alt="21주년 쇼케이스">
                 </picture>
               </h2>
-              <p class="match-date"><img src="./assets/images/event03_match_date.png" alt="8월 23일(일) 오후 5시 시작"></p>
+              <p class="match-date"><img src="./assets/images/event03-match-date-pc.png" alt="8월 23일(일) 오후 5시 시작"></p>
             </div>
             <div class="timetable">
               <div class="mobile-dimmed"></div>
               <div class="mobile-background">
-                <img src="assets/images/timetable_bg_mobile.png" alt="">
+                <img src="./assets/images/timetable-bg-mo.png" alt="">
               </div>
               <div class="timetable__head">
                 <picture>
-                  <source srcset="./assets/images/timetable_head.png" media="(min-width: 768px)">
-                  <img src="./assets/images/timetable_head_mobile.png" alt="타임 테이블">
+                  <source srcset="./assets/images/timetable-head-pc.png" media="(min-width: 768px)">
+                  <img src="./assets/images/timetable-head-mo.png" alt="타임 테이블">
                 </picture>
               </div>
               <div class="timetable__cols">
@@ -761,8 +761,8 @@
                   <div class="timetable__part-head">
                     <div class="timetable__part-icon" aria-label="1부 아이콘">
                       <picture>
-                        <source srcset="./assets/images/timetable_part1.png" media="(min-width: 768px)">
-                        <img src="./assets/images/timetable_part1_mobile.png" alt="1부 아이콘">
+                        <source srcset="./assets/images/timetable-part-1-pc.png" media="(min-width: 768px)">
+                        <img src="./assets/images/timetable-part-1-mo.png" alt="1부 아이콘">
                       </picture>
                     </div>
                     <div class="timetable__part-body">
@@ -785,8 +785,8 @@
                   <div class="timetable__part-head">
                     <div class="timetable__part-icon" aria-label="2부 아이콘">
                       <picture>
-                        <source srcset="./assets/images/timetable_part2.png" media="(min-width: 768px)">
-                        <img src="./assets/images/timetable_part2_mobile.png" alt="2부 아이콘">
+                        <source srcset="./assets/images/timetable-part-2-pc.png" media="(min-width: 768px)">
+                        <img src="./assets/images/timetable-part-2-mo.png" alt="2부 아이콘">
                       </picture>
                     </div>
                     <div class="timetable__part-body">
@@ -826,10 +826,10 @@
             <div class="showcase-panel">
               <div class="sec-head">
                 <span class="sec-tag">이벤트 매치 안내</span>
-                <h2 class="sec-title event-04-title">
+                <h2 class="sec-title sec-title--event04">
                   <picture>
-                    <source srcset="./assets/images/event04_title.png" media="(min-width: 768px)">
-                    <img src="./assets/images/event04_title_mobile.png" alt="최강의 둘이서 한 팀 선발전">
+                    <source srcset="./assets/images/event04-title-pc.png" media="(min-width: 768px)">
+                    <img src="./assets/images/event04-title-mo.png" alt="최강의 둘이서 한 팀 선발전">
                   </picture>
                 </h2>
                 <p>26 서든어택 챔피언십 시즌1 우승의 주역과 태디컵 참가 선수가 한 팀이 되어,<br>최고의 ‘둘이서 하나‘ 팀을 가리는 특별 매치를 진행합니다!</p>
@@ -839,16 +839,16 @@
                 <div class="showcase-panel__block">
                   <h3 class="block-title">
                     <picture>
-                      <source srcset="./assets/images/team_title.png" media="(min-width: 768px)">
-                      <img src="./assets/images/team_title_mobile.png" alt="출전 팀">
+                      <source srcset="./assets/images/team-title-pc.png" media="(min-width: 768px)">
+                      <img src="./assets/images/team-title-mo.png" alt="출전 팀">
                     </picture>
                   </h3>
                   <div class="team-grid">
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Friend 팀 로고">
                         <picture>
-                          <source srcset="assets/images/team_friend.png" media="(min-width: 768px)">
-                          <img src="assets/images/team_friend_mobile.png" alt="Friend 팀 로고">
+                          <source srcset="./assets/images/team-friend-pc.png" media="(min-width: 768px)">
+                          <img src="./assets/images/team-friend-mo.png" alt="Friend 팀 로고">
                         </picture>
                       </div>
                       <div class="team-grid__body">
@@ -867,8 +867,8 @@
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Infinity 팀 로고">
                         <picture>
-                          <source srcset="assets/images/team_infinity.png" media="(min-width: 768px)">
-                          <img src="assets/images/team_infinity_mobile.png" alt="Infinity 팀 로고">
+                          <source srcset="./assets/images/team-infinity-pc.png" media="(min-width: 768px)">
+                          <img src="./assets/images/team-infinity-mo.png" alt="Infinity 팀 로고">
                         </picture>
                       </div>
                       <div class="team-grid__body">
@@ -887,8 +887,8 @@
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Nexus 팀 로고">
                         <picture>
-                          <source srcset="assets/images/team_nexus.png" media="(min-width: 768px)">
-                          <img src="assets/images/team_nexus_mobile.png" alt="Nexus 팀 로고">
+                          <source srcset="./assets/images/team-nexus-pc.png" media="(min-width: 768px)">
+                          <img src="./assets/images/team-nexus-mo.png" alt="Nexus 팀 로고">
                         </picture>
                       </div>
                       <div class="team-grid__body">
@@ -907,8 +907,8 @@
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Forever 팀 로고">
                         <picture>
-                          <source srcset="assets/images/team_forever.png" media="(min-width: 768px)">
-                          <img src="assets/images/team_forever_mobile.png" alt="Forever 팀 로고">
+                          <source srcset="./assets/images/team-forever-pc.png" media="(min-width: 768px)">
+                          <img src="./assets/images/team-forever-mo.png" alt="Forever 팀 로고">
                         </picture>
                       </div>
                       <div class="team-grid__body">
@@ -929,15 +929,15 @@
                 <div class="showcase-panel__block">
                   <h3 class="block-title">
                     <picture>
-                      <source srcset="./assets/images/caster_title.png" media="(min-width: 768px)">
-                      <img src="./assets/images/caster_title_mobile.png" alt="중계진 소개">
+                      <source srcset="./assets/images/caster-title-pc.png" media="(min-width: 768px)">
+                      <img src="./assets/images/caster-title-mo.png" alt="중계진 소개">
                     </picture>
                   </h3>
                   <div class="caster-grid">
                     <article class="caster-grid__card">
                       <div class="caster-grid__photo-wrap">
                         <div class="caster-grid__photo" aria-label="김경섭">
-                          <img src="assets/images/caster_kim.png" alt="김경섭">
+                          <img src="./assets/images/caster-kim.png" alt="김경섭">
                         </div>
                       </div>
                       <div class="caster-grid__info">
@@ -950,7 +950,7 @@
                     <article class="caster-grid__card">
                       <div class="caster-grid__photo-wrap">
                         <div class="caster-grid__photo" aria-label="온상민">
-                          <img src="assets/images/caster_son.png" alt="온상민">
+                          <img src="./assets/images/caster-son.png" alt="온상민">
                         </div>
                       </div>
                       <div class="caster-grid__info">
@@ -963,7 +963,7 @@
                     <article class="caster-grid__card">
                       <div class="caster-grid__photo-wrap">
                         <div class="caster-grid__photo" aria-label="그니">
-                          <img src="assets/images/caster_gyuni.png" alt="그니">
+                          <img src="./assets/images/caster-gyuni.png" alt="그니">
                         </div>
                       </div>
                       <div class="caster-grid__info">
@@ -981,8 +981,8 @@
             <div class="watch-panel">
               <h3 class="block-title">
                 <picture>
-                  <source srcset="./assets/images/watch_title.png" media="(min-width: 768px)">
-                  <img src="./assets/images/watch_title_mobile.png" alt="시청 이벤트">
+                  <source srcset="./assets/images/watch-title-pc.png" media="(min-width: 768px)">
+                  <img src="./assets/images/watch-title-mo.png" alt="시청 이벤트">
                 </picture>
               </h3>
               <div class="watch-list">
@@ -1021,7 +1021,7 @@
                     </div>
                   </div>
                   <div class="watch-list-mobile">
-                    <img :src="'assets/images/watch-d-' + ev.no + '.png'" :alt="ev.title">
+                    <img :src="'./assets/images/watch-detail-' + ev.no + '-mo.png'" :alt="ev.title">
                   </div>
                   <button v-if="ev.cta" type="button" class="watch-list__btn">
                     <img class="watch-list__btn-img" :src="'./assets/images/' + ev.ctaBtn" :alt="ev.cta">
@@ -1038,8 +1038,8 @@
       <footer class="footer">
         <a class="footer__home" href="https://sa.nexon.com/main/index.aspx" target="_blank" rel="noopener">
           <picture>
-            <source srcset="./assets/images/footer_home.png" media="(min-width: 768px)">
-            <img src="./assets/images/footer_home_mobile.png" alt="홈페이지 바로가기">
+            <source srcset="./assets/images/footer-home-pc.png" media="(min-width: 768px)">
+            <img src="./assets/images/footer-home-mo.png" alt="홈페이지 바로가기">
           </picture>
         </a>
         <p class="footer__copyright">ⓒ NEXON Korea Corporation. &amp; NEXON Games Co., Ltd. All Rights Reserved.</p>

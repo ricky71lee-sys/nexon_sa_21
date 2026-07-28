@@ -168,7 +168,7 @@
     padding: 7px 63px;
     border-radius: 0;
     background-color: #4b53c3;
-    background-image: url("../images/btn_medal_claim_metal.png");
+    background-image: url("../images/btn-medal-claim-metal-pc.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -369,21 +369,21 @@
 }
 
 // PC/MO 비주얼 전환 (HTML 클래스명 유지)
-.medal_complete_visual_mobile {
+.medal-complete__visual-img--mo {
   display: none;
 }
 
 @include tablet {
-  .medal_complete_visual-img {
+  .medal-complete__visual-img {
     transform: translateX(0);
   }
 
-  .medal_complete_visual_mobile {
+  .medal-complete__visual-img--mo {
     display: inline-block;
     padding-bottom: 18px;
   }
 
-  .medal_complete_visual_pc {
+  .medal-complete__visual-img--pc {
     display: none;
   }
 }

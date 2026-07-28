@@ -18,7 +18,7 @@
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background: url("../images/event_logo.png") no-repeat center / contain;
+    background: url("../images/event-logo-pc.png") no-repeat center / contain;
     a{
      display: block;
      font-size: 0;
@@ -129,7 +129,7 @@
       display: block;
       width: 34px;
       height: 22px;
-      background: url("../images/icon_menu.svg") no-repeat center / contain;
+      background: url("../images/icon-menu-pc.svg") no-repeat center / contain;
     }
 
     // 메뉴 열림 표시용 (레이아웃 확장 없음 — .mo-menu.is-open 이 fixed 오버레이)
@@ -185,7 +185,7 @@
       flex-shrink: 0;
       width: 40px;
       height: 40px;
-      background: url("../images/event_logo.png") no-repeat center / contain;
+      background: url("../images/event-logo-pc.png") no-repeat center / contain;
     }
 
     &__close {
@@ -196,7 +196,7 @@
       margin-left: auto;
       padding: 0;
       border: 0;
-      background: url("../images/menu/mo_close.svg") no-repeat center / contain;
+      background: url("../images/menu/mo-close.svg") no-repeat center / contain;
       cursor: pointer;
     }
 
@@ -238,7 +238,7 @@
           #435481;
 
         .mo-menu__card-arrow {
-          background-image: url("../images/menu/mo_arrow_active.svg");
+          background-image: url("../images/menu/mo-arrow-active.svg");
         }
       }
     }
@@ -278,7 +278,7 @@
       flex-shrink: 0;
       width: 8px;
       height: 14px;
-      background: url("../images/menu/mo_arrow.svg") no-repeat center / contain;
+      background: url("../images/menu/mo-arrow.svg") no-repeat center / contain;
     }
 
     &__actions {
@@ -320,13 +320,13 @@
       &--gift {
         width: 24px;
         height: 24px;
-        background-image: url("../images/menu/mo_gift.svg");
+        background-image: url("../images/menu/mo-gift.svg");
       }
 
       &--swap {
         width: 23px;
         height: 18px;
-        background-image: url("../images/menu/mo_swap.svg");
+        background-image: url("../images/menu/mo-swap.svg");
         background-size: 16px 14px;
       }
     }
