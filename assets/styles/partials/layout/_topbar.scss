@@ -132,17 +132,9 @@
       background: url("../images/icon_menu.svg") no-repeat center / contain;
     }
 
-    // 메뉴 열림: topbar를 GNB 아래 뷰포트까지 확장 → mo-menu absolute가 전체 덮음 (fixed 미사용)
+    // 메뉴 열림 표시용 (레이아웃 확장 없음 — .mo-menu.is-open 이 fixed 오버레이)
     &.is-menu-open {
       z-index: 40;
-      min-height: calc(100dvh - var(--gnb-height, 0px));
-      min-height: calc(100svh - var(--gnb-height, 0px));
-      overflow: hidden;
-
-      .topbar__in {
-        visibility: hidden;
-        pointer-events: none;
-      }
     }
   }
 
@@ -151,20 +143,19 @@
     flex-direction: column;
     align-items: stretch;
     gap: 50px;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: var(--gnb-height, 0px);
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 3;
+    z-index: 45;
     width: 100%;
-    min-height: 100%;
     height: auto;
-    max-height: none;
     padding: 10px 16px calc(60px + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
-    overflow: auto;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     background:
       linear-gradient(0deg, rgba(34, 53, 94, 0.3) 0%, rgba(61, 82, 141, 0.3) 100%),
       #1c1b1b;

@@ -86,7 +86,7 @@
     </aside>
 
     <div id="skipNav" class="wrap">
-      <!-- topbar · MO 메뉴는 topbar 안 absolute (fixed 금지 · GNB 아래) -->
+      <!-- topbar · MO 메뉴는 GNB 아래 fixed 오버레이 -->
       <div class="topbar" :class="{ 'is-menu-open': ui.menu }">
         <div class="topbar__in">
           <div class="topbar__logo" aria-label="21주년 로고"><a href="https://sa.nexon.com/main/index.aspx" target="_blank" rel="noopener">21주년 로고</a></div>
@@ -816,7 +816,10 @@
                   <div class="team-grid">
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Friend 팀 로고">
-                        <img src="assets/images/team_friend.png" alt="Friend 팀 로고">
+                        <picture>
+                          <source srcset="assets/images/team_friend.png" media="(min-width: 768px)">
+                          <img src="assets/images/team_friend_mobile.png" alt="Friend 팀 로고">
+                        </picture>
                       </div>
                       <div class="team-grid__body">
                         <h4 class="team-grid__name">Friend</h4>
@@ -833,7 +836,10 @@
                     </article>
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Infinity 팀 로고">
-                        <img src="assets/images/team_infinity.png" alt="Infinity 팀 로고">
+                        <picture>
+                          <source srcset="assets/images/team_infinity.png" media="(min-width: 768px)">
+                          <img src="assets/images/team_infinity_mobile.png" alt="Infinity 팀 로고">
+                        </picture>
                       </div>
                       <div class="team-grid__body">
                         <h4 class="team-grid__name">Infinity</h4>
@@ -850,7 +856,10 @@
                     </article>
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Nexus 팀 로고">
-                        <img src="assets/images/team_nexus.png" alt="Nexus 팀 로고">
+                        <picture>
+                          <source srcset="assets/images/team_nexus.png" media="(min-width: 768px)">
+                          <img src="assets/images/team_nexus_mobile.png" alt="Nexus 팀 로고">
+                        </picture>
                       </div>
                       <div class="team-grid__body">
                         <h4 class="team-grid__name">Nexus</h4>
@@ -867,7 +876,10 @@
                     </article>
                     <article class="team-grid__card">
                       <div class="team-grid__logo" aria-label="Forever 팀 로고">
-                        <img src="assets/images/team_forever.png" alt="Forever 팀 로고">
+                        <picture>
+                          <source srcset="assets/images/team_forever.png" media="(min-width: 768px)">
+                          <img src="assets/images/team_forever_mobile.png" alt="Forever 팀 로고">
+                        </picture>
                       </div>
                       <div class="team-grid__body">
                         <h4 class="team-grid__name">Forever</h4>

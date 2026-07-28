@@ -61,6 +61,28 @@ ul {
     max-width: 100%;
     overflow-x: hidden;
   }
+
+  html {
+    background: var(--bg-page);
+  }
+
+  body {
+    min-height: 100%;
+  }
+
+  // MO 메뉴 열림 — iOS·카카오 인앱 WebView 스크롤 차단
+  html.is-menu-open,
+  body.is-menu-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body.is-menu-open {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
 }
 
 

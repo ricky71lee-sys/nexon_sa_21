@@ -1036,17 +1036,49 @@
       }
 
       /**
+       * MO 햄버거 메뉴 — 스크롤 잠금 (iOS·카카오 인앱 대응)
+       */
+      let menuScrollY = 0;
+      let menuTouchBlock = null;
+
+      function lockMenuScroll() {
+        menuScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+        document.documentElement.classList.add("is-menu-open");
+        document.body.classList.add("is-menu-open");
+        document.body.style.top = `-${menuScrollY}px`;
+
+        menuTouchBlock = (e) => {
+          if (!e.target.closest(".mo-menu")) {
+            e.preventDefault();
+          }
+        };
+        document.addEventListener("touchmove", menuTouchBlock, { passive: false });
+      }
+
+      function unlockMenuScroll() {
+        document.documentElement.classList.remove("is-menu-open");
+        document.body.classList.remove("is-menu-open");
+        document.body.style.top = "";
+        window.scrollTo(0, menuScrollY);
+
+        if (menuTouchBlock) {
+          document.removeEventListener("touchmove", menuTouchBlock);
+          menuTouchBlock = null;
+        }
+      }
+
+      /**
        * MO 햄버거 메뉴 토글
-       * 스크롤바 보정 padding-right 넣지 않음 (메뉴 열릴 때 우측 여백 생김)
        */
       function toggleMenu() {
         ui.menu = !ui.menu;
         if (ui.menu) {
-          // topbar sticky/fixed 아님 → 메뉴(absolute)가 GNB 아래 보이도록 상단으로
-          window.scrollTo(0, 0);
-          document.body.style.overflow = "hidden";
+          if (window.pageScroll && typeof pageScroll.syncGnbHeightFromDom === "function") {
+            pageScroll.syncGnbHeightFromDom();
+          }
+          lockMenuScroll();
         } else {
-          document.body.style.overflow = "";
+          unlockMenuScroll();
         }
       }
 
@@ -1054,8 +1086,9 @@
        * MO 햄버거 메뉴 닫기
        */
       function closeMenu() {
+        if (!ui.menu) return;
         ui.menu = false;
-        document.body.style.overflow = "";
+        unlockMenuScroll();
       }
 
       /* [초기화]
