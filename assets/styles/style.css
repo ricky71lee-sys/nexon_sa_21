@@ -5436,7 +5436,7 @@ button {
     flex-wrap: wrap;
     align-items: center;
     gap: 14px;
-    padding: 20px 16px;
+    padding: 0;
     box-sizing: border-box;
   }
   .watch-list__item > .watch-list__btn {
@@ -5446,7 +5446,7 @@ button {
     flex: 1 1 100%;
     max-width: none;
     height: 40px;
-    margin: 0 -16px;
+    margin: 0;
     padding: 10px 0;
     align-self: stretch;
     box-sizing: border-box;
