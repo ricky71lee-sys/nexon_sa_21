@@ -675,12 +675,19 @@
                   </div>
                 </div>
               </div>
+              <!--
+                [퍼블 전달] 출석 범례(cal-legend)
+                · is-duo / is-streak 각각 단독 컬러 유지
+                · 동반+연속 3일 중복 시 카드는 .cal-card--streak.cal-card--duo (주황↔보라 그라데이션)
+                · 동일 날 보충권 +2 지급 → 범례에 is-streak-duo 항목 필수
+              -->
               <div class="cal-legend">
                 <span><i></i>미출석</span>
                 <span><i class="is-check"></i>출석</span>
                 <span><i class="is-duo"></i>듀오와 동반</span>
                 <span><i class="is-makeup"></i>보충 출석권 사용</span>
                 <span><i class="is-streak"></i>연속 3일 달성(보충권 +1)</span>
+                <span><i class="is-streak-duo"></i>동반 + 연속 3일(보충권 +2)</span>
               </div>
 
               <div class="milestone">
@@ -756,9 +763,7 @@
             </div>
             <div class="timetable">
               <div class="mobile-dimmed"></div>
-              <div class="mobile-background">
-                <img src="./assets/images/timetable-bg-mo.png" alt="">
-              </div>
+              <div class="mobile-background"><img src="./assets/images/timetable-bg-mo.png" alt=""></div>
               <div class="timetable__head">
                 <picture>
                   <source srcset="./assets/images/timetable-head-pc.png" media="(min-width: 768px)">

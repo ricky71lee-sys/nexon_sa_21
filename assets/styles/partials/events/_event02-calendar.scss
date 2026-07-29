@@ -494,6 +494,21 @@
     &.is-streak {
       border-color: #ea9c1d;
     }
+
+    // 동반 + 연속 3일 중복 — 카드(.cal-card--streak.cal-card--duo)와 동일 그라데이션
+    &.is-streak-duo {
+      border: 0;
+      padding: 2px;
+      background: linear-gradient(135deg, #ea9c1d 0%, #b636ea 100%);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+    }
   }
 }
 

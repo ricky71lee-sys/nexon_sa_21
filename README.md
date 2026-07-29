@@ -104,6 +104,30 @@ mock 경로: `DATA_BASE = "./assets/data"` → 배포 시 API base URL로 교체
 
 ---
 
+## GitHub Pages 배포
+
+`main` push마다 **Actions → Deploy to GitHub Pages** 워크플로가 실행됩니다.
+
+1. Repo **Settings → Pages → Build and deployment → Source**: `GitHub Actions`
+2. push 후 **Actions** 탭에서 `Deploy to GitHub Pages #N` 성공 여부 확인
+3. 수동 재배포: Actions → Deploy to GitHub Pages → **Run workflow**
+
+```bash
+npm run build   # SCSS 압축 빌드 (워크플로에서도 실행)
+git push origin main
+```
+
+### 커밋 메시지 (Windows)
+
+PowerShell에서 `git commit -m "한글"` 은 **`????` 로 깨질 수 있습니다.**  
+UTF-8 파일로 커밋하세요:
+
+```powershell
+.\scripts\commit-utf8.ps1 "chore: GitHub Pages 재배포 트리거"
+```
+
+---
+
 ## SCSS · 마크업 규칙
 
 ```bash
