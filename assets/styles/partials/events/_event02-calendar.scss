@@ -398,7 +398,7 @@
     }
   }
 
-  // 3일연속 + 듀오 — 그라데이션 보더 (frame은 링만, 콘텐츠 가리지 않음)
+  // 3일연속 + 듀오 — 세로 그라데이션 보더 (상단 주황 → 하단 보라)
   &--streak.cal-card--duo {
     background:
       linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -407,7 +407,7 @@
     .cal-card__frame {
       // border+padding 동시 쓰면 마스크 링이 2겹(약 4px) → padding만으로 2px
       border: 0;
-      background: linear-gradient(135deg, #ea9c1d 0%, #b636ea 100%);
+      background: linear-gradient(180deg, #ea9c1d 0%, #e05a9a 48%, #b636ea 100%);
       padding: 2px;
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
@@ -420,11 +420,11 @@
     }
 
     .cal-card__badge--streak {
-      background: linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
+      background: linear-gradient(180deg, #ea9c1d 0%, #e05a9a 48%, #b636ea 100%);
     }
 
     .cal-card__mark {
-      background: linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
+      background: linear-gradient(180deg, #ea9c1d 0%, #e05a9a 48%, #b636ea 100%);
 
       &::after {
         background-image: url("../images/cal-duo-mark-pc.svg");
@@ -436,7 +436,7 @@
       background-color: transparent;
       background-image:
         url("../images/cal-btn-streak-duo-pc.png"),
-        linear-gradient(180deg, #ea9c1d 0%, #b636ea 100%);
+        linear-gradient(180deg, #ea9c1d 0%, #e05a9a 48%, #b636ea 100%);
       background-size: 100% 100%, auto;
       background-position: center, center;
       background-repeat: no-repeat, no-repeat;
@@ -495,11 +495,11 @@
       border-color: #ea9c1d;
     }
 
-    // 동반 + 연속 3일 중복 — 카드(.cal-card--streak.cal-card--duo)와 동일 그라데이션
+    // 동반 + 연속 3일 중복 — 카드 프레임과 동일 (상단 주황 → 하단 보라)
     &.is-streak-duo {
       border: 0;
       padding: 2px;
-      background: linear-gradient(135deg, #ea9c1d 0%, #b636ea 100%);
+      background: linear-gradient(180deg, #ea9c1d 0%, #e05a9a 48%, #b636ea 100%);
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
