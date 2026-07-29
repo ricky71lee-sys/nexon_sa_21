@@ -657,7 +657,7 @@
                     :tabindex="isCalCardClickable(d) ? 0 : undefined" @click="isCalCardClickable(d) && clickDay(d.i)"
                     @keydown.enter="isCalCardClickable(d) && clickDay(d.i)">
                     <span class="cal-card__frame" aria-hidden="true"></span>
-                    <span v-if="d.streak" class="cal-card__badge cal-card__badge--streak" aria-hidden="true">+1</span>
+                    <span v-if="d.streak" class="cal-card__badge cal-card__badge--streak" aria-hidden="true">{{ calStreakBadge(d) }}</span>
                     <span v-if="d.s === 4" class="cal-card__badge cal-card__badge--makeup">보충</span>
                     <span v-if="calShowMark(d)" class="cal-card__mark" aria-hidden="true"></span>
                     <div class="cal-card__icon" :aria-label="d.label + ' 보상'">
@@ -681,14 +681,14 @@
                 · 동반+연속 3일 중복 시 카드는 .cal-card--streak.cal-card--duo (주황↔보라 그라데이션)
                 · 동일 날 보충권 +2 지급 → 범례에 is-streak-duo 항목 필수
               -->
-              <div class="cal-legend">
+              <!-- <div class="cal-legend">
                 <span><i></i>미출석</span>
                 <span><i class="is-check"></i>출석</span>
                 <span><i class="is-duo"></i>듀오와 동반</span>
                 <span><i class="is-makeup"></i>보충 출석권 사용</span>
                 <span><i class="is-streak"></i>연속 3일 달성(보충권 +1)</span>
                 <span><i class="is-streak-duo"></i>듀오와 동반+연속 3일 달성(보충권 +2)</span>
-              </div>
+              </div> -->
 
               <div class="milestone">
                 <div class="milestone__block milestone__block--personal">

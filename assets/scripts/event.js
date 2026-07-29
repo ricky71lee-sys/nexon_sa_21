@@ -551,7 +551,7 @@
        * state: 0미출석 1출석 2듀오동반 4보충출석
        * · --claim / --done : 보상받기 / 수령완료
        * · --duo             : 듀오와 동반
-       * · --streak          : 3일연속 (+1 뱃지)
+       * · --streak          : 3일연속 (+1 뱃지 / 듀오 동반 겹치면 +2)
        * · --makeup          : 보충 출석 완료 카드
        * · --makeable        : 미출석 + 보충권 있음 → "+ 보충하기"
        * · --need-ticket     : 미출석 + 보충권 없음 → "보충권 필요"
@@ -566,6 +566,12 @@
         if (day.makeable && attend.makeup > 0) cls.push("cal-card--makeable");
         if (day.makeable && attend.makeup <= 0) cls.push("cal-card--need-ticket");
         return cls;
+      }
+
+      /** 연속 3일 뱃지 — 동반(state=2)과 겹치면 +2, 단독이면 +1 */
+      function calStreakBadge(day) {
+        if (!day.streak) return "";
+        return day.s === 2 ? "+2" : "+1";
       }
       function calShowMark(day) {
         return day.s > 0;
@@ -1148,6 +1154,7 @@
         vaultMilestones,
         stepItemClass,
         calCardClass,
+        calStreakBadge,
         calShowMark,
         calBtnLabel,
         isCalCardClickable,
